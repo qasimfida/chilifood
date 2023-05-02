@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fbfbfb !important;
+}
+.px-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
