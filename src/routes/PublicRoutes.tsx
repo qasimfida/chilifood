@@ -11,7 +11,7 @@ import Plan from '../views/Plan';
 const PublicRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<Plan />} />
+            <Route path="/chilifood" element={<Plan />} />
             {/* <Route path="auth/*" element={<AuthRoutes />} />
             <Route path="about" element={<AboutView />} />,
             <Route path="*" element={<NotFoundView />} /> */}
