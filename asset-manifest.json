@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/chili-foods/static/css/main.f461f8e6.css",
+    "main.js": "/chili-foods/static/js/main.c9418f6b.js",
+    "static/js/496.f8aa1100.chunk.js": "/chili-foods/static/js/496.f8aa1100.chunk.js",
+    "static/media/salad.jpg": "/chili-foods/static/media/salad.403662c8b205b49a52fc.jpg",
+    "index.html": "/chili-foods/index.html",
+    "main.f461f8e6.css.map": "/chili-foods/static/css/main.f461f8e6.css.map",
+    "main.c9418f6b.js.map": "/chili-foods/static/js/main.c9418f6b.js.map",
+    "496.f8aa1100.chunk.js.map": "/chili-foods/static/js/496.f8aa1100.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f461f8e6.css",
+    "static/js/main.c9418f6b.js"
+  ]
+}
