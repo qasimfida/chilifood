@@ -25,7 +25,9 @@
         "format:all": "prettier . --write",
         "lint": "eslint ./src --ext .js,.ts,.tsx",
         "type": "tsc",
-        "test": "react-scripts test"
+        "test": "react-scripts test",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "@emotion/react": "latest",
@@ -59,6 +61,7 @@
         "@types/react": "latest",
         "@types/react-dom": "latest",
         "@types/react-router-dom": "latest",
+        "gh-pages": "^5.0.0",
         "prettier": "latest",
         "typescript": "latest"
     },
