@@ -13,13 +13,18 @@ function a11yProps(index: number) {
 const Days: React.FC<any> = () => {
     const { i18n } = useTranslation();
     const dates: IDate[] = [
-        { id: 0, month: 'November', day: 'MON', date: '01', locked: true },
-        { id: 1, month: 'December', day: 'TUE', date: '02' },
-        { id: 2, month: 'January', day: 'WED', date: '03' },
-        { id: 3, month: 'April', day: 'THR', date: '04' },
-        { id: 4, month: 'July', day: 'FRI', date: '05', off: true },
-        { id: 5, month: 'May', day: 'SAT', date: '06' },
-        { id: 6, month: 'November', day: 'SUN', date: '07' },
+        { id: 0, monthAr: 'نوفمبر', dayAr: 'الاثنين', month: 'Nov', day: 'Mon', date: '1', locked: true },
+        { id: 1, monthAr: 'ديسمبر', dayAr: 'الثلاثاء', month: 'Dec', day: 'Tue', date: '2' },
+        { id: 2, monthAr: 'يناير', dayAr: 'الاربعاء', month: 'Jan', day: 'Wed', date: '3' },
+        { id: 3, monthAr: 'فبراير', dayAr: 'الخميس', month: 'Feb', day: 'Thr', date: '4' },
+        { id: 4, monthAr: 'مارس', dayAr: 'الجمعة', month: 'Mar', day: 'Fri', date: '5', off: 'off', offAr: 'راحة' },
+        { id: 5, monthAr: 'ابريل', dayAr: 'السبت', month: 'Apr', day: 'Sat', date: '6' },
+        { id: 6, monthAr: 'مايو', dayAr: 'الاحد', month: 'May', day: 'Sun', date: '7' },
+        { id: 3, monthAr: 'يونيو', dayAr: 'الخميس', month: 'Jun', day: 'Thr', date: '4' },
+        { id: 4, monthAr: 'يوليو', dayAr: 'الجمعة', month: 'July', day: 'Fri', date: '5', off: 'off' },
+        { id: 5, monthAr: 'اغسطس', dayAr: 'السبت', month: 'Aug', day: 'Sat', date: '6' },
+        { id: 6, monthAr: 'سبتمبر', dayAr: 'الاحد', month: 'Sep', day: 'Sun', date: '7' },
+        { id: 6, monthAr: 'اكتوبر', dayAr: 'الاحد', month: 'Oct', day: 'Sun', date: '7' },
     ];
     const [active, setActive] = useState<number>(2);
     const handleChange = (event: any, newValue: any) => {

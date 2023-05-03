@@ -3,6 +3,10 @@ export interface IDate {
     month: string;
     day: string;
     date: string;
-    off?: boolean;
+    off?: string;
+    offAr?: string;
     locked?: boolean;
+    monthAr?: string;
+    dayAr?: string;
+    dateAr?: string;
 }

@@ -13,9 +13,10 @@ export const Wrapper = styled(Tab)`
         justify-content: start;
         height: 72px;
         width: 64px;
+        margin-top: 12px;
         box-sizing: border-box;
         min-width: 50px;
-        padding: 4px 6px 0;
+        padding: 6px 4px 0;
         border-radius: 8px;
         cursor: pointer;
         background: #fff;
@@ -23,6 +24,7 @@ export const Wrapper = styled(Tab)`
         transition: 0.3s all ease;
         opacity: 1;
         border: 1px solid #dfdfdf;
+        overflow: visible;
         &.Mui-selected {
             background: ${palette.primary.main};
             color: #fff;
@@ -38,18 +40,18 @@ export const Wrapper = styled(Tab)`
             }
         }
         &.disabled {
-            background: #e3e3e3;
-            color: #000;
+            background: #4d4d4d;
+            color: #fff;
             cursor: not-allowed;
             .month {
-                color: #000;
+                color: #fff;
             }
         }
         &.locked {
-            background: #4d4d4d;
-            color: #fff;
+            background: #e3e3e3;
+            color: #000;
             .month {
-                color: #fff;
+                color: #000;
             }
         }
         &:not(.disabled):not(.locked).focus {
@@ -86,39 +88,36 @@ export const StyledDay = styled(Typography)<StyledTypoGraphy>`
     font-weight: 700;
     line-height: 20px;
     position: relative;
-    margin-top: 8px;
 `;
 
 export const Badge = styled(Typography)`
-    padding: 2px;
+    padding: 2px 4px;
+    height: 20px;
     font-size: 10px;
     font-weight: 400;
     line-height: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     background: #bf1515;
     color: #fff;
+    position: absolute;
+    left: -8px;
+    top: -8px;
 `;
 export const Date = styled(Typography)<StyledTypoGraphy>`
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 21px;
+    margin-top: 6px;
+    text-transform: capitalize;
 `;
 export const LockIcon = styled(Lock)`
     height: 16px;
     width: 16px;
     color: #fff;
 `;
-export const Header = styled(Box)`
-    height: 18px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-`;
 export const Month = styled(Typography)<StyledTypoGraphy>`
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     color: #fff;
 `;
 export const BorderedBox = styled(Box)`
@@ -136,7 +135,6 @@ export const DatesWrapper = styled(Tabs)<any>`
     padding-top: 0px;
     padding-bottom: 20px;
     min-height: 68px;
-    overflow: hidden;
     max-width: 480px;
     flex-direction: ${({ theme: { dir } }) => (dir === 'ltr' ? 'row' : 'row')};
     .MuiTabs-flexContainer {

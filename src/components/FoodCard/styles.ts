@@ -16,9 +16,6 @@ export const StyledMedia = styled(CardMedia)`
     @media (max-width: 991px) {
         height: 160px;
     }
-    @media (max-width: 480px) {
-        height: 160px;
-    }
 `;
 
 export const CardTitle = styled(Typography)`
@@ -37,9 +34,10 @@ export const Body = styled(CardActionArea)`
     display: flex;
 `;
 export const Description = styled(Typography)`
-    font-weight: 400;
+    font-weight: 300;
     font-size: 14px;
     overflow: hidden;
+    margin-top: 8px;
     color: ${({ theme: { palette } }) => palette.grey.main};
 `;
 export const Macros = styled(Box)`
@@ -51,28 +49,21 @@ export const Macros = styled(Box)`
     gap: 8px 0;
     box-sizing: border-box;
     transition: 0.3s all ease-in;
+    margin-top: 8px;
 `;
 export const Details = styled(Box)<StyledCardProps>`
-    height: 200px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 8px;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
     position: absolute;
-    transition: 0.3s all ease-in;
-    background: rgba(255, 255, 255, 0.88);
-    border-radius: 4px;
-    @media (max-width: 991px) {
-        height: 160px;
-        padding: 12px;
-    }
+    transition: 0.1s all ease-in;
     ${({ theme: { palette }, expended }: any) => {
         const open = expended === 'true';
         return css`
-            top: ${open ? '0' : '-200px'};
+            background: ${palette.secondary.dark};
+            bottom: 0;
+            height: ${open ? 'auto' : '72px'};
         `;
     }};
     hr {
@@ -82,12 +73,15 @@ export const Details = styled(Box)<StyledCardProps>`
     }
 `;
 export const Content = styled(CardContent)`
-    padding: 12px;
+    margin: 8px 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
+    height: 56px;
 `;
 export const Col = styled(Box)`
     width: 64px;
@@ -113,17 +107,18 @@ export const Toggle = styled(Box)`
         background: light-grey;
     }
 `;
-export const Macro = styled(Typography)`
-    font-size: 14px;
-    font-weight: 400;
+export const Macro = styled(Typography)<any>`
+    font-size: 12px;
+    font-weight: 300;
     line-height: 1;
-    width: 45%;
+    width: 25%;
     color: ${({ theme: { palette } }) => palette.grey.main};
 `;
 export const MacrosCount = styled(Typography)<StyledTypoGraphy>`
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 48;
+    display: block;
 `;
 
 export const StyledCard = styled(Box)<StyledCardProps>`
