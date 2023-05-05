@@ -1,7 +1,7 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Grid, TextField, CardContent, InputAdornment, Box, createTheme, useTheme } from '@mui/material';
-import { useAppStore } from '../../../store';
+// import { useAppStore } from '../../../store';
 import { AppButton, AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { css, styled } from '@mui/system';
@@ -41,7 +41,7 @@ interface FormStateValues {
 const Login = () => {
     const { i18n } = useTranslation();
     const navigate = useNavigate();
-    const [, dispatch] = useAppStore();
+    // const [, dispatch] = useAppStore();
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
         validationSchema: VALIDATION,
         initialValues: { number: '', password: '' } as FormStateValues,
@@ -64,10 +64,10 @@ const Login = () => {
                 return;
             }
 
-            dispatch({ type: 'LOG_IN' });
+            // dispatch({ type: 'LOG_IN' });
             navigate('/', { replace: true });
         },
-        [dispatch, /*values,*/ navigate]
+        [/*values,*/ navigate]
     );
     let theme = useTheme();
     const handleClick = () => {

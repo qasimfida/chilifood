@@ -4,9 +4,9 @@ import SideBarNavItem from './SideBarNavItem';
 import { LinkToPage } from '../../utils/type';
 
 interface Props {
-  items: Array<LinkToPage>;
-  showIcons?: boolean;
-  onClick?: MouseEventHandler;
+    items: Array<LinkToPage>;
+    showIcons?: boolean;
+    onClick?: MouseEventHandler;
 }
 
 /**
@@ -17,19 +17,19 @@ interface Props {
  * @param {function} [onAfterLinkClick] - optional callback called when some navigation item was clicked
  */
 const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, ...restOfProps }) => {
-  return (
-    <List component="nav" {...restOfProps}>
-      {items.map(({ icon, path, title }) => (
-        <SideBarNavItem
-          key={`${title}-${path}`}
-          icon={showIcons ? icon : undefined}
-          path={path}
-          title={title}
-          onClick={onClick}
-        />
-      ))}
-    </List>
-  );
+    return (
+        <List component="nav" {...restOfProps}>
+            {items.map(({ icon, path, title }) => (
+                <SideBarNavItem
+                    key={`${title}-${path}`}
+                    icon={showIcons ? icon : undefined}
+                    path={path}
+                    title={title}
+                    onClick={onClick}
+                />
+            ))}
+        </List>
+    );
 };
 
 export default SideBarNavList;

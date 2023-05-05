@@ -12,7 +12,7 @@ import {
     LinearProgress,
     Button,
 } from '@mui/material';
-import { useAppStore } from '../../../store';
+// import { useAppStore } from '../../../store';
 import { AppButton, AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
@@ -81,7 +81,7 @@ interface FormStateValues {
  */
 const Signup = () => {
     const navigate = useNavigate();
-    const [, dispatch] = useAppStore();
+    // const [, dispatch] = useAppStore();
     const [validationSchema, setValidationSchema] = useState<any>({
         ...VALIDATION,
         ...VALIDATE_EXTENSION,
@@ -151,10 +151,10 @@ const Signup = () => {
                 return; // Unsuccessful signup
             }
 
-            dispatch({ type: 'SIGN_UP' });
+            // dispatch({ type: 'SIGN_UP' });
             return navigate('/', { replace: true });
         },
-        [dispatch, /*values,*/ navigate]
+        [/*values,*/ navigate]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);

@@ -1,44 +1,46 @@
 import React from 'react';
 import { Badge, Date, LockIcon, Month, StyledDay, StyledWrapper, Wrapper } from './styles';
-import { IDate } from '../../types/Days';
 import { useTranslation } from 'react-i18next';
+import { getLocaleKey } from '../../helpers/getLocaleKey';
+import { ExtendsIDay } from '../../types/plan';
 interface DayProps {
-    item: IDate;
+    day: ExtendsIDay;
     onClick?: () => void;
     className?: string;
 }
 const Node = (props: any) => {
     const { i18n } = useTranslation();
-    const localeKey = (key: string) => {
-        const lng = i18n.language === 'ar' ? i18n.language.charAt(0).toUpperCase() + i18n.language.slice(1) : '';
-        return `${key}${lng}`;
-    };
-    const { date, locked = false } = props;
 
+    const { date, locked = false } = props;
+    const getKey = (key: string) => {
+        return getLocaleKey(key, i18n);
+    };
     return (
         <StyledWrapper>
-            {props[localeKey('off')] ? (
-                <Badge>{props[localeKey('off')]}</Badge>
+            {props[getKey('off')] ? (
+                <Badge>{props[getKey('off')]}</Badge>
             ) : locked ? (
-                <Badge>
+                <Badge variant="main" type="circle">
                     <LockIcon />
                 </Badge>
             ) : (
                 <div />
             )}
-            <StyledDay>{date}</StyledDay>
-            <Date component="span">{props[localeKey('day')]}</Date>
+            <Date component="span" className="date">
+                {date}
+            </Date>
+            <StyledDay>{props[getKey('day')]}</StyledDay>
             <Month component="span" className="month">
-                {props[localeKey('month')]}
+                {props[getKey('month')]}
             </Month>
         </StyledWrapper>
     );
 };
-export const Day: React.FC<DayProps> = ({ item, className, onClick }) => {
+export const Day: React.FC<DayProps> = ({ day, className, onClick }) => {
     return (
         <Wrapper
-            key={`${item.date}`}
-            label={<Node {...item} />}
+            key={`${day.date}`}
+            label={<Node {...day} />}
             className={className}
             onClick={() => {
                 if (onClick) {

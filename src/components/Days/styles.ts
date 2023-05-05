@@ -25,51 +25,58 @@ export const Wrapper = styled(Tab)`
         opacity: 1;
         border: 1px solid #dfdfdf;
         overflow: visible;
+        &.disabled {
+            background: #4d4d4d;
+            color: #fff;
+            cursor: not-allowed;
+            .month,
+            .date {
+                color: #fff;
+            }
+        }
+        &.locked {
+            background: #e3e3e3;
+            color: #444;
+            .month,
+            .date {
+                color: #444;
+            }
+        }
         &.Mui-selected {
             background: ${palette.primary.main};
             color: #fff;
-            .month {
+            .month,
+            .date {
                 color: #fff;
             }
         }
         &.active {
             background: ${palette.primary.main};
             color: #fff;
-            .month {
+            .month,
+            .date {
                 color: #fff;
             }
         }
-        &.disabled {
-            background: #4d4d4d;
-            color: #fff;
-            cursor: not-allowed;
-            .month {
-                color: #fff;
-            }
-        }
-        &.locked {
-            background: #e3e3e3;
-            color: #000;
-            .month {
-                color: #000;
-            }
-        }
-        &:not(.disabled):not(.locked).focus {
+        &:not(.disabled).focus {
             background: ${palette.primary.main};
             color: #fff;
-            .month {
-                color: #000;
+            .month,
+            .date {
+                color: #444;
             }
         }
-        &:not(.disabled):not(.locked):hover {
+        &:not(.disabled):hover {
             background: ${palette.primary.main};
             color: #fff;
-            .month {
+            .month,
+            .date {
                 color: #fff;
             }
         }
-        .month {
-            color: #000;
+        .month,
+        .date {
+            color: #444;
         }
     `}
 `;
@@ -84,20 +91,26 @@ export const StyledDay = styled(Typography)<StyledTypoGraphy>`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     line-height: 20px;
     position: relative;
+    margin-top: 4px;
 `;
 
-export const Badge = styled(Typography)`
+export const Badge = styled(Typography)<any>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 2px 4px;
-    height: 20px;
     font-size: 10px;
     font-weight: 400;
     line-height: 16px;
-    border-radius: 10px;
-    background: #bf1515;
+    ${({ variant, type, theme: { palette } }) => css`
+        background: ${variant ? palette.secondary[variant] : '#bf1515'};
+        border-radius: 12px;
+        height: ${type === 'circle' ? '24px' : '20px'};
+    `};
     color: #fff;
     position: absolute;
     left: -8px;
@@ -105,10 +118,10 @@ export const Badge = styled(Typography)`
 `;
 export const Date = styled(Typography)<StyledTypoGraphy>`
     font-weight: 400;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 21px;
-    margin-top: 6px;
     text-transform: capitalize;
+    color: #444;
 `;
 export const LockIcon = styled(Lock)`
     height: 16px;
@@ -136,7 +149,7 @@ export const DatesWrapper = styled(Tabs)<any>`
     padding-bottom: 20px;
     min-height: 68px;
     max-width: 480px;
-    flex-direction: ${({ theme: { dir } }) => (dir === 'ltr' ? 'row' : 'row')};
+    flex-direction: ${({ dir }) => (dir === 'rtl' ? 'row' : 'row')};
     .MuiTabs-flexContainer {
         gap: 12px;
         align-items: flex-start;
@@ -147,6 +160,6 @@ export const DatesWrapper = styled(Tabs)<any>`
     .MuiTabs-scrollButtons {
         width: unset;
         opacity: 1;
-        transform: rotate(${({ theme: { dir } }) => (dir === 'ltr' ? '180deg' : '0deg')});
+        transform: rotate(${({ dir }) => (dir === 'rtl' ? '180deg' : '0deg')});
     }
 `;

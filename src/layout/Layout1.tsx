@@ -12,9 +12,8 @@ import {
     styled,
     useTheme,
 } from '@mui/material';
-import { FunctionComponent, PropsWithChildren, useCallback, useState } from 'react';
+import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useState } from 'react';
 import { Stack } from '@mui/material/';
-import { useAppStore } from '../store/AppStore';
 import { ErrorBoundary, AppIconButton } from '../components';
 import { LinkToPage } from '../utils/type';
 import { useOnMobile } from '../hooks/layout';
@@ -50,30 +49,13 @@ const SIDEBAR_ITEMS: Array<LinkToPage> = [
 ];
 
 /**
- * BottomBar navigation items with links
- */
-const BOTTOMBAR_ITEMS: Array<LinkToPage> = [
-    {
-        title: 'Log In',
-        path: '/auth/login',
-        icon: 'login',
-    },
-    {
-        title: 'Sign Up',
-        path: '/auth/signup',
-        icon: 'signup',
-    },
-    {
-        title: 'About',
-        path: '/about',
-        icon: 'info',
-    },
-];
-
-/**
  * Renders "Public Layout" composition
  */
-const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
+
+interface IProps extends PropsWithChildren {
+    title: ReactNode;
+}
+const Layout1: FunctionComponent<IProps> = ({ children, title }) => {
     const [value, setValue] = useState('1');
 
     const handleChange = (event: any, newValue: any) => {
@@ -84,10 +66,7 @@ const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
     };
 
     const onMobile = useOnMobile();
-    const onSwitchDarkMode = useEventSwitchDarkMode();
     const [sideBarVisible, setSideBarVisible] = useState(false);
-    const [state] = useAppStore();
-    const bottomBarVisible = onMobile || BOTTOMBAR_DESKTOP_VISIBLE;
 
     // Variant 1 - Sidebar is static on desktop and is a drawer on mobile
     // const sidebarOpen = onMobile ? sideBarVisible : true;
@@ -96,9 +75,6 @@ const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
     // Variant 2 - Sidebar is drawer on mobile and desktop
     const sidebarOpen = sideBarVisible;
     const sidebarVariant = 'temporary';
-
-    const title = TITLE_PUBLIC;
-    document.title = title; // Also Update Tab Title
 
     const onSideBarOpen = useCallback(() => {
         if (!sideBarVisible) setSideBarVisible(true); // Don't re-render Layout when SideBar is already open
@@ -118,7 +94,6 @@ const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
     // );
     const { i18n } = useTranslation();
     let theme = useTheme();
-    console.log({ i18n });
     const onClick = (lng: string) => {
         i18n.changeLanguage(lng === 'ar' ? 'en' : 'ar');
         console.log(i18n.dir());
@@ -126,6 +101,8 @@ const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
         const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
         theme = updateTheme;
     };
+    const anchor = i18n.dir() === 'rtl' ? 'right' : 'left';
+
     return (
         <Stack
             sx={{
@@ -133,15 +110,14 @@ const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
                 paddingTop: onMobile ? TOPBAR_MOBILE_HEIGHT : TOPBAR_DESKTOP_HEIGHT,
             }}
         >
-            <TopBar
-                startNode={'Chili Foods'}
-                title={title}
+            {/* <TopBar
+                startNode={title}
                 onClick={() => onClick(i18n.language)}
-                endNode={<AppIconButton icon="logo" onClick={onSideBarOpen} />}
-            />
+            /> */}
+            <TopBar startNode={<Box onClick={onSideBarOpen}>{title}</Box>} onClick={() => onClick(i18n.language)} />
 
             <SideBar
-                anchor="left"
+                anchor={anchor}
                 open={sidebarOpen}
                 variant={sidebarVariant}
                 items={SIDEBAR_ITEMS}
@@ -174,7 +150,6 @@ const Layout1: FunctionComponent<PropsWithChildren> = ({ children }) => {
                     </Container>
                 </PriceWrapper>
             </Main>
-            {/* <Stack component="footer">{bottomBarVisible && <BottomBar items={BOTTOMBAR_ITEMS} />}</Stack> */}
         </Stack>
     );
 };

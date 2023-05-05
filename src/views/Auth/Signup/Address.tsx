@@ -1,7 +1,6 @@
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, CardContent, LinearProgress, Autocomplete } from '@mui/material';
-import { useAppStore } from '../../../store';
 import { AppAlert, AppForm } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { Header, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
@@ -45,7 +44,6 @@ interface FormStateValues {
 
 const Address = () => {
     const navigate = useNavigate();
-    const [, dispatch] = useAppStore();
 
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
         validationSchema: VALIDATION, // the state value, so could be changed in time
@@ -60,7 +58,6 @@ const Address = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string>();
     const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
-    console.log({ values });
     useEffect(() => {
         // Component Mount
         let componentMounted = true;
@@ -90,10 +87,10 @@ const Address = () => {
                 return; // Unsuccessful signup
             }
 
-            dispatch({ type: 'SIGN_UP' });
+            // dispatch({ type: 'SIGN_UP' });
             return navigate('/', { replace: true });
         },
-        [dispatch, /*values,*/ navigate]
+        [/*values,*/ navigate]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);

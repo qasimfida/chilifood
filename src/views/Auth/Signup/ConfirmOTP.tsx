@@ -4,7 +4,7 @@ import { CardContent, TextField, Grid, Button } from '@mui/material';
 import { SHARED_CONTROL_PROPS, useAppForm } from '../../../utils/form';
 import { AppAlert, AppForm, AppLink } from '../../../components';
 import { Description, Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
-import { useAppStore } from '../../../store';
+// import { useAppStore } from '../../../store';
 
 /**
  * Renders "Confirm Email" view for Signup flow
@@ -29,7 +29,7 @@ const VALIDATION = {
 const ConfirmOTP = () => {
     const [error, setError] = useState<string>();
     const navigate = useNavigate();
-    const [, dispatch] = useAppStore();
+    // const [, dispatch] = useAppStore();
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
         validationSchema: VALIDATION, // the state value, so could be changed in time
         initialValues: {
@@ -48,10 +48,10 @@ const ConfirmOTP = () => {
                 return;
             }
 
-            dispatch({ type: 'LOG_IN' });
+            // dispatch({ type: 'LOG_IN' });
             navigate('/', { replace: true });
         },
-        [dispatch, /*values,*/ navigate]
+        [/*values,*/ navigate]
     );
     const handleCloseError = useCallback(() => setError(undefined), []);
 

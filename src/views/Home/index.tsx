@@ -35,7 +35,7 @@ const TabPan = () => {
         </Grid>
     );
 };
-const Plan: React.FC<any> = () => {
+const Home: React.FC<any> = () => {
     const dispatch = useDispatch();
     const { i18n } = useTranslation();
     const { meals } = useAppSelector((state) => state.plan);
@@ -52,10 +52,6 @@ const Plan: React.FC<any> = () => {
     return (
         <Layout1 title="Chili Foods">
             <Container>
-                <Description>
-                    <Typography> Welcome to Chili Foods </Typography>
-                </Description>
-                <Days />
                 <TabsWrapper>
                     <TabContext value={active || '1'}>
                         <StyledTabContext
@@ -83,4 +79,4 @@ const Plan: React.FC<any> = () => {
     );
 };
 
-export default Plan;
+export default Home;

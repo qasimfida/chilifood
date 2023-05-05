@@ -12,13 +12,15 @@ export const StyledToolbar = styled(Toolbar)`
 export const Navigation = styled(Box)`
     display: flex;
     align-items: center;
-    ${({ theme: { palette, dir } }: any) => css`
-        color: ${palette.secondary.main};
-        .pointer {
-            transform: rotate(${dir === 'rtl' ? '180deg' : '0deg'});
-            cursor: pointer;
-        }
-    `}
+    ${({ theme: { palette }, dir }: any) => {
+        return css`
+            color: ${palette.secondary.main};
+            .pointer {
+                transform: rotate(${dir === 'rtl' ? '180deg' : '0deg'});
+                cursor: pointer;
+            }
+        `;
+    }}
 `;
 export const Title = styled(Typography)`
     font-weight: 700;

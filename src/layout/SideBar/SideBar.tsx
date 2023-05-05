@@ -1,12 +1,13 @@
 import { FunctionComponent, useCallback, MouseEvent } from 'react';
 import { Stack, Divider, Drawer, DrawerProps, FormControlLabel, Switch, Tooltip } from '@mui/material';
 import { AppIconButton } from '../../components';
-import { useAppStore } from '../../store/AppStore';
 import { LinkToPage } from '../../utils/type';
 import { useEventLogout, useEventSwitchDarkMode, useIsAuthenticated, useOnMobile } from '../../hooks';
 import SideBarNavList from './SideBarNavList';
 import { SIDEBAR_WIDTH, TOPBAR_DESKTOP_HEIGHT } from '../config';
 import UserInfo from '../../components/UserInfo';
+import { useTranslation } from 'react-i18next';
+import { StyledDrawer } from './styles';
 
 interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'variant' | 'onClose'> {
     items: Array<LinkToPage>;
@@ -22,12 +23,12 @@ interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'var
  * @param {function} onClose - called when the Drawer is closing
  */
 const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClose, ...restOfProps }) => {
-    const [state] = useAppStore();
+    const { i18n } = useTranslation();
+    // const [state] = useAppStore();
     // const isAuthenticated = state.isAuthenticated; // Variant 1
-    const isAuthenticated = useIsAuthenticated(); // Variant 2
+    // const isAuthenticated = useIsAuthenticated();
     const onMobile = useOnMobile();
 
-    const onSwitchDarkMode = useEventSwitchDarkMode();
     const onLogout = useEventLogout();
 
     const handleAfterLinkClick = useCallback(
@@ -38,11 +39,11 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
         },
         [variant, onClose]
     );
-
     return (
-        <Drawer
+        <StyledDrawer
             anchor={anchor}
             open={open}
+            dir={i18n.dir()}
             variant={variant}
             PaperProps={{
                 sx: {
@@ -65,12 +66,12 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
                 {...restOfProps}
                 onClick={handleAfterLinkClick}
             >
-                {isAuthenticated && (
+                {/* {isAuthenticated && (
                     <>
                         <UserInfo showAvatar />
                         <Divider />
                     </>
-                )}
+                )} */}
 
                 <SideBarNavList items={items} showIcons />
 
@@ -85,17 +86,10 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
                         marginTop: 2,
                     }}
                 >
-                    <Tooltip title={state.darkMode ? 'Switch to Light mode' : 'Switch to Dark mode'}>
-                        <FormControlLabel
-                            label={!state.darkMode ? 'Light mode' : 'Dark mode'}
-                            control={<Switch checked={state.darkMode} onChange={onSwitchDarkMode} />}
-                        />
-                    </Tooltip>
-
-                    {isAuthenticated && <AppIconButton icon="logout" title="Logout Current User" onClick={onLogout} />}
+                    {/* {isAuthenticated && <AppIconButton icon="logout" title="Logout Current User" onClick={onLogout} />} */}
                 </Stack>
             </Stack>
-        </Drawer>
+        </StyledDrawer>
     );
 };
 

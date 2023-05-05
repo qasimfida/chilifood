@@ -26,7 +26,7 @@ interface IProps extends IFood {
     onToggle: () => void;
     handleSelect?: () => void;
 }
-const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect, isSelected, id }) => {
+const RestaurantCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect, isSelected, id }) => {
     const { i18n } = useTranslation();
     const ref = useRef<null>(null);
 
@@ -50,22 +50,12 @@ const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect
                 <Content>
                     <Details ref={ref} expended={`${isExpended}`}>
                         <CardTitle className="title" gutterBottom variant="h5">
-                            <Box>Chicken Pasta</Box>
+                            <Box>Chili Foods</Box>
                             <Toggle onClick={onToggle}>
                                 <ExpandMore fontSize="small" className="icon" />
                             </Toggle>
                         </CardTitle>
-                        <Macros>
-                            {macros?.map((macro) => {
-                                return (
-                                    <Macro key={macro.label}>
-                                        <MacrosCount component="span">{macro.count}</MacrosCount>
-                                        {(macro as any)[getKey('label')]}
-                                    </Macro>
-                                );
-                            })}
-                        </Macros>
-                        <Description>Grilled Chicken, parmesan chees</Description>
+                        <Description>150 kd</Description>
                     </Details>
                 </Content>
             </Body>
@@ -73,4 +63,4 @@ const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect
     );
 };
 
-export default FoodCard;
+export default RestaurantCard;

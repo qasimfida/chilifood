@@ -17,11 +17,12 @@ interface Props {
  * @component TopBar
  */
 const TopBar: FunctionComponent<Props> = ({ endNode, startNode, title = '', onClick, ...restOfProps }) => {
+    const { i18n } = useTranslation();
     return (
         <Header {...restOfProps}>
             <Container>
                 <StyledToolbar disableGutters>
-                    <Navigation>
+                    <Navigation dir={i18n.dir()}>
                         <ArrowBackIosIcon fontSize="small" className="pointer" />
                         <Title>{startNode}</Title>
                     </Navigation>

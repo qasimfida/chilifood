@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren, useCallback, useState } from 'react';
 import { Stack } from '@mui/material/';
-import { useAppStore } from '../store/AppStore';
+// import { useAppStore } from '../store/AppStore';
 import { ErrorBoundary, AppIconButton } from '../components';
 import { LinkToPage } from '../utils/type';
 import { useOnMobile } from '../hooks/layout';
@@ -62,7 +62,7 @@ const PublicLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
     const onMobile = useOnMobile();
     const onSwitchDarkMode = useEventSwitchDarkMode();
     const [sideBarVisible, setSideBarVisible] = useState(false);
-    const [state] = useAppStore();
+    // const [state] = useAppStore();
     const bottomBarVisible = onMobile || BOTTOMBAR_DESKTOP_VISIBLE;
 
     // Variant 1 - Sidebar is static on desktop and is a drawer on mobile
