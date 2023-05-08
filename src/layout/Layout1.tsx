@@ -12,6 +12,7 @@ import SideBar from './SideBar';
 import { useTranslation } from 'react-i18next';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Content, Navigation, Title, PriceWrapper, Main, Flex, StyledFormControl, StyledButton } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 // TODO: change to your app name or other word
 const TITLE_PUBLIC = '_TITLE_ app'; // Title for pages without/before authentication
@@ -84,6 +85,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
     //   sidebarVariant
     // );
     const { i18n } = useTranslation();
+    const navigate = useNavigate();
     let theme = useTheme();
     const onClick = (lng: string) => {
         i18n.changeLanguage(lng === 'ar' ? 'en' : 'ar');
@@ -120,7 +122,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                     startNode={
                         <Box>
                             <Navigation dir={i18n.dir()}>
-                                <ArrowBackIosIcon fontSize="small" className="pointer" />
+                                <ArrowBackIosIcon fontSize="small" className="pointer" onClick={() => navigate(-1)} />
                                 <Title>{title}</Title>
                             </Navigation>
                         </Box>

@@ -145,7 +145,7 @@ const Login = () => {
                             </Submit>
                         </Grid>
 
-                        <Grid container justifyContent="center" alignItems="center" onClick={handleClick}>
+                        <Grid container justifyContent="center" alignItems="center">
                             Don't have an account?
                             <Link variant="text" color="primary" component={AppLink} to="/auth/signup">
                                 Create account
