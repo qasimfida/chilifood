@@ -1,7 +1,8 @@
 import { Box, CardActionArea, CardContent, CardMedia, Radio, Typography, TypographyProps } from '@mui/material';
 import { css, styled } from '@mui/system';
+import { Link } from 'react-router-dom';
 interface StyledCardProps {
-    expended?: string;
+    dir?: string;
 }
 interface StyledTypoGraphy extends TypographyProps {
     component?: string;
@@ -19,126 +20,44 @@ export const StyledMedia = styled(CardMedia)`
 `;
 
 export const CardTitle = styled(Typography)`
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     margin-bottom: 0px;
     overflow: hidden;
-    color: ${({ theme: { palette } }) => palette.grey.main};
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+    color: #000;
 `;
 export const Body = styled(CardActionArea)`
     overflow: hidden;
     display: flex;
 `;
-export const Description = styled(Typography)`
-    font-weight: 300;
-    font-size: 13px;
-    overflow: hidden;
-    margin-top: 8px;
-    color: ${({ theme: { palette } }) => palette.grey.main};
-`;
-export const Macros = styled(Box)`
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 0;
-    box-sizing: border-box;
-    transition: 0.3s all ease-in;
-    margin-top: 8px;
-`;
-export const Details = styled(Box)<StyledCardProps>`
+export const Content = styled(CardContent)`
     padding: 8px;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
     position: absolute;
     transition: 0.1s all ease-in;
-    ${({ theme: { palette }, expended }: any) => {
-        const open = expended === 'true';
-        return css`
-            background: ${palette.secondary.dark};
-            bottom: 0;
-            height: ${open ? 'auto' : '72px'};
-        `;
-    }};
-    hr {
-        width: 0;
-        height: 20px;
-        margin: 0 auto;
-    }
-`;
-export const Content = styled(CardContent)`
-    margin: 8px 0;
-    padding: 0;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    height: 56px;
-`;
-export const Col = styled(Box)`
-    width: 64px;
-    gap: 8px 0;
-    display: flex;
-    flex-direction: column;
-`;
-export const RadioCheckBox = styled(Radio)<any>`
-    z-index: 1;
-    padding: 0;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    color: #fff;
-    &.Mui-checked {
-      color: #fff;
-    },
-`;
-export const Toggle = styled(Box)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 18px;
-    width: 18px;
-    font-family: 'Poppins';
-    font-size: 14px;
-    font-weight: 300;
-    border-radius: 50%;
+    ${({ theme: { palette } }: any) => {
+        return css`
+            background: ${palette.primary.light};
+            bottom: 0;
+        `;
+    }};
     svg {
-        height: 32px;
-        width: 32px;
-    }
-    &:hover {
-        background: light-grey;
+        height: 20px;
     }
 `;
-export const Macro = styled(Typography)<any>`
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1;
-    width: 25%;
-    color: ${({ theme: { palette } }) => palette.grey.main};
-`;
-export const MacrosCount = styled(Typography)<StyledTypoGraphy>`
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 48;
-    display: block;
-`;
-
-export const StyledCard = styled(Box)<StyledCardProps>`
+export const StyledCard = styled(Link)<StyledCardProps>`
     ${(props) => {
         const {
             theme: { palette },
-            expended,
+            dir,
         } = props;
-        const open = expended === 'true';
         return css`
             box-sizing: border-box;
             box-shadow: 0px 0px 10px 2px #fff;
@@ -148,14 +67,7 @@ export const StyledCard = styled(Box)<StyledCardProps>`
             border-radius: 4px;
             transition: 0.2s all ease;
             position: relative;
-            &:hover {
-                .title {
-                    color: ${palette.primary.main};
-                }
-                .macros {
-                    right: 0;
-                }
-            }
+            color: #000;
             button {
                 flex-direction: column;
                 align-items: flex-start;
@@ -164,9 +76,8 @@ export const StyledCard = styled(Box)<StyledCardProps>`
                     display: none;
                 }
             }
-            .icon {
-                transition: 0.3s all ease;
-                transform: rotate(${open ? '180deg' : '0deg'});
+            svg {
+                transform: rotate(${dir === 'rtl' ? '180deg' : '0'});
             }
         `;
     }}

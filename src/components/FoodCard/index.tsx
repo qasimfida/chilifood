@@ -16,7 +16,7 @@ import {
 } from './styles';
 import { ExpandMore } from '@mui/icons-material';
 import useAnimateHeightFromZeroToAuto from '../../hooks/useAnimateHeightFromZeroToAuto';
-import { IFood } from '../../types/plan';
+import { IFood } from '../../types/restaurant';
 import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';

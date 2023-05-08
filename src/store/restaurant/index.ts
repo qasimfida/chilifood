@@ -1,19 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IPlanState } from '../../types/plan';
-import { days, foods, meals } from './data';
+import { IRestaurantState } from '../../types/restaurant';
+import { days, foods, meals, restaurants } from './data';
 
 // Define a type for the slice state
 
 // Define the initial state using that type
-const initialState: IPlanState = {
+const initialState: IRestaurantState = {
     selectedFood: null,
     days,
     foods,
     meals,
+    restaurants,
 };
 
-export const planSlice = createSlice({
-    name: 'plan',
+export const restaurantSlice = createSlice({
+    name: 'restaurant',
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
@@ -58,11 +59,21 @@ export const planSlice = createSlice({
         selectFood: (state, action: PayloadAction<string | undefined>) => {
             state.selectedFood = state.foods.find((food) => food.id === action.payload) || null;
         },
+        selectRestaurant: (state, action: PayloadAction<string>) => {
+            state.restaurants = state.meals = state.meals.map((meal) => {
+                if (meal.id === action.payload) {
+                    meal.selected = true;
+                } else {
+                    meal.selected = false;
+                }
+                return meal;
+            });
+        },
     },
 });
 
-export const { showDetails, selectDay, selectMeal, selectFood } = planSlice.actions;
+export const { showDetails, selectDay, selectMeal, selectFood } = restaurantSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 
-export default planSlice.reducer;
+export default restaurantSlice.reducer;

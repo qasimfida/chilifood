@@ -2,10 +2,10 @@ import * as React from 'react';
 import { BorderedBox, DatesWrapper } from './styles';
 import { Day } from './Day';
 import { useTranslation } from 'react-i18next';
-import { selectDay } from '../../store/plan';
+import { selectDay } from '../../store/restaurant';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
-import { ExtendsIDay } from '../../types/plan';
+import { ExtendsIDay } from '../../types/restaurant';
 import '@mui/lab/themeAugmentation';
 
 function a11yProps(index: number) {
@@ -17,7 +17,7 @@ function a11yProps(index: number) {
 const Days: React.FC<any> = () => {
     const { i18n } = useTranslation();
     const dispatch = useDispatch();
-    const { days } = useAppSelector((state) => state.plan);
+    const { days } = useAppSelector((state) => state.restaurant);
     const active = days.filter((i) => i.selected)[0].id;
     const handleChange = (event: any, newValue: any) => {
         if (newValue !== 4) {

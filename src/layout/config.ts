@@ -7,7 +7,7 @@
  */
 export const SIDEBAR_MOBILE_ANCHOR = 'right'; // 'right';
 export const SIDEBAR_DESKTOP_ANCHOR = 'left'; // 'right';
-export const SIDEBAR_WIDTH = '240px';
+export const SIDEBAR_WIDTH = '280px';
 
 /**
  * TopBar configuration

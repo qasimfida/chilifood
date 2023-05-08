@@ -9,23 +9,7 @@ export const StyledToolbar = styled(Toolbar)`
     display: flex;
     justify-content: space-between;
 `;
-export const Navigation = styled(Box)`
-    display: flex;
-    align-items: center;
-    ${({ theme: { palette }, dir }: any) => {
-        return css`
-            color: ${palette.secondary.main};
-            .pointer {
-                transform: rotate(${dir === 'rtl' ? '180deg' : '0deg'});
-                cursor: pointer;
-            }
-        `;
-    }}
-`;
-export const Title = styled(Typography)`
-    font-weight: 700;
-    font-size: 18px;
-`;
+
 export const Logo = styled('img')`
     height: 44px;
     width: 44px;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Badge, Date, LockIcon, Month, StyledDay, StyledWrapper, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { getLocaleKey } from '../../helpers/getLocaleKey';
-import { ExtendsIDay } from '../../types/plan';
+import { ExtendsIDay } from '../../types/restaurant';
 interface DayProps {
     day: ExtendsIDay;
     onClick?: () => void;

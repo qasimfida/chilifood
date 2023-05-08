@@ -8,16 +8,17 @@ import Tab from '../../components/Tab/index';
 import { TabContext, TabPanel } from '@mui/lab';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { selectFood, selectMeal, showDetails } from '../../store/plan';
+import { selectFood, selectMeal, showDetails } from '../../store/restaurant';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { useTranslation } from 'react-i18next';
 import { getLocaleKey } from '../../helpers/getLocaleKey';
+import { useParams } from 'react-router-dom';
 
 const TabPan = () => {
     const dispatch = useDispatch();
     const state = useSelector((state: RootState) => state);
-    const { foods, selectedFood } = state.plan;
+    const { foods, selectedFood } = state.restaurant;
     return (
         <Grid container spacing={{ xs: 2 }}>
             {foods.map(({ id, macros, selected }) => (
@@ -37,8 +38,10 @@ const TabPan = () => {
 };
 const Plan: React.FC<any> = () => {
     const dispatch = useDispatch();
+    const params = useParams();
+    const { meals, restaurants } = useAppSelector((state) => state.restaurant);
+    const restaurant = restaurants.find((i) => i.id === params.restaurant);
     const { i18n } = useTranslation();
-    const { meals } = useAppSelector((state) => state.plan);
     const active = meals.filter((i) => i.selected)[0].id;
 
     const handleChange = (event: any, newValue: any) => {
@@ -50,7 +53,7 @@ const Plan: React.FC<any> = () => {
     };
 
     return (
-        <Layout1 title="Chili Foods">
+        <Layout1 title={restaurant?.name}>
             <Container>
                 <Description>
                     <Typography> Welcome to Chili Foods </Typography>

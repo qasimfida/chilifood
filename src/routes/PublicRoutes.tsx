@@ -4,6 +4,8 @@ import AuthRoutes from '../views/Auth';
 // import LoginEmailView from '../views/Auth/Login/LoginEmailView';
 // import AboutView from '../views/About';
 import Plan from '../views/Plan';
+import Home from '../views/Home';
+import Restaurant from '../views/Restaurant';
 
 /**
  * List of routes available only for anonymous users
@@ -11,7 +13,10 @@ import Plan from '../views/Plan';
 const PublicRoutes = () => {
     return (
         <Routes>
-            <Route path="/chilifood" element={<Plan />} />
+            <Route path="/chilifood" element={<Home />} />
+            <Route path="/:restaurant/:plan" element={<Plan />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/:restaurant" element={<Restaurant />} />
             <Route path="auth/*" element={<AuthRoutes />} />
             {/* <Route path="auth/*" element={<AuthRoutes />} />
             <Route path="about" element={<AboutView />} />,

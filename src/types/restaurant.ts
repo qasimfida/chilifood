@@ -1,8 +1,17 @@
-export interface IPlanState {
+export interface IRestaurantState {
     selectedFood: IFood | null;
     foods: ExtendsIFood[];
     days: ExtendsIDay[];
     meals: ExtendsIMeal[];
+    restaurants: ExtendsIRestaurant[];
+}
+export interface ExtendsIRestaurant extends IRestaurant {
+    selected?: boolean;
+}
+export interface IRestaurant {
+    id: string;
+    name?: string;
+    src?: string | undefined;
 }
 export interface ExtendsIFood extends IFood {
     selected?: boolean;

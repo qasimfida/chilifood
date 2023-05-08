@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import thunk, { ThunkMiddleware } from 'redux-thunk';
-import plan from './plan';
+import restaurant from './restaurant';
 // ...
 const rootReducer = combineReducers({
-    plan,
+    restaurant,
 });
 export const store = configureStore({
     reducer: rootReducer,

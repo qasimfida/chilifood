@@ -1,3 +1,19 @@
+import r1 from '../../assets/images/restaurant/r1.jpg';
+import r2 from '../../assets/images/restaurant/r2.jpg';
+import r3 from '../../assets/images/restaurant/r3.jpg';
+import r4 from '../../assets/images/restaurant/r4.jpg';
+import r5 from '../../assets/images/restaurant/r5.jpg';
+export const restaurants = [
+    { name: 'Restaurant 1', src: r1, id: '1' },
+    { name: 'Restaurant 2', src: r2, id: '2' },
+    { name: 'Restaurant 3', src: r3, id: '3' },
+    { name: 'Restaurant 4', src: r4, id: '4' },
+    { name: 'Restaurant 5', src: r5, id: '5' },
+    { name: 'Restaurant 6', src: r2, id: '6' },
+    { name: 'Restaurant 7', src: r3, id: '7' },
+    { name: 'Restaurant 8', src: r1, id: '8' },
+    { name: 'Restaurant 9', src: r2, id: '9' },
+];
 export const days = [
     {
         id: '0',
