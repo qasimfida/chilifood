@@ -1,16 +1,21 @@
 {
   "files": {
     "main.css": "/chilifood/static/css/main.f461f8e6.css",
-    "main.js": "/chilifood/static/js/main.20037716.js",
+    "main.js": "/chilifood/static/js/main.692e3718.js",
     "static/js/496.4e297fac.chunk.js": "/chilifood/static/js/496.4e297fac.chunk.js",
     "static/media/salad.jpg": "/chilifood/static/media/salad.403662c8b205b49a52fc.jpg",
+    "static/media/r3.jpg": "/chilifood/static/media/r3.bc49a04c61b6ab3f1419.jpg",
+    "static/media/r2.jpg": "/chilifood/static/media/r2.c41d0402d65c9415f168.jpg",
+    "static/media/r1.jpg": "/chilifood/static/media/r1.9c3d5e48015f0807ca99.jpg",
+    "static/media/r5.jpg": "/chilifood/static/media/r5.de752dfd5bb7f2c0a394.jpg",
+    "static/media/r4.jpg": "/chilifood/static/media/r4.b7c54241e4bcda557e25.jpg",
     "index.html": "/chilifood/index.html",
     "main.f461f8e6.css.map": "/chilifood/static/css/main.f461f8e6.css.map",
-    "main.20037716.js.map": "/chilifood/static/js/main.20037716.js.map",
+    "main.692e3718.js.map": "/chilifood/static/js/main.692e3718.js.map",
     "496.4e297fac.chunk.js.map": "/chilifood/static/js/496.4e297fac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f461f8e6.css",
-    "static/js/main.20037716.js"
+    "static/js/main.692e3718.js"
   ]
 }
