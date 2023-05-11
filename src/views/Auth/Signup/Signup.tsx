@@ -188,9 +188,10 @@ const Signup = () => {
                         /> */}
                         <TextField
                             required
-                            type="numeric"
+                            type="number"
                             label="Phone"
                             name="phone"
+                            inputProps={{ pattern: /^[0-9]*$/ }}
                             value={values.phone}
                             error={fieldHasError('phone')}
                             helperText={fieldGetError('phone') || ' '}

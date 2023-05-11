@@ -294,6 +294,19 @@ export const r = [
                                             { id: '126', name: 'Prot', amount: 23 },
                                         ],
                                     },
+                                    {
+                                        id: '12',
+                                        src: 'https://images.unsplash.com/photo-1557275357-072087771588?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        name: 'Classic Margherita Pizza',
+                                        description:
+                                            'Experience a culinary adventure with our exquisite menu of international flavors, expertly crafted by our talented chefs.',
+                                        macros: [
+                                            { id: '127', name: 'Protein', amount: 12 },
+                                            { id: '123', name: 'Carbs', amount: 32 },
+                                            { id: '124', name: 'Fat', amount: 20 },
+                                            { id: '125', name: 'Prot', amount: 23 },
+                                        ],
+                                    },
                                 ],
                             },
                             {

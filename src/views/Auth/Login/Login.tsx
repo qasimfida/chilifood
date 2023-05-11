@@ -98,9 +98,10 @@ const Login = () => {
                     <CardContent>
                         <TextField
                             required
-                            type="numeric"
+                            type="number"
                             label="Number"
                             name="number"
+                            inputProps={{ pattern: /^[0-9]*$/ }}
                             value={values.number}
                             error={fieldHasError('number')}
                             helperText={fieldGetError('number') || ' '}
