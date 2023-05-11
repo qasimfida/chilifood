@@ -12,7 +12,6 @@ import {
     MacrosCount,
     Toggle,
     Details,
-    RadioCheckBox,
 } from './styles';
 import { ExpandMore } from '@mui/icons-material';
 import useAnimateHeightFromZeroToAuto from '../../hooks/useAnimateHeightFromZeroToAuto';
@@ -25,12 +24,15 @@ interface IProps extends IFood {
     isSelected?: boolean;
     onToggle: () => void;
     handleSelect?: () => void;
+    src: string;
+    name: string;
+    description: string;
 }
-const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect, isSelected, id }) => {
+const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect, src, name, description }) => {
     const { i18n } = useTranslation();
     const ref = useRef<null>(null);
 
-    useAnimateHeightFromZeroToAuto(ref, 200, isExpended, '72px');
+    useAnimateHeightFromZeroToAuto(ref, 100, isExpended, '0');
 
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
@@ -39,33 +41,35 @@ const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect
     return (
         <StyledCard expended={`${isExpended}`}>
             <Body>
-                <RadioCheckBox
+                {/* <RadioCheckBox
                     checked={isSelected}
                     value={id}
                     onChange={handleSelect}
                     name="radio-buttons"
                     inputProps={{ 'aria-label': `${id}` }}
-                />
-                <StyledMedia image={salad} title="Food" />
+                /> */}
+                <StyledMedia image={src || salad} title="Food" />
                 <Content>
-                    <Details ref={ref} expended={`${isExpended}`}>
+                    <Details onClick={onToggle}>
                         <CardTitle className="title" gutterBottom variant="h5">
-                            <Box>Chicken Pasta</Box>
-                            <Toggle onClick={onToggle}>
+                            <Box>{name}</Box>
+                            <Toggle>
                                 <ExpandMore fontSize="small" className="icon" />
                             </Toggle>
                         </CardTitle>
                         <Macros>
-                            {macros?.map((macro) => {
+                            {macros?.map((macro, index) => {
                                 return (
-                                    <Macro key={macro.label}>
+                                    <Macro key={macro.label + index}>
                                         <MacrosCount component="span">{macro.count}</MacrosCount>
                                         {(macro as any)[getKey('label')]}
                                     </Macro>
                                 );
                             })}
                         </Macros>
-                        <Description>Grilled Chicken, parmesan chees</Description>
+                        <Description ref={ref} expended={`${isExpended}`}>
+                            {description}
+                        </Description>
                     </Details>
                 </Content>
             </Body>

@@ -14,11 +14,10 @@ function a11yProps(index: number) {
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
-const Days: React.FC<any> = () => {
+const Days: React.FC<any> = ({ days }: any) => {
     const { i18n } = useTranslation();
     const dispatch = useDispatch();
-    const { days } = useAppSelector((state) => state.restaurant);
-    const active = days.filter((i) => i.selected)[0].id;
+    const { activeDay } = useAppSelector((state) => state.restaurant);
     const handleChange = (event: any, newValue: any) => {
         if (newValue !== 4) {
             dispatch(selectDay(newValue));
@@ -26,14 +25,13 @@ const Days: React.FC<any> = () => {
     };
     const handleClick = (item: ExtendsIDay) => {
         if (!item.off) {
-            dispatch(selectDay(item.id));
+            dispatch(selectDay(item.date));
         }
     };
-
     return (
         <BorderedBox>
             <DatesWrapper
-                value={active}
+                value={activeDay}
                 onChange={handleChange}
                 variant="scrollable"
                 scrollButtons="auto"
@@ -41,15 +39,15 @@ const Days: React.FC<any> = () => {
                 aria-label="scrollable auto tabs days"
                 dir={i18n.dir()}
             >
-                {days.map((day, index) => {
-                    let cls = `${day.off ? 'disabled' : ''} ${day.locked ? 'locked' : ''}`;
-                    cls += day.off ? '' : day.selected ? ' active' : '';
+                {days.map((day: any, index: number) => {
+                    let cls = `${day.off ? 'disabled' : ''} ${day.lock ? 'locked' : ''}`;
+                    cls += day.off ? '' : day.date === activeDay ? ' active' : '';
                     return (
                         <Day
                             {...a11yProps(index)}
                             day={day}
                             className={cls}
-                            key={`day=${day.id}`}
+                            key={`day=${day.date}`}
                             onClick={() => handleClick(day)}
                         />
                     );

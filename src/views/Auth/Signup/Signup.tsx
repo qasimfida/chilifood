@@ -19,27 +19,31 @@ import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../style
 import logo from './../../../assets/logos/logo.png';
 
 const VALIDATION = {
-    email: {
-        email: true,
-        presence: true,
-    },
+    // email: {
+    //     email: true,
+    //     presence: true,
+    // },
     phone: {
         type: 'string',
         format: {
             pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
             message: 'should contain numbers',
         },
-        // length: {
-        // 	is: 10,
-        // 	message: 'must be exactly 10 digits',
-        // },
+        length: {
+            minimum: 8,
+            maximum: 8,
+        },
     },
     firstName: {
         type: 'string',
         presence: { allowEmpty: false },
         format: {
             pattern: '^[A-Za-z ]+$', // Note: Allow only alphabets and space
-            message: 'should contain only alphabets',
+            message: 'should contain only alphabets hhhh',
+        },
+        length: {
+            minimum: 3,
+            maximum: 15,
         },
     },
     lastName: {
@@ -69,7 +73,7 @@ const VALIDATE_EXTENSION = {
 interface FormStateValues {
     firstName: string;
     lastName: string;
-    email: string;
+    // email: string;
     phone: string;
     password: string;
     confirmPassword?: string;
@@ -90,7 +94,7 @@ const Signup = () => {
         validationSchema: validationSchema, // the state value, so could be changed in time
         initialValues: {
             firstName: '',
-            email: '',
+            // email: '',
             phone: '',
             password: '',
             confirmPassword: '',
@@ -146,10 +150,10 @@ const Signup = () => {
 
             const apiResult = true; // await api.auth.signup(values);
 
-            if (!apiResult) {
-                setError('Can not create user for given email, if you already have account please sign in');
-                return; // Unsuccessful signup
-            }
+            // if (!apiResult) {
+            //     setError('Can not create user for given email, if you already have account please sign in');
+            //     return; // Unsuccessful signup
+            // }
 
             // dispatch({ type: 'SIGN_UP' });
             return navigate('/', { replace: true });
@@ -172,7 +176,7 @@ const Signup = () => {
                         </Title>
                     </Header>
                     <CardContent>
-                        <TextField
+                        {/* <TextField
                             required
                             label="Email"
                             name="email"
@@ -181,9 +185,10 @@ const Signup = () => {
                             helperText={fieldGetError('email') || ' '}
                             onChange={onFieldChange}
                             {...SHARED_CONTROL_PROPS}
-                        />
+                        /> */}
                         <TextField
                             required
+                            type="numeric"
                             label="Phone"
                             name="phone"
                             value={values.phone}

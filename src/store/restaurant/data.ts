@@ -3,17 +3,7 @@ import r2 from '../../assets/images/restaurant/r2.jpg';
 import r3 from '../../assets/images/restaurant/r3.jpg';
 import r4 from '../../assets/images/restaurant/r4.jpg';
 import r5 from '../../assets/images/restaurant/r5.jpg';
-export const restaurants = [
-    { name: 'Restaurant 1', src: r1, id: '1' },
-    { name: 'Restaurant 2', src: r2, id: '2' },
-    { name: 'Restaurant 3', src: r3, id: '3' },
-    { name: 'Restaurant 4', src: r4, id: '4' },
-    { name: 'Restaurant 5', src: r5, id: '5' },
-    { name: 'Restaurant 6', src: r2, id: '6' },
-    { name: 'Restaurant 7', src: r3, id: '7' },
-    { name: 'Restaurant 8', src: r1, id: '8' },
-    { name: 'Restaurant 9', src: r2, id: '9' },
-];
+
 export const days = [
     {
         id: '0',
@@ -55,6 +45,17 @@ export const days = [
     { id: '5', selected: false, monthAr: 'اغسطس', dayAr: 'السبت', month: 'Aug', day: 'Sat', date: '6' },
     { id: '6', selected: false, monthAr: 'سبتمبر', dayAr: 'الاحد', month: 'Sep', day: 'Sun', date: '7' },
     { id: '6', selected: false, monthAr: 'اكتوبر', dayAr: 'الاحد', month: 'Oct', day: 'Sun', date: '7' },
+];
+export const restaurants = [
+    { name: 'Restaurant 1', src: r1, id: '1' },
+    { name: 'Restaurant 2', src: r2, id: '2' },
+    { name: 'Restaurant 3', src: r3, id: '3' },
+    { name: 'Restaurant 4', src: r4, id: '4' },
+    { name: 'Restaurant 5', src: r5, id: '5' },
+    { name: 'Restaurant 6', src: r2, id: '6' },
+    { name: 'Restaurant 7', src: r3, id: '7' },
+    { name: 'Restaurant 8', src: r1, id: '8' },
+    { name: 'Restaurant 9', src: r2, id: '9' },
 ];
 
 export const foods = [
@@ -254,4 +255,5294 @@ export const meals = [
     //     label: 'Salad',
     //     labelAr: 'سلطة',
     // },
+];
+
+export const r = [
+    {
+        id: '0',
+        name: 'Al Bandar Seafood - Fresh seafood delights',
+        src: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '1',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        id: '11',
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Spicy Thai Basil Chicken',
+                                        description:
+                                            'Discover the ultimate indulgence in our luxurious spa treatments and leave feeling rejuvenated and refreshed.',
+                                        macros: [
+                                            { id: '123', name: 'Protein', amount: 12 },
+                                            { id: '124', name: 'Carbs', amount: 32 },
+                                            { id: '125', name: 'Fat', amount: 20 },
+                                            { id: '126', name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        id: '11',
+                                        name: 'Grilled Sirloin Steakhouse',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        description:
+                                            'Immerse yourself in the vibrant local culture with our curated selection of city tours and activities.',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        id: '12',
+                                        name: 'Creamy Mushroom Risotto',
+                                        src: 'https://images.unsplash.com/photo-1516865131505-4dabf2efc692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
+                                        description:
+                                            'Elevate your fitness routine with our state-of-the-art gym equipment and personalized training programs.',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        id: '11',
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        day: 'Tue',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: ' Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        day: 'Wed',
+                        date: '3',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        day: 'Thu',
+                        date: '4',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        day: 'Fri',
+                        date: '5',
+                        lock: false,
+                        off: true,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        day: 'Sat',
+                        date: '6',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        day: 'Sun',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            // 111
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            // 22
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+
+    // hwwwwwwwwwwwwwwwwwwwwwwwwww
+    {
+        id: '01',
+        name: 'Souq Waqif Eatery - Authentic Qatari dishes',
+        src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: '02',
+        name: 'Nusantao Southeast Asian - Fusion cuisine',
+        src: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: '03',
+        name: 'Atrium Lounge - Afternoon tea & pastries',
+        src: 'https://images.unsplash.com/photo-1505275350441-83dcda8eeef5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            // 111
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            // 22
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: '04',
+        name: 'Jazz Club Doha - Live music & drinks',
+        src: 'https://images.unsplash.com/photo-1521917441209-e886f0404a7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            // 111
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            // 22
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: '05',
+        name: 'Al Shurfa Arabic Grill - Middle Eastern cuisine',
+        src: 'https://images.unsplash.com/photo-1587574293340-e0011c4e8ecf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: '06',
+        name: 'The Anvil Rooms Doha - Steakhouse & cocktails',
+        src: 'https://images.unsplash.com/photo-1586253181808-c030e7e1aa5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: '07',
+        name: 'The Anvil Rooms Doha - Steakhouse & cocktails',
+        src: 'https://images.unsplash.com/photo-1586253181808-c030e7e1aa5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
+        plans: [
+            {
+                id: '01',
+                title: 'Bright cafe with fresh, seasonal fare.',
+                description: 'Locally sourced ingredients, sunny vibe.',
+                carbs: '120 carbs',
+                src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                days: [
+                    {
+                        day: 'Mon',
+                        date: '10',
+                        lock: true,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '02',
+                title: 'Cozy bistro with classic comfort food.',
+                description: 'Homemade soups, rustic decor, friendly staff.',
+                carbs: '12 carbs',
+                src: 'https://images.unsplash.com/photo-1503392968123-ceabe9e5e630?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1929&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '03',
+                title: 'Flame-grilled steaks and seafood.',
+                description: 'Wood-fired flavor, warm atmosphere.',
+                carbs: '4 carbs',
+                src: 'https://images.unsplash.com/photo-1641893728260-19493532d6b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80',
+                days: [
+                    {
+                        day: 'Tue',
+                        date: '7',
+                        lock: false,
+                        off: false,
+                        month: 'May',
+                        meals: [
+                            {
+                                id: '0',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 18 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 7 },
+                                            { name: 'Fat', amount: 9 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '04',
+                title: 'Healthy bites with a plant-based focus',
+                description: 'Vegan and vegetarian options, eco-friendly ethos.',
+                carbs: '10 carbs',
+                src: 'https://images.unsplash.com/photo-1562436260-8c9216eeb703?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1941&q=80',
+                days: [
+                    {
+                        day: 'Wen',
+                        date: '2',
+                        lock: false,
+                        off: false,
+                        month: 'Jul',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '05',
+                title: 'Authentic Indian food with a modern twist.',
+                description: 'Colorful decor, bold flavors, friendly service.',
+                carbs: '8 carbs',
+                src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                days: [
+                    {
+                        day: 'Thur',
+                        date: '9',
+                        lock: false,
+                        off: false,
+                        month: 'Sep',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: '06',
+                title: 'Decadent pastries, cozy setting',
+                description: 'Made-from-scratch treats and cakes.',
+                carbs: '99 carbs',
+                src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                days: [
+                    {
+                        day: 'Fri',
+                        date: '13',
+                        lock: false,
+                        off: true,
+                        month: 'Oct',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+                                        name: 'Declicious Chicken',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+
+            {
+                id: '07',
+                title: 'Decadent pastries and cakes. ',
+                description: 'Made-from-scratch treats, cozy setting.',
+                carbs: '11 carbs',
+                src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                days: [
+                    {
+                        day: 'Sat',
+                        date: '19',
+                        lock: false,
+                        off: false,
+                        month: 'Nov',
+                        meals: [
+                            {
+                                id: '01',
+                                name: 'Breakfast',
+                                foods: [
+                                    {
+                                        src: 'https://images.unsplash.com/photo-1554502078-ef0fc409efce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1984&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 22 },
+                                            { name: 'Carbs', amount: 26 },
+                                            { name: 'Fat', amount: 13 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '1',
+                                name: 'Lunch',
+                                foods: [
+                                    {
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 3 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                ],
+                            },
+                            {
+                                id: '2',
+                                name: 'Dinner',
+                                foods: [
+                                    {
+                                        name: 'Salmon',
+                                        src: 'https://images.unsplash.com/photo-1543826173-70651703c5a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2079&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 20 },
+                                            { name: 'Carbs', amount: 5 },
+                                            { name: 'Fat', amount: 10 },
+                                            { name: 'Prot', amount: 15 },
+                                        ],
+                                    },
+                                    {
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
 ];

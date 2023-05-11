@@ -1,24 +1,24 @@
 export interface IRestaurantState {
-    selectedFood: IFood | null;
-    foods: ExtendsIFood[];
-    days: ExtendsIDay[];
-    meals: ExtendsIMeal[];
-    restaurants: ExtendsIRestaurant[];
+    r: ExtendsIRestaurant[] | any;
+    viewFoodDetails: string;
+    activeMeal: string;
+    activeDay: string;
 }
 export interface ExtendsIRestaurant extends IRestaurant {
     selected?: boolean;
 }
 export interface IRestaurant {
     id: string;
-    name?: string;
-    src?: string | undefined;
+    name: string;
+    src: string;
+    plans: ExtendsIPlan[];
 }
 export interface ExtendsIFood extends IFood {
     selected?: boolean;
 }
 export interface IFood {
-    id?: string;
-    macros?: IMacro[];
+    id: string;
+    macros: IMacro[];
 }
 export interface IMacro {
     label: string;
@@ -30,8 +30,9 @@ export interface ExtendsIMeal extends IMeal {
 }
 export interface IMeal {
     id: string;
-    label: string;
+    name: string;
     labelAr: string;
+    foods: IFood[] | never[];
 }
 export interface ExtendsIDay extends IDay {
     selected?: boolean;
@@ -47,4 +48,14 @@ export interface IDay {
     monthAr?: string;
     dayAr?: string;
     dateAr?: string;
+    meals: ExtendsIMeal;
+}
+export interface ExtendsIPlan extends IPlan {
+    selected?: boolean;
+}
+export interface IPlan {
+    id: string;
+    title: string;
+    labelAr: string;
+    days: ExtendsIDay[];
 }

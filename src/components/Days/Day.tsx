@@ -11,15 +11,16 @@ interface DayProps {
 const Node = (props: any) => {
     const { i18n } = useTranslation();
 
-    const { date, locked = false } = props;
+    const { date, lock = false, off } = props;
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
+    console.log({ props });
     return (
         <StyledWrapper>
-            {props[getKey('off')] ? (
-                <Badge>{props[getKey('off')]}</Badge>
-            ) : locked ? (
+            {off ? (
+                <Badge>off</Badge>
+            ) : lock ? (
                 <Badge variant="main" type="circle">
                     <LockIcon />
                 </Badge>

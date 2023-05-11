@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Content, Navigation, Title, PriceWrapper, Main, Flex, StyledFormControl, StyledButton } from './styles';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 // TODO: change to your app name or other word
 const TITLE_PUBLIC = '_TITLE_ app'; // Title for pages without/before authentication
@@ -143,14 +144,15 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                 <Content>
                     <ErrorBoundary name="Content">{children}</ErrorBoundary>
                 </Content>
+                {isHome && <Footer />}
+
                 {hasFooter && (
                     <PriceWrapper>
                         <Container>
                             <Flex>
-                                <StyledFormControl>
+                                <StyledFormControl size="small">
                                     <InputLabel id="my-select-label">Package</InputLabel>
                                     <Select
-                                        style={{ height: 40 }}
                                         labelId="my-select-label"
                                         id="my-select"
                                         value={value}

@@ -9,16 +9,19 @@ import { RootState } from '../../store';
 import { selectFood, selectMeal, showDetails } from '../../store/restaurant';
 import { useDispatch } from 'react-redux';
 import RestaurantCard from '../../components/RestaurantCard';
+import Footer from '../../components/Footer';
+import { ExtendsIRestaurant } from '../../types/restaurant';
+import { useAppSelector } from '../../store/hooks';
 
 const TabPan = () => {
     const dispatch = useDispatch();
-    const state = useSelector((state: RootState) => state);
-    const { restaurants, selectedFood } = state.restaurant;
+    const { r } = useAppSelector((state) => state.restaurant);
+
     return (
         <Grid container spacing={{ xs: 2 }}>
-            {restaurants.map(({ id, src, name }) => (
-                <Grid item xs={6} sm={4} lg={3}>
-                    <RestaurantCard name={name} src={src} id={id} />
+            {r.map((restaurant: any) => (
+                <Grid item xs={12} sm={6} md={4} key={restaurant.id}>
+                    <RestaurantCard {...restaurant} />
                 </Grid>
             ))}
         </Grid>
@@ -29,10 +32,9 @@ const Home: React.FC<any> = () => {
         <Layout1 title="Home" isHome>
             <Wrapper>
                 <Container>
-                    <Title variant="h6">All Restaurants</Title>
-                    <Description>Here are few awesome restaurants.</Description>
                     <TabPan />
                 </Container>
+                <Container></Container>
             </Wrapper>
         </Layout1>
     );

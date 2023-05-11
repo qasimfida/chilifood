@@ -8,14 +8,23 @@ interface StyledTypoGraphy extends TypographyProps {
 }
 
 export const StyledMedia = styled(CardMedia)`
-    height: 200px;
+    height: 180px;
     width: 100%;
     min-width: 100%;
     border-radius: 4px;
     overflow: hidden;
-    @media (max-width: 991px) {
-        height: 160px;
-    }
+
+    ${({
+        theme: {
+            breakpoints: { values },
+        },
+    }: any) => {
+        return css`
+            @media (max-width: ${values.sm}px) {
+                height: 120px;
+            }
+        `;
+    }};
 `;
 
 export const CardTitle = styled(Typography)`
@@ -23,22 +32,39 @@ export const CardTitle = styled(Typography)`
     font-size: 14px;
     margin-bottom: 0px;
     overflow: hidden;
-    color: ${({ theme: { palette } }) => palette.grey.main};
     display: flex;
-    align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    ${({
+        theme: {
+            palette,
+            breakpoints: { values },
+        },
+    }: any) => {
+        return css`
+            color: ${palette.grey.main};
+            @media (max-width: ${values.sm}px) {
+                font-size: 12px;
+            }
+        `;
+    }};
 `;
 export const Body = styled(CardActionArea)`
     overflow: hidden;
     display: flex;
 `;
-export const Description = styled(Typography)`
+export const Description = styled(Typography)<any>`
     font-weight: 300;
     font-size: 13px;
     overflow: hidden;
-    margin-top: 8px;
     color: ${({ theme: { palette } }) => palette.grey.main};
+    ${({ theme: { palette }, expended }: any) => {
+        const open = expended === 'true';
+        return css`
+            padding-top: ${open ? '8px' : '0'};
+            height: ${open ? 'auto' : '0'};
+        `;
+    }};
 `;
 export const Macros = styled(Box)`
     display: flex;
@@ -49,21 +75,17 @@ export const Macros = styled(Box)`
     gap: 8px 0;
     box-sizing: border-box;
     transition: 0.3s all ease-in;
-    margin-top: 8px;
+    margin-top: 6px;
 `;
 export const Details = styled(Box)<StyledCardProps>`
     padding: 8px;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    position: absolute;
-    transition: 0.1s all ease-in;
     ${({ theme: { palette }, expended }: any) => {
-        const open = expended === 'true';
         return css`
             background: ${palette.secondary.dark};
             bottom: 0;
-            height: ${open ? 'auto' : '72px'};
         `;
     }};
     hr {
@@ -81,7 +103,6 @@ export const Content = styled(CardContent)`
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    height: 56px;
 `;
 export const Col = styled(Box)`
     width: 64px;
@@ -117,6 +138,7 @@ export const Toggle = styled(Box)`
     &:hover {
         background: light-grey;
     }
+    margin-right: 8px;
 `;
 export const Macro = styled(Typography)<any>`
     font-size: 12px;

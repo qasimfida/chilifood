@@ -18,7 +18,7 @@ interface StyledTypoGraphy extends TypographyProps {
 }
 
 export const StyledMedia = styled(CardMedia)`
-    height: 160px;
+    height: 120px;
     width: 100%;
     min-width: 100%;
     border-radius: 4px;
@@ -39,10 +39,17 @@ export const CardTitle = styled(Typography)`
 export const Body = styled(CardActionArea)`
     overflow: hidden;
     display: flex;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &:hover .MuiCardActionArea-focusHighlight.css-1v2exvi-MuiCardActionArea-focusHighlight {
+        display: none;
+    }
 `;
 export const Description = styled(Typography)<any>`
     font-weight: ${({ weight }) => weight || '300'};
-    font-size: 12px;
+    font-size: ${({ weight }) => (weight ? '16px' : '12px')}};
     overflow: hidden;
     margin-top: 0px;
     color: ${({ theme: { palette } }) => palette.grey.main};
@@ -106,14 +113,6 @@ export const StyledCard = styled(Box)<StyledCardProps>`
                     right: 0;
                 }
             }
-            button {
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                &:hover .MuiCardActionArea-focusHighlight.css-1v2exvi-MuiCardActionArea-focusHighlight {
-                    display: none;
-                }
-            }
             .icon {
                 transition: 0.3s all ease;
             }
@@ -122,11 +121,15 @@ export const StyledCard = styled(Box)<StyledCardProps>`
 `;
 export const Subscribe = styled(Button)`
     position: absolute;
+    font-weight: 300;
     bottom: 12px;
     left: 12px;
     font-size: 12px;
+    padding: 4px;
+    text-transform: capitalize;
 `;
 export const MediaWrapper = styled(Button)`
     position: relative;
     width: 100%;
+    padding: 0;
 `;

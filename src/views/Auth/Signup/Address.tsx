@@ -11,18 +11,33 @@ const VALIDATION = {
     street: {
         type: 'string',
         presence: true,
+        length: {
+            minimum: 1,
+            maximum: 30,
+        },
     },
     avenue: {
         presence: { allowEmpty: true },
         type: 'string',
+        length: {
+            maximum: 30,
+        },
     },
     block: {
         presence: true,
         type: 'string',
+        length: {
+            minimum: 1,
+            maximum: 3,
+        },
     },
     house: {
         presence: true,
         type: 'string',
+        length: {
+            minimum: 1,
+            maximum: 5,
+        },
     },
     city: {
         presence: true,

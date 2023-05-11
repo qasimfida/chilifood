@@ -1,5 +1,4 @@
 import React from 'react';
-import salad from '.././../assets/images/salad.jpg';
 import {
     Body,
     CardTitle,
@@ -18,8 +17,12 @@ import { useTranslation } from 'react-i18next';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
 interface IProps extends IFood {
     handleClick?: () => void;
+    carbs: string;
+    title: string;
+    src: string;
+    description: string;
 }
-const MealCard: React.FC<IProps> = ({ handleClick }) => {
+const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description }) => {
     const { i18n } = useTranslation();
 
     const getKey = (key: string) => {
@@ -30,17 +33,17 @@ const MealCard: React.FC<IProps> = ({ handleClick }) => {
         <StyledCard>
             <Body>
                 <CardTitle className="title" gutterBottom variant="h5">
-                    Chicken Pasta
+                    {title}
                 </CardTitle>
                 <MediaWrapper onClick={handleClick}>
-                    <StyledMedia image={salad} title="Food" />
+                    <StyledMedia image={src} title={title} />
                     <Subscribe variant="contained">View Food/Subscribe</Subscribe>
                 </MediaWrapper>
                 <Content>
                     <Details>
                         <Box>
-                            <Description weight="500">120 carbs</Description>
-                            <Description>Breakfast, Lunch, Lunch2, Dinner, Dinner2</Description>
+                            <Description weight="500">{carbs}</Description>
+                            <Description>{description}</Description>
                         </Box>
                         <FormSelect size="small">
                             <InputLabel id="food-select">Package</InputLabel>

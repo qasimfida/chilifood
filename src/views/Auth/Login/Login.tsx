@@ -17,6 +17,10 @@ const VALIDATION = {
             pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
             message: 'should contain numbers',
         },
+        length: {
+            minimum: 8,
+            maximum: 8,
+        },
     },
     password: {
         presence: true,
@@ -94,6 +98,7 @@ const Login = () => {
                     <CardContent>
                         <TextField
                             required
+                            type="numeric"
                             label="Number"
                             name="number"
                             value={values.number}

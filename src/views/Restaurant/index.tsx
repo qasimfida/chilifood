@@ -11,29 +11,26 @@ import { useAppSelector } from '../../store/hooks';
 
 const TabPan = ({ restaurant }: any) => {
     const dispatch = useDispatch();
-    const state = useAppSelector((state: RootState) => state);
-    const { foods, selectedFood } = state.restaurant;
+    const { plans } = restaurant;
     const navigate = useNavigate();
     return (
         <Grid container spacing={{ xs: 2 }}>
-            {foods.map(({ id, macros, selected }) => (
+            {plans.map((plan: any) => (
                 <Grid item xs={12} sm={6} md={4}>
-                    <MealCard handleClick={() => navigate(`/${restaurant?.id}/${id}`)} id={id} />
+                    <MealCard handleClick={() => navigate(`/${restaurant?.id}/${plan.id}`)} {...plan} />
                 </Grid>
             ))}
         </Grid>
     );
 };
 const Restaurant: React.FC<any> = () => {
-    const router = useParams();
-    const { restaurants } = useAppSelector((state) => state.restaurant);
-    const restaurant = restaurants.find((i) => i.id === router.restaurant);
+    const params = useParams();
+    const { r } = useAppSelector((state) => state.restaurant);
+    const restaurant = r.find((i: any) => i.id === params.restaurant);
     return (
         <Layout1 title={restaurant?.name}>
             <Wrapper>
                 <Container>
-                    <Title variant="h6">Menus</Title>
-                    <Description>Choose the a menu</Description>
                     <TabPan restaurant={restaurant} />
                 </Container>
             </Wrapper>

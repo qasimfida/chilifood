@@ -2,6 +2,7 @@ import { FunctionComponent, MouseEventHandler } from 'react';
 import List from '@mui/material/List';
 import SideBarNavItem from './SideBarNavItem';
 import { LinkToPage } from '../../utils/type';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     items: Array<LinkToPage>;
@@ -17,8 +18,9 @@ interface Props {
  * @param {function} [onAfterLinkClick] - optional callback called when some navigation item was clicked
  */
 const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, ...restOfProps }) => {
+    const { i18n } = useTranslation();
     return (
-        <List component="nav" {...restOfProps}>
+        <List component="nav" {...restOfProps} dir={i18n.dir()}>
             {items.map(({ icon, path, title }) => (
                 <SideBarNavItem
                     key={`${title}-${path}`}

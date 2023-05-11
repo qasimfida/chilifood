@@ -118,7 +118,7 @@ export const Badge = styled(Typography)<any>`
 `;
 export const Date = styled(Typography)<StyledTypoGraphy>`
     font-weight: 400;
-    font-size: 22px;
+    font-size: 16px;
     line-height: 21px;
     text-transform: capitalize;
     color: #444;
