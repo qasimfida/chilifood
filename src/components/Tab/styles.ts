@@ -17,6 +17,9 @@ export const TabsText = styled(Typography)`
   font-weight: 500;
   line-height: 22px;
   text-transform: capitalize;
+  &.css-1t380tf-MuiButtonBase-root-MuiTab-root .Mui-selected {
+    background-color: red !important;
+}   
 }
 
 `;

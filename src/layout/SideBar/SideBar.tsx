@@ -39,6 +39,7 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
         },
         [variant, onClose]
     );
+    const isLoggedInUser = true;
     return (
         <StyledDrawer
             anchor={anchor}

@@ -64,6 +64,11 @@ export const StyledTab = styled(Tab)`
         &.Mui-selected {
             border-radius: 5px;
             font-weight: bold;
+            .MuiBox-root {
+                color: ${palette.primary.main};
+            }
+        }
+        &:hover .MuiBox-root {
             color: ${palette.primary.main};
         }
     `}

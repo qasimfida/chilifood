@@ -294,38 +294,12 @@ export const r = [
                                             { id: '126', name: 'Prot', amount: 23 },
                                         ],
                                     },
-                                    {
-                                        id: '12',
-                                        src: 'https://images.unsplash.com/photo-1557275357-072087771588?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-                                        name: 'Classic Margherita Pizza',
-                                        description:
-                                            'Experience a culinary adventure with our exquisite menu of international flavors, expertly crafted by our talented chefs.',
-                                        macros: [
-                                            { id: '127', name: 'Protein', amount: 12 },
-                                            { id: '123', name: 'Carbs', amount: 32 },
-                                            { id: '124', name: 'Fat', amount: 20 },
-                                            { id: '125', name: 'Prot', amount: 23 },
-                                        ],
-                                    },
                                 ],
                             },
                             {
                                 id: '1',
                                 name: 'Lunch',
                                 foods: [
-                                    {
-                                        id: '11',
-                                        name: 'Grilled Sirloin Steakhouse',
-                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-                                        description:
-                                            'Immerse yourself in the vibrant local culture with our curated selection of city tours and activities.',
-                                        macros: [
-                                            { name: 'Protein', amount: 5 },
-                                            { name: 'Carbs', amount: 12 },
-                                            { name: 'Fat', amount: 8 },
-                                            { name: 'Prot', amount: 3 },
-                                        ],
-                                    },
                                     {
                                         id: '12',
                                         name: 'Creamy Mushroom Risotto',
@@ -1325,7 +1299,6 @@ export const r = [
         ],
     },
 
-    // hwwwwwwwwwwwwwwwwwwwwwwwwww
     {
         id: '01',
         name: 'Souq Waqif Eatery - Authentic Qatari dishes',

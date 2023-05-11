@@ -23,19 +23,48 @@ const TITLE_PUBLIC = '_TITLE_ app'; // Title for pages without/before authentica
  */
 const SIDEBAR_ITEMS: Array<LinkToPage> = [
     {
-        title: 'Log In',
-        path: '/auth/login',
-        icon: 'login',
+        title: 'Home',
+        path: '/',
+        icon: 'home',
     },
     {
-        title: 'Sign Up',
-        path: '/auth/signup',
-        icon: 'signup',
+        title: 'Language',
+        path: '#',
+        icon: 'language',
     },
     {
         title: 'About',
         path: '/about',
-        icon: 'info',
+        icon: 'about',
+    },
+    {
+        title: 'Terms and Conditions',
+        path: '/terms',
+        icon: 'terms',
+    },
+];
+
+const AUTH_SIDEBAR_ITEMS = [
+    {
+        title: 'Profile',
+        path: '/profile',
+        icon: 'account',
+    },
+    {
+        title: 'Contact admin',
+        path: '/admin',
+        icon: 'contact',
+    },
+    {
+        title: 'Logout',
+        path: '#',
+        icon: 'logout',
+    },
+
+    {
+        title: '',
+        path: '/setting',
+        icon: 'settings',
     },
 ];
 
@@ -96,7 +125,17 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
         theme = updateTheme;
     };
     const anchor = i18n.dir() === 'rtl' ? 'right' : 'left';
-
+    const isLoggedInUser = false;
+    const isInActiveUser = true;
+    const sidebar_items = isLoggedInUser
+        ? isInActiveUser
+            ? [...SIDEBAR_ITEMS, ...AUTH_SIDEBAR_ITEMS]
+            : [
+                  ...SIDEBAR_ITEMS,
+                  ...AUTH_SIDEBAR_ITEMS,
+                  { title: 'Contact Restaurant', icon: 'contact', path: '/contact' },
+              ]
+        : [...SIDEBAR_ITEMS, { title: 'Login', icon: 'login' }, { title: 'Register', icon: 'register' }];
     return (
         <Stack
             sx={{
@@ -136,7 +175,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                 anchor={anchor}
                 open={sidebarOpen}
                 variant={sidebarVariant}
-                items={SIDEBAR_ITEMS}
+                items={sidebar_items}
                 onClose={onSideBarClose}
             />
 
