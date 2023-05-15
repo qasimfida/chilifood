@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 interface Props {
     items: Array<LinkToPage>;
     showIcons?: boolean;
-    onClick?: MouseEventHandler;
+    onClick?: (e: LinkToPage) => void;
 }
 
 /**
@@ -21,13 +21,17 @@ const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, .
     const { i18n } = useTranslation();
     return (
         <List component="nav" {...restOfProps} dir={i18n.dir()}>
-            {items.map(({ icon, path, title }) => (
+            {items.map((item) => (
                 <SideBarNavItem
-                    key={`${title}-${path}`}
-                    icon={showIcons ? icon : undefined}
-                    path={path}
-                    title={title}
-                    onClick={onClick}
+                    key={`${item.title}-${item.path}`}
+                    icon={showIcons ? item.icon : undefined}
+                    path={item.path}
+                    title={item.title}
+                    onClick={() => {
+                        if (onClick) {
+                            onClick(item);
+                        }
+                    }}
                 />
             ))}
         </List>

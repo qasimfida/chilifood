@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 interface Props extends LinkToPage {
     openInNewTab?: boolean;
     selected?: boolean;
-    onClick?: MouseEventHandler;
+    onClick?: (e: LinkToPage) => void;
 }
 
 /**
@@ -23,20 +23,14 @@ const SideBarNavItem: FunctionComponent<Props> = ({
     selected: propSelected = false,
     subtitle,
     title,
+    onClick,
 }) => {
     const location = useLocation();
     const { i18n } = useTranslation();
     const selected = propSelected || (path && path.length > 1 && location.pathname.startsWith(path)) || false;
 
     return (
-        <StyledItem
-            component={AppLink}
-            selected={selected}
-            to={path}
-            href="#" // Hard reset for .href property, otherwise links are always opened in new tab :(
-            openInNewTab={openInNewTab}
-            dir={i18n.dir()}
-        >
+        <StyledItem dir={i18n.dir()} onClick={onClick}>
             <ListItemText primary={title} secondary={subtitle} />
             <ListItemIcon>{icon && <AppIcon icon={icon} />}</ListItemIcon>
         </StyledItem>

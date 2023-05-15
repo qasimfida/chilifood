@@ -54,8 +54,9 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
         },
         {
             title: i18n.language === 'en' ? `Arabic(عربي)` : `English(إنجليزي)`,
-            path: '#',
+            path: '',
             icon: 'language',
+            key: 'language',
         },
         {
             title: 'About',
@@ -64,7 +65,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
         },
         {
             title: 'Terms and Conditions',
-            path: '/terms',
+            path: '/terms-policy',
             icon: 'terms',
         },
     ];
@@ -82,7 +83,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
         },
         {
             title: 'Logout',
-            path: '#',
+            path: '/',
             icon: 'logout',
         },
 
@@ -153,6 +154,17 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
               { title: 'Login', icon: 'login', path: '/auth/login' },
               { title: 'Register', icon: 'register', path: '/auth/signup' },
           ];
+
+    const handleClick = (e: LinkToPage) => {
+        if (e.path) {
+            navigate(e.path);
+        } else {
+            if (e.key === 'language') {
+                onClick(i18n.language);
+            }
+        }
+        onSideBarClose();
+    };
     return (
         <PageWrapper
             sx={{
@@ -180,7 +192,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                             </Navigation>
                         </Box>
                     }
-                    onClick={() => onClick(i18n.language)}
                 />
             )}
 
@@ -190,6 +201,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                 variant={sidebarVariant}
                 items={sidebar_items}
                 onClose={onSideBarClose}
+                onClick={handleClick}
             />
 
             <Main component="main">

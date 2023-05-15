@@ -11,6 +11,7 @@ import { StyledDrawer } from './styles';
 
 interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'variant' | 'onClose'> {
     items: Array<LinkToPage>;
+    onClick?: (e: LinkToPage) => void;
 }
 
 /**
@@ -22,7 +23,7 @@ interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'var
  * @param {string} variant - variant of the Drawer, one of 'permanent', 'persistent', 'temporary'
  * @param {function} onClose - called when the Drawer is closing
  */
-const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClose, ...restOfProps }) => {
+const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClick, onClose, ...restOfProps }) => {
     const { i18n } = useTranslation();
     // const [state] = useAppStore();
     // const isAuthenticated = state.isAuthenticated; // Variant 1
@@ -31,14 +32,14 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
 
     const onLogout = useEventLogout();
 
-    const handleAfterLinkClick = useCallback(
-        (event: MouseEvent) => {
-            if (variant === 'temporary' && typeof onClose === 'function') {
-                onClose(event, 'backdropClick');
-            }
-        },
-        [variant, onClose]
-    );
+    // const handleAfterLinkClick = useCallback(
+    //     (event: MouseEvent) => {
+    //         if (variant === 'temporary' && typeof onClose === 'function') {
+    //             onClose(event, 'backdropClick');
+    //         }
+    //     },
+    //     [variant, onClose]
+    // );
     const isLoggedInUser = true;
     return (
         <StyledDrawer
@@ -65,7 +66,6 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
                     padding: 2,
                 }}
                 {...restOfProps}
-                onClick={handleAfterLinkClick}
             >
                 {/* {isAuthenticated && (
                     <>
@@ -74,7 +74,7 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClo
                     </>
                 )} */}
 
-                <SideBarNavList items={items} showIcons />
+                <SideBarNavList items={items} showIcons onClick={onClick} />
 
                 <Divider />
 
