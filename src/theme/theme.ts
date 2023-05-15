@@ -3,11 +3,6 @@ import { PALETTE_COLORS } from './colors';
 import { Theme as MuiTheme } from '@mui/material/styles';
 import i18n from '../locale/index';
 
-declare module '@mui/material/styles' {
-    interface Theme extends MuiTheme {
-        direction: 'ltr' | 'rtl';
-    }
-}
 export const THEME = {
     palette: {
         ...PALETTE_COLORS,

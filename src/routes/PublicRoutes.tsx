@@ -8,6 +8,7 @@ import Home from '../views/Home';
 import Restaurant from '../views/Restaurant';
 import TermsPolicy from '../views/TermsPolicy';
 import PersonalDetails from '../views/PersonalDetails';
+import CheckOut from '../views/Checkout';
 
 /**
  * List of routes available only for anonymous users
@@ -19,6 +20,7 @@ const PublicRoutes = () => {
             <Route path="/:restaurant/:plan" element={<Plan />} />
             <Route path="/" element={<Home />} />
             <Route path="/:restaurant" element={<Restaurant />} />
+            <Route path="/checkout" element={<CheckOut />} />
             <Route path="auth/*" element={<AuthRoutes />} />
             {/* <Route path="auth/*" element={<AuthRoutes />} /> */}
             <Route path="/about" element={<AboutView />} />,{/* <Route path="*" element={<NotFoundView />} /> */}

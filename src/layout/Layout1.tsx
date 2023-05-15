@@ -11,7 +11,17 @@ import TopBar from './TopBar';
 import SideBar from './SideBar';
 import { useTranslation } from 'react-i18next';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Content, Navigation, Title, PriceWrapper, Main, Flex, StyledFormControl, StyledButton } from './styles';
+import {
+    Content,
+    Navigation,
+    Title,
+    PriceWrapper,
+    Main,
+    Flex,
+    StyledFormControl,
+    StyledButton,
+    PageWrapper,
+} from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 
@@ -137,7 +147,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
               ]
         : [...SIDEBAR_ITEMS, { title: 'Login', icon: 'login' }, { title: 'Register', icon: 'register' }];
     return (
-        <Stack
+        <PageWrapper
             sx={{
                 minHeight: '100vh', // Full screen height
                 paddingTop: onMobile ? TOPBAR_MOBILE_HEIGHT : TOPBAR_DESKTOP_HEIGHT,
@@ -208,7 +218,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                     </PriceWrapper>
                 )}
             </Main>
-        </Stack>
+        </PageWrapper>
     );
 };
 
