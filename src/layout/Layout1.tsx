@@ -24,6 +24,7 @@ import {
 } from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { navigateTo } from '../utils';
 
 // TODO: change to your app name or other word
 const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authentication
@@ -145,7 +146,11 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                   ...AUTH_SIDEBAR_ITEMS,
                   { title: 'Contact Restaurant', icon: 'contact', path: '/contact' },
               ]
-        : [...SIDEBAR_ITEMS, { title: 'Login', icon: 'login' }, { title: 'Register', icon: 'register' }];
+        : [
+              ...SIDEBAR_ITEMS,
+              { title: 'Login', icon: 'login', path: '/auth/login' },
+              { title: 'Register', icon: 'register', path: '/auth/signup' },
+          ];
     return (
         <PageWrapper
             sx={{
@@ -212,7 +217,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                                         <MenuItem value={3}>Option 3</MenuItem>
                                     </Select>
                                 </StyledFormControl>
-                                <StyledButton>Subscribe</StyledButton>
+                                <StyledButton onClick={() => navigateTo('/checkout')}>Subscribe</StyledButton>
                             </Flex>
                         </Container>
                     </PriceWrapper>
