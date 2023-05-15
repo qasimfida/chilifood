@@ -15,7 +15,7 @@ import TopBar from './TopBar';
 import SideBar from './SideBar';
 
 // TODO: change to your app name or other word
-const TITLE_PRIVATE = '_TITLE_ app'; // Title for pages after authentication
+const TITLE_PRIVATE = 'Chili Food'; // Title for pages after authentication
 
 /**
  * SideBar navigation items with links
