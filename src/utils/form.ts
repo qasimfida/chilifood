@@ -56,6 +56,7 @@ export const formGetError = (formState: FormState, fieldName: string): string =>
 interface UseAppFormParams {
     validationSchema: object;
     initialValues: object;
+    validateOnBlur?: boolean;
 }
 
 /**
@@ -68,7 +69,7 @@ interface UseAppFormParams {
  * @param {object} options.validationSchema - validation schema in 'validate.js' format
  * @param {object} [options.initialValues] - optional initialization data for formState.values
  */
-export function useAppForm({ validationSchema, initialValues = {} }: UseAppFormParams) {
+export function useAppForm({ validationSchema, initialValues = {}, validateOnBlur = false }: UseAppFormParams) {
     // Validate params
     if (!validationSchema) {
         throw new Error('useAppForm() - the option `validationSchema` is required');
@@ -85,17 +86,32 @@ export function useAppForm({ validationSchema, initialValues = {} }: UseAppFormP
 
     // Validation by 'validate.js' on every formState.values change
     useEffect(() => {
-        const errors = validate(formState.values, validationSchema);
-        setFormState((currentFormState) => ({
-            ...currentFormState,
-            isValid: errors ? false : true,
-            errors: errors || {},
-        }));
+        if (!validateOnBlur) {
+            let errors = {};
+            errors = validate(formState.values, validationSchema);
+            setFormState((currentFormState) => ({
+                ...currentFormState,
+                isValid: errors ? false : true,
+                errors: errors || {},
+            }));
+        }
     }, [validationSchema, formState.values]);
 
     // Event to call on every Input change. Note: the "name" props of the Input control must be set!
+    const onFieldBlur = useCallback(
+        (event: any, select?: any, key?: string) => {
+            if (validateOnBlur) {
+                const errors = validate(formState.values, validationSchema);
+                setFormState((currentFormState) => ({
+                    ...currentFormState,
+                    isValid: errors ? false : true,
+                    errors: errors || {},
+                }));
+            }
+        },
+        [formState.values]
+    );
     const onFieldChange = useCallback((event: any, select?: any, key?: string) => {
-        console.log({ select, event, key });
         const name = key || event.target?.name;
         const value = key
             ? select
@@ -123,5 +139,5 @@ export function useAppForm({ validationSchema, initialValues = {} }: UseAppFormP
     const fieldHasError = (fieldName: string): boolean => formHasError(formState, fieldName);
 
     // Return state and methods
-    return [formState, setFormState, onFieldChange, fieldGetError, fieldHasError] as const;
+    return [formState, setFormState, onFieldChange, fieldGetError, fieldHasError, onFieldBlur] as const;
 }

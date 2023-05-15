@@ -1,3 +1,26 @@
 {
-    "welcome": "asdfasdf"
+    "welcome": "asdfasdf",
+    "PERSONAL_DETAILS.AREA": "المنطقة",
+    "PERSONAL_DETAILS.HOUSE": "المنزل",
+    "PERSONAL_DETAILS.BLOCK": "القطعة",
+    "FIRST_NAME": "الاسم الأول",
+    "PERSONAL_DETAILS.SAVE": "حفظ",
+    "PERSONAL_DETAILS.AVENUE": "الجادة",
+    "PERSONAL_DETAILS.STREET": "الشارع",
+    "PERSONAL_DETAILS.LEAVE_NOTE": "ضع ملاحظاتك",
+    "PERSONAL_DETAILS.CITY": "يرجى اختيار منطقة",
+    "PERSONAL_DETAILS.MY_SUBSCRIPTION": "اشتراكاتي",
+    "PERSONAL_DETAILS.STATUS": "حالة الاشتراكات",
+    "PERSONAL_DETAILS.RESTAURANT": "المطعم",
+    "PERSONAL_DETAILS.PLAN": "الخطة",
+    "PERSONAL_DETAILS.PERIOD": "الباقة",
+    "PERSONAL_DETAILS.START_DATE": "بداية الاشتراك",
+    "PERSONAL_DETAILS.END_DATE": "نهاية الاشتراك",
+    "PERSONAL_DETAILS.PRICE": "السعر",
+    "SIGNUP.PHONE_NUMBER": "رقم الهاتف",
+    "SIGNUP.PASSWORD": "كلمة السر",
+    "SIGNUP.TERMS_AND_CONDITIONS": "اوافق على الشروط والأحكام",
+    "SIGNUP.SIGN_UP": "تسجيل",
+    "SIGNUP.LOGIN": "تسجيل الدخول",
+    "SIGNUP.ALREADY_ACCOUNT": "لديك حساب فعال؟ تسجيل الدخول"
 }

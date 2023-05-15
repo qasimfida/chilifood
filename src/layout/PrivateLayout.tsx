@@ -13,6 +13,7 @@ import {
 } from './config';
 import TopBar from './TopBar';
 import SideBar from './SideBar';
+import { PageWrapper } from './styles';
 
 // TODO: change to your app name or other word
 const TITLE_PRIVATE = '_TITLE_ app'; // Title for pages after authentication
@@ -82,7 +83,7 @@ const PrivateLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
     // );
 
     return (
-        <Stack
+        <PageWrapper
             direction="column"
             sx={{
                 minHeight: '100vh', // Full screen height
@@ -117,7 +118,7 @@ const PrivateLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
             >
                 <ErrorBoundary name="Content">{children}</ErrorBoundary>
             </Stack>
-        </Stack>
+        </PageWrapper>
     );
 };
 
