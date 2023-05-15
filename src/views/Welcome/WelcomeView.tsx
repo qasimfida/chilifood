@@ -7,16 +7,16 @@ import { AppLink } from '../../components';
  * url: /
  */
 const WelcomeView = () => {
-  return (
-    <Stack direction="column" spacing={2}>
-      <Typography variant="h4">Welcome to React App with MUI</Typography>
+    return (
+        <Stack direction="column" spacing={2}>
+            <Typography variant="h4">Welcome to React App with MUI</Typography>
 
-      <div>This is Welcome page, put your content here....</div>
-      <div>
-        Take a look on samples of components at <AppLink to="/about">About Page</AppLink>
-      </div>
-    </Stack>
-  );
+            <div>This is Welcome page, put your content here....</div>
+            <div>
+                Take a look on samples of components at <AppLink to="/about">About Page</AppLink>
+            </div>
+        </Stack>
+    );
 };
 
 export default WelcomeView;
