@@ -1,5 +1,3 @@
-# React + Material UI + Auth starter using TypeScript
-
 The **TypeScript** edition of **Create React App** plus **Material UI** with set of **reusable components** and utilities to build professional **React Application** faster.
 
 -   [Source Code](https://github.com/qasimfida/chilifood.git)
