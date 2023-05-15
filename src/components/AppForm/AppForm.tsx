@@ -3,6 +3,7 @@ import { Box, Grid, styled } from '@mui/material';
 
 interface Props extends FormHTMLAttributes<HTMLFormElement> {
     children: ReactNode;
+    maxWidth?: string;
 }
 
 /**
@@ -13,11 +14,11 @@ interface Props extends FormHTMLAttributes<HTMLFormElement> {
 const Form = styled('form')`
     width: 100%;
 `;
-const AppForm: FunctionComponent<Props> = ({ children, ...resOfProps }) => {
+const AppForm: FunctionComponent<Props> = ({ children, maxWidth = '30rem', ...resOfProps }) => {
     return (
         <Form {...resOfProps}>
             <Grid container direction="column" alignItems="center">
-                <Box maxWidth="30rem" width="100%">
+                <Box maxWidth={maxWidth} width="100%">
                     {children}
                 </Box>
             </Grid>

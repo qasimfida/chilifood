@@ -1,3 +1,27 @@
 {
-    "welcome": "hello"
+    "welcome": "hello",
+    "PERSONAL_DETAILS.AREA": "Area",
+    "PERSONAL_DETAILS.HOUSE": "House",
+    "PERSONAL_DETAILS.BLOCK": "Block",
+    "PERSONAL_DETAILS.FIRST_NAME": "First Name",
+    "PERSONAL_DETAILS.SAVE": "Save",
+    "PERSONAL_DETAILS.AVENUE": "Avenue",
+    "PERSONAL_DETAILS.STREET": "Street",
+    "PERSONAL_DETAILS.LEAVE_NOTE": "Leave Note",
+    "PERSONAL_DETAILS.CITY": "City",
+    "PERSONAL_DETAILS.MY_SUBSCRIPTION": "My Subscription",
+    "PERSONAL_DETAILS.STATUS": "Status",
+    "PERSONAL_DETAILS.RESTAURANT": "Restaurant",
+    "PERSONAL_DETAILS.PLAN": "Plan",
+    "PERSONAL_DETAILS.PERIOD": "Period",
+    "PERSONAL_DETAILS.START_DATE": "Start Date",
+    "PERSONAL_DETAILS.END_DATE": "End Date",
+    "PERSONAL_DETAILS.PRICE": "Price",
+    "SIGNUP_DETAILS.PHONE_NUMBER": "Phone Number",
+    "SIGNUP_DETAILS.FIRST_NAME": "First Name",
+    "SIGNUP_DETAILS.PASSWORD": "Password",
+    "SIGNUP_DETAILS.TERMS_AND_CONDITIONS": "Terms and Conditions I agree to",
+    "SIGNUP_DETAILS.SIGN_UP": "Confirm And Sign Up",
+    "SIGNUP_DETAILS.LOGIN": "Login",
+    "SIGNUP_DETAILS.ALREADY_ACCOUNT": "Already has an account"
 }

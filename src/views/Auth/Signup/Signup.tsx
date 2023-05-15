@@ -17,6 +17,7 @@ import { AppButton, AppIconButton, AppAlert, AppForm, AppLink } from '../../../c
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import logo from './../../../assets/logos/logo.png';
+import { useTranslation } from 'react-i18next';
 
 const VALIDATION = {
     // email: {
@@ -46,14 +47,6 @@ const VALIDATION = {
             maximum: 15,
         },
     },
-    lastName: {
-        type: 'string',
-        presence: { allowEmpty: false },
-        format: {
-            pattern: '^[A-Za-z ]+$', // Note: Allow only alphabets and space
-            message: 'should contain only alphabets',
-        },
-    },
     password: {
         presence: true,
         length: {
@@ -64,16 +57,8 @@ const VALIDATION = {
     },
 };
 
-const VALIDATE_EXTENSION = {
-    confirmPassword: {
-        equality: 'password',
-    },
-};
-
 interface FormStateValues {
     firstName: string;
-    lastName: string;
-    // email: string;
     phone: string;
     password: string;
     confirmPassword?: string;
@@ -85,20 +70,20 @@ interface FormStateValues {
  */
 const Signup = () => {
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
+
     // const [, dispatch] = useAppStore();
     const [validationSchema, setValidationSchema] = useState<any>({
         ...VALIDATION,
-        ...VALIDATE_EXTENSION,
     });
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
+    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: validationSchema, // the state value, so could be changed in time
         initialValues: {
             firstName: '',
-            // email: '',
             phone: '',
             password: '',
-            confirmPassword: '',
         } as FormStateValues,
+        validateOnBlur: true,
     });
     const [showPassword, setShowPassword] = useState(false);
     const [agree, setAgree] = useState(false);
@@ -131,7 +116,7 @@ const Signup = () => {
         if (showPassword) {
             newSchema = VALIDATION; // Validation without .confirmPassword
         } else {
-            newSchema = { ...VALIDATION, ...VALIDATE_EXTENSION }; // Full validation
+            newSchema = { ...VALIDATION }; // Full validation
         }
         setValidationSchema(newSchema);
     }, [showPassword]);
@@ -176,47 +161,40 @@ const Signup = () => {
                         </Title>
                     </Header>
                     <CardContent>
-                        {/* <TextField
-                            required
-                            label="Email"
-                            name="email"
-                            value={values.email}
-                            error={fieldHasError('email')}
-                            helperText={fieldGetError('email') || ' '}
-                            onChange={onFieldChange}
-                            {...SHARED_CONTROL_PROPS}
-                        /> */}
                         <TextField
                             required
                             type="number"
-                            label="Phone"
+                            label={t('SIGNUP.PHONE_NUMBER')}
                             name="phone"
                             inputProps={{ pattern: /^[0-9]*$/ }}
                             value={values.phone}
                             error={fieldHasError('phone')}
                             helperText={fieldGetError('phone') || ' '}
                             onChange={onFieldChange}
+                            onBlur={onFieldBlur}
                             {...SHARED_CONTROL_PROPS}
                         />
                         <TextField
                             required
-                            label="First Name"
+                            label={t('SIGNUP.FIRST_NAME')}
                             name="firstName"
                             value={values.firstName}
                             error={fieldHasError('firstName')}
                             helperText={fieldGetError('firstName') || ' '}
                             onChange={onFieldChange}
+                            onBlur={onFieldBlur}
                             {...SHARED_CONTROL_PROPS}
                         />
                         <TextField
                             required
                             type={showPassword ? 'text' : 'password'}
-                            label="Password"
+                            label={t('SIGNUP.PASSWORD')}
                             name="password"
                             value={values.password}
                             error={fieldHasError('password')}
                             helperText={fieldGetError('password') || ' '}
                             onChange={onFieldChange}
+                            onBlur={onFieldBlur}
                             {...SHARED_CONTROL_PROPS}
                             InputProps={{
                                 endAdornment: (
@@ -236,7 +214,7 @@ const Signup = () => {
                             control={<Checkbox required name="agree" checked={agree} onChange={handleAgreeClick} />}
                             label={
                                 <>
-                                    I agree to{' '}
+                                    I agree to
                                     <Button
                                         variant="text"
                                         color="primary"
@@ -256,14 +234,20 @@ const Signup = () => {
                         ) : null}
 
                         <Grid container justifyContent="center" alignItems="center">
-                            <Submit type="submit" disabled={!(formState.isValid && agree)} fullWidth>
-                                Confirm and Sign Up
+                            <Submit
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                                disabled={!(formState.isValid && agree)}
+                                fullWidth
+                            >
+                                {t('SIGNUP.SIGN_UP')}
                             </Submit>
                         </Grid>
                         <Grid container justifyContent="center" alignItems="center">
-                            Already has an account?
+                            {t('SIGNUP.ALREADY_ACCOUNT')}?
                             <Link variant="text" color="primary" component={AppLink} to="/auth">
-                                Login
+                                {t('SIGNUP.LOGIN')}
                             </Link>
                         </Grid>
                     </CardContent>

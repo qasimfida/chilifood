@@ -9,6 +9,7 @@ import { useEventSwitchDarkMode } from '../hooks/event';
 import TopBar from './TopBar';
 import SideBar from './SideBar';
 import BottomBar from './BottomBar';
+import { PageWrapper } from './styles';
 
 // TODO: change to your app name or other word
 const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authentication
@@ -94,7 +95,7 @@ const PublicLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
     // );
 
     return (
-        <Stack
+        <PageWrapper
             sx={{
                 minHeight: '100vh', // Full screen height
                 paddingTop: onMobile ? TOPBAR_MOBILE_HEIGHT : TOPBAR_DESKTOP_HEIGHT,
@@ -120,7 +121,7 @@ const PublicLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
             </Stack>
 
             {/* <Stack component="footer">{bottomBarVisible && <BottomBar items={BOTTOMBAR_ITEMS} />}</Stack> */}
-        </Stack>
+        </PageWrapper>
     );
 };
 
