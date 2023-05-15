@@ -16,8 +16,9 @@ import {
     Typography,
 } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { TextArea, Title, Wrapper } from './styles';
+import { PayButton, TextArea, Title, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
+import { AppButton } from '../../components';
 
 const CheckOut: React.FC<any> = () => {
     const [value, setValue] = useState<any>('1');
@@ -84,6 +85,7 @@ const CheckOut: React.FC<any> = () => {
                             </TableRow>
                         </TableBody>
                     </Table>
+                    <PayButton color="primary">Pay</PayButton>
                 </Container>
             </Wrapper>
         </Layout1>

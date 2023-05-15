@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import { Box, TextField } from '@mui/material';
+import { AppButton } from '../../components';
 
 export const Title = styled(Box)`
     text-align: center;
@@ -42,4 +43,10 @@ export const Wrapper = styled(Box)`
 
 export const TextArea = styled(TextField)`
     width: 100%;
+`;
+export const PayButton = styled(AppButton)`
+    margin: 20px;
+    margin-top: 40px;
+    width: 160px;
+    max-width: 100%;
 `;

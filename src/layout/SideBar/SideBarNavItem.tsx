@@ -23,7 +23,6 @@ const SideBarNavItem: FunctionComponent<Props> = ({
     selected: propSelected = false,
     subtitle,
     title,
-    onClick,
 }) => {
     const location = useLocation();
     const { i18n } = useTranslation();
@@ -36,7 +35,6 @@ const SideBarNavItem: FunctionComponent<Props> = ({
             to={path}
             href="#" // Hard reset for .href property, otherwise links are always opened in new tab :(
             openInNewTab={openInNewTab}
-            onClick={onClick}
             dir={i18n.dir()}
         >
             <ListItemText primary={title} secondary={subtitle} />
