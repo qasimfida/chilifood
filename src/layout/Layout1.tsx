@@ -180,7 +180,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                             <Title>{title}</Title>
                         </Navigation>
                     }
-                    onClick={() => onClick(i18n.language)}
+                    onClick={() => navigate('/')}
                 />
             ) : (
                 <TopBar
@@ -192,6 +192,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                             </Navigation>
                         </Box>
                     }
+                    onClick={() => navigate('/')}
                 />
             )}
 
