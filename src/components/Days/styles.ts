@@ -110,6 +110,7 @@ export const Badge = styled(Typography)<any>`
         background: ${variant ? palette.secondary[variant] : '#bf1515'};
         border-radius: 12px;
         height: ${type === 'circle' ? '24px' : '20px'};
+        height: ${type === 'off' ? '100px' : '20px'};
     `};
     color: #fff;
     position: absolute;
@@ -162,4 +163,11 @@ export const DatesWrapper = styled(Tabs)<any>`
         opacity: 1;
         transform: rotate(${({ dir }) => (dir === 'rtl' ? '180deg' : '0deg')});
     }
+`;
+export const StyledPopper = styled(Box)<any>`
+    padding: 6px;
+    font-size: 12px;
+    ${({ theme: { palette } }) => css`
+        background: ${palette.primary.light};
+    `};
 `;

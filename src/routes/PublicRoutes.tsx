@@ -7,7 +7,7 @@ import Plan from '../views/Plan';
 import Home from '../views/Home';
 import Restaurant from '../views/Restaurant';
 import TermsPolicy from '../views/TermsPolicy';
-import PersonalDetails from '../views/PersonalDetails';
+import PersonalDetails from '../views/Profile';
 import CheckOut from '../views/Checkout';
 
 /**
@@ -26,7 +26,7 @@ const PublicRoutes = () => {
             <Route path="/about" element={<AboutView />} />,{/* <Route path="*" element={<NotFoundView />} /> */}
             <Route path="/plan" element={<Plan />} />
             <Route path="/terms-policy" element={<TermsPolicy />} />
-            <Route path="/personal-details" element={<PersonalDetails />} />
+            <Route path="/profile" element={<PersonalDetails />} />
         </Routes>
     );
 };
