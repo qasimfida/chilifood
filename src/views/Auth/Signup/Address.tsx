@@ -6,6 +6,7 @@ import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { Header, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import logo from './../../../assets/logos/logo.png';
 import { cities } from './data';
+import Layout1 from '../../../layout/Layout1';
 
 const VALIDATION = {
     street: {
@@ -113,87 +114,89 @@ const Address = () => {
     if (loading) return <LinearProgress />;
 
     return (
-        <Wrapper>
-            <AppForm onSubmit={handleFormSubmit}>
-                <StyledComp>
-                    <Header>
-                        <Logo src={logo} alt="logo" />
-                        <Title component="h2" variant="h5">
-                            Please fill the detials
-                        </Title>
-                    </Header>
-                    <CardContent>
-                        <Autocomplete
-                            disablePortal
-                            id="city"
-                            options={cities}
-                            value={values.city}
-                            renderInput={(params) => (
-                                <TextField
-                                    name="city"
-                                    {...params}
-                                    label="City"
-                                    error={fieldHasError('city')}
-                                    helperText={fieldGetError('city') || ' '}
-                                />
-                            )}
-                            onChange={(event, value) => onFieldChange(event, value, 'city')}
-                        />
-                        <TextField
-                            required
-                            label="street"
-                            name="street"
-                            value={values.street}
-                            error={fieldHasError('street')}
-                            helperText={fieldGetError('street') || ' '}
-                            onChange={onFieldChange}
-                            {...SHARED_CONTROL_PROPS}
-                        />
-                        <TextField
-                            required
-                            label="Block"
-                            name="block"
-                            value={values.block}
-                            error={fieldHasError('block')}
-                            helperText={fieldGetError('block') || ' '}
-                            onChange={onFieldChange}
-                            {...SHARED_CONTROL_PROPS}
-                        />
-                        <TextField
-                            label="Avenue"
-                            name="avenue"
-                            value={values.avenue}
-                            error={fieldHasError('avenue')}
-                            helperText={fieldGetError('avenue') || ' '}
-                            onChange={onFieldChange}
-                            {...SHARED_CONTROL_PROPS}
-                        />
-                        <TextField
-                            required
-                            label="House"
-                            name="house"
-                            value={values.house}
-                            error={fieldHasError('house')}
-                            helperText={fieldGetError('house') || ' '}
-                            onChange={onFieldChange}
-                            {...SHARED_CONTROL_PROPS}
-                        />
+        <Layout1 title="Address" menuHeader>
+            <Wrapper>
+                <AppForm onSubmit={handleFormSubmit}>
+                    <StyledComp>
+                        <Header>
+                            <Logo src={logo} alt="logo" />
+                            <Title component="h2" variant="h5">
+                                Please fill the detials
+                            </Title>
+                        </Header>
+                        <CardContent>
+                            <Autocomplete
+                                disablePortal
+                                id="city"
+                                options={cities}
+                                value={values.city}
+                                renderInput={(params) => (
+                                    <TextField
+                                        name="city"
+                                        {...params}
+                                        label="City"
+                                        error={fieldHasError('city')}
+                                        helperText={fieldGetError('city') || ' '}
+                                    />
+                                )}
+                                onChange={(event, value) => onFieldChange(event, value, 'city')}
+                            />
+                            <TextField
+                                required
+                                label="street"
+                                name="street"
+                                value={values.street}
+                                error={fieldHasError('street')}
+                                helperText={fieldGetError('street') || ' '}
+                                onChange={onFieldChange}
+                                {...SHARED_CONTROL_PROPS}
+                            />
+                            <TextField
+                                required
+                                label="Block"
+                                name="block"
+                                value={values.block}
+                                error={fieldHasError('block')}
+                                helperText={fieldGetError('block') || ' '}
+                                onChange={onFieldChange}
+                                {...SHARED_CONTROL_PROPS}
+                            />
+                            <TextField
+                                label="Avenue"
+                                name="avenue"
+                                value={values.avenue}
+                                error={fieldHasError('avenue')}
+                                helperText={fieldGetError('avenue') || ' '}
+                                onChange={onFieldChange}
+                                {...SHARED_CONTROL_PROPS}
+                            />
+                            <TextField
+                                required
+                                label="House"
+                                name="house"
+                                value={values.house}
+                                error={fieldHasError('house')}
+                                helperText={fieldGetError('house') || ' '}
+                                onChange={onFieldChange}
+                                {...SHARED_CONTROL_PROPS}
+                            />
 
-                        {error ? (
-                            <AppAlert severity="error" onClose={handleCloseError}>
-                                {error}
-                            </AppAlert>
-                        ) : null}
+                            {error ? (
+                                <AppAlert severity="error" onClose={handleCloseError}>
+                                    {error}
+                                </AppAlert>
+                            ) : null}
 
-                        <Grid container justifyContent="center" alignItems="center">
-                            <Submit type="submit" color="primary" disabled={!formState.isValid} fullWidth>
-                                Next
-                            </Submit>
-                        </Grid>
-                    </CardContent>
-                </StyledComp>
-            </AppForm>
-        </Wrapper>
+                            <Grid container justifyContent="center" alignItems="center">
+                                <Submit type="submit" color="primary" disabled={!formState.isValid} fullWidth>
+                                    Next
+                                </Submit>
+                            </Grid>
+                        </CardContent>
+                    </StyledComp>
+                </AppForm>
+            </Wrapper>
+        </Layout1>
     );
 };
 

@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, CardContent, InputAdornment, Box, createTheme, useTheme } from '@mui/material';
 // import { useAppStore } from '../../../store';
@@ -7,6 +7,7 @@ import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../
 import logo from './../../../assets/logos/logo.png';
 import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
+import Layout1 from '../../../layout/Layout1';
 
 const VALIDATION = {
     number: {
@@ -84,85 +85,112 @@ const Login = () => {
     };
 
     const handleCloseError = useCallback(() => setError(undefined), []);
+    // Locally Data Store
+    const [userNumber, setUserNumber] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        // Store data in local storage
+        const user = {
+            userNumber,
+            password,
+        };
+        localStorage.setItem('user', JSON.stringify(user));
+        navigate('/');
+    };
 
     return (
-        <Wrapper>
-            <AppForm onSubmit={handleFormSubmit}>
-                <StyledComp>
-                    <Header>
-                        <Logo src={logo} alt="logo" />
-                        <Title component="h2" variant="h5">
-                            Login to Chili Food
-                        </Title>
-                    </Header>
-                    <CardContent>
-                        <TextField
-                            required
-                            type="number"
-                            label={t('PHONE_NUMBER')}
-                            name="number"
-                            inputProps={{ pattern: /^[0-9]*$/ }}
-                            value={values.number}
-                            error={fieldHasError('number')}
-                            helperText={fieldGetError('number') || ' '}
-                            onChange={onFieldChange}
-                            id="number"
-                            autoComplete="number"
-                            autoFocus
-                            onBlur={onFieldBlur}
-                            {...SHARED_CONTROL_PROPS}
-                        />
-                        <TextField
-                            required
-                            type={showPassword ? 'text' : 'password'}
-                            label={t('PASSWORD')}
-                            name="password"
-                            value={values.password}
-                            error={fieldHasError('password')}
-                            helperText={fieldGetError('password') || ' '}
-                            onChange={onFieldChange}
-                            onBlur={onFieldBlur}
-                            {...SHARED_CONTROL_PROPS}
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <AppIconButton
-                                            aria-label="toggle password visibility"
-                                            icon={showPassword ? 'visibilityon' : 'visibilityoff'}
-                                            title={showPassword ? 'Hide Password' : 'Show Password'}
-                                            onClick={handleShowPasswordClick}
-                                            onMouseDown={eventPreventDefault}
-                                        />
-                                    </InputAdornment>
-                                ),
-                            }}
-                        />
-                        <Grid container justifyContent="flex-end" alignItems="center">
-                            <Link variant="text" color="inherit" component={AppLink} to="/auth/recovery/password">
-                                {t('FORGET_PASSWORD')}
-                            </Link>
-                        </Grid>
-                        {error ? (
-                            <AppAlert severity="error" onClose={handleCloseError}>
-                                {error}
-                            </AppAlert>
-                        ) : null}
-                        <Grid container justifyContent="center" alignItems="center">
-                            <Submit type="submit" disabled={!formState.isValid} color="primary" fullWidth>
-                                {t('LOGIN')}
-                            </Submit>
-                        </Grid>
+        <Layout1 title="Login" menuHeader>
+            <Wrapper>
+                <AppForm onSubmit={handleFormSubmit}>
+                    <StyledComp>
+                        <Header>
+                            <Logo src={logo} alt="logo" />
+                            <Title component="h2" variant="h5">
+                                Login to Chili Food
+                            </Title>
+                        </Header>
+                        <CardContent>
+                            <TextField
+                                required
+                                type="number"
+                                label={t('PHONE_NUMBER')}
+                                name="number"
+                                inputProps={{ pattern: /^[0-9]*$/ }}
+                                value={values.number}
+                                error={fieldHasError('number')}
+                                helperText={fieldGetError('number') || ' '}
+                                id="number"
+                                autoComplete="number"
+                                autoFocus
+                                onBlur={onFieldBlur}
+                                onChange={(e) => {
+                                    onFieldChange(e);
+                                    setUserNumber(e.target.value);
+                                }}
+                                {...SHARED_CONTROL_PROPS}
+                            />
+                            <TextField
+                                required
+                                type={showPassword ? 'text' : 'password'}
+                                label={t('PASSWORD')}
+                                name="password"
+                                value={values.password}
+                                error={fieldHasError('password')}
+                                helperText={fieldGetError('password') || ' '}
+                                onBlur={onFieldBlur}
+                                onChange={(e) => {
+                                    onFieldChange(e);
+                                    setPassword(e.target.value);
+                                }}
+                                {...SHARED_CONTROL_PROPS}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <AppIconButton
+                                                aria-label="toggle password visibility"
+                                                icon={showPassword ? 'visibilityon' : 'visibilityoff'}
+                                                title={showPassword ? 'Hide Password' : 'Show Password'}
+                                                onClick={handleShowPasswordClick}
+                                                onMouseDown={eventPreventDefault}
+                                            />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                            />
+                            <Grid container justifyContent="flex-end" alignItems="center">
+                                <Link variant="text" color="inherit" component={AppLink} to="/auth/recovery/password">
+                                    {t('FORGET_PASSWORD')}
+                                </Link>
+                            </Grid>
+                            {error ? (
+                                <AppAlert severity="error" onClose={handleCloseError}>
+                                    {error}
+                                </AppAlert>
+                            ) : null}
+                            <Grid container justifyContent="center" alignItems="center">
+                                <Submit
+                                    type="submit"
+                                    onClick={handleLogin}
+                                    disabled={!formState.isValid}
+                                    color="primary"
+                                    fullWidth
+                                >
+                                    {t('LOGIN')}
+                                </Submit>
+                            </Grid>
 
-                        <Grid container justifyContent="center" alignItems="center">
-                            {t('LOGIN.HAVE_ACCOUNT')}
-                            <Link variant="text" color="primary" component={AppLink} to="/auth/signup">
-                                {t('LOGIN.CREATE_ACCOUNT')}
-                            </Link>
-                        </Grid>
-                    </CardContent>
-                </StyledComp>
-            </AppForm>
-        </Wrapper>
+                            <Grid container justifyContent="center" alignItems="center">
+                                {t('LOGIN.HAVE_ACCOUNT')}
+                                <Link variant="text" color="primary" component={AppLink} to="/auth/signup">
+                                    {t('LOGIN.CREATE_ACCOUNT')}
+                                </Link>
+                            </Grid>
+                        </CardContent>
+                    </StyledComp>
+                </AppForm>
+            </Wrapper>
+        </Layout1>
     );
 };
 

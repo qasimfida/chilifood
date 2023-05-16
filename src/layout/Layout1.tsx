@@ -1,7 +1,22 @@
-import { Box, Container, InputLabel, MenuItem, Select, createTheme, useTheme } from '@mui/material';
+import {
+    Box,
+    Button,
+    Container,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    InputLabel,
+    MenuItem,
+    Select,
+    Typography,
+    createTheme,
+    useTheme,
+} from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useState } from 'react';
+import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useEffect, useState } from 'react';
 import { Stack } from '@mui/material/';
 import { ErrorBoundary } from '../components';
 import { LinkToPage } from '../utils/type';
@@ -21,6 +36,9 @@ import {
     StyledFormControl,
     StyledButton,
     PageWrapper,
+    DialogButton,
+    StyledActions,
+    StyledDialog,
 } from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
@@ -39,10 +57,10 @@ const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authenticat
 
 interface IProps extends PropsWithChildren {
     title: ReactNode;
-    isHome?: boolean;
     hasFooter?: boolean;
+    menuHeader?: boolean;
 }
-const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter }) => {
+const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader }) => {
     const { i18n } = useTranslation();
     console.log({ i18n });
     const navigate = useNavigate();
@@ -83,8 +101,9 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
         },
         {
             title: 'Logout',
-            path: '/',
+            path: '',
             icon: 'logout',
+            key: 'logout',
         },
 
         {
@@ -138,16 +157,18 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
         const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
         theme = updateTheme;
     };
+    const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log({ user });
     const anchor = i18n.dir() === 'rtl' ? 'right' : 'left';
-    const isLoggedInUser = false;
-    const isInActiveUser = true;
+    const isLoggedInUser = user?.userNumber ? true : false;
+    const isInActiveUser = false;
     const sidebar_items = isLoggedInUser
         ? isInActiveUser
             ? [...SIDEBAR_ITEMS, ...AUTH_SIDEBAR_ITEMS]
             : [
                   ...SIDEBAR_ITEMS,
-                  ...AUTH_SIDEBAR_ITEMS,
                   { title: 'Contact Restaurant', icon: 'contact', path: '/contact' },
+                  ...AUTH_SIDEBAR_ITEMS,
               ]
         : [
               ...SIDEBAR_ITEMS,
@@ -162,8 +183,20 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
             if (e.key === 'language') {
                 onClick(i18n.language);
             }
+            // show model
+            // Show dialog if e.key is 'logout'
+            if (e.key === 'logout') {
+                setOpen(true); // Set the state to open the dialog
+            }
         }
         onSideBarClose();
+    };
+    const [open, setOpen] = useState(false);
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        navigate('/');
+        setOpen(false); // Close the dialog after logout
     };
     return (
         <PageWrapper
@@ -172,7 +205,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                 paddingTop: onMobile ? TOPBAR_MOBILE_HEIGHT : TOPBAR_DESKTOP_HEIGHT,
             }}
         >
-            {isHome ? (
+            {menuHeader ? (
                 <TopBar
                     startNode={
                         <Navigation dir={i18n.dir()}>
@@ -195,7 +228,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                     onClick={() => navigate('/')}
                 />
             )}
-
             <SideBar
                 anchor={anchor}
                 open={sidebarOpen}
@@ -204,12 +236,11 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                 onClose={onSideBarClose}
                 onClick={handleClick}
             />
-
             <Main component="main">
                 <Content>
                     <ErrorBoundary name="Content">{children}</ErrorBoundary>
+                    {menuHeader && <Footer />}
                 </Content>
-                {isHome && <Footer />}
 
                 {hasFooter && (
                     <PriceWrapper>
@@ -234,6 +265,31 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                     </PriceWrapper>
                 )}
             </Main>
+            <StyledDialog
+                open={open}
+                keepMounted
+                aria-describedby="alert-dialog-slide-description"
+                onClose={() => setOpen(false)}
+            >
+                <DialogTitle>{'Logout'}</DialogTitle>
+                <DialogContent>
+                    <Typography>Are you sure?</Typography>
+                </DialogContent>
+                <StyledActions>
+                    <DialogButton size="small" variant="outlined" color="primary" onClick={() => setOpen(false)}>
+                        Cancel
+                    </DialogButton>
+                    <DialogButton
+                        size="small"
+                        variant="contained"
+                        color="primary"
+                        onClick={handleLogout}
+                        className="ml"
+                    >
+                        Logout
+                    </DialogButton>
+                </StyledActions>
+            </StyledDialog>
         </PageWrapper>
     );
 };

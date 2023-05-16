@@ -46,8 +46,8 @@ const Node = (props: any) => {
                 </Month>
             </StyledWrapper>
             {off && (
-                <Popper id={id} open={open} anchorEl={anchorEl}>
-                    <StyledPopper>The content of the Popper.</StyledPopper>
+                <Popper id={id} open={open} anchorEl={anchorEl} placement="top-start">
+                    <StyledPopper>Off Day</StyledPopper>
                 </Popper>
             )}
         </>

@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, Stack, Tab, Typography, css, styled } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, FormControl, Stack, Tab, Typography, css, styled } from '@mui/material';
 
 export const Navigation = styled(Box)`
     display: flex;
@@ -151,4 +151,24 @@ export const StyledButton = styled(Button)`
 export const Flex = styled(Box)`
     display: flex;
     justify-content: space-between;
+`;
+export const StyledActions = styled(DialogActions)`
+    padding-bottom: 16px;
+`;
+export const DialogButton = styled(Button)`
+    ${({ theme: { palette } }: any) => css`
+        background: ${palette.primary.light};
+        color: #000;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid ${palette.primary.main};
+        margin-right: 16px;
+        &:hover {
+            background: ${palette.primary.main};
+            color: #fff;
+        }
+    `}
+`;
+export const StyledDialog = styled(Dialog)`
+    min-width: 420px;
 `;
