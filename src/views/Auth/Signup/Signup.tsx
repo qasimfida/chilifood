@@ -17,7 +17,7 @@ import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../style
 import logo from './../../../assets/logos/logo.png';
 import { useTranslation } from 'react-i18next';
 
-const VALIDATION = {
+const validation = (t: any) => ({
     phone: {
         type: 'string',
         format: {
@@ -26,7 +26,7 @@ const VALIDATION = {
         length: {
             minimum: 8,
             maximum: 8,
-            message: 'numbers only, max 8 characters',
+            message: t('signup.phone'),
         },
     },
     firstName: {
@@ -49,7 +49,7 @@ const VALIDATION = {
             message: 'must be between 8 and 32 characters',
         },
     },
-};
+});
 
 interface FormStateValues {
     firstName: string;
@@ -68,7 +68,7 @@ const Signup = () => {
 
     // const [, dispatch] = useAppStore();
     const [validationSchema, setValidationSchema] = useState<any>({
-        ...VALIDATION,
+        ...validation(t),
     });
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: validationSchema, // the state value, so could be changed in time
@@ -108,9 +108,9 @@ const Signup = () => {
         // Update Validation Schema when Show/Hide password changed
         let newSchema;
         if (showPassword) {
-            newSchema = VALIDATION; // Validation without .confirmPassword
+            newSchema = validation(t); // Validation without .confirmPassword
         } else {
-            newSchema = { ...VALIDATION }; // Full validation
+            newSchema = { ...validation(t) }; // Full validation
         }
         setValidationSchema(newSchema);
     }, [showPassword]);

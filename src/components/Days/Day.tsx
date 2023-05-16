@@ -1,8 +1,10 @@
 import React from 'react';
-import { Badge, Date, LockIcon, Month, StyledDay, StyledWrapper, Wrapper } from './styles';
+import { Badge, Date, LockIcon, Month, StyledDay, StyledPopper, StyledWrapper, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { ExtendsIDay } from '../../types/restaurant';
+import Popper from '@mui/material/Popper';
+
 interface DayProps {
     day: ExtendsIDay;
     onClick?: () => void;
@@ -15,26 +17,40 @@ const Node = (props: any) => {
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
-    console.log({ props });
+
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popper' : undefined;
+
     return (
-        <StyledWrapper>
-            {off ? (
-                <Badge>off</Badge>
-            ) : lock ? (
-                <Badge variant="main" type="circle">
-                    <LockIcon />
-                </Badge>
-            ) : (
-                <div />
+        <>
+            <StyledWrapper aria-describedby={off ? id : undefined} onClick={handleClick}>
+                {off ? (
+                    <Badge>off</Badge>
+                ) : lock ? (
+                    <Badge variant="main" type="circle">
+                        <LockIcon />
+                    </Badge>
+                ) : null}
+                <Date component="span" className="date">
+                    {date}
+                </Date>
+                <StyledDay>{props[getKey('day')]}</StyledDay>
+                <Month component="span" className="month">
+                    {props[getKey('month')]}
+                </Month>
+            </StyledWrapper>
+            {off && (
+                <Popper id={id} open={open} anchorEl={anchorEl}>
+                    <StyledPopper>The content of the Popper.</StyledPopper>
+                </Popper>
             )}
-            <Date component="span" className="date">
-                {date}
-            </Date>
-            <StyledDay>{props[getKey('day')]}</StyledDay>
-            <Month component="span" className="month">
-                {props[getKey('month')]}
-            </Month>
-        </StyledWrapper>
+        </>
     );
 };
 export const Day: React.FC<DayProps> = ({ day, className, onClick }) => {
