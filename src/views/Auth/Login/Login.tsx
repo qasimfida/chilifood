@@ -1,10 +1,9 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Grid, TextField, CardContent, InputAdornment, Box, createTheme, useTheme } from '@mui/material';
+import { Grid, TextField, CardContent, InputAdornment, Box, createTheme, useTheme } from '@mui/material';
 // import { useAppStore } from '../../../store';
 import { AppButton, AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
-import { css, styled } from '@mui/system';
 import logo from './../../../assets/logos/logo.png';
 import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
@@ -43,12 +42,13 @@ interface FormStateValues {
  */
 
 const Login = () => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     // const [, dispatch] = useAppStore();
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
+    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: VALIDATION,
         initialValues: { number: '', password: '' } as FormStateValues,
+        validateOnBlur: true,
     });
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState<string>();
@@ -99,7 +99,7 @@ const Login = () => {
                         <TextField
                             required
                             type="number"
-                            label="Number"
+                            label={t('PHONE_NUMBER')}
                             name="number"
                             inputProps={{ pattern: /^[0-9]*$/ }}
                             value={values.number}
@@ -109,17 +109,19 @@ const Login = () => {
                             id="number"
                             autoComplete="number"
                             autoFocus
+                            onBlur={onFieldBlur}
                             {...SHARED_CONTROL_PROPS}
                         />
                         <TextField
                             required
                             type={showPassword ? 'text' : 'password'}
-                            label="Password"
+                            label={t('PASSWORD')}
                             name="password"
                             value={values.password}
                             error={fieldHasError('password')}
                             helperText={fieldGetError('password') || ' '}
                             onChange={onFieldChange}
+                            onBlur={onFieldBlur}
                             {...SHARED_CONTROL_PROPS}
                             InputProps={{
                                 endAdornment: (
@@ -137,7 +139,7 @@ const Login = () => {
                         />
                         <Grid container justifyContent="flex-end" alignItems="center">
                             <Link variant="text" color="inherit" component={AppLink} to="/auth/recovery/password">
-                                Forgot Password
+                                {t('FORGET_PASSWORD')}
                             </Link>
                         </Grid>
                         {error ? (
@@ -147,14 +149,14 @@ const Login = () => {
                         ) : null}
                         <Grid container justifyContent="center" alignItems="center">
                             <Submit type="submit" disabled={!formState.isValid} color="primary" fullWidth>
-                                Login
+                                {t('LOGIN')}
                             </Submit>
                         </Grid>
 
                         <Grid container justifyContent="center" alignItems="center">
-                            Don't have an account?
+                            {t('LOGIN.HAVE_ACCOUNT')}
                             <Link variant="text" color="primary" component={AppLink} to="/auth/signup">
-                                Create account
+                                {t('LOGIN.CREATE_ACCOUNT')}
                             </Link>
                         </Grid>
                     </CardContent>

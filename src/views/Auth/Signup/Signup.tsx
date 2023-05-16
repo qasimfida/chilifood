@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import {
     Grid,
     TextField,
-    Card,
-    CardHeader,
     CardContent,
     Checkbox,
     FormControlLabel,
@@ -13,26 +11,22 @@ import {
     Button,
 } from '@mui/material';
 // import { useAppStore } from '../../../store';
-import { AppButton, AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
+import { AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import logo from './../../../assets/logos/logo.png';
 import { useTranslation } from 'react-i18next';
 
 const VALIDATION = {
-    // email: {
-    //     email: true,
-    //     presence: true,
-    // },
     phone: {
         type: 'string',
         format: {
             pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
-            message: 'should contain numbers',
         },
         length: {
             minimum: 8,
             maximum: 8,
+            message: 'numbers only, max 8 characters',
         },
     },
     firstName: {
@@ -40,7 +34,7 @@ const VALIDATION = {
         presence: { allowEmpty: false },
         format: {
             pattern: '^[A-Za-z ]+$', // Note: Allow only alphabets and space
-            message: 'should contain only alphabets hhhh',
+            message: 'phone number field must be 8 numbers',
         },
         length: {
             minimum: 3,
@@ -70,7 +64,7 @@ interface FormStateValues {
  */
 const Signup = () => {
     const navigate = useNavigate();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     // const [, dispatch] = useAppStore();
     const [validationSchema, setValidationSchema] = useState<any>({
@@ -157,14 +151,14 @@ const Signup = () => {
                     <Header>
                         <Logo src={logo} alt="logo" />
                         <Title component="h2" variant="h5">
-                            Signup to Chili Food
+                            {t('SIGNUP.TITLE')} Chili Food
                         </Title>
                     </Header>
                     <CardContent>
                         <TextField
                             required
                             type="number"
-                            label={t('SIGNUP.PHONE_NUMBER')}
+                            label={t('PHONE_NUMBER')}
                             name="phone"
                             inputProps={{ pattern: /^[0-9]*$/ }}
                             value={values.phone}
@@ -176,7 +170,7 @@ const Signup = () => {
                         />
                         <TextField
                             required
-                            label={t('SIGNUP.FIRST_NAME')}
+                            label={t('FIRST_NAME')}
                             name="firstName"
                             value={values.firstName}
                             error={fieldHasError('firstName')}
@@ -188,7 +182,7 @@ const Signup = () => {
                         <TextField
                             required
                             type={showPassword ? 'text' : 'password'}
-                            label={t('SIGNUP.PASSWORD')}
+                            label={t('PASSWORD')}
                             name="password"
                             value={values.password}
                             error={fieldHasError('password')}
@@ -214,14 +208,14 @@ const Signup = () => {
                             control={<Checkbox required name="agree" checked={agree} onChange={handleAgreeClick} />}
                             label={
                                 <>
-                                    I agree to
+                                    {t('SIGNUP.AGREE')}
                                     <Button
                                         variant="text"
                                         color="primary"
                                         component={AppLink}
                                         to="/auth/recovery/password"
                                     >
-                                        terms & conditions
+                                        {t('SIGNUP.TERMS_AND_CONDITIONS')}
                                     </Button>
                                 </>
                             }
@@ -247,7 +241,7 @@ const Signup = () => {
                         <Grid container justifyContent="center" alignItems="center">
                             {t('SIGNUP.ALREADY_ACCOUNT')}?
                             <Link variant="text" color="primary" component={AppLink} to="/auth">
-                                {t('SIGNUP.LOGIN')}
+                                {t('LOGIN')}
                             </Link>
                         </Grid>
                     </CardContent>

@@ -12,7 +12,7 @@ import Wrapper, { StyledComp, Submit } from './styles';
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, LinearProgress, Autocomplete } from '@mui/material';
-import { AppForm } from '../../../src/components';
+import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';
 import { SHARED_CONTROL_PROPS, useAppForm } from '../../utils';
 import Table from '../../components/Table';
@@ -84,7 +84,7 @@ const VALIDATION = {
     },
 };
 
-const PersonalDetails = () => {
+const Profile = () => {
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event: any, newValue: any) => {
@@ -147,7 +147,7 @@ const PersonalDetails = () => {
     const handleCloseError = useCallback(() => setError(undefined), []);
     if (loading) return <LinearProgress />;
     return (
-        <Layout1 title={`Porfile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`}>
+        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`}>
             <Wrapper>
                 <Container>
                     <TabContext value={value}>
@@ -286,7 +286,6 @@ const PersonalDetails = () => {
                             </AppForm>
                         </TabPanel>
 
-                        {/* lk;k;k */}
                         <TabPanel value="2">
                             <Table />
                         </TabPanel>
@@ -297,4 +296,4 @@ const PersonalDetails = () => {
     );
 };
 
-export default PersonalDetails;
+export default Profile;
