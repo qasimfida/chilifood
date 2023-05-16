@@ -9,15 +9,15 @@ import RecoveryRoutes from './Recovery';
  * url: /auth/*
  */
 const AuthRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<LoginRoutes />} />
-      <Route path="signup/*" element={<SignupRoutes />} />
-      <Route path="login/*" element={<LoginRoutes />} />
-      <Route path="recovery/*" element={<RecoveryRoutes />} />
-      <Route path="*" element={<NotFoundView />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<LoginRoutes />} />
+            <Route path="signup/*" element={<SignupRoutes />} />
+            <Route path="login/*" element={<LoginRoutes />} />
+            <Route path="recovery/*" element={<RecoveryRoutes />} />
+            <Route path="*" element={<NotFoundView />} />
+        </Routes>
+    );
 };
 
 export default AuthRoutes;

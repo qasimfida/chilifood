@@ -11,62 +11,27 @@ import TopBar from './TopBar';
 import SideBar from './SideBar';
 import { useTranslation } from 'react-i18next';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Content, Navigation, Title, PriceWrapper, Main, Flex, StyledFormControl, StyledButton } from './styles';
+import {
+    Content,
+    Navigation,
+    Title,
+    PriceWrapper,
+    Main,
+    Flex,
+    StyledFormControl,
+    StyledButton,
+    PageWrapper,
+} from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { navigateTo } from '../utils';
 
 // TODO: change to your app name or other word
-const TITLE_PUBLIC = '_TITLE_ app'; // Title for pages without/before authentication
+const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authentication
 
 /**
  * SideBar navigation items with links
  */
-const SIDEBAR_ITEMS: Array<LinkToPage> = [
-    {
-        title: 'Home',
-        path: '/',
-        icon: 'home',
-    },
-    {
-        title: 'Language',
-        path: '#',
-        icon: 'language',
-    },
-    {
-        title: 'About',
-        path: '/about',
-        icon: 'about',
-    },
-    {
-        title: 'Terms and Conditions',
-        path: '/terms',
-        icon: 'terms',
-    },
-];
-
-const AUTH_SIDEBAR_ITEMS = [
-    {
-        title: 'Profile',
-        path: '/profile',
-        icon: 'account',
-    },
-    {
-        title: 'Contact admin',
-        path: '/admin',
-        icon: 'contact',
-    },
-    {
-        title: 'Logout',
-        path: '#',
-        icon: 'logout',
-    },
-
-    {
-        title: '',
-        path: '/setting',
-        icon: 'settings',
-    },
-];
 
 /**
  * Renders "Public Layout" composition
@@ -78,6 +43,56 @@ interface IProps extends PropsWithChildren {
     hasFooter?: boolean;
 }
 const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter }) => {
+    const { i18n } = useTranslation();
+    console.log({ i18n });
+    const navigate = useNavigate();
+    const SIDEBAR_ITEMS: Array<LinkToPage> = [
+        {
+            title: 'Home',
+            path: '/',
+            icon: 'home',
+        },
+        {
+            title: i18n.language === 'en' ? `Arabic(عربي)` : `English(إنجليزي)`,
+            path: '#',
+            icon: 'language',
+        },
+        {
+            title: 'About',
+            path: '/about',
+            icon: 'about',
+        },
+        {
+            title: 'Terms and Conditions',
+            path: '/terms',
+            icon: 'terms',
+        },
+    ];
+
+    const AUTH_SIDEBAR_ITEMS = [
+        {
+            title: 'Profile',
+            path: '/profile',
+            icon: 'account',
+        },
+        {
+            title: 'Contact admin',
+            path: '/admin',
+            icon: 'contact',
+        },
+        {
+            title: 'Logout',
+            path: '#',
+            icon: 'logout',
+        },
+
+        {
+            title: '',
+            path: '/setting',
+            icon: 'settings',
+        },
+    ];
+
     const [value, setValue] = useState('1');
 
     const handleChange = (event: any, newValue: any) => {
@@ -114,12 +129,10 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
     //   'sidebarVariant:',
     //   sidebarVariant
     // );
-    const { i18n } = useTranslation();
-    const navigate = useNavigate();
+
     let theme = useTheme();
     const onClick = (lng: string) => {
         i18n.changeLanguage(lng === 'ar' ? 'en' : 'ar');
-        console.log(i18n.dir());
         document.body.dir = i18n.dir();
         const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
         theme = updateTheme;
@@ -135,18 +148,18 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                   ...AUTH_SIDEBAR_ITEMS,
                   { title: 'Contact Restaurant', icon: 'contact', path: '/contact' },
               ]
-        : [...SIDEBAR_ITEMS, { title: 'Login', icon: 'login' }, { title: 'Register', icon: 'register' }];
+        : [
+              ...SIDEBAR_ITEMS,
+              { title: 'Login', icon: 'login', path: '/auth/login' },
+              { title: 'Register', icon: 'register', path: '/auth/signup' },
+          ];
     return (
-        <Stack
+        <PageWrapper
             sx={{
                 minHeight: '100vh', // Full screen height
                 paddingTop: onMobile ? TOPBAR_MOBILE_HEIGHT : TOPBAR_DESKTOP_HEIGHT,
             }}
         >
-            {/* <TopBar
-                startNode={title}
-                onClick={() => onClick(i18n.language)}
-            /> */}
             {isHome ? (
                 <TopBar
                     startNode={
@@ -202,13 +215,13 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, isHome, hasFooter
                                         <MenuItem value={3}>Option 3</MenuItem>
                                     </Select>
                                 </StyledFormControl>
-                                <StyledButton>Subscribe</StyledButton>
+                                <StyledButton onClick={() => navigateTo('/checkout')}>Subscribe</StyledButton>
                             </Flex>
                         </Container>
                     </PriceWrapper>
                 )}
             </Main>
-        </Stack>
+        </PageWrapper>
     );
 };
 

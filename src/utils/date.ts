@@ -11,12 +11,12 @@ export const FORMAT_TIME_ONLY = 'HH:mm:ss';
  * @param {string} [fallbackValue] - optional fallback value if data conversion is not possible
  */
 export function dateToString(dateOrString: string | Date, dateFormat = FORMAT_DATE_TIME, fallbackValue = ''): string {
-  const date = typeof dateOrString === 'object' ? dateOrString : new Date(dateOrString);
-  let result;
-  try {
-    result = format(date, dateFormat);
-  } catch (error) {
-    result = fallbackValue;
-  }
-  return result;
+    const date = typeof dateOrString === 'object' ? dateOrString : new Date(dateOrString);
+    let result;
+    try {
+        result = format(date, dateFormat);
+    } catch (error) {
+        result = fallbackValue;
+    }
+    return result;
 }

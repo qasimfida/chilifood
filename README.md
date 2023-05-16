@@ -1,13 +1,11 @@
-# React + Material UI + Auth starter using TypeScript
-
 The **TypeScript** edition of **Create React App** plus **Material UI** with set of **reusable components** and utilities to build professional **React Application** faster.
 
-- [Source Code](https://github.com/karpolan/react-typescript-material-ui-with-auth-starter)
-- [Online Demo](https://react-typescript-material.netlify.app/)
+-   [Source Code](https://github.com/qasimfida/chilifood.git)
+-   [Online Demo](https://qasimfida.github.io/chilifood)
 
 ## How to use
 
-1. Clone or download the repo from: https://github.com/karpolan/react-typescript-material-ui-with-auth-starter
+1. Clone or download the repo from: https://qasimfida.github.io/chilifood
 2. Replace `_TITLE_` and `_DESCRIPTION_` in all files with own texts
 3. Create **Favorite Icon** images and put them into `/public/img/favicon`, the **favicon.ico** file should be paced into root of `/public` folder.
 4. Add your own code :)

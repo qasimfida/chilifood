@@ -12,7 +12,7 @@ import BottomBar from './BottomBar';
 import { PageWrapper } from './styles';
 
 // TODO: change to your app name or other word
-const TITLE_PUBLIC = '_TITLE_ app'; // Title for pages without/before authentication
+const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authentication
 
 /**
  * SideBar navigation items with links
