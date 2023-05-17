@@ -100,7 +100,7 @@ const Login = () => {
     };
 
     return (
-        <Layout1 title="Login" menuHeader>
+        <Layout1 title="Login" menuHeader withFooter>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>

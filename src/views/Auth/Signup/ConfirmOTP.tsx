@@ -2,8 +2,9 @@ import { useCallback, useState, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CardContent, TextField, Grid, Button } from '@mui/material';
 import { SHARED_CONTROL_PROPS, useAppForm } from '../../../utils/form';
-import { AppAlert, AppForm, AppLink } from '../../../components';
+import { AppAlert, AppForm } from '../../../components';
 import { Description, Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
+import Layout1 from '../../../layout/Layout1';
 // import { useAppStore } from '../../../store';
 
 /**
@@ -56,55 +57,57 @@ const ConfirmOTP = () => {
     const handleCloseError = useCallback(() => setError(undefined), []);
 
     return (
-        <Wrapper>
-            <AppForm onSubmit={handleFormSubmit}>
-                <StyledComp>
-                    <Header>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <Title variant="h6">Verify OTP</Title>
+        <Layout1 title="Verify OTP" menuHeader withFooter>
+            <Wrapper>
+                <AppForm onSubmit={handleFormSubmit}>
+                    <StyledComp>
+                        <Header>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <Title variant="h6">Verify OTP</Title>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Description>
+                                        We sent you an SMS message with OTP. Enter OTP number here to verify your mobile
+                                        number
+                                    </Description>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12}>
-                                <Description>
-                                    We sent you an SMS message with OTP. Enter OTP number here to verify your mobile
-                                    number
-                                </Description>
+                        </Header>
+                        <CardContent>
+                            <TextField
+                                required
+                                label="OTP"
+                                name="otp"
+                                value={values.otp}
+                                error={fieldHasError('otp')}
+                                helperText={fieldGetError('otp') || ' '}
+                                onChange={onFieldChange}
+                                id="otp"
+                                {...SHARED_CONTROL_PROPS}
+                            />
+                            {error ? (
+                                <AppAlert severity="error" onClose={handleCloseError}>
+                                    {error}
+                                </AppAlert>
+                            ) : null}
+                            <Submit type="submit" color="primary" disabled={!formState.isValid} fullWidth>
+                                Verify
+                            </Submit>
+                            <Grid container justifyContent="center" alignItems="center">
+                                Don't recieved OTP yet?
+                                <Link variant="text" color="primary">
+                                    Resend OTP
+                                </Link>
                             </Grid>
-                        </Grid>
-                    </Header>
-                    <CardContent>
-                        <TextField
-                            required
-                            label="OTP"
-                            name="otp"
-                            value={values.otp}
-                            error={fieldHasError('otp')}
-                            helperText={fieldGetError('otp') || ' '}
-                            onChange={onFieldChange}
-                            id="otp"
-                            {...SHARED_CONTROL_PROPS}
-                        />
-                        {error ? (
-                            <AppAlert severity="error" onClose={handleCloseError}>
-                                {error}
-                            </AppAlert>
-                        ) : null}
-                        <Submit type="submit" color="primary" disabled={!formState.isValid} fullWidth>
-                            Verify
-                        </Submit>
-                        <Grid container justifyContent="center" alignItems="center">
-                            Don't recieved OTP yet?
-                            <Link variant="text" color="primary">
-                                Resend OTP
-                            </Link>
-                        </Grid>
-                        <Grid container justifyContent="center" alignItems="center">
-                            <Button color="primary">Contact Us</Button>
-                        </Grid>
-                    </CardContent>
-                </StyledComp>
-            </AppForm>
-        </Wrapper>
+                            <Grid container justifyContent="center" alignItems="center">
+                                <Button color="primary">Contact Us</Button>
+                            </Grid>
+                        </CardContent>
+                    </StyledComp>
+                </AppForm>
+            </Wrapper>
+        </Layout1>
     );
 };
 

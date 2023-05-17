@@ -7,7 +7,7 @@ const TermsPolicy = () => {
     const { i18n } = useTranslation();
 
     return (
-        <Layout1 title="Terms and Policy">
+        <Layout1 title="Terms and Policy" withFooter>
             <Container>
                 <Wrapper>
                     <Title>Terms & Policy</Title>

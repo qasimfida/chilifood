@@ -50,8 +50,9 @@ interface IProps extends PropsWithChildren {
     title: ReactNode;
     hasFooter?: boolean;
     menuHeader?: boolean;
+    withFooter?: boolean;
 }
-const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader }) => {
+const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader, withFooter }) => {
     const { i18n } = useTranslation();
     const navigate = useNavigate();
     const SIDEBAR_ITEMS: Array<LinkToPage> = [
@@ -218,7 +219,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             <Main component="main">
                 <Content>
                     <ErrorBoundary name="Content">{children}</ErrorBoundary>
-                    {menuHeader && <Footer />}
+                    {withFooter && <Footer />}
                 </Content>
 
                 {hasFooter && (

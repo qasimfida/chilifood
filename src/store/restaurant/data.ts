@@ -351,7 +351,6 @@ export const r = [
                                         id: '111',
                                         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         name: 'Declicious Chicken',
-
                                         description: 'Discover the ultimate indulgence in our luxurious spa',
                                         macros: [
                                             { name: 'Protein', amount: 12 },
@@ -364,7 +363,6 @@ export const r = [
                                         id: '112',
                                         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         name: ' Chicken',
-
                                         description:
                                             'luxurious spa treatments and leave feeling rejuvenated and refreshed.',
                                         macros: [
@@ -378,7 +376,6 @@ export const r = [
                                         id: '113',
                                         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         name: 'Declicious Chicken',
-
                                         description:
                                             'The ultimate indulgence in our luxurious spa treatments and leave feeling.',
                                         macros: [
@@ -411,7 +408,6 @@ export const r = [
                                         id: '115',
                                         name: 'Salad',
                                         src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-
                                         description:
                                             'Discover luxurious spa treatments and leave feeling rejuvenated and refreshed.',
                                         macros: [
@@ -425,7 +421,6 @@ export const r = [
                                         id: '116',
                                         name: 'Chicken Breast',
                                         src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
-
                                         description:
                                             'Indulgence in our luxurious spa treatments and leave feeling rejuvenated and refreshed.',
                                         macros: [
@@ -438,6 +433,7 @@ export const r = [
                                         id: '117',
                                         name: 'Salad',
                                         src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        description: 'Locally sourced ingredients, sunny vibe.',
                                         macros: [
                                             { name: 'Protein', amount: 5 },
                                             { name: 'Carbs', amount: 12 },
@@ -449,6 +445,7 @@ export const r = [
                                         id: '118',
                                         name: 'Chicken Breast',
                                         src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        description: 'Locally unsplash ingredients, sunny vibe.',
                                         macros: [
                                             { name: 'Protein', amount: 25 },
                                             { name: 'Carbs', amount: 0 },
@@ -459,6 +456,7 @@ export const r = [
                                         id: '119',
                                         name: 'Chicken Breast',
                                         src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        description: 'Locally ingredients, sunny vibe.',
                                         macros: [
                                             { name: 'Protein', amount: 25 },
                                             { name: 'Carbs', amount: 0 },
@@ -475,6 +473,7 @@ export const r = [
                                         id: '120',
                                         name: 'Salmon',
                                         src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        description: 'Indulgence in our and leave feeling rejuvenated and refreshed.',
                                         macros: [
                                             { name: 'Protein', amount: 20 },
                                             { name: 'Carbs', amount: 5 },
@@ -486,6 +485,8 @@ export const r = [
                                         id: '121',
                                         name: 'Rice',
                                         src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        description:
+                                            'Indulgence treatments and leave feeling rejuvenated and refreshed.',
                                         macros: [
                                             { name: 'Protein', amount: 30 },
                                             { name: 'Carbs', amount: 44 },
@@ -497,6 +498,7 @@ export const r = [
                                         id: '122',
                                         name: 'Rice',
                                         src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        description: 'Indulgence in our luxurious spa treatments refreshed.',
                                         macros: [
                                             { name: 'Protein', amount: 30 },
                                             { name: 'Carbs', amount: 44 },

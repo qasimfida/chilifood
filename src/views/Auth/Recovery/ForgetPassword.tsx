@@ -5,6 +5,7 @@ import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { Header, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import Layout1 from '../../../layout/Layout1';
 
 const VALIDATE_FORM_RECOVERY_PASSWORD = {
     number: {
@@ -58,40 +59,42 @@ const RecoveryPassword = () => {
     const handleCloseError = useCallback(() => setMessage(undefined), []);
 
     return (
-        <Wrapper>
-            <AppForm onSubmit={handleFormSubmit}>
-                <StyledComp>
-                    <Header>
-                        <Title variant="h6">{t('FORGET_PASSWORD')}</Title>
-                    </Header>
-                    <CardContent>
-                        <TextField
-                            required
-                            label={t('PHONE_NUMBER')}
-                            name="number"
-                            value={values.number}
-                            error={fieldHasError('number')}
-                            helperText={fieldGetError('number') || ' '}
-                            onChange={onFieldChange}
-                            onBlur={onFieldBlur}
-                            {...SHARED_CONTROL_PROPS}
-                        />
+        <Layout1 title="Forgot Password" menuHeader withFooter>
+            <Wrapper>
+                <AppForm onSubmit={handleFormSubmit}>
+                    <StyledComp>
+                        <Header>
+                            <Title variant="h6">{t('FORGET_PASSWORD')}</Title>
+                        </Header>
+                        <CardContent>
+                            <TextField
+                                required
+                                label={t('PHONE_NUMBER')}
+                                name="number"
+                                value={values.number}
+                                error={fieldHasError('number')}
+                                helperText={fieldGetError('number') || ' '}
+                                onChange={onFieldChange}
+                                onBlur={onFieldBlur}
+                                {...SHARED_CONTROL_PROPS}
+                            />
 
-                        {message ? (
-                            <AppAlert severity="success" onClose={handleCloseError}>
-                                {message}
-                            </AppAlert>
-                        ) : null}
+                            {message ? (
+                                <AppAlert severity="success" onClose={handleCloseError}>
+                                    {message}
+                                </AppAlert>
+                            ) : null}
 
-                        <Grid container justifyContent="center" alignItems="center">
-                            <Submit type="submit" color="primary" disabled={!formState.isValid}>
-                                {t('NEXT')}
-                            </Submit>
-                        </Grid>
-                    </CardContent>
-                </StyledComp>
-            </AppForm>
-        </Wrapper>
+                            <Grid container justifyContent="center" alignItems="center">
+                                <Submit type="submit" color="primary" disabled={!formState.isValid}>
+                                    {t('NEXT')}
+                                </Submit>
+                            </Grid>
+                        </CardContent>
+                    </StyledComp>
+                </AppForm>
+            </Wrapper>
+        </Layout1>
     );
 };
 

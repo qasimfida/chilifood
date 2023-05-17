@@ -58,10 +58,9 @@ const Plan: React.FC<any> = () => {
         return getLocaleKey(key, i18n);
     };
     const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === (activeDay || '7'));
-    console.log({ activeMeal });
     return (
-        <Layout1 title={selectedR?.name} hasFooter>
-            <Container>
+        <Layout1 title={selectedR?.name} hasFooter withFooter>
+            <Container sx={{ minHeight: '72vh' }}>
                 <Description>
                     <Typography> Welcome to Chili Foods </Typography>
                 </Description>

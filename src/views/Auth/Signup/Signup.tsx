@@ -146,7 +146,7 @@ const Signup = () => {
     if (loading) return <LinearProgress />;
 
     return (
-        <Layout1 title="Signup" menuHeader>
+        <Layout1 title="Signup" menuHeader withFooter>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>

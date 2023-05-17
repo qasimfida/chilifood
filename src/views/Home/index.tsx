@@ -22,7 +22,7 @@ const TabPan = () => {
 };
 const Home: React.FC<any> = () => {
     return (
-        <Layout1 title="Home" menuHeader>
+        <Layout1 title="Home" menuHeader withFooter>
             <Wrapper>
                 <Container>
                     <TabPan />

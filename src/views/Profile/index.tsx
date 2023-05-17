@@ -147,7 +147,7 @@ const Profile = () => {
     const handleCloseError = useCallback(() => setError(undefined), []);
     if (loading) return <LinearProgress />;
     return (
-        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`}>
+        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`} withFooter>
             <Wrapper>
                 <Container>
                     <TabContext value={value}>
