@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { Box, TextField } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, css, TextField } from '@mui/material';
 import { AppButton } from '../../components';
 
 export const Title = styled(Box)`
@@ -49,4 +49,25 @@ export const PayButton = styled(AppButton)`
     margin-top: 40px;
     width: 160px;
     max-width: 100%;
+`;
+export const StyledDialogs = styled(Dialog)`
+    .css-78mkp9-MuiPaper-root-MuiDialog-paper {
+        max-width: 400px;
+    }
+`;
+
+export const StyledActions = styled(DialogActions)`
+    padding-bottom: 16px;
+    gap: 16px;
+`;
+export const DialogButton = styled(Button)`
+    color: #000;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 16px;
+`;
+export const StyledDialog = styled(Dialog)`
+    .css-78mkp9-MuiPaper-root-MuiDialog-paper {
+        min-width: 300px;
+    }
 `;

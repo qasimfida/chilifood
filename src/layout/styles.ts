@@ -156,19 +156,13 @@ export const StyledActions = styled(DialogActions)`
     padding-bottom: 16px;
 `;
 export const DialogButton = styled(Button)`
-    ${({ theme: { palette } }: any) => css`
-        background: ${palette.primary.light};
-        color: #000;
-        padding-left: 20px;
-        padding-right: 20px;
-        border: 1px solid ${palette.primary.main};
-        margin-right: 16px;
-        &:hover {
-            background: ${palette.primary.main};
-            color: #fff;
-        }
-    `}
+    color: #000;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 16px;
 `;
 export const StyledDialog = styled(Dialog)`
-    min-width: 420px;
+    .css-78mkp9-MuiPaper-root-MuiDialog-paper {
+        min-width: 300px;
+    }
 `;

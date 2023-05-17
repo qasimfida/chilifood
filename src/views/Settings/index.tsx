@@ -1,30 +1,16 @@
 import * as React from 'react';
 import { useState } from 'react';
-import {
-    Container,
-    FormControl,
-    Grid,
-    InputLabel,
-    Link,
-    MenuItem,
-    Select,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-    Typography,
-    createTheme,
-    useTheme,
-} from '@mui/material';
+import { Button, Container, DialogContent, DialogTitle, Grid, Typography, createTheme, useTheme } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { PayButton, TextArea, Title, Wrapper } from './styles';
+import { DialogButton, StyledActions, StyledDialogs, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from '../../components';
+import { useNavigate } from 'react-router-dom';
 
 const Settings: React.FC<any> = () => {
     const [value, setValue] = useState<any>('1');
     const { i18n } = useTranslation();
+    const navigate = useNavigate();
 
     let theme = useTheme();
     const onClick = (lng: string) => {
@@ -32,6 +18,13 @@ const Settings: React.FC<any> = () => {
         document.body.dir = i18n.dir();
         const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
         theme = updateTheme;
+    };
+    const [open, setOpen] = useState(false);
+    const handleClick = () => {
+        setOpen(true);
+    };
+    const deleteAccount = () => {
+        navigate('/');
     };
 
     return (
@@ -45,9 +38,30 @@ const Settings: React.FC<any> = () => {
                             </AppButton>
                         </Grid>
                         <Grid container item xs={12} justifyContent="flex-start">
-                            <AppButton variant="text">Delete(Account)</AppButton>
+                            <AppButton variant="text" color="error" onClick={handleClick}>
+                                Delete(Account)
+                            </AppButton>
                         </Grid>
                     </Grid>
+                    <StyledDialogs
+                        open={open}
+                        keepMounted
+                        aria-describedby="alert-dialog-slide-description"
+                        onClose={() => setOpen(false)}
+                    >
+                        <DialogTitle>{'Delete Account'}</DialogTitle>
+                        <DialogContent>
+                            <Typography>Are you sure that you Want to Delete your Account?</Typography>
+                        </DialogContent>
+                        <StyledActions>
+                            <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>
+                                Cancel
+                            </DialogButton>
+                            <Button size="small" variant="outlined" color="error" onClick={deleteAccount}>
+                                Yes
+                            </Button>
+                        </StyledActions>
+                    </StyledDialogs>
                 </Container>
             </Wrapper>
         </Layout1>

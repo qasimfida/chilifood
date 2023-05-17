@@ -1,11 +1,7 @@
 import {
     Box,
-    Button,
     Container,
-    Dialog,
-    DialogActions,
     DialogContent,
-    DialogContentText,
     DialogTitle,
     InputLabel,
     MenuItem,
@@ -16,8 +12,7 @@ import {
 } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useEffect, useState } from 'react';
-import { Stack } from '@mui/material/';
+import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useState } from 'react';
 import { ErrorBoundary } from '../components';
 import { LinkToPage } from '../utils/type';
 import { useOnMobile } from '../hooks/layout';
@@ -108,7 +103,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
 
         {
             title: '',
-            path: '/setting',
+            path: '/settings',
             icon: 'settings',
         },
     ];
@@ -183,7 +178,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             if (e.key === 'language') {
                 onClick(i18n.language);
             }
-            // show model
             // Show dialog if e.key is 'logout'
             if (e.key === 'logout') {
                 setOpen(true); // Set the state to open the dialog
@@ -265,27 +259,16 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                     </PriceWrapper>
                 )}
             </Main>
-            <StyledDialog
-                open={open}
-                keepMounted
-                aria-describedby="alert-dialog-slide-description"
-                onClose={() => setOpen(false)}
-            >
+            <StyledDialog open={open} onClose={() => setOpen(false)}>
                 <DialogTitle>{'Logout'}</DialogTitle>
                 <DialogContent>
                     <Typography>Are you sure?</Typography>
                 </DialogContent>
                 <StyledActions>
-                    <DialogButton size="small" variant="outlined" color="primary" onClick={() => setOpen(false)}>
+                    <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>
                         Cancel
                     </DialogButton>
-                    <DialogButton
-                        size="small"
-                        variant="contained"
-                        color="primary"
-                        onClick={handleLogout}
-                        className="ml"
-                    >
+                    <DialogButton size="small" variant="outlined" color="primary" onClick={handleLogout} className="ml">
                         Logout
                     </DialogButton>
                 </StyledActions>
