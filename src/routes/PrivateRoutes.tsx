@@ -20,9 +20,9 @@ const PrivateRoutes = () => {
     return (
         <Routes>
             <Route path="/chilifood" element={<Home />} />
-            <Route path="/:restaurant/:plan" element={<Plan />} />
+            <Route path="restaurants/:restaurant/:plan" element={<Plan />} />
             <Route path="/" element={<Home />} />
-            <Route path="/:restaurant" element={<Restaurant />} />
+            <Route path="restaurants/:restaurant" element={<Restaurant />} />
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="auth/*" element={<AuthRoutes />} />
             <Route path="/about" element={<AboutView />} />

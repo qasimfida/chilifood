@@ -1,11 +1,7 @@
 import {
     Box,
-    Button,
     Container,
-    Dialog,
-    DialogActions,
     DialogContent,
-    DialogContentText,
     DialogTitle,
     InputLabel,
     MenuItem,
@@ -16,8 +12,7 @@ import {
 } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useEffect, useState } from 'react';
-import { Stack } from '@mui/material/';
+import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useState } from 'react';
 import { ErrorBoundary } from '../components';
 import { LinkToPage } from '../utils/type';
 import { useOnMobile } from '../hooks/layout';
@@ -42,10 +37,6 @@ import {
 } from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import { navigateTo } from '../utils';
-
-// TODO: change to your app name or other word
-const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authentication
 
 /**
  * SideBar navigation items with links
@@ -62,7 +53,6 @@ interface IProps extends PropsWithChildren {
 }
 const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader }) => {
     const { i18n } = useTranslation();
-    console.log({ i18n });
     const navigate = useNavigate();
     const SIDEBAR_ITEMS: Array<LinkToPage> = [
         {
@@ -108,10 +98,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
     ];
 
     const [value, setValue] = useState('1');
-
-    const handleChange = (event: any, newValue: any) => {
-        setValue(newValue);
-    };
     const handleDropDownChange = (event: any) => {
         console.log('hello');
     };
@@ -152,7 +138,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         theme = updateTheme;
     };
     const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log({ user });
     const anchor = i18n.dir() === 'rtl' ? 'right' : 'left';
     const isLoggedInUser = user?.userNumber ? true : false;
     const isInActiveUser = false;

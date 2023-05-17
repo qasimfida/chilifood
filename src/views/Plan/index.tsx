@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { lazy, Suspense } from 'react';
 import { Container, Grid, Typography } from '@mui/material';
-import FoodCard from '../../components/FoodCard';
-import Days from '../../components/Days';
+// import FoodCard from '../../components/FoodCard';
+// import Days from '../../components/Days';
 import Layout1 from '../../layout/Layout1';
 import { Description, StyledTab, StyledTabContext, TabsWrapper } from './styles';
 import Tab from '../../components/Tab/index';
@@ -13,6 +14,9 @@ import { useTranslation } from 'react-i18next';
 import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useParams } from 'react-router-dom';
 import { ExtendsIDay } from '../../types/restaurant';
+import { Loading } from '../styles';
+const FoodCard = lazy(() => import('../../components/FoodCard'));
+const Days = lazy(() => import('../../components/Days'));
 
 const TabPan = ({ foods }: any) => {
     const dispatch = useDispatch();
@@ -61,33 +65,37 @@ const Plan: React.FC<any> = () => {
                 <Description>
                     <Typography> Welcome to Chili Foods </Typography>
                 </Description>
-                <Days days={selectedP.days} />
-                <TabsWrapper>
-                    <TabContext value={activeMeal}>
-                        <StyledTabContext
-                            value={activeMeal}
-                            variant="scrollable"
-                            scrollButtons="auto"
-                            allowScrollButtonsMobile
-                            aria-label="scrollable auto tabs meals"
-                            dir={i18n.dir()}
-                            onChange={handleChange}
-                        >
-                            {selectedDay.meals.map((meal: any) => (
-                                <StyledTab
-                                    label={<Tab title={(meal as any)[getKey('name')]} />}
-                                    value={meal.id}
-                                    key={meal.id}
-                                />
+                <Suspense fallback={<Loading>Fetching data...</Loading>}>
+                    <Days days={selectedP.days} />
+                </Suspense>
+                <Suspense fallback={<Loading>Fetching data...</Loading>}>
+                    <TabsWrapper>
+                        <TabContext value={activeMeal}>
+                            <StyledTabContext
+                                value={activeMeal}
+                                variant="scrollable"
+                                scrollButtons="auto"
+                                allowScrollButtonsMobile
+                                aria-label="scrollable auto tabs meals"
+                                dir={i18n.dir()}
+                                onChange={handleChange}
+                            >
+                                {selectedDay.meals.map((meal: any) => (
+                                    <StyledTab
+                                        label={<Tab title={(meal as any)[getKey('name')]} />}
+                                        value={meal.id}
+                                        key={meal.id}
+                                    />
+                                ))}
+                            </StyledTabContext>
+                            {selectedDay.meals.map((meal: any, index: any) => (
+                                <TabPanel value={meal.id} key={meal.id} className="px-0">
+                                    <TabPan foods={meal.foods} />
+                                </TabPanel>
                             ))}
-                        </StyledTabContext>
-                        {selectedDay.meals.map((meal: any, index: any) => (
-                            <TabPanel value={meal.id} key={meal.id} className="px-0">
-                                <TabPan foods={meal.foods} />
-                            </TabPanel>
-                        ))}
-                    </TabContext>
-                </TabsWrapper>
+                        </TabContext>
+                    </TabsWrapper>
+                </Suspense>
             </Container>
         </Layout1>
     );

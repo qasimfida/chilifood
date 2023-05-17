@@ -1,7 +1,7 @@
-import { css, styled } from '@mui/system';
-import { Box, Typography } from '@mui/material';
-
+import { styled } from '@mui/system';
+import { Box } from '@mui/material';
 export const Wrapper = styled(Box)`
+    position: relative;
     margin-top: 20px;
     margin-bottom: 40px;
     .MuiOutlinedInput-notchedOutline legend {
@@ -29,20 +29,4 @@ export const Wrapper = styled(Box)`
         left: 8px;
         right: unset;
     }
-`;
-export const Title = styled(Typography)`
-    ${({ theme: { palette } }: any) => css`
-        color: ${palette.secondary.main};
-        margin-bottom: 0px;
-        text-align: center;
-    `}
-`;
-export const Description = styled(Typography)`
-    ${({ theme: { palette } }: any) => css`
-        color: ${palette.secondary.main};
-        border-bottom: 1px solid #dfdfdf;
-        padding: 0 10px 10px;
-        margin-bottom: 30px;
-        text-align: center;
-    `}
 `;
