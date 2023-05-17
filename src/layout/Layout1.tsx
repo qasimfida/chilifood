@@ -37,7 +37,6 @@ import {
 } from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import { navigateTo } from '../utils';
 
 // TODO: change to your app name or other word
 const TITLE_PUBLIC = 'Chili Food'; // Title for pages without/before authentication

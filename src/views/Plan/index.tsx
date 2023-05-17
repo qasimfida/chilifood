@@ -14,7 +14,7 @@ import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useParams } from 'react-router-dom';
 import { ExtendsIDay } from '../../types/restaurant';
 
-const TabPan = ({ foods }: any) => {
+const TabPan = ({ foods, allowSelect }: any) => {
     const dispatch = useDispatch();
     const { viewFoodDetails } = useAppSelector((state) => state.restaurant);
     // const { foods, selectedFood } = state.restaurant;
@@ -32,13 +32,14 @@ const TabPan = ({ foods }: any) => {
                         src={src}
                         name={name}
                         description={description}
+                        allowSelect={allowSelect}
                     />
                 </Grid>
             ))}
         </Grid>
     );
 };
-const Plan: React.FC<any> = () => {
+const Plan: React.FC<any> = ({ allowSelect }) => {
     const dispatch = useDispatch();
     const { restaurant, plan } = useParams();
     const { r, activeMeal, activeDay } = useAppSelector((state) => state.restaurant);
@@ -83,7 +84,7 @@ const Plan: React.FC<any> = () => {
                         </StyledTabContext>
                         {selectedDay.meals.map((meal: any, index: any) => (
                             <TabPanel value={meal.id} key={meal.id} className="px-0">
-                                <TabPan foods={meal.foods} />
+                                <TabPan foods={meal.foods} allowSelect={allowSelect} />
                             </TabPanel>
                         ))}
                     </TabContext>

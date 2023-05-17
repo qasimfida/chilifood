@@ -12,6 +12,7 @@ import {
     MacrosCount,
     Toggle,
     Details,
+    RadioCheckBox,
 } from './styles';
 import { ExpandMore } from '@mui/icons-material';
 import useAnimateHeightFromZeroToAuto from '../../hooks/useAnimateHeightFromZeroToAuto';
@@ -27,8 +28,20 @@ interface IProps extends IFood {
     src: string;
     name: string;
     description: string;
+    allowSelect?: boolean;
 }
-const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect, src, name, description }) => {
+const FoodCard: React.FC<IProps> = ({
+    isExpended,
+    onToggle,
+    macros,
+    handleSelect,
+    src,
+    name,
+    description,
+    allowSelect = false,
+    id,
+    isSelected = false,
+}) => {
     const { i18n } = useTranslation();
     const ref = useRef<null>(null);
 
@@ -41,13 +54,15 @@ const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect
     return (
         <StyledCard expended={`${isExpended}`}>
             <Body>
-                {/* <RadioCheckBox
-                    checked={isSelected}
-                    value={id}
-                    onChange={handleSelect}
-                    name="radio-buttons"
-                    inputProps={{ 'aria-label': `${id}` }}
-                /> */}
+                {allowSelect && (
+                    <RadioCheckBox
+                        checked={isSelected}
+                        value={id}
+                        onChange={handleSelect}
+                        name="radio-buttons"
+                        inputProps={{ 'aria-label': `${id}` }}
+                    />
+                )}
                 <StyledMedia image={src || salad} title="Food" />
                 <Content>
                     <Details onClick={onToggle}>

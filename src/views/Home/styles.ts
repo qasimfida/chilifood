@@ -21,3 +21,10 @@ export const Description = styled(Typography)`
         text-align: center;
     `}
 `;
+
+export const FabWrapper = styled(Box)`
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 111;
+`;

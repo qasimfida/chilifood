@@ -28,6 +28,7 @@ const PublicRoutes = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/terms-policy" element={<TermsPolicy />} />
             <Route path="/profile" element={<PersonalDetails />} />
+            <Route path="/:restaurant/:plan" element={<Plan allowSelect />} />
         </Routes>
     );
 };
