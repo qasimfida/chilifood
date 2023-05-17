@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { ExtendsIDay } from '../../types/restaurant';
 import '@mui/lab/themeAugmentation';
+import { TabPanel } from '@mui/lab';
 
 function a11yProps(index: number) {
     return {
@@ -47,7 +48,7 @@ const Days: React.FC<any> = ({ days }: any) => {
                             {...a11yProps(index)}
                             day={day}
                             className={cls}
-                            key={`day=${day.date}`}
+                            key={`day-${index}`}
                             onClick={() => handleClick(day)}
                         />
                     );

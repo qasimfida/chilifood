@@ -21,6 +21,7 @@ export interface IFood {
     macros: IMacro[];
 }
 export interface IMacro {
+    id: string;
     label: string;
     labelAr: string;
     amount: number;

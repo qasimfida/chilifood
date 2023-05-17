@@ -288,10 +288,10 @@ export const r = [
                                         description:
                                             'Discover the ultimate indulgence in our luxurious spa treatments.',
                                         macros: [
-                                            { id: '123', name: 'Protein', amount: 12 },
-                                            { id: '124', name: 'Carbs', amount: 32 },
-                                            { id: '125', name: 'Fat', amount: 20 },
-                                            { id: '126', name: 'Prot', amount: 23 },
+                                            { id: '1123', name: 'Protein', amount: 12 },
+                                            { id: '1124', name: 'Carbs', amount: 32 },
+                                            { id: '1125', name: 'Fat', amount: 20 },
+                                            { id: '1126', name: 'Prot', amount: 23 },
                                         ],
                                     },
                                 ],
@@ -307,10 +307,10 @@ export const r = [
                                         description:
                                             'Elevate your fitness routine with our state-of-the-art gym equipment and personalized.',
                                         macros: [
-                                            { name: 'Protein', amount: 5 },
-                                            { name: 'Carbs', amount: 12 },
-                                            { name: 'Fat', amount: 8 },
-                                            { name: 'Prot', amount: 3 },
+                                            { id: '1223', name: 'Protein', amount: 5 },
+                                            { id: '1223', name: 'Carbs', amount: 12 },
+                                            { id: '1223', name: 'Fat', amount: 8 },
+                                            { id: '1223', name: 'Prot', amount: 3 },
                                         ],
                                     },
                                 ],
@@ -320,16 +320,16 @@ export const r = [
                                 name: 'Dinner',
                                 foods: [
                                     {
-                                        id: '11',
+                                        id: '13',
                                         name: 'Salmon',
                                         src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
                                         description:
                                             'Elevate your state-of-the-art gym equipment and personalized training programs.',
                                         macros: [
-                                            { name: 'Protein', amount: 20 },
-                                            { name: 'Carbs', amount: 5 },
-                                            { name: 'Fat', amount: 10 },
-                                            { name: 'Prot', amount: 15 },
+                                            { id: '1323', name: 'Protein', amount: 20 },
+                                            { id: '1323', name: 'Carbs', amount: 5 },
+                                            { id: '1323', name: 'Fat', amount: 10 },
+                                            { id: '1323', name: 'Prot', amount: 15 },
                                         ],
                                     },
                                 ],
