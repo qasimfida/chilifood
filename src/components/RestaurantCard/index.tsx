@@ -13,7 +13,7 @@ const RestaurantCard: React.FC<IProps> = ({ src, name, id }) => {
     };
 
     return (
-        <StyledCard dir={i18n.dir()} to={`/${id}`}>
+        <StyledCard dir={i18n.dir()} to={`/restaurants/${id}`}>
             <Body>
                 <StyledMedia image={src || salad} title="Food" />
                 <Content>

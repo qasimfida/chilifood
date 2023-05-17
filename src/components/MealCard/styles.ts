@@ -5,11 +5,11 @@ import {
     CardContent,
     CardMedia,
     FormControl,
-    Radio,
     Typography,
     TypographyProps,
 } from '@mui/material';
 import { css, styled } from '@mui/system';
+import { Link } from 'react-router-dom';
 interface StyledCardProps {
     expended?: string;
 }
@@ -36,16 +36,13 @@ export const CardTitle = styled(Typography)`
     justify-content: space-between;
     flex-direction: row;
 `;
-export const Body = styled(CardActionArea)`
+export const Body = styled(Box)`
     overflow: hidden;
     display: flex;
     padding: 0;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    &:hover .MuiCardActionArea-focusHighlight.css-1v2exvi-MuiCardActionArea-focusHighlight {
-        display: none;
-    }
 `;
 export const Description = styled(Typography)<any>`
     font-weight: ${({ weight }) => weight || '300'};
@@ -68,11 +65,6 @@ export const Details = styled(Box)<StyledCardProps>`
             background: ${palette.secondary.dark};
         `;
     }};
-    hr {
-        width: 0;
-        height: 20px;
-        margin: 0 auto;
-    }
 `;
 export const Content = styled(CardContent)`
     margin: 0;
@@ -83,6 +75,9 @@ export const Content = styled(CardContent)`
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
+    &:last-child {
+        padding: 0;
+    }
 `;
 
 export const FormSelect = styled(FormControl)`
@@ -119,17 +114,23 @@ export const StyledCard = styled(Box)<StyledCardProps>`
         `;
     }}
 `;
-export const Subscribe = styled(Button)`
+export const Subscribe = styled(Typography)`
     position: absolute;
     font-weight: 300;
     bottom: 12px;
     left: 12px;
     font-size: 12px;
     padding: 4px;
+    border-radius: 4px;
     text-transform: capitalize;
+    ${({ theme: { palette } }) => css`
+        background: ${palette.primary.main};
+        color: #fff;
+    `};
 `;
 export const MediaWrapper = styled(Button)`
     position: relative;
     width: 100%;
     padding: 0;
+    cursor: pointer;
 `;

@@ -12,8 +12,8 @@ import {
     MediaWrapper,
 } from './styles';
 import { IFood } from '../../types/restaurant';
-import { getLocaleKey } from '../../helpers/getLocaleKey';
-import { useTranslation } from 'react-i18next';
+// import { getLocaleKey } from '../../helpers/getLocaleKey';
+// import { useTranslation } from 'react-i18next';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
 interface IProps extends IFood {
     handleClick?: () => void;
@@ -23,11 +23,11 @@ interface IProps extends IFood {
     description: string;
 }
 const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description }) => {
-    const { i18n } = useTranslation();
+    // const { i18n } = useTranslation();
 
-    const getKey = (key: string) => {
-        return getLocaleKey(key, i18n);
-    };
+    // const getKey = (key: string) => {
+    //     return getLocaleKey(key, i18n);
+    // };
 
     return (
         <StyledCard>
@@ -37,7 +37,7 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
                 </CardTitle>
                 <MediaWrapper onClick={handleClick}>
                     <StyledMedia image={src} title={title} />
-                    <Subscribe variant="contained">View Food/Subscribe</Subscribe>
+                    <Subscribe>View Food/Subscribe</Subscribe>
                 </MediaWrapper>
                 <Content>
                     <Details>
