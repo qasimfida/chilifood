@@ -3,6 +3,7 @@ import List from '@mui/material/List';
 import SideBarNavItem from './SideBarNavItem';
 import { LinkToPage } from '../../utils/type';
 import { useTranslation } from 'react-i18next';
+import { StyledList } from './styles';
 
 interface Props {
     items: Array<LinkToPage>;
@@ -20,7 +21,7 @@ interface Props {
 const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, ...restOfProps }) => {
     const { i18n } = useTranslation();
     return (
-        <List component="nav" {...restOfProps} dir={i18n.dir()}>
+        <StyledList component="nav" {...restOfProps} dir={i18n.dir()}>
             {items.map((item) => (
                 <SideBarNavItem
                     key={`${item.title}-${item.path}`}
@@ -34,7 +35,7 @@ const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, .
                     }}
                 />
             ))}
-        </List>
+        </StyledList>
     );
 };
 

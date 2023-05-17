@@ -7,7 +7,8 @@ import SideBarNavList from './SideBarNavList';
 import { SIDEBAR_WIDTH, TOPBAR_DESKTOP_HEIGHT } from '../config';
 import UserInfo from '../../components/UserInfo';
 import { useTranslation } from 'react-i18next';
-import { StyledDrawer } from './styles';
+import { Settings, StyledDrawer } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'variant' | 'onClose'> {
     items: Array<LinkToPage>;
@@ -25,9 +26,7 @@ interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'var
  */
 const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClick, onClose, ...restOfProps }) => {
     const { i18n } = useTranslation();
-    // const [state] = useAppStore();
-    // const isAuthenticated = state.isAuthenticated; // Variant 1
-    // const isAuthenticated = useIsAuthenticated();
+    const { isAuthenticated } = useIsAuthenticated();
     const onMobile = useOnMobile();
 
     const onLogout = useEventLogout();
@@ -40,7 +39,7 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onCli
     //     },
     //     [variant, onClose]
     // );
-    const isLoggedInUser = true;
+    const navigate = useNavigate();
     return (
         <StyledDrawer
             anchor={anchor}
@@ -63,32 +62,23 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onCli
             <Stack
                 sx={{
                     height: '100%',
-                    padding: 2,
+                    paddingLeft: 2,
+                    paddingRight: 2,
+                    justifyContent: 'space-between',
                 }}
                 {...restOfProps}
             >
-                {/* {isAuthenticated && (
-                    <>
-                        <UserInfo showAvatar />
-                        <Divider />
-                    </>
-                )} */}
-
                 <SideBarNavList items={items} showIcons onClick={onClick} />
 
-                <Divider />
-
-                <Stack
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-evenly',
-                        alignItems: 'center',
-                        marginTop: 2,
-                    }}
-                >
-                    {/* {isAuthenticated && <AppIconButton icon="logout" title="Logout Current User" onClick={onLogout} />} */}
-                </Stack>
+                <Settings>
+                    {isAuthenticated && (
+                        <AppIconButton
+                            icon="settings"
+                            title="Logout Current User"
+                            onClick={() => navigate('/settings')}
+                        />
+                    )}
+                </Settings>
             </Stack>
         </StyledDrawer>
     );

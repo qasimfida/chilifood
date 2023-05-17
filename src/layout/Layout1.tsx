@@ -105,12 +105,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             icon: 'logout',
             key: 'logout',
         },
-
-        {
-            title: '',
-            path: '/setting',
-            icon: 'settings',
-        },
     ];
 
     const [value, setValue] = useState('1');

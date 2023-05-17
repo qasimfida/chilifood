@@ -23,8 +23,7 @@ const PublicRoutes = () => {
             <Route path="/:restaurant" element={<Restaurant />} />
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="auth/*" element={<AuthRoutes />} />
-            {/* <Route path="auth/*" element={<AuthRoutes />} /> */}
-            <Route path="/about" element={<AboutView />} />,{/* <Route path="*" element={<NotFoundView />} /> */}
+            <Route path="/about" element={<AboutView />} />
             <Route path="/plan" element={<Plan />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/terms-policy" element={<TermsPolicy />} />
