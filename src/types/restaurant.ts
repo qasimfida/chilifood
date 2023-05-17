@@ -23,7 +23,7 @@ export interface IFood {
 export interface IMacro {
     label: string;
     labelAr: string;
-    count: number;
+    amount: number;
 }
 export interface ExtendsIMeal extends IMeal {
     selected?: boolean;

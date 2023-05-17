@@ -18,7 +18,7 @@ export const restaurantSlice = createSlice({
     initialState,
     reducers: {
         showDetails: (state, action: PayloadAction<string>) => {
-            state.viewFoodDetails = state.viewFoodDetails !== '' ? '' : action.payload;
+            state.viewFoodDetails = state.viewFoodDetails === action.payload ? '' : action.payload;
             // state.foods = state.foods.map((food) => {
             //     if (food.id === action.payload) {
             //         food.selected = !food.selected;

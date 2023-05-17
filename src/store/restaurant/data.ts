@@ -286,7 +286,7 @@ export const r = [
                                         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         name: 'Spicy Thai Basil Chicken',
                                         description:
-                                            'Discover the ultimate indulgence in our luxurious spa treatments and leave feeling rejuvenated and refreshed.',
+                                            'Discover the ultimate indulgence in our luxurious spa treatments.',
                                         macros: [
                                             { id: '123', name: 'Protein', amount: 12 },
                                             { id: '124', name: 'Carbs', amount: 32 },
@@ -305,7 +305,7 @@ export const r = [
                                         name: 'Creamy Mushroom Risotto',
                                         src: 'https://images.unsplash.com/photo-1516865131505-4dabf2efc692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
                                         description:
-                                            'Elevate your fitness routine with our state-of-the-art gym equipment and personalized training programs.',
+                                            'Elevate your fitness routine with our state-of-the-art gym equipment and personalized.',
                                         macros: [
                                             { name: 'Protein', amount: 5 },
                                             { name: 'Carbs', amount: 12 },
@@ -323,6 +323,8 @@ export const r = [
                                         id: '11',
                                         name: 'Salmon',
                                         src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+                                        description:
+                                            'Elevate your state-of-the-art gym equipment and personalized training programs.',
                                         macros: [
                                             { name: 'Protein', amount: 20 },
                                             { name: 'Carbs', amount: 5 },
@@ -346,8 +348,11 @@ export const r = [
                                 name: 'Breakfast',
                                 foods: [
                                     {
+                                        id: '111',
                                         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         name: 'Declicious Chicken',
+
+                                        description: 'Discover the ultimate indulgence in our luxurious spa',
                                         macros: [
                                             { name: 'Protein', amount: 12 },
                                             { name: 'Carbs', amount: 32 },
@@ -356,8 +361,39 @@ export const r = [
                                         ],
                                     },
                                     {
+                                        id: '112',
                                         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         name: ' Chicken',
+
+                                        description:
+                                            'luxurious spa treatments and leave feeling rejuvenated and refreshed.',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                    {
+                                        id: '113',
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: 'Declicious Chicken',
+
+                                        description:
+                                            'The ultimate indulgence in our luxurious spa treatments and leave feeling.',
+                                        macros: [
+                                            { name: 'Protein', amount: 12 },
+                                            { name: 'Carbs', amount: 32 },
+                                            { name: 'Fat', amount: 20 },
+                                            { name: 'Prot', amount: 23 },
+                                        ],
+                                    },
+                                    {
+                                        id: '114',
+                                        src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        name: ' Chicken',
+                                        description:
+                                            'Discover the ultimate indulgence in our luxurious spa treatments and leave feeling rejuvenated',
                                         macros: [
                                             { name: 'Protein', amount: 12 },
                                             { name: 'Carbs', amount: 32 },
@@ -372,6 +408,34 @@ export const r = [
                                 name: 'Lunch',
                                 foods: [
                                     {
+                                        id: '115',
+                                        name: 'Salad',
+                                        src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+
+                                        description:
+                                            'Discover luxurious spa treatments and leave feeling rejuvenated and refreshed.',
+                                        macros: [
+                                            { name: 'Protein', amount: 5 },
+                                            { name: 'Carbs', amount: 12 },
+                                            { name: 'Fat', amount: 8 },
+                                            { name: 'Prot', amount: 3 },
+                                        ],
+                                    },
+                                    {
+                                        id: '116',
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+
+                                        description:
+                                            'Indulgence in our luxurious spa treatments and leave feeling rejuvenated and refreshed.',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                    {
+                                        id: '117',
                                         name: 'Salad',
                                         src: 'https://images.unsplash.com/photo-1606149186228-4e5ac94a742e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
                                         macros: [
@@ -382,6 +446,17 @@ export const r = [
                                         ],
                                     },
                                     {
+                                        id: '118',
+                                        name: 'Chicken Breast',
+                                        src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 25 },
+                                            { name: 'Carbs', amount: 0 },
+                                            { name: 'Fat', amount: 5 },
+                                        ],
+                                    },
+                                    {
+                                        id: '119',
                                         name: 'Chicken Breast',
                                         src: 'https://images.unsplash.com/photo-1598298125949-4c3eba287609?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
                                         macros: [
@@ -397,6 +472,7 @@ export const r = [
                                 name: 'Dinner',
                                 foods: [
                                     {
+                                        id: '120',
                                         name: 'Salmon',
                                         src: 'https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
                                         macros: [
@@ -407,6 +483,18 @@ export const r = [
                                         ],
                                     },
                                     {
+                                        id: '121',
+                                        name: 'Rice',
+                                        src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                                        macros: [
+                                            { name: 'Protein', amount: 30 },
+                                            { name: 'Carbs', amount: 44 },
+                                            { name: 'Fat', amount: 1 },
+                                            { name: 'Prot', amount: 12 },
+                                        ],
+                                    },
+                                    {
+                                        id: '122',
                                         name: 'Rice',
                                         src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
                                         macros: [

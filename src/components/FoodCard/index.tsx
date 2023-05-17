@@ -61,8 +61,8 @@ const FoodCard: React.FC<IProps> = ({ isExpended, onToggle, macros, handleSelect
                             {macros?.map((macro, index) => {
                                 return (
                                     <Macro key={macro.label + index}>
-                                        <MacrosCount component="span">{macro.count}</MacrosCount>
-                                        {(macro as any)[getKey('label')]}
+                                        <MacrosCount component="span">{macro.amount}</MacrosCount>
+                                        {(macro as any)[getKey('name')]}
                                     </Macro>
                                 );
                             })}

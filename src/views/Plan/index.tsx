@@ -58,7 +58,9 @@ const Plan: React.FC<any> = () => {
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
-    const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === activeDay);
+    const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === (activeDay || '7'));
+    console.log({ selectedDay, activeDay, activeMeal, selectedP });
+
     return (
         <Layout1 title={selectedR?.name} hasFooter>
             <Container>

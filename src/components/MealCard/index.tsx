@@ -11,7 +11,7 @@ import {
     Subscribe,
     MediaWrapper,
 } from './styles';
-import { IFood } from '../../types/restaurant';
+import { IFood, IMacro } from '../../types/restaurant';
 // import { getLocaleKey } from '../../helpers/getLocaleKey';
 // import { useTranslation } from 'react-i18next';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
@@ -41,6 +41,7 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
                 </MediaWrapper>
                 <Content>
                     <Details>
+                        {}
                         <Box>
                             <Description weight="500">{carbs}</Description>
                             <Description>{description}</Description>
