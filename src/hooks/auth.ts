@@ -7,7 +7,12 @@ import { useCallback } from 'react';
  */
 export function useIsAuthenticated() {
     // const [state] = useAppStore();
-    let result = false;
+    const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
+    const isAuthenticated = user?.userNumber === '12345678' ? true : false;
+    let result = {
+        isAuthenticated,
+        ...user,
+    };
 
     // TODO: AUTH: add access token verification or other authentication check here
     // result = Boolean(sessionStorageGet('access_token', ''));
@@ -19,10 +24,15 @@ export function useIsAuthenticated() {
  * Returns event handler to Logout current user
  * @returns {function} calling this event logs out current user
  */
+
+const onLogout = () => {
+    localStorage.removeItem('user');
+};
 export function useEventLogout() {
     // const [, dispatch] = useAppStore();
 
     return useCallback(() => {
+        onLogout();
         // TODO: AUTH: add auth and tokens cleanup here
         // sessionStorageDelete('access_token');
     }, []);

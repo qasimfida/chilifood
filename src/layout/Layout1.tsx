@@ -100,12 +100,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             icon: 'logout',
             key: 'logout',
         },
-
-        {
-            title: '',
-            path: '/settings',
-            icon: 'settings',
-        },
     ];
 
     const [value, setValue] = useState('1');
@@ -253,7 +247,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                                         <MenuItem value={3}>Option 3</MenuItem>
                                     </Select>
                                 </StyledFormControl>
-                                <StyledButton onClick={() => navigateTo('/checkout')}>Subscribe</StyledButton>
+                                <StyledButton onClick={() => navigate('/checkout')}>Subscribe</StyledButton>
                             </Flex>
                         </Container>
                     </PriceWrapper>
