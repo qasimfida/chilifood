@@ -3,7 +3,7 @@ import { AppButton } from '../../components';
 
 export const Wrapper = styled(Box)`
     margin-top: 40px;
-    min-height: 100vh;
+    min-height: calc(100vh - 216px);
     width: 100%;
     display: flex;
     align-items: center;

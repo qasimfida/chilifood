@@ -34,7 +34,6 @@ const Home: React.FC<any> = () => {
                 <Container>
                     <TabPan />
                 </Container>
-                <Container></Container>
             </Wrapper>
         </Layout1>
     );

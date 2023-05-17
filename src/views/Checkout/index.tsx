@@ -18,7 +18,6 @@ import {
 import Layout1 from '../../layout/Layout1';
 import { PayButton, TextArea, Title, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
-import { AppButton } from '../../components';
 
 const CheckOut: React.FC<any> = () => {
     const [value, setValue] = useState<any>('1');
