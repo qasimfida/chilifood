@@ -13,22 +13,22 @@ import {
 // import { useAppStore } from '../../../store';
 import { AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
-import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
+import { Header, Icon, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import logo from './../../../assets/logos/logo.png';
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
 
 const validation = (t: any) => ({
-    phone: {
+    phoneNumber: {
         type: 'string',
         format: {
-            pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
+            pattern: '[0-9]*', // Note: We have to allow empty in the pattern
         },
         length: {
             minimum: 8,
             maximum: 8,
-            message: t('SIGNUP.NUMBER_ERROR'),
+            message: 'field must be 8 numbers',
         },
     },
     name: {
@@ -36,26 +36,27 @@ const validation = (t: any) => ({
         presence: { allowEmpty: false },
         format: {
             pattern: '^[A-Za-z ]+$', // Note: Allow only alphabets and space
-            message: 'phone number field must be 8 numbers',
+            message: 'must consist of only alphabets',
         },
         length: {
-            minimum: 3,
-            maximum: 15,
+            minimum: 2,
+            maximum: 30,
+            message: 'must be more than 2 letters',
         },
     },
     password: {
         presence: true,
         length: {
-            minimum: 8,
-            maximum: 32,
-            message: 'must be between 8 and 32 characters',
+            minimum: 3,
+            maximum: 50,
+            message: 'password must be more than 3 digits',
         },
     },
 });
 
 interface FormStateValues {
     name: string;
-    phone: string;
+    phoneNumber: string;
     password: string;
     confirmPassword?: string;
 }
@@ -76,7 +77,7 @@ const Signup = () => {
         validationSchema: validationSchema, // the state value, so could be changed in time
         initialValues: {
             name: '',
-            phone: '',
+            phoneNumber: '',
             password: '',
         } as FormStateValues,
         validateOnBlur: true,
@@ -115,7 +116,7 @@ const Signup = () => {
             newSchema = { ...validation(t) }; // Full validation
         }
         setValidationSchema(newSchema);
-    }, [showPassword]);
+    }, [showPassword, t]);
 
     const handleShowPasswordClick = useCallback(() => {
         setShowPassword((oldValue) => !oldValue);
@@ -147,14 +148,14 @@ const Signup = () => {
     if (loading) return <LinearProgress />;
 
     return (
-        <Layout1 title="Signup" menuHeader withFooter>
+        <Layout1 title="Register" menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
-                            <Logo src={logo} alt="logo" />
+                            <Icon name="register" />
                             <Title component="h2" variant="h5">
-                                {t('SIGNUP.TITLE')} Chili Food
+                                {t('SIGNUP.TITLE')}
                             </Title>
                         </Header>
                         <CardContent>
@@ -162,11 +163,11 @@ const Signup = () => {
                                 required
                                 type="tel"
                                 label={t('PHONE_NUMBER')}
-                                name="phone"
-                                inputProps={{ pattern: '[0-9]*', maxLength: '8' }}
-                                value={generateValidNumber(values.phone)}
-                                error={fieldHasError('phone')}
-                                helperText={fieldGetError('phone') || ' '}
+                                name="phoneNumber"
+                                inputProps={{ pattern: '[0-9]*', maxLength: 8 }}
+                                value={generateValidNumber(values.phoneNumber)}
+                                error={fieldHasError('phoneNumber')}
+                                helperText={fieldGetError('phoneNumber') || ' '}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}

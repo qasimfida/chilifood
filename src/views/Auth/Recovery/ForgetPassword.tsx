@@ -12,7 +12,7 @@ const VALIDATE_FORM_RECOVERY_PASSWORD = {
         presence: true,
         type: 'string',
         format: {
-            pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
+            pattern: '/^[0-9]*$', // Note: We have to allow empty in the pattern
             message: 'should contain numbers',
         },
         length: {

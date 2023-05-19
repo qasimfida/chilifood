@@ -2,38 +2,40 @@ import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, CardContent, InputAdornment, Box, createTheme, useTheme } from '@mui/material';
 // import { useAppStore } from '../../../store';
-import { AppButton, AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
+import { AppButton, AppLink, AppIconButton, AppAlert, AppForm, AppIcon } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import logo from './../../../assets/logos/logo.png';
-import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
+import { Header, Icon, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
+import { generateValidNumber } from '../../../utils/generateValidNumber';
 
 const VALIDATION = {
-    number: {
+    phoneNumber: {
         presence: true,
         type: 'string',
         format: {
-            pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
+            pattern: '[0-9]*', // Note: We have to allow empty in the pattern
             message: 'should contain numbers',
         },
         length: {
             minimum: 8,
             maximum: 8,
+            message: 'field must be 8 numbers',
         },
     },
     password: {
         presence: true,
         length: {
-            minimum: 8,
-            maximum: 32,
-            message: 'must be between 8 and 32 characters',
+            minimum: 3,
+            maximum: 50,
+            message: 'password must be more than 3 digits',
         },
     },
 };
 
 interface FormStateValues {
-    number: string;
+    phoneNumber: string;
     password: string;
 }
 
@@ -48,7 +50,7 @@ const Login = () => {
     // const [, dispatch] = useAppStore();
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: VALIDATION,
-        initialValues: { number: '', password: '' } as FormStateValues,
+        initialValues: { phoneNumber: '', password: '' } as FormStateValues,
         validateOnBlur: true,
     });
     const [showPassword, setShowPassword] = useState(false);
@@ -65,7 +67,7 @@ const Login = () => {
 
             const result = true; // await api.auth.loginWithEmail(values);
             if (!result) {
-                setError('Please check number and password');
+                setError('Please check phoneNumber and password');
                 return;
             }
 
@@ -100,28 +102,28 @@ const Login = () => {
     };
 
     return (
-        <Layout1 title="Login" menuHeader withFooter>
+        <Layout1 title="Login" menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
-                            <Logo src={logo} alt="logo" />
+                            <Icon name="login" />
                             <Title component="h2" variant="h5">
-                                Login to Chili Food
+                                Login
                             </Title>
                         </Header>
                         <CardContent>
                             <TextField
                                 required
-                                type="number"
+                                type="tel"
                                 label={t('PHONE_NUMBER')}
-                                name="number"
-                                inputProps={{ pattern: /^[0-9]*$/ }}
-                                value={values.number}
-                                error={fieldHasError('number')}
-                                helperText={fieldGetError('number') || ' '}
-                                id="number"
-                                autoComplete="number"
+                                name="phoneNumber"
+                                inputProps={{ pattern: '[0-9]*', maxLength: 8 }}
+                                value={generateValidNumber(values.phoneNumber)}
+                                error={fieldHasError('phoneNumber')}
+                                helperText={fieldGetError('phoneNumber') || ' '}
+                                id="phoneNumber"
+                                autoComplete="phoneNumber"
                                 autoFocus
                                 onBlur={onFieldBlur}
                                 onChange={(e) => {
