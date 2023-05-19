@@ -164,6 +164,7 @@ const Signup = () => {
                                 type="tel"
                                 label={t('PHONE_NUMBER')}
                                 name="phoneNumber"
+                                id="phoneNumber"
                                 inputProps={{ pattern: '[0-9]*', maxLength: 8 }}
                                 value={generateValidNumber(values.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
@@ -185,6 +186,7 @@ const Signup = () => {
                             />
                             <TextField
                                 required
+                                id="password"
                                 type={showPassword ? 'text' : 'password'}
                                 label={t('PASSWORD')}
                                 name="password"

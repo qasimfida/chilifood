@@ -1,11 +1,10 @@
-import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { SyntheticEvent, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, TextField, CardContent, InputAdornment, Box, createTheme, useTheme } from '@mui/material';
+import { Grid, TextField, CardContent, InputAdornment, createTheme, useTheme } from '@mui/material';
 // import { useAppStore } from '../../../store';
-import { AppButton, AppLink, AppIconButton, AppAlert, AppForm, AppIcon } from '../../../components';
+import { AppLink, AppIconButton, AppAlert, AppForm, AppIcon } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
-import logo from './../../../assets/logos/logo.png';
-import { Header, Icon, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
+import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
@@ -137,6 +136,7 @@ const Login = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 label={t('PASSWORD')}
                                 name="password"
+                                id="password"
                                 value={values.password}
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
