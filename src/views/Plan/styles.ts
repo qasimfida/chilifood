@@ -2,8 +2,8 @@ import { css, styled } from '@mui/system';
 import { Box, Tab, Tabs } from '@mui/material';
 export const StyledTabContext = styled(Tabs)<any>`
     border: none;
-    & > .MuiTabs-scroller.MuiTabs-hideScrollbar > .MuiTabs-flexContainer {
-        justify-content: center;
+    .MuiButtonBase-root.MuiTabs-scrollButtons {
+        width: 24px;
     }
 `;
 export const TabsWrapper = styled(Box)`

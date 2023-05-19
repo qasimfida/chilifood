@@ -17,6 +17,7 @@ import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../style
 import logo from './../../../assets/logos/logo.png';
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
+import { generateValidNumber } from '../../../utils/generateValidNumber';
 
 const validation = (t: any) => ({
     phone: {
@@ -27,10 +28,10 @@ const validation = (t: any) => ({
         length: {
             minimum: 8,
             maximum: 8,
-            message: t('signup.phone'),
+            message: t('SIGNUP.NUMBER_ERROR'),
         },
     },
-    firstName: {
+    name: {
         type: 'string',
         presence: { allowEmpty: false },
         format: {
@@ -53,7 +54,7 @@ const validation = (t: any) => ({
 });
 
 interface FormStateValues {
-    firstName: string;
+    name: string;
     phone: string;
     password: string;
     confirmPassword?: string;
@@ -74,7 +75,7 @@ const Signup = () => {
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: validationSchema, // the state value, so could be changed in time
         initialValues: {
-            firstName: '',
+            name: '',
             phone: '',
             password: '',
         } as FormStateValues,
@@ -159,11 +160,11 @@ const Signup = () => {
                         <CardContent>
                             <TextField
                                 required
-                                type="number"
+                                type="tel"
                                 label={t('PHONE_NUMBER')}
                                 name="phone"
-                                inputProps={{ pattern: /^[0-9]*$/ }}
-                                value={values.phone}
+                                inputProps={{ pattern: '[0-9]*', maxLength: '8' }}
+                                value={generateValidNumber(values.phone)}
                                 error={fieldHasError('phone')}
                                 helperText={fieldGetError('phone') || ' '}
                                 onChange={onFieldChange}
@@ -172,11 +173,11 @@ const Signup = () => {
                             />
                             <TextField
                                 required
-                                label={t('FIRST_NAME')}
-                                name="firstName"
-                                value={values.firstName}
-                                error={fieldHasError('firstName')}
-                                helperText={fieldGetError('firstName') || ' '}
+                                label={t('NAME')}
+                                name="name"
+                                value={values.name}
+                                error={fieldHasError('name')}
+                                helperText={fieldGetError('name') || ' '}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}
@@ -211,12 +212,7 @@ const Signup = () => {
                                 label={
                                     <>
                                         {t('SIGNUP.AGREE')}
-                                        <Button
-                                            variant="text"
-                                            color="primary"
-                                            component={AppLink}
-                                            to="/auth/recovery/password"
-                                        >
+                                        <Button variant="text" color="primary" component={AppLink} to="/terms-policy">
                                             {t('SIGNUP.TERMS_AND_CONDITIONS')}
                                         </Button>
                                     </>
