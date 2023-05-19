@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, SyntheticEvent, ChangeEvent } from 'react';
+import { useState, useEffect, useCallback, SyntheticEvent } from 'react';
 import validate from 'validate.js';
 import { ObjectPropByName } from './type';
 

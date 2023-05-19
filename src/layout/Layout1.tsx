@@ -100,6 +100,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
 
     const [value, setValue] = useState('1');
     const handleDropDownChange = (event: any) => {
+        setValue(event.target.value)
         console.log('hello');
     };
 

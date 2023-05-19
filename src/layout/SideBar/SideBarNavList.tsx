@@ -1,5 +1,4 @@
-import { FunctionComponent, MouseEventHandler } from 'react';
-import List from '@mui/material/List';
+import { FunctionComponent } from 'react';
 import SideBarNavItem from './SideBarNavItem';
 import { LinkToPage } from '../../utils/type';
 import { useTranslation } from 'react-i18next';

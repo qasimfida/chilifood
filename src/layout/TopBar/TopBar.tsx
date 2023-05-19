@@ -1,8 +1,7 @@
-import { AppBar, Container, Toolbar, Typography } from '@mui/material';
-import { FunctionComponent, ReactNode, useTransition } from 'react';
+import { Container } from '@mui/material';
+import { FunctionComponent, ReactNode } from 'react';
 import { Header, Logo, StyledToolbar } from './styles';
 import LogoIcon from './../../assets/logos/logo.png';
-import { useTranslation } from 'react-i18next';
 
 interface Props {
     endNode?: ReactNode;
@@ -16,7 +15,6 @@ interface Props {
  * @component TopBar
  */
 const TopBar: FunctionComponent<Props> = ({ endNode, startNode, title = '', onClick, ...restOfProps }) => {
-    const { i18n } = useTranslation();
     return (
         <Header {...restOfProps}>
             <Container>

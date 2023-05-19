@@ -1,11 +1,8 @@
 import Layout1 from '../../layout/Layout1';
 import { TabHeading, Title, Wrapper } from './styles';
 import { Container } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 
 const TermsPolicy = () => {
-    const { i18n } = useTranslation();
-
     return (
         <Layout1 title="Terms and Policy" withFooter>
             <Container>

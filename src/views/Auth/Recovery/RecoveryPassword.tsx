@@ -1,6 +1,6 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
-import { Grid, TextField, Card, CardHeader, CardContent } from '@mui/material';
-import { AppButton, AppAlert, AppForm } from '../../../components';
+import { Grid, TextField, CardContent } from '@mui/material';
+import { AppAlert, AppForm } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import Layout1 from '../../../layout/Layout1';
@@ -10,8 +10,8 @@ const VALIDATE_FORM_RECOVERY_PASSWORD = {
         presence: true,
         length: {
             minimum: 8,
-            maximum: 32,
-            message: 'must be between 8 and 32 characters',
+            maximum: 8,
+            message: 'field must be 8 numbers',
         },
     },
 };
@@ -61,6 +61,9 @@ const RecoveryPassword = () => {
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
                                 onChange={onFieldChange}
+                                InputProps={{
+                                    inputMode: 'numeric',
+                                }}
                                 {...SHARED_CONTROL_PROPS}
                             />
 

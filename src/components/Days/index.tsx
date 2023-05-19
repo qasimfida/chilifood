@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { ExtendsIDay } from '../../types/restaurant';
 import '@mui/lab/themeAugmentation';
-import { TabPanel } from '@mui/lab';
 
 function a11yProps(index: number) {
     return {

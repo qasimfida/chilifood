@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IRestaurantState } from '../../types/restaurant';
-import { days, foods, meals, restaurants, r } from './data';
+import { r } from './data';
 
 // Define a type for the slice state
 

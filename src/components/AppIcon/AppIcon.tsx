@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { SvgIcon, styled } from '@mui/material';
+import { styled } from '@mui/material';
 // SVG assets
 import LogoIcon from './../../assets/logos/logo.png';
 // Material Icons
@@ -17,8 +17,6 @@ import InfoIcon from '@mui/icons-material/Info';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import PersonIcon from '@mui/icons-material/Person';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
 import {
     AddIcCall,
@@ -26,8 +24,7 @@ import {
     Description,
     Login,
     Logout,
-    Translate,
-    VerifiedUserSharp,
+    Translate
 } from '@mui/icons-material';
 const Logo = styled('img')`
     height: 44px;

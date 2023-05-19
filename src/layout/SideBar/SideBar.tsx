@@ -1,11 +1,10 @@
-import { FunctionComponent, useCallback, MouseEvent } from 'react';
-import { Stack, Divider, Drawer, DrawerProps, FormControlLabel, Switch, Tooltip } from '@mui/material';
+import { FunctionComponent } from 'react';
+import { Stack, DrawerProps } from '@mui/material';
 import { AppIconButton } from '../../components';
 import { LinkToPage } from '../../utils/type';
-import { useEventLogout, useEventSwitchDarkMode, useIsAuthenticated, useOnMobile } from '../../hooks';
+import { useIsAuthenticated, useOnMobile } from '../../hooks';
 import SideBarNavList from './SideBarNavList';
 import { SIDEBAR_WIDTH, TOPBAR_DESKTOP_HEIGHT } from '../config';
-import UserInfo from '../../components/UserInfo';
 import { useTranslation } from 'react-i18next';
 import { Settings, StyledDrawer } from './styles';
 import { useNavigate } from 'react-router-dom';
@@ -28,8 +27,6 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onCli
     const { i18n } = useTranslation();
     const { isAuthenticated } = useIsAuthenticated();
     const onMobile = useOnMobile();
-
-    const onLogout = useEventLogout();
 
     // const handleAfterLinkClick = useCallback(
     //     (event: MouseEvent) => {

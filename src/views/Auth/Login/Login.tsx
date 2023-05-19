@@ -129,6 +129,9 @@ const Login = () => {
                                     onFieldChange(e);
                                     setUserNumber(e.target.value);
                                 }}
+                                InputProps={{
+                                    inputMode: 'numeric',
+                                }}
                                 {...SHARED_CONTROL_PROPS}
                             />
                             <TextField

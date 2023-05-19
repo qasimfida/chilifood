@@ -1,29 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
-import {
-    Container,
-    FormControl,
-    Grid,
-    InputLabel,
-    Link,
-    MenuItem,
-    Select,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-    Typography,
-    createTheme,
-    useTheme,
-} from '@mui/material';
+import { Container, Grid, createTheme, useTheme } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { PayButton, TextArea, Title, Wrapper } from './styles';
+import { Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from '../../components';
 
 const Settings: React.FC<any> = () => {
-    const [value, setValue] = useState<any>('1');
     const { i18n } = useTranslation();
 
     let theme = useTheme();
