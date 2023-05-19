@@ -197,6 +197,7 @@ const Signup = () => {
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}
                                 InputProps={{
+                                    inputMode: 'numeric',
                                     endAdornment: (
                                         <InputAdornment position="end">
                                             <AppIconButton
