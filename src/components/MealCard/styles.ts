@@ -1,12 +1,4 @@
-import {
-    Box,
-    Button,
-    CardContent,
-    CardMedia,
-    FormControl,
-    Typography,
-    TypographyProps,
-} from '@mui/material';
+import { Box, Button, CardContent, CardMedia, FormControl, Typography } from '@mui/material';
 import { css, styled } from '@mui/system';
 interface StyledCardProps {
     expended?: string;

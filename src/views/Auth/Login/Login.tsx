@@ -1,8 +1,8 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, TextField, CardContent, InputAdornment, createTheme, useTheme } from '@mui/material';
+import { Grid, TextField, CardContent, InputAdornment } from '@mui/material';
 // import { useAppStore } from '../../../store';
-import { AppLink, AppIconButton, AppAlert, AppForm, AppIcon } from '../../../components';
+import { AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
@@ -44,7 +44,7 @@ interface FormStateValues {
  */
 
 const Login = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const navigate = useNavigate();
     // const [, dispatch] = useAppStore();
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
@@ -75,15 +75,6 @@ const Login = () => {
         },
         [/*values,*/ navigate]
     );
-    let theme = useTheme();
-    const handleClick = () => {
-        const lng = i18n.language;
-        i18n.changeLanguage(lng === 'ar' ? 'en' : 'ar');
-        console.log(i18n.dir());
-        document.body.dir = i18n.dir();
-        const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
-        theme = updateTheme;
-    };
 
     const handleCloseError = useCallback(() => setError(undefined), []);
     // Locally Data Store

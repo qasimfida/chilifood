@@ -18,14 +18,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
-import {
-    AddIcCall,
-    AppRegistrationOutlined,
-    Description,
-    Login,
-    Logout,
-    Translate
-} from '@mui/icons-material';
+import { AddIcCall, AppRegistrationOutlined, Description, Login, Logout, Translate } from '@mui/icons-material';
 const Logo = styled('img')`
     height: 44px;
     width: 44px;
