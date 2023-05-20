@@ -164,7 +164,7 @@ const Signup = () => {
                                 label={t('PHONE_NUMBER')}
                                 name="phoneNumber"
                                 id="phoneNumber"
-                                inputProps={{ pattern: '[0-9]*', maxLength: 8 }}
+                                inputProps={{ pattern: '[0-9]*', maxLength: 8, inputMode: 'numeric' }}
                                 value={generateValidNumber(values.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}

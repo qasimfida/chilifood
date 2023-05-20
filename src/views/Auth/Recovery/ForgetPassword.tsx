@@ -5,6 +5,7 @@ import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { Header, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
+import { generateValidNumber } from '../../../utils/generateValidNumber';
 
 const VALIDATE_FORM_RECOVERY_PASSWORD = {
     phoneNumber: {
@@ -67,14 +68,12 @@ const RecoveryPassword = () => {
                                 label={t('PHONE_NUMBER')}
                                 name="phoneNumber"
                                 id="phoneNumber"
-                                value={values.phoneNumber}
+                                value={generateValidNumber(values.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
-                                InputProps={{
-                                    inputMode: 'numeric',
-                                }}
+                                inputProps={{ pattern: '[0-9]*', maxLength: 8, inputMode: 'numeric' }}
                                 {...SHARED_CONTROL_PROPS}
                             />
 

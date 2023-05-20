@@ -61,9 +61,6 @@ const RecoveryPassword = () => {
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
                                 onChange={onFieldChange}
-                                InputProps={{
-                                    inputMode: 'numeric',
-                                }}
                                 {...SHARED_CONTROL_PROPS}
                             />
 
