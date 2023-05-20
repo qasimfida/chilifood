@@ -24,7 +24,7 @@ const TabPan = ({ foods, allowSelect }: any) => {
     // const { foods, selectedFood } = state.restaurant;
     return (
         <Grid container spacing={{ xs: 2 }}>
-            {foods.map(({ id, macros, name, description, selected, src }: any) => (
+            {foods.map(({ id, macros, name, description, src }: any) => (
                 <Grid item xs={6} sm={4} lg={3} key={id}>
                     <FoodCard
                         onToggle={() => dispatch(showDetails(id))}
@@ -61,7 +61,7 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
     };
     const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === activeDay);
     return (
-        <Layout1 title={selectedR?.name} hasFooter={!allowSelect}>
+        <Layout1 title={selectedR?.name} hasFooter={!allowSelect} justFooter>
             <Container>
                 <Description>
                     <Typography> Welcome to Chili Foods </Typography>

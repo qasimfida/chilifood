@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import salad from '.././../assets/images/salad.jpg';
 import {
     Body,
@@ -40,7 +40,6 @@ const FoodCard: React.FC<IProps> = ({
     description,
     allowSelect = false,
     id,
-    isSelected = false,
 }) => {
     const { i18n } = useTranslation();
     const ref = useRef<null>(null);
@@ -50,15 +49,19 @@ const FoodCard: React.FC<IProps> = ({
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
+    const [checked, setChecked] = useState(false);
 
+    const selectedFood = () => {
+        setChecked(!checked);
+    };
     return (
         <StyledCard expended={`${isExpended}`}>
             <Body>
                 {allowSelect && (
                     <RadioCheckBox
-                        checked={isSelected}
+                        checked={checked}
                         value={id}
-                        onChange={handleSelect}
+                        onClick={selectedFood}
                         name="radio-buttons"
                         inputProps={{ 'aria-label': `${id}` }}
                     />
