@@ -31,7 +31,7 @@ const Restaurant: React.FC<any> = () => {
     const { r } = useAppSelector((state) => state.restaurant);
     const restaurant = r.find((i: any) => i.id === params.restaurant);
     return (
-        <Layout1 title={restaurant?.name} withFooter>
+        <Layout1 title={restaurant?.name}>
             <Wrapper>
                 <Suspense fallback={<Loading>Fetching data...</Loading>}>
                     <Container>

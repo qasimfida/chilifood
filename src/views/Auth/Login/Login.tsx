@@ -113,7 +113,7 @@ const Login = () => {
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}
                                 id="phoneNumber"
-                                autoComplete="phoneNumber"
+                                autoComplete="new-phone-number"
                                 autoFocus
                                 onBlur={onFieldBlur}
                                 onChange={(e) => {
@@ -128,6 +128,7 @@ const Login = () => {
                                 label={t('PASSWORD')}
                                 name="password"
                                 id="password"
+                                autoComplete="new-password"
                                 value={values.password}
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}

@@ -57,7 +57,7 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
     };
     const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === (activeDay || '7'));
     return (
-        <Layout1 title={selectedR?.name} hasFooter={!allowSelect} withFooter>
+        <Layout1 title={selectedR?.name} hasFooter={!allowSelect}>
             <Container>
                 <Description>
                     <Typography> Welcome to Chili Foods </Typography>

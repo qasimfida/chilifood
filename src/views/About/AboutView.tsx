@@ -6,7 +6,7 @@ import { Container } from '@mui/material';
 
 const About: React.FC<any> = () => {
     return (
-        <Layout1 title="About">
+        <Layout1 title="About" withFooter>
             <Wrapper>
                 <Container>
                     <Title>Restaurant</Title>

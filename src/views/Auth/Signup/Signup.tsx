@@ -189,6 +189,7 @@ const Signup = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 label={t('PASSWORD')}
                                 name="password"
+                                autoComplete="new-password"
                                 value={values.password}
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}

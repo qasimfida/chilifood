@@ -55,7 +55,7 @@ const RecoveryPassword = () => {
     const handleCloseError = useCallback(() => setMessage(undefined), []);
 
     return (
-        <Layout1 title="Forgot Password" menuHeader withFooter>
+        <Layout1 title="Forgot Password" menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
@@ -69,6 +69,7 @@ const RecoveryPassword = () => {
                                 label={t('PHONE_NUMBER')}
                                 name="phoneNumber"
                                 id="phoneNumber"
+                                autoComplete="new-phone-number"
                                 value={generateValidNumber(values.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}

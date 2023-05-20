@@ -27,7 +27,7 @@ const Settings: React.FC<any> = () => {
     };
 
     return (
-        <Layout1 title={'Settings'} withFooter>
+        <Layout1 title={'Settings'}>
             <Wrapper dir={i18n.dir()}>
                 <Container>
                     <Grid container spacing={0}>

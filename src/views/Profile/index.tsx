@@ -148,7 +148,7 @@ const Profile = () => {
     if (loading) return <LinearProgress />;
     console.log({ error });
     return (
-        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`} withFooter>
+        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`}>
             <Wrapper>
                 <Container>
                     <TabContext value={value}>

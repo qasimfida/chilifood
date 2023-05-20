@@ -57,7 +57,7 @@ const ConfirmOTP = () => {
     const handleCloseError = useCallback(() => setError(undefined), []);
 
     return (
-        <Layout1 title="Verify OTP" menuHeader withFooter>
+        <Layout1 title="Verify OTP" menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>

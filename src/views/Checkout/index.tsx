@@ -22,7 +22,7 @@ const CheckOut: React.FC<any> = () => {
     const [value, setValue] = useState<any>('1');
     const { i18n } = useTranslation();
     return (
-        <Layout1 title={'Checkout'} withFooter>
+        <Layout1 title={'Checkout'}>
             <Wrapper dir={i18n.dir()}>
                 <Container>
                     <Title>

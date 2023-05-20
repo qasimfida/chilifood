@@ -114,7 +114,7 @@ const Address = () => {
     if (loading) return <LinearProgress />;
 
     return (
-        <Layout1 title="Address" menuHeader withFooter>
+        <Layout1 title="Address" menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
