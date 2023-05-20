@@ -65,6 +65,7 @@ const RecoveryPassword = () => {
                         <CardContent>
                             <TextField
                                 required
+                                type="tel"
                                 label={t('PHONE_NUMBER')}
                                 name="phoneNumber"
                                 id="phoneNumber"
