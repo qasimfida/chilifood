@@ -1,5 +1,5 @@
 import { Box, Button, Typography, css, styled } from '@mui/material';
-import { AppButton } from '../../components';
+import { AppButton, AppIcon } from '../../components';
 
 export const Wrapper = styled(Box)`
     margin-top: 40px;
@@ -62,6 +62,10 @@ export const Logo = styled('img')`
     border-radius: 50%;
     height: 52px;
     width: 52px;
+`;
+export const Icon = styled(AppIcon)`
+    height: 36px;
+    width: 36px;
 `;
 export const Header = styled(Box)`
     padding-top: 40px;

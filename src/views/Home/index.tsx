@@ -29,7 +29,7 @@ const Home: React.FC<any> = () => {
         navigate('/select/restaurants/0/01');
     };
     return (
-        <Layout1 title="Home" menuHeader>
+        <Layout1 title="Home" menuHeader withFooter>
             <Wrapper>
                 <Container>
                     <TabPan />

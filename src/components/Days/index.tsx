@@ -31,13 +31,13 @@ const Days: React.FC<any> = ({ days }: any) => {
     return (
         <BorderedBox>
             <DatesWrapper
-            // value={activeDay}
-            // onChange={handleChange}
-            // variant="scrollable"
-            // scrollButtons="auto"
-            // allowScrollButtonsMobile
-            // aria-label="scrollable auto tabs days"
-            // dir={i18n.dir()}
+                value={activeDay}
+                onChange={handleChange}
+                variant="scrollable"
+                scrollButtons="auto"
+                allowScrollButtonsMobile
+                aria-label="scrollable auto tabs days"
+                dir={i18n.dir()}
             >
                 {days.map((day: any, index: number) => {
                     let cls = `${day.off ? 'disabled' : ''} ${day.lock ? 'locked' : ''}`;
@@ -47,7 +47,7 @@ const Days: React.FC<any> = ({ days }: any) => {
                             {...a11yProps(index)}
                             day={day}
                             className={cls}
-                            key={`day=${day.date}`}
+                            key={`day-${index}`}
                             onClick={() => handleClick(day)}
                         />
                     );

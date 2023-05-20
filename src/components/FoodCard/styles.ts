@@ -144,8 +144,16 @@ export const Macro = styled(Typography)<any>`
     font-size: 12px;
     font-weight: 300;
     line-height: 1;
-    width: 25%;
+    width: 20%;
     color: ${({ theme: { palette } }) => palette.grey.main};
+    &:nth-of-type(1) {
+        width: 30%;
+    }
+    &:nth-of-type(2) {
+        width: 30%;
+    }
+    nth-of-type(4) {
+    }
 `;
 export const MacrosCount = styled(Typography)<StyledTypoGraphy>`
     font-weight: 600;

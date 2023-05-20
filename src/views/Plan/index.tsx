@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { lazy, Suspense } from 'react';
 import { Container, Grid, Typography } from '@mui/material';
-// import FoodCard from '../../components/FoodCard';
-// import Days from '../../components/Days';
 import Layout1 from '../../layout/Layout1';
 import { Description, StyledTab, StyledTabContext, TabsWrapper } from './styles';
 import Tab from '../../components/Tab/index';
@@ -21,7 +19,6 @@ const Days = lazy(() => import('../../components/Days'));
 const TabPan = ({ foods, allowSelect }: any) => {
     const dispatch = useDispatch();
     const { viewFoodDetails } = useAppSelector((state) => state.restaurant);
-    // const { foods, selectedFood } = state.restaurant;
     return (
         <Grid container spacing={{ xs: 2 }}>
             {foods.map(({ id, macros, name, description, src }: any) => (
@@ -50,7 +47,6 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
     const selectedR = r.find((i: any) => i.id === restaurant);
     const selectedP = selectedR.plans?.find((i: any) => i.id === plan) || {};
     const { i18n } = useTranslation();
-    // const active = meals.filter((i) => i.selected)[0].id;
 
     const handleChange = (event: any, newValue: any) => {
         dispatch(selectMeal(newValue));
@@ -59,9 +55,9 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
-    const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === activeDay);
+    const selectedDay = selectedP.days.find((i: ExtendsIDay) => i.date === (activeDay || '7'));
     return (
-        <Layout1 title={selectedR?.name} hasFooter={!allowSelect} justFooter>
+        <Layout1 title={selectedR?.name} hasFooter={!allowSelect} withFooter>
             <Container>
                 <Description>
                     <Typography> Welcome to Chili Foods </Typography>
@@ -81,13 +77,15 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
                                 dir={i18n.dir()}
                                 onChange={handleChange}
                             >
-                                {selectedDay.meals.map((meal: any) => (
-                                    <StyledTab
-                                        label={<Tab title={(meal as any)[getKey('name')]} />}
-                                        value={meal.id}
-                                        key={meal.id}
-                                    />
-                                ))}
+                                {selectedDay.meals.map((meal: any) => {
+                                    return (
+                                        <StyledTab
+                                            label={<Tab title={(meal as any)[getKey('name')]} />}
+                                            value={meal.id}
+                                            key={meal.id}
+                                        />
+                                    );
+                                })}
                             </StyledTabContext>
                             {selectedDay.meals.map((meal: any, index: any) => (
                                 <TabPanel value={meal.id} key={meal.id} className="px-0">

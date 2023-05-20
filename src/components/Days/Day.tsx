@@ -56,7 +56,6 @@ const Node = (props: any) => {
 export const Day: React.FC<DayProps> = ({ day, className, onClick }) => {
     return (
         <Wrapper
-            key={`${day.date}`}
             label={<Node {...day} />}
             className={className}
             onClick={() => {

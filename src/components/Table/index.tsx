@@ -54,7 +54,7 @@ const Table = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return (
         <StyledTable>
             {isSmallScreen ? (

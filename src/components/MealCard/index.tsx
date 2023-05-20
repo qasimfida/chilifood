@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import {
     Body,
     CardTitle,
@@ -12,8 +13,6 @@ import {
     MediaWrapper,
 } from './styles';
 import { IFood } from '../../types/restaurant';
-// import { getLocaleKey } from '../../helpers/getLocaleKey';
-// import { useTranslation } from 'react-i18next';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
 interface IProps extends IFood {
     handleClick?: () => void;
@@ -23,11 +22,7 @@ interface IProps extends IFood {
     description: string;
 }
 const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description }) => {
-    // const { i18n } = useTranslation();
-
-    // const getKey = (key: string) => {
-    //     return getLocaleKey(key, i18n);
-    // };
+    const [value, setValue] = useState<string>('10');
 
     return (
         <StyledCard>
@@ -47,7 +42,13 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
                         </Box>
                         <FormSelect size="small">
                             <InputLabel id="food-select">Package</InputLabel>
-                            <Select labelId="food-select" id="food-select" value={10} label="Age">
+                            <Select
+                                labelId="food-select"
+                                id="food-select"
+                                value={value}
+                                label="Package"
+                                onChange={(e) => setValue(e.target.value)}
+                            >
                                 <MenuItem value={10}>210 kd, 28days</MenuItem>
                                 <MenuItem value={20}>185 kd, 28days</MenuItem>
                                 <MenuItem value={30}>120 kd, 28days</MenuItem>

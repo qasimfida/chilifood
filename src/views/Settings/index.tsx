@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { Button, Container, DialogContent, DialogTitle, Grid, Typography, createTheme, useTheme } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { DialogButton, StyledActions, StyledDialogs, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from '../../components';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Settings: React.FC<any> = () => {
-    const [value, setValue] = useState<any>('1');
     const { i18n } = useTranslation();
     const navigate = useNavigate();
 
@@ -28,7 +27,7 @@ const Settings: React.FC<any> = () => {
     };
 
     return (
-        <Layout1 title={'Settings'}>
+        <Layout1 title={'Settings'} withFooter>
             <Wrapper dir={i18n.dir()}>
                 <Container>
                     <Grid container spacing={0}>

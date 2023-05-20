@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IRestaurantState } from '../../types/restaurant';
-import { days, foods, meals, restaurants, r } from './data';
+import { r } from './data';
 
 // Define a type for the slice state
 
@@ -18,7 +18,7 @@ export const restaurantSlice = createSlice({
     initialState,
     reducers: {
         showDetails: (state, action: PayloadAction<string>) => {
-            state.viewFoodDetails = state.viewFoodDetails !== '' ? '' : action.payload;
+            state.viewFoodDetails = state.viewFoodDetails === action.payload ? '' : action.payload;
             // state.foods = state.foods.map((food) => {
             //     if (food.id === action.payload) {
             //         food.selected = !food.selected;

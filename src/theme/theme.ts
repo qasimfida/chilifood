@@ -1,7 +1,4 @@
-import { ThemeOptions } from '@mui/material';
 import { PALETTE_COLORS } from './colors';
-import { Theme as MuiTheme } from '@mui/material/styles';
-import i18n from '../locale/index';
 
 export const THEME = {
     palette: {

@@ -13,48 +13,49 @@ import {
 // import { useAppStore } from '../../../store';
 import { AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
 import { useAppForm, SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
-import { Header, Link, Logo, StyledComp, Submit, Title, Wrapper } from '../styles';
-import logo from './../../../assets/logos/logo.png';
+import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
+import { generateValidNumber } from '../../../utils/generateValidNumber';
 
 const validation = (t: any) => ({
-    phone: {
+    phoneNumber: {
         type: 'string',
         format: {
-            pattern: '^$|[- .+()0-9]+', // Note: We have to allow empty in the pattern
+            pattern: '[0-9]*', // Note: We have to allow empty in the pattern
         },
         length: {
             minimum: 8,
             maximum: 8,
-            message: t('signup.phone'),
+            message: 'field must be 8 numbers',
         },
     },
-    firstName: {
+    name: {
         type: 'string',
         presence: { allowEmpty: false },
         format: {
             pattern: '^[A-Za-z ]+$', // Note: Allow only alphabets and space
-            message: 'phone number field must be 8 numbers',
+            message: 'must consist of only alphabets',
         },
         length: {
-            minimum: 3,
-            maximum: 15,
+            minimum: 2,
+            maximum: 30,
+            message: 'must be more than 2 letters',
         },
     },
     password: {
         presence: true,
         length: {
-            minimum: 8,
-            maximum: 32,
-            message: 'must be between 8 and 32 characters',
+            minimum: 3,
+            maximum: 50,
+            message: 'password must be more than 3 digits',
         },
     },
 });
 
 interface FormStateValues {
-    firstName: string;
-    phone: string;
+    name: string;
+    phoneNumber: string;
     password: string;
     confirmPassword?: string;
 }
@@ -74,8 +75,8 @@ const Signup = () => {
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: validationSchema, // the state value, so could be changed in time
         initialValues: {
-            firstName: '',
-            phone: '',
+            name: '',
+            phoneNumber: '',
             password: '',
         } as FormStateValues,
         validateOnBlur: true,
@@ -114,7 +115,7 @@ const Signup = () => {
             newSchema = { ...validation(t) }; // Full validation
         }
         setValidationSchema(newSchema);
-    }, [showPassword]);
+    }, [showPassword, t]);
 
     const handleShowPasswordClick = useCallback(() => {
         setShowPassword((oldValue) => !oldValue);
@@ -128,7 +129,7 @@ const Signup = () => {
         async (event: SyntheticEvent) => {
             event.preventDefault();
 
-            const apiResult = true; // await api.auth.signup(values);
+            // const apiResult = true; // await api.auth.signup(values);
 
             // if (!apiResult) {
             //     setError('Can not create user for given email, if you already have account please sign in');
@@ -146,43 +147,45 @@ const Signup = () => {
     if (loading) return <LinearProgress />;
 
     return (
-        <Layout1 title="Signup" menuHeader>
+        <Layout1 title="Register" menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
-                            <Logo src={logo} alt="logo" />
+                            <Icon name="register" />
                             <Title component="h2" variant="h5">
-                                {t('SIGNUP.TITLE')} Chili Food
+                                {t('SIGNUP.TITLE')}
                             </Title>
                         </Header>
                         <CardContent>
                             <TextField
                                 required
-                                type="number"
+                                type="tel"
                                 label={t('PHONE_NUMBER')}
-                                name="phone"
-                                inputProps={{ pattern: /^[0-9]*$/ }}
-                                value={values.phone}
-                                error={fieldHasError('phone')}
-                                helperText={fieldGetError('phone') || ' '}
+                                name="phoneNumber"
+                                id="phoneNumber"
+                                inputProps={{ pattern: '[0-9]*', maxLength: 8, inputMode: 'numeric' }}
+                                value={generateValidNumber(values.phoneNumber)}
+                                error={fieldHasError('phoneNumber')}
+                                helperText={fieldGetError('phoneNumber') || ' '}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}
                             />
                             <TextField
                                 required
-                                label={t('FIRST_NAME')}
-                                name="firstName"
-                                value={values.firstName}
-                                error={fieldHasError('firstName')}
-                                helperText={fieldGetError('firstName') || ' '}
+                                label={t('NAME')}
+                                name="name"
+                                value={values.name}
+                                error={fieldHasError('name')}
+                                helperText={fieldGetError('name') || ' '}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}
                             />
                             <TextField
                                 required
+                                id="password"
                                 type={showPassword ? 'text' : 'password'}
                                 label={t('PASSWORD')}
                                 name="password"
@@ -193,6 +196,7 @@ const Signup = () => {
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}
                                 InputProps={{
+                                    inputMode: 'numeric',
                                     endAdornment: (
                                         <InputAdornment position="end">
                                             <AppIconButton
@@ -211,12 +215,7 @@ const Signup = () => {
                                 label={
                                     <>
                                         {t('SIGNUP.AGREE')}
-                                        <Button
-                                            variant="text"
-                                            color="primary"
-                                            component={AppLink}
-                                            to="/auth/recovery/password"
-                                        >
+                                        <Button variant="text" color="primary" component={AppLink} to="/terms-policy">
                                             {t('SIGNUP.TERMS_AND_CONDITIONS')}
                                         </Button>
                                     </>

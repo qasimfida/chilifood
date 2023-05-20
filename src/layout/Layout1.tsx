@@ -50,9 +50,9 @@ interface IProps extends PropsWithChildren {
     title: ReactNode;
     hasFooter?: boolean;
     menuHeader?: boolean;
-    justFooter?: boolean;
+    withFooter?: boolean;
 }
-const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader, justFooter }) => {
+const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader, withFooter }) => {
     const { i18n } = useTranslation();
     const navigate = useNavigate();
     const SIDEBAR_ITEMS: Array<LinkToPage> = [
@@ -100,6 +100,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
 
     const [value, setValue] = useState('1');
     const handleDropDownChange = (event: any) => {
+        setValue(event.target.value);
         console.log('hello');
     };
 
@@ -218,7 +219,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             <Main component="main">
                 <Content>
                     <ErrorBoundary name="Content">{children}</ErrorBoundary>
-                    {(menuHeader || justFooter) && <Footer />}
+                    {(menuHeader || withFooter) && <Footer />}
                 </Content>
 
                 {hasFooter && (

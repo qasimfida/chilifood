@@ -1,5 +1,5 @@
-import { css, styled } from '@mui/system';
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import { AppBar, Toolbar } from '@mui/material';
 export const Header = styled(AppBar)<any>`
     background: ${({ theme: { palette } }) => palette.primary.light};
     display: flex;

@@ -16,7 +16,10 @@ const TabPan = ({ restaurant }: any) => {
             {Array.isArray(plans) && plans.length
                 ? plans.map((plan: any) => (
                       <Grid item xs={12} sm={6} md={4} key={`plan-${plan.id}`}>
-                          <MealCard href={`/restaurants/${restaurant?.id}/${plan.id}`} {...plan} />
+                          <MealCard
+                              handleClick={() => navigate(`/restaurants/${restaurant?.id}/${plan.id}`)}
+                              {...plan}
+                          />
                       </Grid>
                   ))
                 : 'No plans found :('}
@@ -27,9 +30,8 @@ const Restaurant: React.FC<any> = () => {
     const params = useParams();
     const { r } = useAppSelector((state) => state.restaurant);
     const restaurant = r.find((i: any) => i.id === params.restaurant);
-    console.log({ restaurant });
     return (
-        <Layout1 title={restaurant?.name}>
+        <Layout1 title={restaurant?.name} withFooter>
             <Wrapper>
                 <Suspense fallback={<Loading>Fetching data...</Loading>}>
                     <Container>

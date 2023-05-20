@@ -1,20 +1,7 @@
-import {
-    Box,
-    Button,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    FormControl,
-    Typography,
-    TypographyProps,
-} from '@mui/material';
+import { Box, Button, CardContent, CardMedia, FormControl, Typography } from '@mui/material';
 import { css, styled } from '@mui/system';
-import { Link } from 'react-router-dom';
 interface StyledCardProps {
     expended?: string;
-}
-interface StyledTypoGraphy extends TypographyProps {
-    component?: string;
 }
 
 export const StyledMedia = styled(CardMedia)`

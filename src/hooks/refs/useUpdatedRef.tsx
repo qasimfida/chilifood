@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 export const useUpdatedRef = <T extends unknown>(val: T) => {
     const dataRef = useRef<T>(val);

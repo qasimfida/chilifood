@@ -19,7 +19,7 @@ import Table from '../../components/Table';
 
 // Props_Types
 interface FormStateValues {
-    firstName: string;
+    name: string;
     block: string;
     street: string;
     avenue: string;
@@ -32,7 +32,7 @@ interface FormStateValues {
 }
 
 const VALIDATION = {
-    firstName: {
+    name: {
         presence: true,
         type: 'string',
         length: {
@@ -91,7 +91,7 @@ const Profile = () => {
         setValue(newValue);
     };
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
 
@@ -144,10 +144,11 @@ const Profile = () => {
         [/*values,*/ navigate]
     );
 
-    const handleCloseError = useCallback(() => setError(undefined), []);
+    // const handleCloseError = useCallback(() => setError(undefined), []);
     if (loading) return <LinearProgress />;
+    console.log({ error });
     return (
-        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`}>
+        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`} withFooter>
             <Wrapper>
                 <Container>
                     <TabContext value={value}>
@@ -165,11 +166,11 @@ const Profile = () => {
                                             <Grid item xs={12}>
                                                 <TextField
                                                     required
-                                                    label={t('FIRST_NAME')}
-                                                    name="firstName"
-                                                    value={values.firstName}
-                                                    error={fieldHasError('firstName')}
-                                                    helperText={fieldGetError('firstName') || ' '}
+                                                    label={t('NAME')}
+                                                    name="name"
+                                                    value={values.name}
+                                                    error={fieldHasError('name')}
+                                                    helperText={fieldGetError('name') || ' '}
                                                     onChange={onFieldChange}
                                                     onBlur={onFieldBlur}
                                                     className="custom-styles"

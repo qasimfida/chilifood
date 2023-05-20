@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, SyntheticEvent, ChangeEvent } from 'react';
+import { useState, useEffect, useCallback, SyntheticEvent } from 'react';
 import validate from 'validate.js';
 import { ObjectPropByName } from './type';
 
@@ -95,6 +95,7 @@ export function useAppForm({ validationSchema, initialValues = {}, validateOnBlu
                 errors: errors || {},
             }));
         }
+        // eslint-disable-next-line
     }, [validationSchema, formState.values]);
 
     // Event to call on every Input change. Note: the "name" props of the Input control must be set!
@@ -109,7 +110,7 @@ export function useAppForm({ validationSchema, initialValues = {}, validateOnBlu
                 }));
             }
         },
-        [formState.values]
+        [formState.values, validationSchema, validateOnBlur]
     );
     const onFieldChange = useCallback((event: any, select?: any, key?: string) => {
         const name = key || event.target?.name;
