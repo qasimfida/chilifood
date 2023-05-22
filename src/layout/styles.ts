@@ -75,8 +75,8 @@ export const PriceWrapper = styled(Box)`
     position: sticky;
     bottom: 0;
     width: 100%;
-    height: 68px;
-    min-height: 68px;
+    height: 88px;
+    min-height: 88px;
     max-width: 100%;
     z-index: 1;
     ${({ theme: { palette } }: any) => css`
@@ -98,7 +98,7 @@ export const PriceWrapper = styled(Box)`
     .MuiInputLabel-root {
         right: 12px;
         width: fit-content;
-        background: ${({ theme: { palette } }) => palette.primary.light};
+        background: #f3f3f3;
         padding: 2px;
         margin-top: -4px;
     }
@@ -128,7 +128,7 @@ export const StyledTab = styled(Tab)`
     `}
 `;
 export const StyledFormControl = styled(FormControl)`
-    width: 150px;
+    width: 180px;
     min-width: 120;
     fieldset {
         border: 1px solid ${({ theme: { palette } }: any) => palette.primary.main};
@@ -137,8 +137,9 @@ export const StyledFormControl = styled(FormControl)`
 
 export const StyledButton = styled(Button)`
     ${({ theme: { palette } }: any) => css`
-        padding: 0px 20px;
-        height: 40px;
+        padding-left: 32px;
+        padding-right: 32px;
+        height: 52px;
     `}
 `;
 export const Flex = styled(Box)`

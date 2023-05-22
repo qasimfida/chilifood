@@ -109,16 +109,25 @@ export const StyledCard = styled(Box)<StyledCardProps>`
 export const Subscribe = styled(Typography)`
     position: absolute;
     font-weight: 300;
-    bottom: 12px;
-    left: 12px;
-    font-size: 12px;
-    padding: 4px;
+    top: 12px;
+    font-size: 13px;
+    padding: 8px 12px;
     border-radius: 4px;
     text-transform: capitalize;
-    ${({ theme: { palette } }) => css`
+    ${({ theme: { palette }, dir }) => css`
         background: ${palette.primary.main};
         color: #fff;
     `};
+    ${({ dir }) =>
+        dir === 'rtl' &&
+        css`
+            right: 12px;
+        `};
+    ${({ dir }) =>
+        dir !== 'rtl' &&
+        css`
+            left: 12px;
+        `};
 `;
 export const MediaWrapper = styled(Button)`
     position: relative;

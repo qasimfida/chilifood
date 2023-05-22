@@ -14,6 +14,7 @@ import {
 } from './styles';
 import { IFood } from '../../types/restaurant';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 interface IProps extends IFood {
     handleClick?: () => void;
     carbs: string;
@@ -25,6 +26,7 @@ interface IProps extends IFood {
 const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description, days = [] }) => {
     const [value, setValue] = useState(0);
     const uniqueMealNames = new Set();
+    const { i18n } = useTranslation();
 
     // Iterate over each day and its meals
     days.forEach((day) => {
@@ -48,7 +50,7 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
                 </CardTitle>
                 <MediaWrapper onClick={handleClick}>
                     <StyledMedia image={src} title={title} />
-                    <Subscribe>View Food/Subscribe</Subscribe>
+                    <Subscribe dir={i18n.dir()}>View Food/Subscribe</Subscribe>
                 </MediaWrapper>
                 <Content>
                     <Details>

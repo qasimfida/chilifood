@@ -231,7 +231,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                     <PriceWrapper>
                         <Container>
                             <Flex>
-                                <StyledFormControl size="small">
+                                <StyledFormControl>
                                     <InputLabel id="my-select-label">Package</InputLabel>
                                     <Select
                                         labelId="my-select-label"
