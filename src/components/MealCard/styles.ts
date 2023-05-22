@@ -73,8 +73,8 @@ export const Content = styled(CardContent)`
 `;
 
 export const FormSelect = styled(FormControl)`
-    width: 170px;
-    min-width: 170px;
+    width: 174px;
+    min-width: 178px;
     margin-top: 8px;
 `;
 
