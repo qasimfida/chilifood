@@ -252,7 +252,9 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                                         })}
                                     </Select>
                                 </StyledFormControl>
-                                <StyledButton onClick={() => navigate('/checkout')}>Subscribe</StyledButton>
+                                <StyledButton variant="contained" color="primary" onClick={() => navigate('/checkout')}>
+                                    Subscribe
+                                </StyledButton>
                             </Flex>
                         </Container>
                     </PriceWrapper>

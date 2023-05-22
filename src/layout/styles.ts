@@ -81,7 +81,7 @@ export const PriceWrapper = styled(Box)`
     z-index: 1;
     ${({ theme: { palette } }: any) => css`
         border-top: 1px solid ${palette.secondary.light};
-        background: ${palette.primary.light};
+        background: #f3f3f3;
         & label {
             background: ${palette.primary.light};
             color: ${palette.primary.main};
@@ -137,15 +137,8 @@ export const StyledFormControl = styled(FormControl)`
 
 export const StyledButton = styled(Button)`
     ${({ theme: { palette } }: any) => css`
-        background: ${palette.primary.light};
-        color: #000;
         padding: 0px 20px;
-        border: 1px solid ${palette.primary.main};
         height: 40px;
-        &:hover {
-            background: ${palette.primary.main};
-            color: #fff;
-        }
     `}
 `;
 export const Flex = styled(Box)`

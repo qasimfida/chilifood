@@ -31,7 +31,7 @@ const Node = (props: any) => {
         <>
             <StyledWrapper aria-describedby={off ? id : undefined} onClick={handleClick}>
                 {off ? (
-                    <Badge>shdfj</Badge>
+                    <Badge>Off</Badge>
                 ) : lock ? (
                     <Badge variant="main" type="circle">
                         <LockIcon />
@@ -45,7 +45,7 @@ const Node = (props: any) => {
                     {props[getKey('month')]}
                 </Month>
             </StyledWrapper>
-            {/* {off && (
+            {off && (
                 <Popover
                     id={id}
                     open={open}
@@ -58,7 +58,7 @@ const Node = (props: any) => {
                 >
                     <StyledPopper>Off Day</StyledPopper>
                 </Popover>
-            )} */}
+            )}
         </>
     );
 };
