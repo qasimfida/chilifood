@@ -92,7 +92,7 @@ const Login = () => {
     };
 
     return (
-        <Layout1 title="Login" menuHeader>
+        <Layout1 title="Login">
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
