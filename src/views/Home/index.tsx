@@ -4,8 +4,8 @@ import Layout1 from '../../layout/Layout1';
 import { FabWrapper, Wrapper } from './styles';
 import RestaurantCard from '../../components/RestaurantCard';
 import { useAppSelector } from '../../store/hooks';
-import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const TabPan = () => {
     const { r } = useAppSelector((state) => state.restaurant);
@@ -25,21 +25,26 @@ const TabPan = () => {
 
 const Home: React.FC<any> = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const handleRedirect = () => {
         navigate('/select/restaurants/0/01');
     };
+    const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
+    const isLoggedInUser = user?.userNumber ? true : false;
     return (
-        <Layout1 title="Home" menuHeader withFooter>
+        <Layout1 title={t('HOME')} menuHeader withFooter>
             <Wrapper>
                 <Container>
                     <TabPan />
                 </Container>
             </Wrapper>
-            <FabWrapper>
-                <Fab size="small" color="primary" aria-label="add" onClick={handleRedirect}>
-                    <AddIcon />
-                </Fab>
-            </FabWrapper>
+            {isLoggedInUser && (
+                <FabWrapper>
+                    <Fab color="primary" variant="extended" aria-label="Select food" onClick={handleRedirect}>
+                        Select food
+                    </Fab>
+                </FabWrapper>
+            )}
         </Layout1>
     );
 };

@@ -33,5 +33,6 @@
     "OTP_MESSAGE": "لقد أرسلنا للتو رسالة نصية وفيها رمز التفعيل OTP. اكتبه هنا لتأكيد موبايلك",
     "New_PASSWORD": "كلمة السر الجديدة",
     "CHANGE_PASSWORD": "تغيير كلمة المرور",
-    "CONTACT_US": "Contact Us"
+    "CONTACT_US": "Contact Us",
+    "HOME": "الرئيسية/المطاعم"
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
     Container,
     FormControl,
@@ -15,19 +15,44 @@ import {
     Typography,
 } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { PayButton, TextArea, Title, Wrapper } from './styles';
+import { PayButton, TextArea, Typo, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { isFriday, isMonday, isSaturday } from 'date-fns';
 
 const CheckOut: React.FC<any> = () => {
-    const [value, setValue] = useState<any>('1');
+    const [value, setValue] = useState<number | number>(0);
+    const [open, setOpen] = useState<boolean>(false);
+    const [date, setDate] = useState<Date | null>(null);
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    const ref = useRef(null);
     const { i18n } = useTranslation();
+    const handleDropDownChange = (event: any) => {
+        setValue(event.target.value);
+    };
+    const toggleOpen = () => {
+        setOpen(!open);
+    };
+
+    const isWeekdayDisabled = (date: Date) => {
+        return isMonday(date) || isFriday(date) || isSaturday(date);
+    };
+
+    const onChange = (date: Date | null) => {
+        setSelectedDate(date);
+        toggleOpen(); // Close the DatePicker after selecting a date
+    };
+
+    const formattedDate = selectedDate ? selectedDate.toDateString() : 'Mon Jan 01 2023';
+    const options = [
+        { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
+        { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
+        { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
+    ];
     return (
         <Layout1 title={'Checkout'}>
             <Wrapper dir={i18n.dir()}>
                 <Container>
-                    <Title>
-                        <Typography variant="h6"> Checkout Details</Typography>
-                    </Title>
                     <Table>
                         <TableHead>
                             <TableRow>
@@ -39,7 +64,7 @@ const CheckOut: React.FC<any> = () => {
                             <TableRow>
                                 <TableCell>Address</TableCell>
                                 <TableCell>
-                                    <Link href="#">Alkarim Block 11</Link>
+                                    <Link href="#">Alkarim Block 11..</Link>
                                 </TableCell>
                             </TableRow>
                             <TableRow>
@@ -58,19 +83,41 @@ const CheckOut: React.FC<any> = () => {
                                         <Select
                                             labelId="my-select-label"
                                             id="my-select"
-                                            value={value}
-                                            onChange={setValue}
+                                            value={value as number}
+                                            onChange={handleDropDownChange}
+                                            renderValue={(select: number) => {
+                                                const option = options[select];
+                                                return option.name;
+                                            }}
                                         >
-                                            <MenuItem value={1}>Option 1</MenuItem>
-                                            <MenuItem value={2}>Option 2</MenuItem>
-                                            <MenuItem value={3}>Option 3</MenuItem>
+                                            {options.map((option) => {
+                                                return (
+                                                    <MenuItem key={option.value} value={option.value}>
+                                                        {option.label}
+                                                    </MenuItem>
+                                                );
+                                            })}
                                         </Select>
                                     </FormControl>
                                 </TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Start Date</TableCell>
-                                <TableCell>Sunday 6, Nov 2023</TableCell>
+                                <TableCell>
+                                    {open ? (
+                                        <DatePicker
+                                            open={open}
+                                            onOpen={toggleOpen}
+                                            onClose={toggleOpen}
+                                            value={date}
+                                            onChange={onChange}
+                                            shouldDisableDate={isWeekdayDisabled}
+                                            className="m-0"
+                                        />
+                                    ) : (
+                                        <Typography onClick={toggleOpen}>{formattedDate}</Typography>
+                                    )}
+                                </TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Price</TableCell>
@@ -78,6 +125,7 @@ const CheckOut: React.FC<any> = () => {
                             </TableRow>
                             <TableRow>
                                 <TableCell colSpan={2}>
+                                    <Typo>Leave a Note</Typo>
                                     <TextArea placeholder="Allergies.., Dislikes.." multiline rows={4}></TextArea>
                                 </TableCell>
                             </TableRow>

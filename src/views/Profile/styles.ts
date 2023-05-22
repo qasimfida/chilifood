@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material';
+import { Box, Tab, styled } from '@mui/material';
 import { AppButton } from '../../components';
 
 const Wrapper = styled(Box)`
@@ -28,6 +28,9 @@ export const Header = styled(Box)`
 export const Submit = styled(AppButton)<any>`
     padding: 12px 20px;
     margin: 32px 0 0 0;
+`;
+export const StyledTitle = styled(Tab)<any>`
+    font-size: 17px;
 `;
 
 export default Wrapper;

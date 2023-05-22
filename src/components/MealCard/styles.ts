@@ -32,11 +32,16 @@ export const Body = styled(Box)`
     justify-content: flex-start;
 `;
 export const Description = styled(Typography)<any>`
-    font-weight: ${({ weight }) => weight || '300'};
-    font-size: ${({ weight }) => (weight ? '16px' : '12px')}};
-    overflow: hidden;
+    ${({ weight, theme: { palette } }) => css`
+        font-weight: ${weight || '300'};
+        font-size: ${weight ? '16px' : '12px'};
+        color: ${palette.grey.main};
+    `};
     margin-top: 0px;
-    color: ${({ theme: { palette } }) => palette.grey.main};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
 `;
 export const Details = styled(Box)<StyledCardProps>`
     padding: 8px;

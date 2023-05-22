@@ -7,7 +7,7 @@ export const Wrapper = styled(Box)`
 `;
 export const FabWrapper = styled(Box)`
     position: fixed;
-    bottom: 20px;
+    bottom: 100px;
     left: 30px;
     z-index: 111;
 `;

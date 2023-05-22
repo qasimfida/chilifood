@@ -117,6 +117,7 @@ export const RadioCheckBox = styled(Radio)<any>`
     left: 10px;
     top: 10px;
     color: #fff;
+    transform: scale(1.2);
     &.Mui-checked {
       color: #fff;
     },

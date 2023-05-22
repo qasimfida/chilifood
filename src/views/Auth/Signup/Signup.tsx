@@ -32,18 +32,19 @@ const validation = (t: any) => ({
     },
     name: {
         type: 'string',
-        presence: { allowEmpty: false },
+        presence: true,
         format: {
-            pattern: '^[A-Za-z ]+$', // Note: Allow only alphabets and space
+            pattern: '[a-zA-Z\u0600-\u06FFs]*', // Note: Allow only alphabets and space
             message: 'must consist of only alphabets',
         },
         length: {
             minimum: 2,
-            maximum: 30,
+            maximum: 50,
             message: 'must be more than 2 letters',
         },
     },
     password: {
+        type: 'string',
         presence: true,
         length: {
             minimum: 3,

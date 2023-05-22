@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import salad from '.././../assets/images/salad.jpg';
 import {
     Body,
@@ -39,6 +39,7 @@ const FoodCard: React.FC<IProps> = ({
     name,
     description,
     allowSelect = false,
+    isSelected,
     id,
 }) => {
     const { i18n } = useTranslation();
@@ -49,24 +50,20 @@ const FoodCard: React.FC<IProps> = ({
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
-    const [checked, setChecked] = useState(false);
 
-    const selectedFood = () => {
-        setChecked(!checked);
-    };
     return (
         <StyledCard expended={`${isExpended}`}>
             <Body>
                 {allowSelect && (
                     <RadioCheckBox
-                        checked={checked}
+                        checked={isSelected}
                         value={id}
-                        onClick={selectedFood}
+                        onClick={handleSelect}
                         name="radio-buttons"
                         inputProps={{ 'aria-label': `${id}` }}
                     />
                 )}
-                <StyledMedia image={src || salad} title="Food" />
+                <StyledMedia image={src || salad} title="Food" onClick={handleSelect} />
                 <Content>
                     <Details onClick={onToggle}>
                         <CardTitle className="title" gutterBottom variant="h5">

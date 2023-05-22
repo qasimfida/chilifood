@@ -88,7 +88,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         {
             title: 'Contact admin',
             path: '/admin',
-            icon: 'contact',
+            icon: 'whatsapp',
         },
         {
             title: 'Logout',
@@ -98,10 +98,9 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         },
     ];
 
-    const [value, setValue] = useState('1');
+    const [value, setValue] = useState(0);
     const handleDropDownChange = (event: any) => {
         setValue(event.target.value);
-        console.log('hello');
     };
 
     const onMobile = useOnMobile();
@@ -148,7 +147,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             ? [...SIDEBAR_ITEMS, ...AUTH_SIDEBAR_ITEMS]
             : [
                   ...SIDEBAR_ITEMS,
-                  { title: 'Contact Restaurant', icon: 'contact', path: '/contact' },
+                  { title: 'Contact Restaurant', icon: 'whatsapp', path: '/contact' },
                   ...AUTH_SIDEBAR_ITEMS,
               ]
         : [
@@ -178,6 +177,12 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         navigate('/');
         setOpen(false); // Close the dialog after logout
     };
+
+    const options = [
+        { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
+        { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
+        { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
+    ];
     return (
         <PageWrapper
             sx={{
@@ -233,10 +238,18 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                                         id="my-select"
                                         value={value}
                                         onChange={handleDropDownChange}
+                                        renderValue={(select: number) => {
+                                            const option = options[select];
+                                            return option.name;
+                                        }}
                                     >
-                                        <MenuItem value={1}>Option 1</MenuItem>
-                                        <MenuItem value={2}>Option 2</MenuItem>
-                                        <MenuItem value={3}>Option 3</MenuItem>
+                                        {options.map((option) => {
+                                            return (
+                                                <MenuItem key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </MenuItem>
+                                            );
+                                        })}
                                     </Select>
                                 </StyledFormControl>
                                 <StyledButton onClick={() => navigate('/checkout')}>Subscribe</StyledButton>

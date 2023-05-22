@@ -10,6 +10,7 @@ const initialState: IRestaurantState = {
     viewFoodDetails: '',
     activeMeal: '0',
     activeDay: '1',
+    selectedFood: '',
 };
 
 export const restaurantSlice = createSlice({
@@ -59,7 +60,8 @@ export const restaurantSlice = createSlice({
             //     return meal;
             // });
         },
-        selectFood: (state, action: PayloadAction<string | undefined>) => {
+        selectFood: (state, action: PayloadAction<string>) => {
+            state.selectedFood = action.payload;
             // state.selectedFood = state.foods.find((food) => food.id === action.payload) || null;
         },
         selectRestaurant: (state, action: PayloadAction<string>) => {

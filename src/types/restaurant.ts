@@ -3,6 +3,7 @@ export interface IRestaurantState {
     viewFoodDetails: string;
     activeMeal: string;
     activeDay: string;
+    selectedFood: string;
 }
 export interface ExtendsIRestaurant extends IRestaurant {
     selected?: boolean;

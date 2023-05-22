@@ -36,5 +36,6 @@
     "OTP_MESSAGE": " We sent you an SMS message with OTP. Enter your OTP number here to verify your mobile number",
     "New_PASSWORD": "New Password",
     "CHANGE_PASSWORD": "CHANGE PASSWORD",
-    "CONTACT_US": "Contact Us"
+    "CONTACT_US": "Contact Us",
+    "HOME": "Home/Restaurants"
 }

@@ -20,10 +20,26 @@ interface IProps extends IFood {
     title: string;
     src: string;
     description: string;
+    days: any[];
 }
-const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description }) => {
-    const [value, setValue] = useState<string>('10');
+const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description, days = [] }) => {
+    const [value, setValue] = useState(0);
+    const uniqueMealNames = new Set();
 
+    // Iterate over each day and its meals
+    days.forEach((day) => {
+        day.meals.forEach((meal: any) => {
+            uniqueMealNames.add(meal.name); // Add the meal name to the Set
+        });
+    });
+
+    // Convert the Set to an array
+    const uniqueMealNamesArray = Array.from(uniqueMealNames);
+    const options = [
+        { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
+        { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
+        { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
+    ];
     return (
         <StyledCard>
             <Body>
@@ -36,22 +52,30 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
                 </MediaWrapper>
                 <Content>
                     <Details>
-                        <Box>
+                        <Box sx={{ maxWidth: 'calc(100% - 180px)' }}>
                             <Description weight="500">{carbs}</Description>
-                            <Description>{description}</Description>
+                            <Description>{uniqueMealNamesArray.join(', ')}</Description>
                         </Box>
                         <FormSelect size="small">
                             <InputLabel id="food-select">Package</InputLabel>
                             <Select
-                                labelId="food-select"
-                                id="food-select"
+                                labelId="select-package"
+                                id="select-package"
                                 value={value}
                                 label="Package"
-                                onChange={(e) => setValue(e.target.value)}
+                                renderValue={(select: number) => {
+                                    const option = options[select];
+                                    return option.name;
+                                }}
+                                onChange={(e: any) => setValue(e.target.value)}
                             >
-                                <MenuItem value={10}>210 kd, 28days</MenuItem>
-                                <MenuItem value={20}>185 kd, 28days</MenuItem>
-                                <MenuItem value={30}>120 kd, 28days</MenuItem>
+                                {options.map((option) => {
+                                    return (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    );
+                                })}
                             </Select>
                         </FormSelect>
                     </Details>

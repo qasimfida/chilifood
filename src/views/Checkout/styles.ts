@@ -1,15 +1,9 @@
 import { styled } from '@mui/system';
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import { AppButton } from '../../components';
 
-export const Title = styled(Box)`
-    text-align: center;
-    border-bottom: 1px solid #dfdfdf;
-    padding-bottom: 12px;
-    margin: 20px auto;
-    width: max-content;
-`;
 export const Wrapper = styled(Box)`
+    margin-top: 40px;
     text-align: center;
     table th:first-child,
     table td:first-child {
@@ -39,6 +33,17 @@ export const Wrapper = styled(Box)`
         left: 8px;
         right: unset;
     }
+    .css-fup316-MuiInputBase-root-MuiOutlinedInput-root {
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+        padding-right: 12px;
+        width: 171px;
+        height: 40px;
+    }
+    .m-0 {
+        margin-top: 0;
+    }
 `;
 
 export const TextArea = styled(TextField)`
@@ -47,6 +52,11 @@ export const TextArea = styled(TextField)`
 export const PayButton = styled(AppButton)`
     margin: 20px;
     margin-top: 40px;
-    width: 160px;
+    width: 320px;
+    height: 48px;
     max-width: 100%;
+    font-size: 20px;
+`;
+export const Typo = styled(Typography)`
+    text-align: right;
 `;

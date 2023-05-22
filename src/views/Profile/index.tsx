@@ -1,13 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Layout1 from '../../layout/Layout1';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import Wrapper, { StyledComp, Submit } from './styles';
+import Wrapper, { StyledComp, StyledTitle, Submit } from './styles';
 
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +23,6 @@ interface FormStateValues {
     street: string;
     avenue: string;
     house: string;
-    note?: string;
     city: {
         label: string;
         year: number;
@@ -33,19 +31,25 @@ interface FormStateValues {
 
 const VALIDATION = {
     name: {
-        presence: true,
         type: 'string',
+        presence: { allowEmpty: false },
+        format: {
+            pattern: '[a-zA-Z\u0600-\u06FFs]*', // Note: Allow only alphabets and space
+            message: 'must consist of only alphabets',
+        },
         length: {
-            minimum: 3,
-            maximum: 15,
+            minimum: 2,
+            maximum: 30,
+            message: 'must be more than 2 letters',
         },
     },
     street: {
         type: 'string',
-        presence: true,
+        presence: { allowEmpty: true },
         length: {
             minimum: 1,
             maximum: 30,
+            message: 'must be more than 1 letter',
         },
     },
     avenue: {
@@ -53,6 +57,7 @@ const VALIDATION = {
         type: 'string',
         length: {
             maximum: 30,
+            message: 'must be less than 30 letter',
         },
     },
     block: {
@@ -61,6 +66,7 @@ const VALIDATION = {
         length: {
             minimum: 1,
             maximum: 3,
+            message: 'must be 1 - 3 letter',
         },
     },
     house: {
@@ -69,18 +75,11 @@ const VALIDATION = {
         length: {
             minimum: 1,
             maximum: 5,
+            message: 'must be 1 - 5 letter',
         },
     },
     city: {
         presence: true,
-    },
-    note: {
-        presence: { allowEmpty: true },
-        type: 'string',
-        length: {
-            minimum: 0,
-            maximum: 45,
-        },
     },
 };
 
@@ -154,8 +153,8 @@ const Profile = () => {
                     <TabContext value={value}>
                         <Box>
                             <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                <Tab label="Personal Details" value="1" />
-                                <Tab label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="2" />
+                                <StyledTitle label="Personal Details" value="1" />
+                                <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="2" />
                             </TabList>
                         </Box>
                         <TabPanel value="1">
@@ -228,22 +227,6 @@ const Profile = () => {
                                             </Grid>
                                             <Grid item xs={6}>
                                                 <TextField
-                                                    required
-                                                    fullWidth
-                                                    id="house"
-                                                    label={t('PERSONAL_DETAILS.HOUSE')}
-                                                    name="house"
-                                                    value={values.house}
-                                                    error={fieldHasError('house')}
-                                                    helperText={fieldGetError('house') || ' '}
-                                                    onChange={onFieldChange}
-                                                    onBlur={onFieldBlur}
-                                                    autoComplete="off"
-                                                />
-                                            </Grid>
-
-                                            <Grid item xs={12}>
-                                                <TextField
                                                     fullWidth
                                                     id="avenue"
                                                     label={t('PERSONAL_DETAILS.AVENUE')}
@@ -255,20 +238,19 @@ const Profile = () => {
                                                     onBlur={onFieldBlur}
                                                     autoComplete="off"
                                                 />
+                                                {/*  */}
                                             </Grid>
+
                                             <Grid item xs={12}>
                                                 <TextField
                                                     required
                                                     fullWidth
-                                                    id="note"
-                                                    label={t('PERSONAL_DETAILS.LEAVE_NOTE')}
-                                                    name="note"
-                                                    value={values.note}
-                                                    multiline
-                                                    maxRows={5}
-                                                    minRows={2}
-                                                    error={fieldHasError('note')}
-                                                    helperText={fieldGetError('note') || ' '}
+                                                    id="house"
+                                                    label={t('PERSONAL_DETAILS.HOUSE')}
+                                                    name="house"
+                                                    value={values.house}
+                                                    error={fieldHasError('house')}
+                                                    helperText={fieldGetError('house') || ' '}
                                                     onChange={onFieldChange}
                                                     onBlur={onFieldBlur}
                                                     autoComplete="off"
