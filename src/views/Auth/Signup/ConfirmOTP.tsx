@@ -32,11 +32,12 @@ const ConfirmOTP = () => {
     const [error, setError] = useState<string>();
     const navigate = useNavigate();
     // const [, dispatch] = useAppStore();
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
+    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: VALIDATION, // the state value, so could be changed in time
         initialValues: {
             otp: '',
         } as FormStateValues,
+        validateOnBlur: true,
     });
     const values = formState.values as FormStateValues;
 
@@ -79,6 +80,7 @@ const ConfirmOTP = () => {
                                 error={fieldHasError('otp')}
                                 helperText={fieldGetError('otp') || ' '}
                                 onChange={onFieldChange}
+                                onBlur={onFieldBlur}
                                 id="otp"
                                 {...SHARED_CONTROL_PROPS}
                             />
