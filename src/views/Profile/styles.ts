@@ -4,7 +4,6 @@ import { AppButton } from '../../components';
 const Wrapper = styled(Box)`
     margin-top: 3rem;
     width: 100%;
-    background: #fff;
     .MuiTabPanel-root {
         padding: 32px 0;
     }
