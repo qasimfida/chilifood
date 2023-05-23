@@ -30,19 +30,6 @@ const validation = (t: any) => ({
             message: 'field must be 8 numbers',
         },
     },
-    name: {
-        type: 'string',
-        presence: true,
-        format: {
-            pattern: '[a-zA-Z\u0600-\u06FFs]*', // Note: Allow only alphabets and space
-            message: 'must consist of only alphabets',
-        },
-        length: {
-            minimum: 2,
-            maximum: 50,
-            message: 'must be more than 2 letters',
-        },
-    },
     password: {
         type: 'string',
         presence: true,
@@ -55,7 +42,6 @@ const validation = (t: any) => ({
 });
 
 interface FormStateValues {
-    name: string;
     phoneNumber: string;
     password: string;
     confirmPassword?: string;
@@ -76,7 +62,6 @@ const Signup = () => {
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: validationSchema, // the state value, so could be changed in time
         initialValues: {
-            name: '',
             phoneNumber: '',
             password: '',
         } as FormStateValues,
@@ -129,18 +114,10 @@ const Signup = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-
-            // const apiResult = true; // await api.auth.signup(values);
-
-            // if (!apiResult) {
-            //     setError('Can not create user for given email, if you already have account please sign in');
-            //     return; // Unsuccessful signup
-            // }
-
-            // dispatch({ type: 'SIGN_UP' });
-            return navigate('/', { replace: true });
+            localStorage.setItem('temp', JSON.stringify(values));
+            return navigate('/auth/signup/confirm-otp');
         },
-        [/*values,*/ navigate]
+        [values, navigate]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);
@@ -169,17 +146,6 @@ const Signup = () => {
                                 value={generateValidNumber(values.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}
-                                onChange={onFieldChange}
-                                onBlur={onFieldBlur}
-                                {...SHARED_CONTROL_PROPS}
-                            />
-                            <TextField
-                                required
-                                label={t('NAME')}
-                                name="name"
-                                value={values.name}
-                                error={fieldHasError('name')}
-                                helperText={fieldGetError('name') || ' '}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}

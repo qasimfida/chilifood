@@ -6,6 +6,7 @@ import RestaurantCard from '../../components/RestaurantCard';
 import { useAppSelector } from '../../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useIsAuthenticated } from '../../hooks';
 
 const TabPan = () => {
     const { r } = useAppSelector((state) => state.restaurant);
@@ -29,8 +30,7 @@ const Home: React.FC<any> = () => {
     const handleRedirect = () => {
         navigate('/select/restaurants/0/01');
     };
-    const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
-    const isLoggedInUser = user?.userNumber ? true : false;
+    const { isAuthenticated } = useIsAuthenticated();
     return (
         <Layout1 title={t('HOME')} menuHeader withFooter>
             <Wrapper>
@@ -38,7 +38,7 @@ const Home: React.FC<any> = () => {
                     <TabPan />
                 </Container>
             </Wrapper>
-            {isLoggedInUser && (
+            {isAuthenticated && (
                 <FabWrapper>
                     <Fab color="primary" variant="extended" aria-label="Select food" onClick={handleRedirect}>
                         Select food

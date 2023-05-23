@@ -63,33 +63,17 @@ const Login = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
+            const user = {
+                ...values,
+            };
+            localStorage.setItem('user', JSON.stringify(user));
 
-            const result = true; // await api.auth.loginWithEmail(values);
-            if (!result) {
-                setError('Please check phoneNumber and password');
-                return;
-            }
-
-            // dispatch({ type: 'LOG_IN' });
             navigate('/', { replace: true });
         },
-        [/*values,*/ navigate]
+        [values, navigate]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);
-    // Locally Data Store
-    const [userNumber, setUserNumber] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleLogin = () => {
-        // Store data in local storage
-        const user = {
-            userNumber,
-            password,
-        };
-        localStorage.setItem('user', JSON.stringify(user));
-        navigate('/');
-    };
 
     return (
         <Layout1 title="Login">
@@ -116,10 +100,7 @@ const Login = () => {
                                 autoComplete="new-phone-number"
                                 autoFocus
                                 onBlur={onFieldBlur}
-                                onChange={(e) => {
-                                    onFieldChange(e);
-                                    setUserNumber(e.target.value);
-                                }}
+                                onChange={onFieldChange}
                                 {...SHARED_CONTROL_PROPS}
                             />
                             <TextField
@@ -133,10 +114,7 @@ const Login = () => {
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
                                 onBlur={onFieldBlur}
-                                onChange={(e) => {
-                                    onFieldChange(e);
-                                    setPassword(e.target.value);
-                                }}
+                                onChange={onFieldChange}
                                 {...SHARED_CONTROL_PROPS}
                                 InputProps={{
                                     endAdornment: (
@@ -163,13 +141,7 @@ const Login = () => {
                                 </AppAlert>
                             ) : null}
                             <Grid container justifyContent="center" alignItems="center">
-                                <Submit
-                                    type="submit"
-                                    onClick={handleLogin}
-                                    disabled={!formState.isValid}
-                                    color="primary"
-                                    fullWidth
-                                >
+                                <Submit type="submit" disabled={!formState.isValid} color="primary" fullWidth>
                                     {t('LOGIN')}
                                 </Submit>
                             </Grid>

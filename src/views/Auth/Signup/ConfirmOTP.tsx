@@ -5,6 +5,7 @@ import { SHARED_CONTROL_PROPS, useAppForm } from '../../../utils/form';
 import { AppAlert, AppForm } from '../../../components';
 import { Description, Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import Layout1 from '../../../layout/Layout1';
+import { IUser } from '../../../hooks';
 // import { useAppStore } from '../../../store';
 
 /**
@@ -20,9 +21,9 @@ const VALIDATION = {
         presence: true,
         type: 'string',
         length: {
-            minimum: 8,
-            maximum: 32,
-            message: 'must be between 8 and 32 characters',
+            minimum: 6,
+            maximum: 10,
+            message: 'Should be 6 - 10 characters.',
         },
     },
 };
@@ -42,22 +43,17 @@ const ConfirmOTP = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-
-            const result = true; // await api.auth.loginWithEmail(values);
-            if (!result) {
-                setError('Please check number and password');
-                return;
-            }
-
-            // dispatch({ type: 'LOG_IN' });
-            navigate('/', { replace: true });
+            const user: IUser = JSON.parse(localStorage.getItem('temp') || '{}');
+            localStorage.removeItem('temp');
+            localStorage.setItem('user', JSON.stringify(user));
+            navigate('/profile?id=0', { replace: true });
         },
-        [/*values,*/ navigate]
+        [navigate]
     );
     const handleCloseError = useCallback(() => setError(undefined), []);
 
     return (
-        <Layout1 title="Verify OTP" menuHeader>
+        <Layout1 title="Verify OTP">
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>

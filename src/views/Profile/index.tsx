@@ -9,37 +9,25 @@ import { useTranslation } from 'react-i18next';
 import Wrapper, { StyledComp, StyledTitle, Submit } from './styles';
 
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Grid, TextField, LinearProgress, Autocomplete } from '@mui/material';
 import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';
 import { SHARED_CONTROL_PROPS, useAppForm } from '../../utils';
 import Table from '../../components/Table';
-
-// Props_Types
-interface FormStateValues {
-    name: string;
-    block: string;
-    street: string;
-    avenue: string;
-    house: string;
-    city: {
-        label: string;
-        year: number;
-    } | null;
-}
+import { IUser, useIsAuthenticated } from '../../hooks';
 
 const VALIDATION = {
     name: {
         type: 'string',
         presence: { allowEmpty: false },
         format: {
-            pattern: '[a-zA-Z\u0600-\u06FFs]*', // Note: Allow only alphabets and space
+            pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
             message: 'must consist of only alphabets',
         },
         length: {
             minimum: 2,
-            maximum: 30,
+            maximum: 50,
             message: 'must be more than 2 letters',
         },
     },
@@ -84,7 +72,18 @@ const VALIDATION = {
 };
 
 const Profile = () => {
-    const [value, setValue] = React.useState('1');
+    const user = useIsAuthenticated();
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get('id');
+    const [value, setValue] = useState<string>('1');
+
+    useEffect(() => {
+        if (id) {
+            setValue(id);
+        }
+    }, [id]);
 
     const handleChange = (event: any, newValue: any) => {
         setValue(newValue);
@@ -97,17 +96,17 @@ const Profile = () => {
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: VALIDATION, // the state value, so could be changed in time
         initialValues: {
-            block: '',
-            street: '',
-            avenue: '',
-            house: '',
-            city: null,
-        } as FormStateValues,
+            name: user?.name || '',
+            block: user?.block || '',
+            street: user?.street || '',
+            avenue: user?.avenue || '',
+            house: user?.house || '',
+            city: user?.city || null,
+        } as IUser,
         validateOnBlur: true,
     });
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string>();
-    const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
+    const values = formState.values as IUser; // Typed alias to formState.values as the "Source of Truth"
     useEffect(() => {
         // Component Mount
         let componentMounted = true;
@@ -129,35 +128,26 @@ const Profile = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-
-            const apiResult = true; // await api.auth.signup(values);
-
-            if (!apiResult) {
-                setError('Can not create user for given street, if you already have account please sign in');
-                return; // Unsuccessful signup
-            }
-
-            // dispatch({ type: 'SIGN_UP' });
+            const updateUser = Object.assign(user, values);
+            localStorage.setItem('user', JSON.stringify(updateUser));
             return navigate('/', { replace: true });
         },
-        [/*values,*/ navigate]
+        [values, navigate, user]
     );
 
-    // const handleCloseError = useCallback(() => setError(undefined), []);
     if (loading) return <LinearProgress />;
-    console.log({ error });
     return (
-        <Layout1 title={`Profile/${value === '1' ? 'Personal Details' : 'My Subscriptions'}`}>
+        <Layout1 title={`Profile/${value === '0' ? 'Personal Details' : 'My Subscriptions'}`}>
             <Wrapper>
                 <Container>
                     <TabContext value={value}>
                         <Box>
                             <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                <StyledTitle label="Personal Details" value="1" />
-                                <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="2" />
+                                <StyledTitle label="Personal Details" value="0" />
+                                <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="1" />
                             </TabList>
                         </Box>
-                        <TabPanel value="1">
+                        <TabPanel value="0">
                             <AppForm onSubmit={handleFormSubmit} maxWidth={'100%'}>
                                 <StyledComp>
                                     <Grid container>
@@ -238,7 +228,6 @@ const Profile = () => {
                                                     onBlur={onFieldBlur}
                                                     autoComplete="off"
                                                 />
-                                                {/*  */}
                                             </Grid>
 
                                             <Grid item xs={12}>
@@ -269,7 +258,7 @@ const Profile = () => {
                             </AppForm>
                         </TabPanel>
 
-                        <TabPanel value="2">
+                        <TabPanel value="1">
                             <Table />
                         </TabPanel>
                     </TabContext>

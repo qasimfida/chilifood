@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { lazy, Suspense, useMemo, useCallback } from 'react';
-import { Container, Grid, Typography } from '@mui/material';
+import { CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { Description, StyledTab, StyledTabContext, TabsWrapper } from './styles';
 import Tab from '../../components/Tab/index';
@@ -78,10 +78,22 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
                 <Description>
                     <Typography> Chili Foods </Typography>
                 </Description>
-                <Suspense fallback={<Loading>Fetching data...</Loading>}>
+                <Suspense
+                    fallback={
+                        <Loading>
+                            <CircularProgress />
+                        </Loading>
+                    }
+                >
                     <Days days={selectedP.days} />
                 </Suspense>
-                <Suspense fallback={<Loading>Fetching data...</Loading>}>
+                <Suspense
+                    fallback={
+                        <Loading>
+                            <CircularProgress />
+                        </Loading>
+                    }
+                >
                     <TabsWrapper>
                         <TabContext value={activeMeal}>
                             <StyledTabContext

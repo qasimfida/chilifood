@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import {
     Container,
     FormControl,
@@ -24,8 +24,6 @@ const CheckOut: React.FC<any> = () => {
     const [value, setValue] = useState<number | number>(0);
     const [open, setOpen] = useState<boolean>(false);
     const [date, setDate] = useState<Date | null>(null);
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-    const ref = useRef(null);
     const { i18n } = useTranslation();
     const handleDropDownChange = (event: any) => {
         setValue(event.target.value);
@@ -39,11 +37,10 @@ const CheckOut: React.FC<any> = () => {
     };
 
     const onChange = (date: Date | null) => {
-        setSelectedDate(date);
-        toggleOpen(); // Close the DatePicker after selecting a date
+        setDate(date);
     };
 
-    const formattedDate = selectedDate ? selectedDate.toDateString() : 'Mon Jan 01 2023';
+    const formattedDate = date ? date.toDateString() : 'Mon Jan 01 2023';
     const options = [
         { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
         { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },

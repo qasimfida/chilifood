@@ -37,6 +37,7 @@ import {
 } from './styles';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { useIsAuthenticated } from '../hooks';
 
 /**
  * SideBar navigation items with links
@@ -82,7 +83,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
     const AUTH_SIDEBAR_ITEMS = [
         {
             title: 'Profile',
-            path: '/profile',
+            path: '/profile?id=1',
             icon: 'account',
         },
         {
@@ -138,11 +139,11 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
         theme = updateTheme;
     };
-    const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
     const anchor = i18n.dir() === 'rtl' ? 'right' : 'left';
-    const isLoggedInUser = user?.userNumber ? true : false;
+
+    const { isAuthenticated } = useIsAuthenticated();
     const isInActiveUser = false;
-    const sidebar_items = isLoggedInUser
+    const sidebar_items = isAuthenticated
         ? isInActiveUser
             ? [...SIDEBAR_ITEMS, ...AUTH_SIDEBAR_ITEMS]
             : [

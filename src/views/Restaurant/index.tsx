@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { lazy, Suspense } from 'react';
-import { Container, Grid } from '@mui/material';
+import { CircularProgress, Container, Grid } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { Wrapper } from './styles';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -33,7 +33,13 @@ const Restaurant: React.FC<any> = () => {
     return (
         <Layout1 title={restaurant?.name}>
             <Wrapper>
-                <Suspense fallback={<Loading>Fetching data...</Loading>}>
+                <Suspense
+                    fallback={
+                        <Loading>
+                            <CircularProgress />
+                        </Loading>
+                    }
+                >
                     <Container>
                         <TabPan restaurant={restaurant} />
                     </Container>

@@ -1,21 +1,27 @@
 import { useCallback } from 'react';
-// import { useAppStore } from '../store';
 
 /**
  * Hook to detect is current user authenticated or not
  * @returns {boolean} true if user is authenticated, false otherwise
  */
+
+export interface IUser {
+    phoneNumber?: string;
+    password?: string;
+    block?: string;
+    name?: string;
+    street?: string;
+    avenue?: string;
+    house?: string;
+    city?: { label: string; year: number } | null;
+}
 export function useIsAuthenticated() {
-    // const [state] = useAppStore();
-    const user: { userNumber?: string; password?: string } = JSON.parse(localStorage.getItem('user') || '{}');
-    const isAuthenticated = user?.userNumber === '12345678' ? true : false;
+    const user: IUser = JSON.parse(localStorage.getItem('user') || '{}');
+    const isAuthenticated = user?.phoneNumber ? true : false;
     let result = {
         isAuthenticated,
         ...user,
     };
-
-    // TODO: AUTH: add access token verification or other authentication check here
-    // result = Boolean(sessionStorageGet('access_token', ''));
 
     return result;
 }
@@ -28,6 +34,7 @@ export function useIsAuthenticated() {
 const onLogout = () => {
     localStorage.removeItem('user');
 };
+
 export function useEventLogout() {
     // const [, dispatch] = useAppStore();
 

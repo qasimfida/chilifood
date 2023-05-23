@@ -69,11 +69,7 @@ const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onCli
 
                 <Settings>
                     {isAuthenticated && (
-                        <AppIconButton
-                            icon="settings"
-                            title="Logout Current User"
-                            onClick={() => navigate('/settings')}
-                        />
+                        <AppIconButton icon="settings" title="Settings" onClick={() => navigate('/settings')} />
                     )}
                 </Settings>
             </Stack>
