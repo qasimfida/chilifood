@@ -27,15 +27,16 @@ export const Label = styled(Typography)`
 `;
 export const Row = styled(Box)`
     display: flex;
+    justify-content: center;
     &:last-child {
         width: 100%;
         min-width: 100%;
     }
 `;
 export const Title = styled(Typography)`
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
-    font-size: 36px;
+    font-size: 26px;
     margin-bottom: 0px;
     ${({ theme: { palette } }: any) => {
         return css`
@@ -43,7 +44,6 @@ export const Title = styled(Typography)`
         `;
     }};
     width: 100%;
-    padding: 12px;
 `;
 export const Body = styled(CardActionArea)`
     overflow: hidden;
@@ -51,7 +51,6 @@ export const Body = styled(CardActionArea)`
     flex-direction: row;
 `;
 export const Content = styled(CardContent)`
-    padding: 12px;
     width: 100%;
     box-sizing: border-box;
     transition: 0.1s all ease-in;
@@ -59,6 +58,8 @@ export const Content = styled(CardContent)`
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
+    padding: 12px 0;
+    justify-content: center;
     svg {
         height: 20px;
     }
@@ -74,18 +75,19 @@ export const StyledCard = styled(Link)<StyledCardProps>`
             box-shadow: 0px 0px 10px 2px #fff;
             padding: 0;
             max-width: 100%;
+            max-width: 480px;
             border-radius: 4px;
             transition: 0.2s all ease;
             position: relative;
             height: 100%;
             display: block;
+            margin: 0 auto;
             text-decoration: none;
             button {
                 flex-direction: column;
                 height: 100%;
                 align-items: flex-start;
                 justify-content: flex-start;
-                background: ${palette.primary.light};
                 bottom: 0;
                 &:hover .MuiCardActionArea-focusHighlight.css-1v2exvi-MuiCardActionArea-focusHighlight {
                     display: none;
@@ -99,10 +101,15 @@ export const StyledCard = styled(Link)<StyledCardProps>`
 `;
 export const Button = styled(Box)`
     position: relative;
-    background: yellow;
+    ${({ theme: { palette } }: any) => {
+        return css`
+            background: ${palette.primary.main};
+            color: #fff;
+        `;
+    }};
     border-radius: 8px;
     text-align: center;
     padding: 8px;
-    margin: 8px 0;
+    margin: 12px 0 0;
     border: 2px solid;
 `;
