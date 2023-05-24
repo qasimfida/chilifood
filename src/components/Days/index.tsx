@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BorderedBox, DatesWrapper } from './styles';
+import { BorderedBox, DatesWrapper, TabP } from './styles';
 import { Day } from './Day';
 import { useTranslation } from 'react-i18next';
 import { selectDay } from '../../store/restaurant';
@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { ExtendsIDay } from '../../types/restaurant';
 import '@mui/lab/themeAugmentation';
+import { TabContext } from '@mui/lab';
 
 function a11yProps(index: number) {
     return {

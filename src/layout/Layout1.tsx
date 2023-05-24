@@ -97,6 +97,11 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             icon: 'logout',
             key: 'logout',
         },
+        {
+            title: 'Plan2',
+            path: '/plan-two',
+            icon: 'logout',
+        },
     ];
 
     const [value, setValue] = useState(0);
@@ -154,7 +159,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         : [
               ...SIDEBAR_ITEMS,
               { title: 'Login', icon: 'login', path: '/auth/login' },
-              { title: 'Register', icon: 'register', path: '/auth/signup' },
+              { title: 'Register', icon: 'register', path: '/profile?id=0' },
           ];
 
     const handleClick = (e: LinkToPage) => {

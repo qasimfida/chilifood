@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { Button, Container, DialogContent, DialogTitle, Grid, Typography, createTheme, useTheme } from '@mui/material';
+import { Button, Container, DialogTitle, Grid, TextField, Typography, createTheme, useTheme } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { DialogButton, StyledActions, StyledDialogs, Wrapper } from './styles';
+import { Content, DialogButton, StyledActions, StyledDialogs, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { AppButton } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useIsAuthenticated } from '../../hooks';
 
 const Settings: React.FC<any> = () => {
     const { i18n } = useTranslation();
     const navigate = useNavigate();
+    const user = useIsAuthenticated();
 
     let theme = useTheme();
     const onClick = (lng: string) => {
@@ -18,14 +20,19 @@ const Settings: React.FC<any> = () => {
         const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
         theme = updateTheme;
     };
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
+    const [deletePopup, setDeletePopup] = useState<boolean>(false);
+    const [password, setPassword] = useState<string>('');
     const handleClick = () => {
         setOpen(true);
     };
+    const isValid = password.length > 2;
     const deleteAccount = () => {
-        navigate('/');
+        if (isValid && password === user?.password) {
+            localStorage.removeItem('user');
+            navigate('/');
+        }
     };
-
     return (
         <Layout1 title={'Settings'}>
             <Wrapper dir={i18n.dir()}>
@@ -49,15 +56,41 @@ const Settings: React.FC<any> = () => {
                         onClose={() => setOpen(false)}
                     >
                         <DialogTitle>{'Delete Account'}</DialogTitle>
-                        <DialogContent>
+                        <Content>
                             <Typography>Are you sure that you Want to Delete your Account?</Typography>
-                        </DialogContent>
+                        </Content>
                         <StyledActions>
                             <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>
                                 Cancel
                             </DialogButton>
-                            <Button size="small" variant="outlined" color="error" onClick={deleteAccount}>
+                            <Button size="small" variant="outlined" color="error" onClick={() => setDeletePopup(true)}>
                                 Yes
+                            </Button>
+                        </StyledActions>
+                    </StyledDialogs>
+                    <StyledDialogs
+                        open={deletePopup}
+                        keepMounted
+                        aria-describedby="alert-dialog-slide-description"
+                        onClose={() => setDeletePopup(false)}
+                    >
+                        <DialogTitle>Delete Account Confirmation</DialogTitle>
+                        <Content>
+                            <TextField
+                                size="small"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                label="Password"
+                                placeholder="Enter your password"
+                                fullWidth
+                            />
+                        </Content>
+                        <StyledActions>
+                            <DialogButton size="small" variant="outlined" onClick={() => setDeletePopup(false)}>
+                                Cancel
+                            </DialogButton>
+                            <Button size="small" variant="outlined" color="error" onClick={deleteAccount}>
+                                Delete
                             </Button>
                         </StyledActions>
                     </StyledDialogs>

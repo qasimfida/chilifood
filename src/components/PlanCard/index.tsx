@@ -18,25 +18,15 @@ import { useTranslation } from 'react-i18next';
 interface IProps extends IFood {
     handleClick?: () => void;
     carbs: string;
-    title: string;
+    name: string;
     src: string;
     description: string;
     days: any[];
 }
-const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, description, days = [] }) => {
+const PlanCard: React.FC<IProps> = ({ handleClick, carbs, name, src, description, days = [] }) => {
     const [value, setValue] = useState(0);
-    const uniqueMealNames = new Set();
     const { i18n } = useTranslation();
 
-    // Iterate over each day and its meals
-    days.forEach((day) => {
-        day.meals.forEach((meal: any) => {
-            uniqueMealNames.add(meal.name); // Add the meal name to the Set
-        });
-    });
-
-    // Convert the Set to an array
-    const uniqueMealNamesArray = Array.from(uniqueMealNames);
     const options = [
         { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
         { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
@@ -45,18 +35,18 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
     return (
         <StyledCard>
             <Body>
-                <CardTitle className="title" gutterBottom variant="h5">
-                    {title}
+                <CardTitle className="name" gutterBottom variant="h5">
+                    {name}
                 </CardTitle>
                 <MediaWrapper onClick={handleClick}>
-                    <StyledMedia image={src} title={title} />
+                    <StyledMedia image={src} title={name} />
                     <Subscribe dir={i18n.dir()}>View Food/Subscribe</Subscribe>
                 </MediaWrapper>
                 <Content>
                     <Details>
                         <Box sx={{ maxWidth: 'calc(100% - 180px)' }}>
                             <Description weight="500">{carbs}</Description>
-                            <Description>{uniqueMealNamesArray.join(', ')}</Description>
+                            <Description> {description}</Description>
                         </Box>
                         <FormSelect size="small">
                             <InputLabel id="food-select">Package</InputLabel>
@@ -87,4 +77,4 @@ const MealCard: React.FC<IProps> = ({ handleClick, carbs, title, src, descriptio
     );
 };
 
-export default MealCard;
+export default PlanCard;

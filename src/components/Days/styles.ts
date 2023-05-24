@@ -2,6 +2,7 @@ import { css, styled } from '@mui/system';
 import { Box, Tab, Tabs } from '@mui/material';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import { Lock } from '@mui/icons-material';
+import { TabPanel } from '@mui/lab';
 
 interface StyledTypoGraphy extends TypographyProps {
     component?: string;
@@ -173,4 +174,10 @@ export const StyledPopper = styled(Box)<any>`
     ${({ theme: { palette } }) => css`
         background: ${palette.primary.light};
     `};
+`;
+export const TabP = styled(TabPanel)`
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
 `;

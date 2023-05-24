@@ -13,7 +13,7 @@ interface DayProps {
 const Node = (props: any) => {
     const { i18n } = useTranslation();
 
-    const { date, lock = false, off } = props;
+    const { date, lock = false, off, month, day } = props;
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
@@ -40,9 +40,9 @@ const Node = (props: any) => {
                 <Date component="span" className="date">
                     {date}
                 </Date>
-                <StyledDay>{props[getKey('day')]}</StyledDay>
+                <StyledDay>{day}</StyledDay>
                 <Month component="span" className="month">
-                    {props[getKey('month')]}
+                    {month}
                 </Month>
             </StyledWrapper>
             {off && (
@@ -65,6 +65,7 @@ const Node = (props: any) => {
 export const Day: React.FC<DayProps> = ({ day, className, onClick }) => {
     return (
         <Wrapper
+            value={day.date}
             label={<Node {...day} />}
             className={className}
             onClick={() => {

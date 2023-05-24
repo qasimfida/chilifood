@@ -1,37 +1,42 @@
 import * as React from 'react';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { CircularProgress, Container, Grid } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { Wrapper } from './styles';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAppSelector } from '../../store/hooks';
 import { Loading } from '../styles';
-const MealCard = lazy(() => import('../../components/MealCard'));
+import { restaurantPlans, restaurantsData } from '../../store/restaurant/restaurants';
+import { useTranslation } from 'react-i18next';
+const PlanCard = lazy(() => import('../../components/PlanCard'));
 
-const TabPan = ({ restaurant }: any) => {
-    const { plans } = restaurant || {};
+const TabPan = ({ restaurant, plans }: any) => {
     const navigate = useNavigate();
     return (
         <Grid container spacing={{ xs: 2 }}>
-            {Array.isArray(plans) && plans.length
-                ? plans.map((plan: any) => (
-                      <Grid item xs={12} sm={6} md={4} key={`plan-${plan.id}`}>
-                          <MealCard
-                              handleClick={() => navigate(`/restaurants/${restaurant?.id}/${plan.id}`)}
-                              {...plan}
-                          />
-                      </Grid>
-                  ))
-                : 'No plans found :('}
+            {plans.length ? (
+                plans.map((plan: any) => (
+                    <Grid item xs={12} sm={6} md={4} key={`plan-${plan.id}`}>
+                        <PlanCard handleClick={() => navigate(`/restaurants/${restaurant?.id}/${plan.id}`)} {...plan} />
+                    </Grid>
+                ))
+            ) : (
+                <Loading>No plans found :(</Loading>
+            )}
         </Grid>
     );
 };
 const Restaurant: React.FC<any> = () => {
     const params = useParams();
-    const { r } = useAppSelector((state) => state.restaurant);
-    const restaurant = r.find((i: any) => i.id === params.restaurant);
+    const { i18n } = useTranslation();
+    const language = i18n.language;
+    const data = restaurantsData[language];
+    const restaurant = data.restaurants.find((i: any) => i.id === params.restaurant);
+    const plans = useMemo(
+        () => data.restaurantPlans.filter((i: any) => i.restaurant_id.includes(restaurant.id)) || [],
+        [data, restaurant]
+    );
     return (
-        <Layout1 title={restaurant?.name}>
+        <Layout1 title={restaurant?.name || 'Not found'}>
             <Wrapper>
                 <Suspense
                     fallback={
@@ -41,7 +46,11 @@ const Restaurant: React.FC<any> = () => {
                     }
                 >
                     <Container>
-                        <TabPan restaurant={restaurant} />
+                        {restaurant ? (
+                            <TabPan restaurant={restaurant} plans={plans} />
+                        ) : (
+                            <Loading>No plans found :(</Loading>
+                        )}
                     </Container>
                 </Suspense>
             </Wrapper>

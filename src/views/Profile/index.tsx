@@ -77,11 +77,11 @@ const Profile = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get('id');
-    const [value, setValue] = useState<string>('1');
+    const [value, setValue] = useState<string>('0');
 
     useEffect(() => {
         if (id) {
-            setValue(id);
+            setValue(id || '0');
         }
     }, [id]);
 
@@ -128,11 +128,10 @@ const Profile = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            const updateUser = Object.assign(user, values);
-            localStorage.setItem('user', JSON.stringify(updateUser));
-            return navigate('/', { replace: true });
+            localStorage.setItem('temp', JSON.stringify(values));
+            return navigate('/auth/signup', { replace: true });
         },
-        [values, navigate, user]
+        [values, navigate]
     );
 
     if (loading) return <LinearProgress />;
@@ -144,7 +143,9 @@ const Profile = () => {
                         <Box>
                             <TabList onChange={handleChange} aria-label="lab API tabs example">
                                 <StyledTitle label="Personal Details" value="0" />
-                                <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="1" />
+                                {user.isAuthenticated && (
+                                    <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="1" />
+                                )}
                             </TabList>
                         </Box>
                         <TabPanel value="0">

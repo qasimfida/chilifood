@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { Box, Button, Dialog, DialogActions, TextField } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
 import { AppButton } from '../../components';
 
 export const Title = styled(Box)`
@@ -18,26 +18,6 @@ export const Wrapper = styled(Box)`
     table th:last-child,
     table td:last-child {
         text-align: ${({ dir }) => (dir === 'rtl' ? 'right' : 'left')};
-    }
-    .MuiFormControl-root {
-        min-width: 144px;
-        & label {
-            background: #fbfbfb;
-        }
-        .MuiFormLabel-root.MuiInputLabel-formControl.MuiInputLabel-shrink.Mui-focused {
-            right: 14px;
-        }
-        .MuiSelect-select {
-            text-align: right;
-        }
-    }
-    .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input {
-        padding-left: 32px;
-        padding-right: 12px !important;
-    }
-    .MuiSvgIcon-root.MuiSelect-icon {
-        left: 8px;
-        right: unset;
     }
 `;
 
@@ -69,5 +49,30 @@ export const DialogButton = styled(Button)`
 export const StyledDialog = styled(Dialog)`
     .css-78mkp9-MuiPaper-root-MuiDialog-paper {
         min-width: 300px;
+    }
+`;
+export const Content = styled(DialogContent)`
+    .MuiOutlinedInput-notchedOutline legend {
+        opacity: 0 !important;
+        display: none !important;
+    }
+    .MuiInputLabel-root {
+        right: 24px;
+        width: fit-content;
+        background: #f5f5f5;
+        padding: 2px;
+        margin-top: -4px;
+    }
+    .MuiFormHelperText-root:not(.Mui-error) {
+        display: none;
+    }
+    .MuiTextField-root {
+        margin-top: 20px;
+    }
+    .MuiFormControlLabel-root {
+        margin-right: 0;
+        .MuiCheckbox-root {
+            padding-right: 0px;
+        }
     }
 `;

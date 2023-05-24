@@ -55,7 +55,7 @@ export const Body = styled(CardActionArea)`
 `;
 export const Description = styled(Typography)<any>`
     font-weight: 300;
-    font-size: 13px;
+    font-size: 12px;
     overflow: hidden;
     color: ${({ theme: { palette } }) => palette.grey.main};
     ${({ theme: { palette }, expended }: any) => {
@@ -75,10 +75,10 @@ export const Macros = styled(Box)`
     gap: 8px 0;
     box-sizing: border-box;
     transition: 0.3s all ease-in;
-    margin-top: 6px;
+    margin-top: 4px;
 `;
 export const Details = styled(Box)<StyledCardProps>`
-    padding: 8px;
+    padding: 0 8px;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
@@ -145,16 +145,8 @@ export const Macro = styled(Typography)<any>`
     font-size: 12px;
     font-weight: 300;
     line-height: 1;
-    width: 20%;
+    width: 25%;
     color: ${({ theme: { palette } }) => palette.grey.main};
-    &:nth-of-type(1) {
-        width: 30%;
-    }
-    &:nth-of-type(2) {
-        width: 30%;
-    }
-    nth-of-type(4) {
-    }
 `;
 export const MacrosCount = styled(Typography)<StyledTypoGraphy>`
     font-weight: 600;

@@ -13,13 +13,8 @@ export const Wrapper = styled(Box)`
 `;
 
 export const TabsText = styled(Typography)`
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 22px;
-  text-transform: capitalize;
-  &.css-1t380tf-MuiButtonBase-root-MuiTab-root .Mui-selected {
-    background-color: red !important;
-}   
-}
-
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    text-transform: capitalize;
 `;

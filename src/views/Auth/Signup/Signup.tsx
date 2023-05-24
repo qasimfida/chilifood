@@ -114,7 +114,9 @@ const Signup = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            localStorage.setItem('temp', JSON.stringify(values));
+            const user = JSON.parse(localStorage.getItem('temp') || '{}');
+            const updateUser = Object.assign(user, values);
+            localStorage.setItem('temp', JSON.stringify(updateUser));
             return navigate('/auth/signup/confirm-otp');
         },
         [values, navigate]

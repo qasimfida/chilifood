@@ -3,17 +3,18 @@ import { Container, Fab, Grid } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { FabWrapper, Wrapper } from './styles';
 import RestaurantCard from '../../components/RestaurantCard';
-import { useAppSelector } from '../../store/hooks';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useIsAuthenticated } from '../../hooks';
+import { restaurantsData } from '../../store/restaurant/restaurants';
 
 const TabPan = () => {
-    const { r } = useAppSelector((state) => state.restaurant);
-    const restaurants = r || [];
+    const { i18n } = useTranslation();
+    const language = i18n.language;
+    const restaurants = restaurantsData[language].restaurants;
     return (
         <Grid container spacing={{ xs: 2 }}>
-            {Array.isArray(restaurants) && restaurants.length
+            {restaurants.length
                 ? restaurants.map((restaurant: any) => (
                       <Grid item xs={12} sm={6} md={4} key={restaurant.id}>
                           <RestaurantCard {...restaurant} />
@@ -28,7 +29,7 @@ const Home: React.FC<any> = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const handleRedirect = () => {
-        navigate('/select/restaurants/0/01');
+        navigate('/select/restaurants/0/1');
     };
     const { isAuthenticated } = useIsAuthenticated();
     return (

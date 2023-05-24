@@ -47,7 +47,7 @@ const ConfirmOTP = () => {
             const user: IUser = JSON.parse(localStorage.getItem('temp') || '{}');
             localStorage.removeItem('temp');
             localStorage.setItem('user', JSON.stringify(user));
-            navigate('/profile?id=0', { replace: true });
+            navigate('/', { replace: true });
         },
         [navigate]
     );

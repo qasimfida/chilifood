@@ -17,7 +17,6 @@ import {
 import { ExpandMore } from '@mui/icons-material';
 import useAnimateHeightFromZeroToAuto from '../../hooks/useAnimateHeightFromZeroToAuto';
 import { IFood } from '../../types/restaurant';
-import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 interface IProps extends IFood {
@@ -47,10 +46,6 @@ const FoodCard: React.FC<IProps> = ({
 
     useAnimateHeightFromZeroToAuto(ref, 100, isExpended, '0');
 
-    const getKey = (key: string) => {
-        return getLocaleKey(key, i18n);
-    };
-
     return (
         <StyledCard expended={`${isExpended}`}>
             <Body>
@@ -73,11 +68,11 @@ const FoodCard: React.FC<IProps> = ({
                             </Toggle>
                         </CardTitle>
                         <Macros>
-                            {macros?.map((macro) => {
+                            {macros?.map((macro: any) => {
                                 return (
                                     <Macro key={`macro-${macro.id}`}>
                                         <MacrosCount component="span">{macro.amount}</MacrosCount>
-                                        {(macro as any)[getKey('name')]}
+                                        {macro.name}
                                     </Macro>
                                 );
                             })}

@@ -13,6 +13,14 @@ import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useParams } from 'react-router-dom';
 import { ExtendsIDay } from '../../types/restaurant';
 import { Loading } from '../styles';
+import {
+    foods,
+    meals,
+    restaurantPlans,
+    restaurants,
+    restaurantsData,
+    weekdays,
+} from '../../store/restaurant/restaurants';
 const FoodCard = lazy(() => import('../../components/FoodCard'));
 const Days = lazy(() => import('../../components/Days'));
 
@@ -26,36 +34,35 @@ const TabPan = ({ foods, allowSelect, day }: any) => {
     };
     return (
         <Grid container spacing={{ xs: 2 }}>
-            {foods.map(({ id, macros, name, description, src }: any) => (
-                <Grid item xs={6} sm={4} lg={3} key={id}>
-                    <FoodCard
-                        onToggle={() => dispatch(showDetails(id))}
-                        handleSelect={() => handleSelect(id)}
-                        isExpended={viewFoodDetails === id}
-                        isSelected={day.lock || selectedFood === id}
-                        macros={macros}
-                        id={id}
-                        src={src}
-                        name={name}
-                        description={description}
-                        allowSelect={allowSelect}
-                    />
-                </Grid>
-            ))}
+            {foods.map(({ id, macros, name, description, src }: any) => {
+                return (
+                    <Grid item xs={6} sm={4} lg={3} key={id}>
+                        <FoodCard
+                            onToggle={() => dispatch(showDetails(id))}
+                            handleSelect={() => handleSelect(id)}
+                            isExpended={viewFoodDetails === id}
+                            isSelected={day.lock || selectedFood === id}
+                            macros={macros}
+                            id={id}
+                            src={src}
+                            name={name}
+                            description={description}
+                            allowSelect={allowSelect}
+                        />
+                    </Grid>
+                );
+            })}
         </Grid>
     );
 };
 const Plan: React.FC<any> = ({ allowSelect }) => {
     const dispatch = useDispatch();
-    const { restaurant, plan } = useParams();
-    const { r, activeMeal, activeDay } = useAppSelector((state) => state.restaurant);
-    const selectedR = r.find((i: any) => i.id === restaurant);
     const { i18n } = useTranslation();
+    const { restaurant } = useParams();
+    const { activeMeal, activeDay } = useAppSelector((state) => state.restaurant);
 
-    const selectedP = useMemo(() => {
-        const foundPlan = selectedR.plans?.find((i: any) => i.id === plan);
-        return foundPlan || {};
-    }, [selectedR, plan]);
+    const language = i18n.language;
+    const data = restaurantsData[language];
 
     const handleChange = useCallback(
         (event: any, newValue: any) => {
@@ -67,11 +74,12 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
     const getKey = (key: string) => {
         return getLocaleKey(key, i18n);
     };
-    const selectedDay = useMemo(
-        () =>
-            selectedP.days ? selectedP.days.find((i: ExtendsIDay) => i.date === activeDay) || selectedP.days[0] : {},
-        [activeDay, selectedP]
-    );
+
+    const selectedR = data.restaurants.find((i: any) => i.id === restaurant);
+    const selectedDay = data.weekdays.find((i: any) => i.id === activeDay);
+    const planMeals = data.meals?.filter((i: any) => i.day_id.includes(activeDay));
+    const mealFoods = (id: any) =>
+        data.foods?.filter((i: any) => i.meal_id.includes(id) && i.day_id.includes(activeDay));
     return (
         <Layout1 title={selectedR?.name} hasFooter={!allowSelect}>
             <Container>
@@ -85,7 +93,7 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
                         </Loading>
                     }
                 >
-                    <Days days={selectedP.days} />
+                    <Days days={data.weekdays} />
                 </Suspense>
                 <Suspense
                     fallback={
@@ -105,19 +113,19 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
                                 dir={i18n.dir()}
                                 onChange={handleChange}
                             >
-                                {selectedDay.meals.map((meal: any) => {
+                                {planMeals.map((meal: any) => {
                                     return (
                                         <StyledTab
                                             label={<Tab title={(meal as any)[getKey('name')]} />}
                                             value={meal.id}
-                                            key={meal.id}
+                                            key={`tab-${meal.id}`}
                                         />
                                     );
                                 })}
                             </StyledTabContext>
-                            {selectedDay.meals.map((meal: any, index: any) => (
+                            {planMeals.map((meal: any, index: any) => (
                                 <TabPanel value={meal.id} key={meal.id} className="px-0">
-                                    <TabPan foods={meal.foods} allowSelect={allowSelect} day={selectedDay} />
+                                    <TabPan foods={mealFoods(meal.id)} allowSelect={allowSelect} day={selectedDay} />
                                 </TabPanel>
                             ))}
                         </TabContext>

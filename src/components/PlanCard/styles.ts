@@ -15,13 +15,15 @@ export const StyledMedia = styled(CardMedia)`
 export const CardTitle = styled(Typography)`
     font-weight: 600;
     font-size: 16px;
-    margin: 12px;
     overflow: hidden;
     color: ${({ theme: { palette } }) => palette.grey.main};
     display: flex;
-    align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    height: 38px;
+    line-height: 14px;
+    box-sizing: border-box;
+    padding: 12px;
 `;
 export const Body = styled(Box)`
     overflow: hidden;
