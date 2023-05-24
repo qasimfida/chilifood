@@ -24,7 +24,7 @@ const PersonalDetails = () => {
     const validation = () => ({
         name: {
             type: 'string',
-            presence: { allowEmpty: false, message: 'field is required' },
+            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.NAME_FIELD_ERROR') },
             format: {
                 pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
                 message: 'must consist of only alphabets',
@@ -32,12 +32,12 @@ const PersonalDetails = () => {
             length: {
                 minimum: 1,
                 maximum: 30,
-                message: 'must be more than 2 letters',
+                message: t('ERROR.PREFIX') + '30 ' + t('ERROR.DIGITS'),
             },
         },
         street: {
             type: 'string',
-            presence: { allowEmpty: false, message: 'field is required' },
+            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.STREET_FIELD_ERROR') },
             length: {
                 minimum: 1,
                 maximum: 30,
@@ -45,7 +45,7 @@ const PersonalDetails = () => {
             },
         },
         avenue: {
-            presence: { allowEmpty: false, message: 'field is required' },
+            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.AVENUE_FIELD_ERROR') },
             type: 'string',
             length: {
                 maximum: 30,
@@ -53,7 +53,7 @@ const PersonalDetails = () => {
             },
         },
         block: {
-            presence: { allowEmpty: false, message: 'field is required' },
+            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.BLOCK_FIELD_ERROR') },
             type: 'string',
             length: {
                 minimum: 1,
@@ -62,7 +62,7 @@ const PersonalDetails = () => {
             },
         },
         house: {
-            presence: { allowEmpty: false, message: 'field is required' },
+            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.HOUSE_FIELD_ERROR') },
             type: 'string',
             length: {
                 minimum: 1,
@@ -171,7 +171,7 @@ const PersonalDetails = () => {
                                             name="name"
                                             value={state.name}
                                             error={fieldHasError('name')}
-                                            helperText={fieldGetError(t('NAME'))}
+                                            helperText={fieldGetError('name') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             className="custom-styles"
@@ -206,7 +206,7 @@ const PersonalDetails = () => {
                                             name="street"
                                             value={state.street}
                                             error={fieldHasError('street')}
-                                            helperText={fieldGetError(t('PERSONAL_DETAILS.STREET')) || ' '}
+                                            helperText={fieldGetError('street') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             autoComplete="off"

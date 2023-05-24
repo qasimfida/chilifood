@@ -44,7 +44,7 @@
     "CONTACT_US": "Contact Us",
     "HOME": "الرئيسية/المطاعم",
 
-    "PERSONAL_DETAILS.ERROR.PREFIX": "يجب أن يكون أقل من",
-    "PERSONAL_DETAILS.ERROR.DIGITS": "أرقام",
-    "PERSONAL_DETAILS.ISREQUIRED": "يكون"
+    "ERROR.PREFIX": "يجب أن يكون أقل من",
+    "ERROR.DIGITS": "أرقام",
+    "ISREQUIRED": "يكون"
 }

@@ -47,7 +47,7 @@
     "CONTACT_US": "Contact Us",
     "HOME": "Home/Restaurants",
 
-    "PERSONAL_DETAILS.ERROR.PREFIX": "must be less than",
-    "PERSONAL_DETAILS.ERROR.DIGITS": "digits",
-    "PERSONAL_DETAILS.ISREQUIRED": "is required"
+    "ERROR.PREFIX": "must be less than",
+    "ERROR.DIGITS": "digits",
+    "ISREQUIRED": "is required"
 }
