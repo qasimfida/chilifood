@@ -123,7 +123,7 @@ const CheckOut: React.FC<any> = () => {
                             <TableRow>
                                 <TableCell colSpan={2}>
                                     <Typo>Leave a Note</Typo>
-                                    <TextArea placeholder="Allergies.., Dislikes.." multiline rows={4}></TextArea>
+                                    <TextArea placeholder="Allergies.., Dislikes.." multiline></TextArea>
                                 </TableCell>
                             </TableRow>
                         </TableBody>
