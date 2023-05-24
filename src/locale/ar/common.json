@@ -45,5 +45,6 @@
     "HOME": "الرئيسية/المطاعم",
 
     "PERSONAL_DETAILS.ERROR.PREFIX": "يجب أن يكون أقل من",
-    "PERSONAL_DETAILS.ERROR.DIGITS": "أرقام"
+    "PERSONAL_DETAILS.ERROR.DIGITS": "أرقام",
+    "PERSONAL_DETAILS.ISREQUIRED": "يكون"
 }

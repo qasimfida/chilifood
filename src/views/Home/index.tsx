@@ -16,7 +16,7 @@ const TabPan = () => {
     return (
         <Grid container spacing={{ xs: 2 }}>
             {isAuthenticated && (
-                <Grid item xs={12}>
+                <Grid item xs={12} mb={2}>
                     <SelectFoodCard to="/select/restaurants/1/1" />
                 </Grid>
             )}

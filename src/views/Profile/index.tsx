@@ -21,18 +21,17 @@ import { validate } from 'validate.js';
 const Profile = () => {
     const user = useIsAuthenticated();
     const { t } = useTranslation();
-
     const validation = (t: any) => ({
         name: {
             type: 'string',
             presence: { allowEmpty: false },
             format: {
                 pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
-                message: 'must consist of only alphabets',
+                message: t('PERSONAL_DETAILS.ISREQUIRED'),
             },
             length: {
                 maximum: 30,
-                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 30 ${t('PERSONAL_DETAILS.ERROR.PREFIX')} `,
+                message: t('ERROR.PREFIX') + ' 30 ' + t('DIGITS'),
             },
         },
         street: {
@@ -40,7 +39,7 @@ const Profile = () => {
             presence: { allowEmpty: true },
             length: {
                 maximum: 30,
-                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 30 ${t('PERSONAL_DETAILS.ERROR.PREFIX')} `,
+                message: 'aSDFASF',
             },
         },
         avenue: {
@@ -48,7 +47,7 @@ const Profile = () => {
             type: 'string',
             length: {
                 maximum: 30,
-                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 30 ${t('PERSONAL_DETAILS.ERROR.DIGITS')} `,
+                message: 'aSDFASDFASDF',
             },
         },
         block: {
@@ -56,7 +55,7 @@ const Profile = () => {
             type: 'string',
             length: {
                 maximum: 4,
-                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 4 ${t('PERSONAL_DETAILS.ERROR.DIGITS')} `,
+                message: 'aSDF',
             },
         },
         house: {
@@ -65,12 +64,11 @@ const Profile = () => {
             length: {
                 minimum: 1,
                 maximum: 5,
-                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 5 ${t('PERSONAL_DETAILS.ERROR.DIGITS')} `,
+                message: 'asdFASDF',
             },
         },
         city: {
-            presence: true,
-            message: `${t('PERSONAL_DETAILS.PLEASE_SELECT_CITY')}`,
+            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.PLEASE_SELECT_CITY') },
         },
     });
 

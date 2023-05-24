@@ -18,63 +18,64 @@ import Table from '../../components/Table';
 import { IUser, useIsAuthenticated } from '../../hooks';
 import { validate } from 'validate.js';
 
-const validation = () => ({
-    name: {
-        type: 'string',
-        presence: { allowEmpty: false, message: 'field is required' },
-        format: {
-            pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
-            message: 'must consist of only alphabets',
-        },
-        length: {
-            minimum: 1,
-            maximum: 30,
-            message: 'must be more than 2 letters',
-        },
-    },
-    street: {
-        type: 'string',
-        presence: { allowEmpty: false, message: 'field is required' },
-        length: {
-            minimum: 1,
-            maximum: 30,
-            message: 'must be more than 1 letter',
-        },
-    },
-    avenue: {
-        presence: { allowEmpty: false, message: 'field is required' },
-        type: 'string',
-        length: {
-            maximum: 30,
-            message: 'must be less than 30 letter',
-        },
-    },
-    block: {
-        presence: { allowEmpty: false, message: 'field is required' },
-        type: 'string',
-        length: {
-            minimum: 1,
-            maximum: 4,
-            message: 'must be 1 - 4 letter',
-        },
-    },
-    house: {
-        presence: { allowEmpty: false, message: 'field is required' },
-        type: 'string',
-        length: {
-            minimum: 1,
-            maximum: 5,
-            message: 'must be 1 - 5 letter',
-        },
-    },
-    city: {
-        presence: {
-            allowEmpty: false,
-        },
-    },
-});
 const PersonalDetails = () => {
+    const { t } = useTranslation();
     const user = useIsAuthenticated();
+    const validation = () => ({
+        name: {
+            type: 'string',
+            presence: { allowEmpty: false, message: 'field is required' },
+            format: {
+                pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
+                message: 'must consist of only alphabets',
+            },
+            length: {
+                minimum: 1,
+                maximum: 30,
+                message: 'must be more than 2 letters',
+            },
+        },
+        street: {
+            type: 'string',
+            presence: { allowEmpty: false, message: 'field is required' },
+            length: {
+                minimum: 1,
+                maximum: 30,
+                message: 'must be more than 1 letter',
+            },
+        },
+        avenue: {
+            presence: { allowEmpty: false, message: 'field is required' },
+            type: 'string',
+            length: {
+                maximum: 30,
+                message: 'must be less than 30 letter',
+            },
+        },
+        block: {
+            presence: { allowEmpty: false, message: 'field is required' },
+            type: 'string',
+            length: {
+                minimum: 1,
+                maximum: 4,
+                message: 'must be 1 - 4 letter',
+            },
+        },
+        house: {
+            presence: { allowEmpty: false, message: 'field is required' },
+            type: 'string',
+            length: {
+                minimum: 1,
+                maximum: 5,
+                message: 'must be 1 - 5 letter',
+            },
+        },
+        city: {
+            presence: {
+                allowEmpty: false,
+            },
+        },
+    });
 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -90,8 +91,6 @@ const PersonalDetails = () => {
     const handleChange = (event: any, newValue: any) => {
         setValue(newValue);
     };
-
-    const { t } = useTranslation();
 
     const navigate = useNavigate();
 
@@ -172,7 +171,7 @@ const PersonalDetails = () => {
                                             name="name"
                                             value={state.name}
                                             error={fieldHasError('name')}
-                                            helperText={fieldGetError('name') || ' '}
+                                            helperText={fieldGetError(t('NAME'))}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             className="custom-styles"
@@ -207,7 +206,7 @@ const PersonalDetails = () => {
                                             name="street"
                                             value={state.street}
                                             error={fieldHasError('street')}
-                                            helperText={fieldGetError('street') || ' '}
+                                            helperText={fieldGetError(t('PERSONAL_DETAILS.STREET')) || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             autoComplete="off"

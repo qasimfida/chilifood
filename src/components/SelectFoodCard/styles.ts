@@ -36,7 +36,7 @@ export const Row = styled(Box)`
 export const Title = styled(Typography)`
     font-weight: 600;
     position: relative;
-    font-size: 26px;
+    font-size: 16px;
     margin-bottom: 0px;
     ${({ theme: { palette } }: any) => {
         return css`
@@ -73,16 +73,17 @@ export const StyledCard = styled(Link)<StyledCardProps>`
         return css`
             box-sizing: border-box;
             box-shadow: 0px 0px 10px 2px #fff;
-            padding: 0;
             max-width: 100%;
-            max-width: 480px;
-            border-radius: 4px;
+            max-width: 320px;
             transition: 0.2s all ease;
             position: relative;
             height: 100%;
             display: block;
-            margin: 0 auto;
+            margin: 12px auto 0;
             text-decoration: none;
+            border: 2px solid #579b3f;
+            padding: 12px 12px 0;
+            border-radius: 12px;
             button {
                 flex-direction: column;
                 height: 100%;
@@ -105,11 +106,12 @@ export const Button = styled(Box)`
         return css`
             background: ${palette.primary.main};
             color: #fff;
+            border: 2px solid ${palette.primary.main};
         `;
     }};
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 8px;
     text-align: center;
     padding: 8px;
-    margin: 12px 0 0;
-    border: 2px solid;
+    margin: 0;
 `;

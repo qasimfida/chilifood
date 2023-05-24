@@ -48,5 +48,6 @@
     "HOME": "Home/Restaurants",
 
     "PERSONAL_DETAILS.ERROR.PREFIX": "must be less than",
-    "PERSONAL_DETAILS.ERROR.DIGITS": "digits"
+    "PERSONAL_DETAILS.ERROR.DIGITS": "digits",
+    "PERSONAL_DETAILS.ISREQUIRED": "is required"
 }
