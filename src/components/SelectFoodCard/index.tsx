@@ -1,5 +1,5 @@
 import React from 'react';
-import { Body, Content, Label, Row, StyledCard, Title, StyledMedia } from './styles';
+import { Body, Content, Label, Row, StyledCard, Title, StyledMedia, Button } from './styles';
 import salad from '.././../assets/images/salad.jpg';
 import { useTranslation } from 'react-i18next';
 const SelectFoodCard: React.FC<any> = ({ to }) => {
@@ -7,12 +7,10 @@ const SelectFoodCard: React.FC<any> = ({ to }) => {
 
     return (
         <StyledCard dir={i18n.dir()} to={to}>
-            <StyledMedia image={salad} title="Food" />
             <Body>
                 <Title>
-                    SELECT
-                    <br />
-                    FOOD
+                    {/* <StyledMedia image={salad} title="Food" /> */}
+                    <Button>SELECT FOOD</Button>
                 </Title>
                 <Content>
                     <Row>

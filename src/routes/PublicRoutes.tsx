@@ -10,6 +10,7 @@ import TermsPolicy from '../views/TermsPolicy';
 import CheckOut from '../views/Checkout';
 import Settings from '../views/Settings';
 import Profile from '../views/Profile';
+import PersonalDetails from '../views/PersonalDetails';
 
 /**
  * List of routes available only for anonymous users
@@ -30,6 +31,7 @@ const PublicRoutes = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/select/restaurants/:restaurants/:plan" element={<Plan allowSelect />} />
             <Route path="/select/restaurants/:restaurants/:plan" element={<Plan singleCard />} />
+            <Route path="/personal-details" element={<PersonalDetails />} />
         </Routes>
     );
 };

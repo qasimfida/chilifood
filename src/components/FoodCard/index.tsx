@@ -70,8 +70,10 @@ const FoodCard: React.FC<IProps> = ({
                         <Macros>
                             {macros?.map((macro: any) => {
                                 return (
-                                    <Macro size={size} key={`macro-${macro.id}`}>
-                                        <MacrosCount component="span">{macro.amount}</MacrosCount>
+                                    <Macro size={size} component="p" key={`macro-${macro.id}`}>
+                                        <MacrosCount size={size} component="span">
+                                            {macro.amount}
+                                        </MacrosCount>
                                         {macro.name}
                                     </Macro>
                                 );

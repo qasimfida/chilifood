@@ -16,7 +16,7 @@ import { restaurantsData } from '../../store/restaurant/restaurants';
 const FoodCard = lazy(() => import('../../components/FoodCard'));
 const Days = lazy(() => import('../../components/Days'));
 
-const TabPan = ({ foods, allowSelect, day, singleCard }: any) => {
+const TabPan = ({ foods, allowSelect, day, singleCard = false }: any) => {
     const dispatch = useDispatch();
     const { viewFoodDetails, selectedFood } = useAppSelector((state) => state.restaurant);
     const handleSelect = (id: string) => {
@@ -48,7 +48,7 @@ const TabPan = ({ foods, allowSelect, day, singleCard }: any) => {
         </Grid>
     );
 };
-const Plan: React.FC<any> = ({ allowSelect, singleCard = true }) => {
+const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
     const dispatch = useDispatch();
     const { i18n } = useTranslation();
     const { restaurant, plan } = useParams();

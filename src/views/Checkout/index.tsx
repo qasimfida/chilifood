@@ -101,19 +101,16 @@ const CheckOut: React.FC<any> = () => {
                             <TableRow>
                                 <TableCell>Start Date</TableCell>
                                 <TableCell>
-                                    {open ? (
-                                        <DatePicker
-                                            open={open}
-                                            onOpen={toggleOpen}
-                                            onClose={toggleOpen}
-                                            value={date}
-                                            onChange={onChange}
-                                            shouldDisableDate={isWeekdayDisabled}
-                                            className="m-0"
-                                        />
-                                    ) : (
-                                        <Typography onClick={toggleOpen}>{formattedDate}</Typography>
-                                    )}
+                                    <DatePicker
+                                        open={open}
+                                        onOpen={toggleOpen}
+                                        onClose={toggleOpen}
+                                        value={date}
+                                        onChange={onChange}
+                                        shouldDisableDate={isWeekdayDisabled}
+                                        className="m-0"
+                                        disablePast
+                                    />
                                 </TableCell>
                             </TableRow>
                             <TableRow>
@@ -123,7 +120,7 @@ const CheckOut: React.FC<any> = () => {
                             <TableRow>
                                 <TableCell colSpan={2}>
                                     <Typo>Leave a Note</Typo>
-                                    <TextArea placeholder="Allergies.., Dislikes.." multiline></TextArea>
+                                    <TextArea placeholder="Allergies.., Dislikes.." multiline rows={4}></TextArea>
                                 </TableCell>
                             </TableRow>
                         </TableBody>

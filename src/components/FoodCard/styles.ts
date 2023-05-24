@@ -156,6 +156,7 @@ export const MacrosCount = styled(Typography)<StyledTypoGraphy>`
     font-weight: 600;
     letter-spacing: 48;
     display: block;
+    font-size: ${({ size }) => (size === 'xl' ? '16px' : '12px')};
 `;
 
 export const StyledCard = styled(Box)<StyledCardProps>`

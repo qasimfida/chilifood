@@ -11,11 +11,14 @@ export const StyledMedia = styled(CardMedia)`
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
+    top: 0;
+    left: 0;
 `;
 export const Label = styled(Typography)`
     font-size: 14px;
     margin-bottom: 0px;
-    overflow: hidden;
+    margin-right: 12px;
+    text-align: center;
     ${({ theme: { palette } }: any) => {
         return css`
             color: ${palette.secondary.main};
@@ -24,30 +27,28 @@ export const Label = styled(Typography)`
 `;
 export const Row = styled(Box)`
     display: flex;
-    margin-bottom: 4px;
-    p:nth-of-type(1) {
-        min-width: 72px;
+    &:last-child {
+        width: 100%;
+        min-width: 100%;
     }
 `;
 export const Title = styled(Typography)`
     font-weight: 700;
-    font-size: 32px;
+    position: relative;
+    font-size: 36px;
     margin-bottom: 0px;
     ${({ theme: { palette } }: any) => {
         return css`
             color: ${palette.primary.main};
         `;
     }};
-    border-left: 1px solid #999;
-    width: 144px;
-    height: 100%;
+    width: 100%;
     padding: 12px;
 `;
 export const Body = styled(CardActionArea)`
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    gap: 20px;
 `;
 export const Content = styled(CardContent)`
     padding: 12px;
@@ -56,6 +57,8 @@ export const Content = styled(CardContent)`
     transition: 0.1s all ease-in;
     box-sizing: border-box;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
     svg {
         height: 20px;
     }
@@ -78,6 +81,7 @@ export const StyledCard = styled(Link)<StyledCardProps>`
             display: block;
             text-decoration: none;
             button {
+                flex-direction: column;
                 height: 100%;
                 align-items: flex-start;
                 justify-content: flex-start;
@@ -92,4 +96,13 @@ export const StyledCard = styled(Link)<StyledCardProps>`
             }
         `;
     }}
+`;
+export const Button = styled(Box)`
+    position: relative;
+    background: yellow;
+    border-radius: 8px;
+    text-align: center;
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px solid;
 `;

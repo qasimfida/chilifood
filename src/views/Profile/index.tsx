@@ -120,14 +120,9 @@ const Profile = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            if (user.phoneNumber) {
-                localStorage.setItem('user', JSON.stringify(Object.assign(user, state)));
-            } else {
-                localStorage.setItem('temp', JSON.stringify(state));
-                return navigate('/auth/signup', { replace: true });
-            }
+            localStorage.setItem('user', JSON.stringify(Object.assign(user, state)));
         },
-        [state, navigate, user]
+        [state, user]
     );
 
     const onFieldBlur = (event: any) => {
