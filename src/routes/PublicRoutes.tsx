@@ -10,7 +10,6 @@ import TermsPolicy from '../views/TermsPolicy';
 import CheckOut from '../views/Checkout';
 import Settings from '../views/Settings';
 import Profile from '../views/Profile';
-import PlanTwo from '../views/PlanTwo';
 
 /**
  * List of routes available only for anonymous users

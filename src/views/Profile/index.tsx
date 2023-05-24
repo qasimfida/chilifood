@@ -10,14 +10,13 @@ import Wrapper, { StyledComp, StyledTitle, Submit } from './styles';
 
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Grid, TextField, LinearProgress, Autocomplete } from '@mui/material';
+import { Grid, TextField, Autocomplete } from '@mui/material';
 import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';
-import { ObjectPropByName, SHARED_CONTROL_PROPS, useAppForm } from '../../utils';
+import { ObjectPropByName, SHARED_CONTROL_PROPS } from '../../utils';
 import Table from '../../components/Table';
 import { IUser, useIsAuthenticated } from '../../hooks';
 import { validate } from 'validate.js';
-import { isConsistent } from './isConsistent';
 
 const validation = () => ({
     name: {
@@ -121,10 +120,14 @@ const Profile = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            localStorage.setItem('temp', JSON.stringify(state));
-            return navigate('/auth/signup', { replace: true });
+            if (user.phoneNumber) {
+                localStorage.setItem('user', JSON.stringify(Object.assign(user, state)));
+            } else {
+                localStorage.setItem('temp', JSON.stringify(state));
+                return navigate('/auth/signup', { replace: true });
+            }
         },
-        [state, navigate]
+        [state, navigate, user]
     );
 
     const onFieldBlur = (event: any) => {

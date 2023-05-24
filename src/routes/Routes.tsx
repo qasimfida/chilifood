@@ -1,6 +1,4 @@
 import PublicRoutes from './PublicRoutes';
-import PrivateRoutes from './PrivateRoutes';
-import { useIsAuthenticated } from '../hooks/auth';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 // import { isUserStillLoggedIn } from '../api/auth/utils';
@@ -10,7 +8,6 @@ import { useLocation } from 'react-router-dom';
  * Renders routes depending on Authenticated or Anonymous users
  */
 const Routes = () => {
-    const isAuthenticated = useIsAuthenticated();
     const location = useLocation();
 
     useEffect(() => {
