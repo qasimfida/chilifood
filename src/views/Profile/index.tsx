@@ -18,62 +18,61 @@ import Table from '../../components/Table';
 import { IUser, useIsAuthenticated } from '../../hooks';
 import { validate } from 'validate.js';
 
-const validation = () => ({
-    name: {
-        type: 'string',
-        presence: { allowEmpty: false },
-        format: {
-            pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
-            message: 'must consist of only alphabets',
-        },
-        length: {
-            minimum: 2,
-            maximum: 50,
-            message: 'must be more than 2 letters',
-        },
-    },
-    street: {
-        type: 'string',
-        presence: { allowEmpty: true },
-        length: {
-            minimum: 1,
-            maximum: 30,
-            message: 'must be more than 1 letter',
-        },
-    },
-    avenue: {
-        presence: { allowEmpty: true },
-        type: 'string',
-        length: {
-            maximum: 30,
-            message: 'must be less than 30 letter',
-        },
-    },
-    block: {
-        presence: true,
-        type: 'string',
-        length: {
-            minimum: 1,
-            maximum: 3,
-            message: 'must be 1 - 3 letter',
-        },
-    },
-    house: {
-        presence: true,
-        type: 'string',
-        length: {
-            minimum: 1,
-            maximum: 5,
-            message: 'must be 1 - 5 letter',
-        },
-    },
-    city: {
-        presence: true,
-    },
-});
-
 const Profile = () => {
     const user = useIsAuthenticated();
+    const { t } = useTranslation();
+
+    const validation = (t: any) => ({
+        name: {
+            type: 'string',
+            presence: { allowEmpty: false },
+            format: {
+                pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
+                message: 'must consist of only alphabets',
+            },
+            length: {
+                maximum: 30,
+                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 30 ${t('PERSONAL_DETAILS.ERROR.PREFIX')} `,
+            },
+        },
+        street: {
+            type: 'string',
+            presence: { allowEmpty: true },
+            length: {
+                maximum: 30,
+                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 30 ${t('PERSONAL_DETAILS.ERROR.PREFIX')} `,
+            },
+        },
+        avenue: {
+            presence: { allowEmpty: true },
+            type: 'string',
+            length: {
+                maximum: 30,
+                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 30 ${t('PERSONAL_DETAILS.ERROR.DIGITS')} `,
+            },
+        },
+        block: {
+            presence: true,
+            type: 'string',
+            length: {
+                maximum: 4,
+                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 4 ${t('PERSONAL_DETAILS.ERROR.DIGITS')} `,
+            },
+        },
+        house: {
+            presence: true,
+            type: 'string',
+            length: {
+                minimum: 1,
+                maximum: 5,
+                message: `${t('PERSONAL_DETAILS.ERROR.PREFIX')} 5 ${t('PERSONAL_DETAILS.ERROR.DIGITS')} `,
+            },
+        },
+        city: {
+            presence: true,
+            message: `${t('PERSONAL_DETAILS.PLEASE_SELECT_CITY')}`,
+        },
+    });
 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -90,23 +89,6 @@ const Profile = () => {
         setValue(newValue);
     };
 
-    const { t } = useTranslation();
-
-    const navigate = useNavigate();
-
-    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-    //     validationSchema: VALIDATION, // the state value, so could be changed in time
-    //     initialValues: {
-    //         name: user?.name || '',
-    //         block: user?.block || '',
-    //         street: user?.street || '',
-    //         avenue: user?.avenue || '',
-    //         house: user?.house || '',
-    //         city: user?.city || null,
-    //     } as IUser,
-    //     validateOnBlur: true,
-    // });
-    // const values = formState.values as IUser; // Typed alias to formState.values as the "Source of Truth"
     const [state, setState] = useState<IUser>({
         name: user?.name || '',
         block: user?.block || '',
@@ -127,7 +109,7 @@ const Profile = () => {
 
     const onFieldBlur = (event: any) => {
         const { name, value } = event.target;
-        const valid = (validation() as ObjectPropByName)[name];
+        const valid = (validation(t) as ObjectPropByName)[name];
         const err = validate({ [name]: value }, { [name]: valid });
         const errs = { ...errors, ...err };
         if (!err) {
@@ -153,7 +135,7 @@ const Profile = () => {
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
-    const isValid = validate(state, validation()) ? false : true;
+    const isValid = validate(state, validation(t)) ? false : true;
 
     return (
         <Layout1 title={`Profile/${value === '0' ? 'Personal Details' : 'My Subscriptions'}`}>

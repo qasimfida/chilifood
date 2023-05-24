@@ -18,6 +18,13 @@
     "PERSONAL_DETAILS.START_DATE": "بداية الاشتراك",
     "PERSONAL_DETAILS.END_DATE": "نهاية الاشتراك",
     "PERSONAL_DETAILS.PRICE": "السعر",
+    "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "يرجى اختيار منطقة",
+    "PERSONAL_DETAILS.NAME_FIELD_ERROR": "حقل الاسم مطلوب",
+    "PERSONAL_DETAILS.STREET_FIELD_ERROR": "حقل الشارع مطلوب",
+    "PERSONAL_DETAILS.BLOCK_FIELD_ERROR": "حقل الكتلة مطلوب",
+    "PERSONAL_DETAILS.AVENUE_FIELD_ERROR": "حقل الجادة مطلوب",
+    "PERSONAL_DETAILS.HOUSE_FIELD_ERROR": "حقل المنزل مطلوب",
+
     "PHONE_NUMBER": "رقم الهاتف",
     "PASSWORD": "كلمة السر",
     "SIGNUP.TERMS_AND_CONDITIONS": " الشروط والأحكام",
@@ -35,5 +42,8 @@
     "New_PASSWORD": "كلمة السر الجديدة",
     "CHANGE_PASSWORD": "تغيير كلمة المرور",
     "CONTACT_US": "Contact Us",
-    "HOME": "الرئيسية/المطاعم"
+    "HOME": "الرئيسية/المطاعم",
+
+    "PERSONAL_DETAILS.ERROR.PREFIX": "يجب أن يكون أقل من",
+    "PERSONAL_DETAILS.ERROR.DIGITS": "أرقام"
 }

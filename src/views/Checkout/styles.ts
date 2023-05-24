@@ -1,7 +1,7 @@
 import { styled } from '@mui/system';
 import { Box, TextField, Typography } from '@mui/material';
 import { AppButton } from '../../components';
-import { PickersDay } from '@mui/x-date-pickers';
+import { DatePicker, PickersDay } from '@mui/x-date-pickers';
 
 export const Wrapper = styled(Box)`
     margin-top: 40px;
@@ -62,3 +62,11 @@ export const Typo = styled(Typography)`
     text-align: right;
 `;
 export const Day = styled(PickersDay)<any>``;
+export const Picker = styled(DatePicker)`
+    .MuiInputBase-root.MuiInputBase-formControl {
+        height: 44px !important;
+    }
+    input {
+        padding: 8px 14px;
+    }
+`;

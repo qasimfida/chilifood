@@ -10,6 +10,12 @@ const Wrapper = styled(Box)`
     .MuiTableCell-root.MuiTableCell-body.css-16gnyic-MuiTableCell-root {
         border: none;
     }
+    .MuiInputLabel-root {
+        width: fit-content;
+        background: #fbfbfb;
+        padding: 2px;
+        margin-top: -4px;
+    }
 `;
 
 export const StyledComp = styled(Box)`

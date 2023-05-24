@@ -18,6 +18,13 @@
     "PERSONAL_DETAILS.START_DATE": "Start Date",
     "PERSONAL_DETAILS.END_DATE": "End Date",
     "PERSONAL_DETAILS.PRICE": "Price",
+    "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "Please select city",
+    "PERSONAL_DETAILS.NAME_FIELD_ERROR": "Name field is required",
+    "PERSONAL_DETAILS.STREET_FIELD_ERROR": "Street field is required",
+    "PERSONAL_DETAILS.BLOCK_FIELD_ERROR": "Block field is required",
+    "PERSONAL_DETAILS.AVENUE_FIELD_ERROR": "Avenue field is required",
+    "PERSONAL_DETAILS.HOUSE_FIELD_ERROR": "House field is required",
+
     "PHONE_NUMBER": "Phone Number",
     "NAME": "Name",
     "PASSWORD": "Password",
@@ -38,5 +45,8 @@
     "New_PASSWORD": "New Password",
     "CHANGE_PASSWORD": "CHANGE PASSWORD",
     "CONTACT_US": "Contact Us",
-    "HOME": "Home/Restaurants"
+    "HOME": "Home/Restaurants",
+
+    "PERSONAL_DETAILS.ERROR.PREFIX": "must be less than",
+    "PERSONAL_DETAILS.ERROR.DIGITS": "digits"
 }

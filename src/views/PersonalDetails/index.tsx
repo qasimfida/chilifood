@@ -21,20 +21,20 @@ import { validate } from 'validate.js';
 const validation = () => ({
     name: {
         type: 'string',
-        presence: { allowEmpty: false },
+        presence: { allowEmpty: false, message: 'field is required' },
         format: {
             pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
             message: 'must consist of only alphabets',
         },
         length: {
-            minimum: 2,
-            maximum: 50,
+            minimum: 1,
+            maximum: 30,
             message: 'must be more than 2 letters',
         },
     },
     street: {
         type: 'string',
-        presence: { allowEmpty: true },
+        presence: { allowEmpty: false, message: 'field is required' },
         length: {
             minimum: 1,
             maximum: 30,
@@ -42,7 +42,7 @@ const validation = () => ({
         },
     },
     avenue: {
-        presence: { allowEmpty: true },
+        presence: { allowEmpty: false, message: 'field is required' },
         type: 'string',
         length: {
             maximum: 30,
@@ -50,16 +50,16 @@ const validation = () => ({
         },
     },
     block: {
-        presence: true,
+        presence: { allowEmpty: false, message: 'field is required' },
         type: 'string',
         length: {
             minimum: 1,
-            maximum: 3,
-            message: 'must be 1 - 3 letter',
+            maximum: 4,
+            message: 'must be 1 - 4 letter',
         },
     },
     house: {
-        presence: true,
+        presence: { allowEmpty: false, message: 'field is required' },
         type: 'string',
         length: {
             minimum: 1,
@@ -68,10 +68,11 @@ const validation = () => ({
         },
     },
     city: {
-        presence: true,
+        presence: {
+            allowEmpty: false,
+        },
     },
 });
-
 const PersonalDetails = () => {
     const user = useIsAuthenticated();
 
@@ -190,7 +191,7 @@ const PersonalDetails = () => {
                                                     {...params}
                                                     label={t('PERSONAL_DETAILS.CITY')}
                                                     error={fieldHasError('city')}
-                                                    helperText={fieldGetError('city') || ' '}
+                                                    helperText={t('PERSONAL_DETAILS.PLEASE_SELECT_CITY')}
                                                 />
                                             )}
                                             onBlur={onFieldBlur}
