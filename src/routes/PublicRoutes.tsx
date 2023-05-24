@@ -30,7 +30,7 @@ const PublicRoutes = () => {
             <Route path="/terms-policy" element={<TermsPolicy />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/select/restaurants/:restaurants/:plan" element={<Plan allowSelect />} />
-            <Route path="/select/restaurants/:restaurants/:plan" element={<PlanTwo />} />
+            <Route path="/select/restaurants/:restaurants/:plan" element={<Plan singleCard />} />
         </Routes>
     );
 };

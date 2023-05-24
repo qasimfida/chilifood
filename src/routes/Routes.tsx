@@ -38,6 +38,6 @@ const Routes = () => {
     //   }
     // }, [isAuthenticated, dispatch]); // Effect for every isAuthenticated change actually
 
-    return isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />;
+    return <PublicRoutes />;
 };
 export default Routes;

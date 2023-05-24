@@ -99,8 +99,8 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         },
         {
             title: 'Plan2',
-            path: '/plan-two',
-            icon: 'logout',
+            path: '/restaurants/1/1',
+            icon: 'contacts',
         },
     ];
 

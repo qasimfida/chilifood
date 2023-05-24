@@ -5,46 +5,49 @@ interface StyledCardProps {
 }
 interface StyledTypoGraphy extends TypographyProps {
     component?: string;
+    size?: 'xl' | 'md';
 }
 
-export const StyledMedia = styled(CardMedia)`
-    height: 180px;
+export const StyledMedia = styled(CardMedia)<any>`
     width: 100%;
     min-width: 100%;
     border-radius: 4px;
     overflow: hidden;
 
     ${({
+        size,
         theme: {
             breakpoints: { values },
         },
     }: any) => {
         return css`
+            height: ${size === 'xl' ? '200px' : '180px'};
             @media (max-width: ${values.sm}px) {
-                height: 120px;
+                height: ${size === 'xl' ? '180px' : '120px'};
             }
         `;
     }};
 `;
 
-export const CardTitle = styled(Typography)`
+export const CardTitle = styled(Typography)<any>`
     font-weight: 600;
-    font-size: 14px;
     margin-bottom: 0px;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     ${({
+        size,
         theme: {
             palette,
             breakpoints: { values },
         },
     }: any) => {
         return css`
+            font-size: ${size === 'xl' ? '16px' : '14px'};
             color: ${palette.grey.main};
             @media (max-width: ${values.sm}px) {
-                font-size: 12px;
+                font-size: ${size === 'xl' ? '16px' : '12px'};
             }
         `;
     }};
@@ -55,12 +58,12 @@ export const Body = styled(CardActionArea)`
 `;
 export const Description = styled(Typography)<any>`
     font-weight: 300;
-    font-size: 12px;
     overflow: hidden;
-    color: ${({ theme: { palette } }) => palette.grey.main};
-    ${({ theme: { palette }, expended }: any) => {
+    ${({ size, theme: { palette }, expended }: any) => {
         const open = expended === 'true';
         return css`
+            color: ${palette.grey.main};
+            font-size: ${size === 'xl' ? '16px' : '12px'};
             padding-top: ${open ? '8px' : '0'};
             height: ${open ? 'auto' : '0'};
         `;
@@ -142,15 +145,15 @@ export const Toggle = styled(Box)`
     margin-right: 8px;
 `;
 export const Macro = styled(Typography)<any>`
-    font-size: 12px;
+    font-size: ${({ size }) => (size === 'xl' ? '16px' : '12px')};
     font-weight: 300;
     line-height: 1;
     width: 25%;
+
     color: ${({ theme: { palette } }) => palette.grey.main};
 `;
 export const MacrosCount = styled(Typography)<StyledTypoGraphy>`
     font-weight: 600;
-    font-size: 12px;
     letter-spacing: 48;
     display: block;
 `;

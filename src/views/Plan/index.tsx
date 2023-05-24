@@ -16,7 +16,7 @@ import { restaurantsData } from '../../store/restaurant/restaurants';
 const FoodCard = lazy(() => import('../../components/FoodCard'));
 const Days = lazy(() => import('../../components/Days'));
 
-const TabPan = ({ foods, allowSelect, day }: any) => {
+const TabPan = ({ foods, allowSelect, day, singleCard }: any) => {
     const dispatch = useDispatch();
     const { viewFoodDetails, selectedFood } = useAppSelector((state) => state.restaurant);
     const handleSelect = (id: string) => {
@@ -28,8 +28,9 @@ const TabPan = ({ foods, allowSelect, day }: any) => {
         <Grid container spacing={{ xs: 2 }}>
             {foods.map(({ id, macros, name, description, src }: any) => {
                 return (
-                    <Grid item xs={6} sm={4} lg={3} key={id}>
+                    <Grid item xs={singleCard ? 12 : 6} sm={singleCard ? 6 : 4} lg={singleCard ? 4 : 3} key={id}>
                         <FoodCard
+                            size={singleCard ? 'xl' : 'md'}
                             onToggle={() => dispatch(showDetails(id))}
                             handleSelect={() => handleSelect(id)}
                             isExpended={viewFoodDetails === id}
@@ -47,7 +48,7 @@ const TabPan = ({ foods, allowSelect, day }: any) => {
         </Grid>
     );
 };
-const Plan: React.FC<any> = ({ allowSelect }) => {
+const Plan: React.FC<any> = ({ allowSelect, singleCard = true }) => {
     const dispatch = useDispatch();
     const { i18n } = useTranslation();
     const { restaurant, plan } = useParams();
@@ -119,7 +120,12 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
                             </StyledTabContext>
                             {planMeals.map((meal: any, index: any) => (
                                 <TabPanel value={meal.id} key={meal.id} className="px-0">
-                                    <TabPan foods={mealFoods(meal.id)} allowSelect={allowSelect} day={selectedDay} />
+                                    <TabPan
+                                        foods={mealFoods(meal.id)}
+                                        allowSelect={allowSelect}
+                                        day={selectedDay}
+                                        singleCard={singleCard}
+                                    />
                                 </TabPanel>
                             ))}
                         </TabContext>

@@ -17,6 +17,8 @@ import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../style
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
+import { ObjectPropByName } from '../../../utils';
+import { validate } from 'validate.js';
 
 const validation = (t: any) => ({
     phoneNumber: {
@@ -54,24 +56,24 @@ interface FormStateValues {
 const Signup = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
-
-    // const [, dispatch] = useAppStore();
-    const [validationSchema, setValidationSchema] = useState<any>({
-        ...validation(t),
-    });
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-        validationSchema: validationSchema, // the state value, so could be changed in time
-        initialValues: {
-            phoneNumber: '',
-            password: '',
-        } as FormStateValues,
-        validateOnBlur: true,
-    });
+    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
+    //     validationSchema: validationSchema, // the state value, so could be changed in time
+    //     initialValues: {
+    //         phoneNumber: '',
+    //         password: '',
+    //     } as FormStateValues,
+    //     validateOnBlur: true,
+    // });
+    // const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
     const [showPassword, setShowPassword] = useState(false);
     const [agree, setAgree] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string>();
-    const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
+    const [state, setState] = useState<FormStateValues>({
+        phoneNumber: '',
+        password: '',
+    });
+    const [errors, setErrors] = useState<any>({});
 
     useEffect(() => {
         // Component Mount
@@ -92,17 +94,6 @@ const Signup = () => {
         };
     }, []);
 
-    useEffect(() => {
-        // Update Validation Schema when Show/Hide password changed
-        let newSchema;
-        if (showPassword) {
-            newSchema = validation(t); // Validation without .confirmPassword
-        } else {
-            newSchema = { ...validation(t) }; // Full validation
-        }
-        setValidationSchema(newSchema);
-    }, [showPassword, t]);
-
     const handleShowPasswordClick = useCallback(() => {
         setShowPassword((oldValue) => !oldValue);
     }, []);
@@ -115,14 +106,38 @@ const Signup = () => {
         async (event: SyntheticEvent) => {
             event.preventDefault();
             const user = JSON.parse(localStorage.getItem('temp') || '{}');
-            const updateUser = Object.assign(user, values);
+            const updateUser = Object.assign(user, state);
             localStorage.setItem('temp', JSON.stringify(updateUser));
             return navigate('/auth/signup/confirm-otp');
         },
-        [values, navigate]
+        [state, navigate]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);
+
+    const onFieldBlur = (event: any) => {
+        const { name, value } = event.target;
+        const valid = (validation(t) as ObjectPropByName)[name];
+        const err = validate({ [name]: value }, { [name]: valid });
+        const errs = { ...errors, ...err };
+        if (!err) {
+            delete errs[name];
+        }
+        setErrors({ ...errs });
+    };
+    const onFieldChange = (event: any) => {
+        const { name, value } = event.target;
+        setState((prev) => {
+            return { ...prev, [name]: value };
+        });
+    };
+    const fieldGetError = (key: any) => {
+        return (errors as ObjectPropByName)[key]?.[0];
+    };
+    const fieldHasError = (key: any) => {
+        return (errors as ObjectPropByName)[key] ? true : false;
+    };
+    const isValid = validate(state, validation(t)) ? false : true;
 
     if (loading) return <LinearProgress />;
 
@@ -145,7 +160,7 @@ const Signup = () => {
                                 name="phoneNumber"
                                 id="phoneNumber"
                                 inputProps={{ pattern: '[0-9]*', maxLength: 8, inputMode: 'numeric' }}
-                                value={generateValidNumber(values.phoneNumber)}
+                                value={generateValidNumber(state.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}
                                 onChange={onFieldChange}
@@ -159,7 +174,7 @@ const Signup = () => {
                                 label={t('PASSWORD')}
                                 name="password"
                                 autoComplete="new-password"
-                                value={values.password}
+                                value={state.password}
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
                                 onChange={onFieldChange}
@@ -203,7 +218,7 @@ const Signup = () => {
                                     type="submit"
                                     variant="contained"
                                     color="primary"
-                                    disabled={!(formState.isValid && agree)}
+                                    disabled={!(isValid && agree)}
                                     fullWidth
                                 >
                                     {t('SIGNUP.SIGN_UP')}

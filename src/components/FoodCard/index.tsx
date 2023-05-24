@@ -17,7 +17,6 @@ import {
 import { ExpandMore } from '@mui/icons-material';
 import useAnimateHeightFromZeroToAuto from '../../hooks/useAnimateHeightFromZeroToAuto';
 import { IFood } from '../../types/restaurant';
-import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 interface IProps extends IFood {
     isExpended: boolean;
@@ -28,6 +27,7 @@ interface IProps extends IFood {
     name: string;
     description: string;
     allowSelect?: boolean;
+    size?: 'xl' | 'md';
 }
 const FoodCard: React.FC<IProps> = ({
     isExpended,
@@ -40,8 +40,8 @@ const FoodCard: React.FC<IProps> = ({
     allowSelect = false,
     isSelected,
     id,
+    size,
 }) => {
-    const { i18n } = useTranslation();
     const ref = useRef<null>(null);
 
     useAnimateHeightFromZeroToAuto(ref, 100, isExpended, '0');
@@ -58,10 +58,10 @@ const FoodCard: React.FC<IProps> = ({
                         inputProps={{ 'aria-label': `${id}` }}
                     />
                 )}
-                <StyledMedia image={src || salad} title="Food" onClick={handleSelect} />
+                <StyledMedia size={size} image={src || salad} title="Food" onClick={handleSelect} />
                 <Content>
                     <Details onClick={onToggle}>
-                        <CardTitle className="title" gutterBottom variant="h5">
+                        <CardTitle size={size} className="title" gutterBottom variant="h5">
                             <Box>{name}</Box>
                             <Toggle>
                                 <ExpandMore fontSize="small" className="icon" />
@@ -70,14 +70,14 @@ const FoodCard: React.FC<IProps> = ({
                         <Macros>
                             {macros?.map((macro: any) => {
                                 return (
-                                    <Macro key={`macro-${macro.id}`}>
+                                    <Macro size={size} key={`macro-${macro.id}`}>
                                         <MacrosCount component="span">{macro.amount}</MacrosCount>
                                         {macro.name}
                                     </Macro>
                                 );
                             })}
                         </Macros>
-                        <Description ref={ref} expended={`${isExpended}`}>
+                        <Description size={size} ref={ref} expended={`${isExpended}`}>
                             {description}
                         </Description>
                     </Details>

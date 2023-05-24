@@ -8,8 +8,10 @@ import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../style
 import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
+import { validate } from 'validate.js';
+import { ObjectPropByName } from '../../../utils';
 
-const VALIDATION = {
+const validation = () => ({
     phoneNumber: {
         presence: true,
         type: 'string',
@@ -24,6 +26,7 @@ const VALIDATION = {
         },
     },
     password: {
+        type: 'string',
         presence: true,
         length: {
             minimum: 3,
@@ -31,7 +34,7 @@ const VALIDATION = {
             message: 'password must be more than 3 digits',
         },
     },
-};
+});
 
 interface FormStateValues {
     phoneNumber: string;
@@ -46,15 +49,19 @@ interface FormStateValues {
 const Login = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
-    // const [, dispatch] = useAppStore();
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-        validationSchema: VALIDATION,
-        initialValues: { phoneNumber: '', password: '' } as FormStateValues,
-        validateOnBlur: true,
+    const [state, setState] = useState<FormStateValues>({
+        phoneNumber: '',
+        password: '',
     });
-    const [showPassword, setShowPassword] = useState(false);
+    const [errors, setErrors] = useState<any>({});
+    // const [, dispatch] = useAppStore();
+    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
+    //     validationSchema: VALIDATION,
+    //     initialValues: { phoneNumber: '', password: '' } as FormStateValues,
+    //     validateOnBlur: true,
+    // });
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     const [error, setError] = useState<string>();
-    const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
 
     const handleShowPasswordClick = useCallback(() => {
         setShowPassword((oldValue) => !oldValue);
@@ -64,17 +71,39 @@ const Login = () => {
         async (event: SyntheticEvent) => {
             event.preventDefault();
             const user = {
-                ...values,
+                ...state,
             };
             localStorage.setItem('user', JSON.stringify(user));
 
             navigate('/', { replace: true });
         },
-        [values, navigate]
+        [state, navigate]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);
-
+    const onFieldBlur = (event: any) => {
+        const { name, value } = event.target;
+        const valid = (validation() as ObjectPropByName)[name];
+        const err = validate({ [name]: value }, { [name]: valid });
+        const errs = { ...errors, ...err };
+        if (!err) {
+            delete errs[name];
+        }
+        setErrors({ ...errs });
+    };
+    const onFieldChange = (event: any) => {
+        const { name, value } = event.target;
+        setState((prev: any) => {
+            return { ...prev, [name]: value };
+        });
+    };
+    const fieldGetError = (key: any) => {
+        return (errors as ObjectPropByName)[key]?.[0];
+    };
+    const fieldHasError = (key: any) => {
+        return (errors as ObjectPropByName)[key] ? true : false;
+    };
+    const isValid = validate(state, validation()) ? false : true;
     return (
         <Layout1 title="Login">
             <Wrapper>
@@ -93,12 +122,11 @@ const Login = () => {
                                 label={t('PHONE_NUMBER')}
                                 name="phoneNumber"
                                 inputProps={{ pattern: '[0-9]*', maxLength: 8, inputMode: 'numeric' }}
-                                value={generateValidNumber(values.phoneNumber)}
+                                value={generateValidNumber(state.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
                                 helperText={fieldGetError('phoneNumber') || ' '}
                                 id="phoneNumber"
                                 autoComplete="new-phone-number"
-                                autoFocus
                                 onBlur={onFieldBlur}
                                 onChange={onFieldChange}
                                 {...SHARED_CONTROL_PROPS}
@@ -110,7 +138,7 @@ const Login = () => {
                                 name="password"
                                 id="password"
                                 autoComplete="new-password"
-                                value={values.password}
+                                value={state.password}
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
                                 onBlur={onFieldBlur}
@@ -141,7 +169,7 @@ const Login = () => {
                                 </AppAlert>
                             ) : null}
                             <Grid container justifyContent="center" alignItems="center">
-                                <Submit type="submit" disabled={!formState.isValid} color="primary" fullWidth>
+                                <Submit type="submit" disabled={!isValid} color="primary" fullWidth>
                                     {t('LOGIN')}
                                 </Submit>
                             </Grid>

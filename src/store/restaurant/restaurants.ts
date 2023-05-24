@@ -173,8 +173,8 @@ export const foods = [
     {
         id: '2',
         src: 'https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-        name: 'Savory Grilled Salmon Delight',
-        description: 'A delectable treat that will satisfy your cravings.',
+        name: 'Tasty Savory Grilled Salmon Delight',
+        description: 'Deliciously seasoned steak with a side of buttery garlic and mashed potatoes',
         macros: [
             { id: '127', name: 'Cal', amount: '150' },
             { id: '128', name: 'Prot', amount: '90' },

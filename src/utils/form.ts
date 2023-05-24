@@ -101,6 +101,9 @@ export function useAppForm({ validationSchema, initialValues = {}, validateOnBlu
     // Event to call on every Input change. Note: the "name" props of the Input control must be set!
     const onFieldBlur = useCallback(
         (event: any, select?: any, key?: string) => {
+            console.log(1);
+            event.preventDefault();
+            event.stopPropagation();
             if (validateOnBlur) {
                 const errors = validate(formState.values, validationSchema);
                 setFormState((currentFormState) => ({
@@ -113,6 +116,8 @@ export function useAppForm({ validationSchema, initialValues = {}, validateOnBlu
         [formState.values, validationSchema, validateOnBlur]
     );
     const onFieldChange = useCallback((event: any, select?: any, key?: string) => {
+        event.preventDefault();
+        event.stopPropagation();
         const name = key || event.target?.name;
         const value = key
             ? select

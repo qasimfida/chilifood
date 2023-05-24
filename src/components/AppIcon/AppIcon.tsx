@@ -21,6 +21,7 @@ import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
 import {
     AddIcCall,
     AppRegistrationOutlined,
+    Contacts,
     Description,
     Login,
     Logout,
@@ -66,6 +67,7 @@ const ICONS: Record<string, React.ComponentType> = {
     contact: AddIcCall,
     terms: Description,
     whatsapp: WhatsApp,
+    contacts: Contacts,
 };
 
 interface Props {

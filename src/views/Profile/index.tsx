@@ -13,11 +13,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Grid, TextField, LinearProgress, Autocomplete } from '@mui/material';
 import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';
-import { SHARED_CONTROL_PROPS, useAppForm } from '../../utils';
+import { ObjectPropByName, SHARED_CONTROL_PROPS, useAppForm } from '../../utils';
 import Table from '../../components/Table';
 import { IUser, useIsAuthenticated } from '../../hooks';
+import { validate } from 'validate.js';
+import { isConsistent } from './isConsistent';
 
-const VALIDATION = {
+const validation = () => ({
     name: {
         type: 'string',
         presence: { allowEmpty: false },
@@ -69,7 +71,7 @@ const VALIDATION = {
     city: {
         presence: true,
     },
-};
+});
 
 const Profile = () => {
     const user = useIsAuthenticated();
@@ -93,48 +95,68 @@ const Profile = () => {
 
     const navigate = useNavigate();
 
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-        validationSchema: VALIDATION, // the state value, so could be changed in time
-        initialValues: {
-            name: user?.name || '',
-            block: user?.block || '',
-            street: user?.street || '',
-            avenue: user?.avenue || '',
-            house: user?.house || '',
-            city: user?.city || null,
-        } as IUser,
-        validateOnBlur: true,
+    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
+    //     validationSchema: VALIDATION, // the state value, so could be changed in time
+    //     initialValues: {
+    //         name: user?.name || '',
+    //         block: user?.block || '',
+    //         street: user?.street || '',
+    //         avenue: user?.avenue || '',
+    //         house: user?.house || '',
+    //         city: user?.city || null,
+    //     } as IUser,
+    //     validateOnBlur: true,
+    // });
+    // const values = formState.values as IUser; // Typed alias to formState.values as the "Source of Truth"
+    const [state, setState] = useState<IUser>({
+        name: user?.name || '',
+        block: user?.block || '',
+        street: user?.street || '',
+        avenue: user?.avenue || '',
+        house: user?.house || '',
+        city: user?.city || null,
     });
-    const [loading, setLoading] = useState(true);
-    const values = formState.values as IUser; // Typed alias to formState.values as the "Source of Truth"
-    useEffect(() => {
-        // Component Mount
-        let componentMounted = true;
+    const [errors, setErrors] = useState<any>({});
 
-        async function fetchData() {
-            //TODO: Call any Async API here
-            if (!componentMounted) return; // Component was unmounted during the API call
-            //TODO: Verify API call here
-
-            setLoading(false); // Reset "Loading..." indicator
-        }
-        fetchData(); // Call API asynchronously
-
-        return () => {
-            // Component Un-mount
-            componentMounted = false;
-        };
-    }, []);
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            localStorage.setItem('temp', JSON.stringify(values));
+            localStorage.setItem('temp', JSON.stringify(state));
             return navigate('/auth/signup', { replace: true });
         },
-        [values, navigate]
+        [state, navigate]
     );
 
-    if (loading) return <LinearProgress />;
+    const onFieldBlur = (event: any) => {
+        const { name, value } = event.target;
+        const valid = (validation() as ObjectPropByName)[name];
+        const err = validate({ [name]: value }, { [name]: valid });
+        const errs = { ...errors, ...err };
+        if (!err) {
+            delete errs[name];
+        }
+        setErrors({ ...errs });
+    };
+    const onFieldChange = (event: any, val?: any, key?: string) => {
+        const { name, value } = event.target;
+        if (key) {
+            setState((prev) => {
+                return { ...prev, [key]: val };
+            });
+        } else {
+            setState((prev) => {
+                return { ...prev, [name]: value };
+            });
+        }
+    };
+    const fieldGetError = (key: any) => {
+        return (errors as ObjectPropByName)[key]?.[0];
+    };
+    const fieldHasError = (key: any) => {
+        return (errors as ObjectPropByName)[key] ? true : false;
+    };
+    const isValid = validate(state, validation()) ? false : true;
+
     return (
         <Layout1 title={`Profile/${value === '0' ? 'Personal Details' : 'My Subscriptions'}`}>
             <Wrapper>
@@ -158,7 +180,7 @@ const Profile = () => {
                                                     required
                                                     label={t('NAME')}
                                                     name="name"
-                                                    value={values.name}
+                                                    value={state.name}
                                                     error={fieldHasError('name')}
                                                     helperText={fieldGetError('name') || ' '}
                                                     onChange={onFieldChange}
@@ -172,7 +194,7 @@ const Profile = () => {
                                                     disablePortal
                                                     id="city"
                                                     options={cities}
-                                                    value={values.city}
+                                                    value={state.city}
                                                     renderInput={(params) => (
                                                         <TextField
                                                             name="city"
@@ -193,7 +215,7 @@ const Profile = () => {
                                                     id="street"
                                                     label={t('PERSONAL_DETAILS.STREET')}
                                                     name="street"
-                                                    value={values.street}
+                                                    value={state.street}
                                                     error={fieldHasError('street')}
                                                     helperText={fieldGetError('street') || ' '}
                                                     onChange={onFieldChange}
@@ -208,7 +230,7 @@ const Profile = () => {
                                                     id="block"
                                                     label={t('PERSONAL_DETAILS.BLOCK')}
                                                     name="block"
-                                                    value={values.block}
+                                                    value={state.block}
                                                     error={fieldHasError('block')}
                                                     helperText={fieldGetError('block') || ' '}
                                                     onChange={onFieldChange}
@@ -222,7 +244,7 @@ const Profile = () => {
                                                     id="avenue"
                                                     label={t('PERSONAL_DETAILS.AVENUE')}
                                                     name="avenue"
-                                                    value={values.avenue}
+                                                    value={state.avenue}
                                                     error={fieldHasError('avenue')}
                                                     helperText={fieldGetError('avenue') || ' '}
                                                     onChange={onFieldChange}
@@ -238,7 +260,7 @@ const Profile = () => {
                                                     id="house"
                                                     label={t('PERSONAL_DETAILS.HOUSE')}
                                                     name="house"
-                                                    value={values.house}
+                                                    value={state.house}
                                                     error={fieldHasError('house')}
                                                     helperText={fieldGetError('house') || ' '}
                                                     onChange={onFieldChange}
@@ -249,7 +271,7 @@ const Profile = () => {
                                         </Grid>
                                         <Grid container>
                                             <Grid item xs={12} sm={6}>
-                                                <Submit type="submit" color="primary" fullWidth>
+                                                <Submit type="submit" color="primary" disabled={!isValid} fullWidth>
                                                     {t('PERSONAL_DETAILS.SAVE')}
                                                 </Submit>
                                             </Grid>
