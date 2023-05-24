@@ -1,6 +1,8 @@
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
 import { useIsAuthenticated } from '../hooks/auth';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 // import { isUserStillLoggedIn } from '../api/auth/utils';
 // import { api } from '../api';
 
@@ -8,10 +10,12 @@ import { useIsAuthenticated } from '../hooks/auth';
  * Renders routes depending on Authenticated or Anonymous users
  */
 const Routes = () => {
-    // const [state, dispatch] = useAppStore();
-    // const isAuthenticated = state.isAuthenticated; // Variant 1
-    const isAuthenticated = useIsAuthenticated(); // Variant 2
+    const isAuthenticated = useIsAuthenticated();
+    const location = useLocation();
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
     // Re-login or logout the user if needed
     // useEffect(() => {
     //   // Check isn't token expired?

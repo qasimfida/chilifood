@@ -5,7 +5,7 @@ import Layout1 from '../../layout/Layout1';
 import { Wrapper } from './styles';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Loading } from '../styles';
-import { restaurantPlans, restaurantsData } from '../../store/restaurant/restaurants';
+import { restaurantsData } from '../../store/restaurant/restaurants';
 import { useTranslation } from 'react-i18next';
 const PlanCard = lazy(() => import('../../components/PlanCard'));
 

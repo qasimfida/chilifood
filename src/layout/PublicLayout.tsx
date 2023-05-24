@@ -8,7 +8,6 @@ import { BOTTOMBAR_DESKTOP_VISIBLE, TOPBAR_DESKTOP_HEIGHT, TOPBAR_MOBILE_HEIGHT 
 import { useEventSwitchDarkMode } from '../hooks/event';
 import TopBar from './TopBar';
 import SideBar from './SideBar';
-import BottomBar from './BottomBar';
 import { PageWrapper } from './styles';
 
 // TODO: change to your app name or other word
@@ -119,8 +118,6 @@ const PublicLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
             <Stack component="main">
                 <ErrorBoundary name="Content">{children}</ErrorBoundary>
             </Stack>
-
-            {/* <Stack component="footer">{bottomBarVisible && <BottomBar items={BOTTOMBAR_ITEMS} />}</Stack> */}
         </PageWrapper>
     );
 };

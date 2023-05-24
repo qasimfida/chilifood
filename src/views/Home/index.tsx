@@ -1,19 +1,25 @@
 import * as React from 'react';
-import { Container, Fab, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { FabWrapper, Wrapper } from './styles';
+import { Wrapper } from './styles';
 import RestaurantCard from '../../components/RestaurantCard';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useIsAuthenticated } from '../../hooks';
 import { restaurantsData } from '../../store/restaurant/restaurants';
+import SelectFoodCard from '../../components/SelectFoodCard';
 
 const TabPan = () => {
     const { i18n } = useTranslation();
+    const { isAuthenticated } = useIsAuthenticated();
     const language = i18n.language;
     const restaurants = restaurantsData[language].restaurants;
     return (
         <Grid container spacing={{ xs: 2 }}>
+            {isAuthenticated && (
+                <Grid item xs={12} sm={6} md={4}>
+                    <SelectFoodCard to="/select/restaurants/1/1" />
+                </Grid>
+            )}
             {restaurants.length
                 ? restaurants.map((restaurant: any) => (
                       <Grid item xs={12} sm={6} md={4} key={restaurant.id}>
@@ -26,12 +32,7 @@ const TabPan = () => {
 };
 
 const Home: React.FC<any> = () => {
-    const navigate = useNavigate();
     const { t } = useTranslation();
-    const handleRedirect = () => {
-        navigate('/select/restaurants/0/1');
-    };
-    const { isAuthenticated } = useIsAuthenticated();
     return (
         <Layout1 title={t('HOME')} menuHeader withFooter>
             <Wrapper>
@@ -39,13 +40,6 @@ const Home: React.FC<any> = () => {
                     <TabPan />
                 </Container>
             </Wrapper>
-            {isAuthenticated && (
-                <FabWrapper>
-                    <Fab color="primary" variant="extended" aria-label="Select food" onClick={handleRedirect}>
-                        Select food
-                    </Fab>
-                </FabWrapper>
-            )}
         </Layout1>
     );
 };

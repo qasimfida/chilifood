@@ -1,7 +1,5 @@
 import React from 'react';
 import { Badge, Date, LockIcon, Month, StyledDay, StyledPopper, StyledWrapper, Wrapper } from './styles';
-import { useTranslation } from 'react-i18next';
-import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { ExtendsIDay } from '../../types/restaurant';
 import { Popover } from '@mui/material';
 
@@ -11,12 +9,7 @@ interface DayProps {
     className?: string;
 }
 const Node = (props: any) => {
-    const { i18n } = useTranslation();
-
     const { date, lock = false, off, month, day } = props;
-    const getKey = (key: string) => {
-        return getLocaleKey(key, i18n);
-    };
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 

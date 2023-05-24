@@ -23,7 +23,7 @@ interface IProps extends IFood {
     description: string;
     days: any[];
 }
-const PlanCard: React.FC<IProps> = ({ handleClick, carbs, name, src, description, days = [] }) => {
+const PlanCard: React.FC<IProps> = ({ handleClick, carbs, name, src, description }) => {
     const [value, setValue] = useState(0);
     const { i18n } = useTranslation();
 

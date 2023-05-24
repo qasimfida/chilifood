@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { lazy, Suspense, useMemo, useCallback } from 'react';
+import { lazy, Suspense, useCallback } from 'react';
 import { CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { Description, StyledTab, StyledTabContext, TabsWrapper } from './styles';
@@ -11,16 +11,8 @@ import { useAppSelector } from '../../store/hooks';
 import { useTranslation } from 'react-i18next';
 import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useParams } from 'react-router-dom';
-import { ExtendsIDay } from '../../types/restaurant';
 import { Loading } from '../styles';
-import {
-    foods,
-    meals,
-    restaurantPlans,
-    restaurants,
-    restaurantsData,
-    weekdays,
-} from '../../store/restaurant/restaurants';
+import { restaurantsData } from '../../store/restaurant/restaurants';
 const FoodCard = lazy(() => import('../../components/FoodCard'));
 const Days = lazy(() => import('../../components/Days'));
 
@@ -58,7 +50,7 @@ const TabPan = ({ foods, allowSelect, day }: any) => {
 const Plan: React.FC<any> = ({ allowSelect }) => {
     const dispatch = useDispatch();
     const { i18n } = useTranslation();
-    const { restaurant } = useParams();
+    const { restaurant, plan } = useParams();
     const { activeMeal, activeDay } = useAppSelector((state) => state.restaurant);
 
     const language = i18n.language;
@@ -76,15 +68,17 @@ const Plan: React.FC<any> = ({ allowSelect }) => {
     };
 
     const selectedR = data.restaurants.find((i: any) => i.id === restaurant);
+    const selectedP = data.restaurantPlans.find((i: any) => i.id === plan);
     const selectedDay = data.weekdays.find((i: any) => i.id === activeDay);
     const planMeals = data.meals?.filter((i: any) => i.day_id.includes(activeDay));
     const mealFoods = (id: any) =>
         data.foods?.filter((i: any) => i.meal_id.includes(id) && i.day_id.includes(activeDay));
+
     return (
         <Layout1 title={selectedR?.name} hasFooter={!allowSelect}>
             <Container>
                 <Description>
-                    <Typography> Chili Foods </Typography>
+                    <Typography> {selectedP.description} </Typography>
                 </Description>
                 <Suspense
                     fallback={

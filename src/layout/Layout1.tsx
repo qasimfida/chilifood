@@ -160,6 +160,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
               ...SIDEBAR_ITEMS,
               { title: 'Login', icon: 'login', path: '/auth/login' },
               { title: 'Register', icon: 'register', path: '/profile?id=0' },
+              { title: 'Contact us', path: '/contact', icon: 'whatsapp' },
           ];
 
     const handleClick = (e: LinkToPage) => {

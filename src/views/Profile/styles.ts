@@ -1,4 +1,4 @@
-import { Box, Tab, styled } from '@mui/material';
+import { Box, Tab, css, styled } from '@mui/material';
 import { AppButton } from '../../components';
 
 const Wrapper = styled(Box)`
@@ -30,6 +30,11 @@ export const Submit = styled(AppButton)<any>`
 `;
 export const StyledTitle = styled(Tab)<any>`
     font-size: 17px;
+    ${({ theme: { breakpoints } }) => css`
+        @media (max-width: ${breakpoints.values.sm}px) {
+            font-size: 14px;
+        }
+    `}}
 `;
 
 export default Wrapper;
