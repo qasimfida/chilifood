@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/chilifood/static/css/main.f461f8e6.css",
-    "main.js": "/chilifood/static/js/main.ba4fad38.js",
-    "static/js/472.ab8e6325.chunk.js": "/chilifood/static/js/472.ab8e6325.chunk.js",
-    "static/js/959.d29509ac.chunk.js": "/chilifood/static/js/959.d29509ac.chunk.js",
-    "static/js/976.6608390b.chunk.js": "/chilifood/static/js/976.6608390b.chunk.js",
+    "main.js": "/chilifood/static/js/main.88d18f1e.js",
+    "static/js/472.4a612e8b.chunk.js": "/chilifood/static/js/472.4a612e8b.chunk.js",
+    "static/js/959.cc70046e.chunk.js": "/chilifood/static/js/959.cc70046e.chunk.js",
+    "static/js/976.001596c7.chunk.js": "/chilifood/static/js/976.001596c7.chunk.js",
     "static/js/496.4e297fac.chunk.js": "/chilifood/static/js/496.4e297fac.chunk.js",
     "static/media/salad.jpg": "/chilifood/static/media/salad.403662c8b205b49a52fc.jpg",
     "static/media/android.png": "/chilifood/static/media/android.d28dcea016c1e913d888.png",
@@ -17,14 +17,14 @@
     "static/media/instagram.png": "/chilifood/static/media/instagram.e719d8b29f452a16302d.png",
     "index.html": "/chilifood/index.html",
     "main.f461f8e6.css.map": "/chilifood/static/css/main.f461f8e6.css.map",
-    "main.ba4fad38.js.map": "/chilifood/static/js/main.ba4fad38.js.map",
-    "472.ab8e6325.chunk.js.map": "/chilifood/static/js/472.ab8e6325.chunk.js.map",
-    "959.d29509ac.chunk.js.map": "/chilifood/static/js/959.d29509ac.chunk.js.map",
-    "976.6608390b.chunk.js.map": "/chilifood/static/js/976.6608390b.chunk.js.map",
+    "main.88d18f1e.js.map": "/chilifood/static/js/main.88d18f1e.js.map",
+    "472.4a612e8b.chunk.js.map": "/chilifood/static/js/472.4a612e8b.chunk.js.map",
+    "959.cc70046e.chunk.js.map": "/chilifood/static/js/959.cc70046e.chunk.js.map",
+    "976.001596c7.chunk.js.map": "/chilifood/static/js/976.001596c7.chunk.js.map",
     "496.4e297fac.chunk.js.map": "/chilifood/static/js/496.4e297fac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f461f8e6.css",
-    "static/js/main.ba4fad38.js"
+    "static/js/main.88d18f1e.js"
   ]
 }
