@@ -13,15 +13,15 @@ const SelectFoodCard: React.FC<any> = ({ to }) => {
                 <Content className="body">
                     <Row className="mr-3">
                         <Label className="mr-2">{ar ? 'بداية الاشتراك' : 'Start date '}: </Label>
-                        <Label>18/06...</Label>
+                        <Label>18/06/2025</Label>
                     </Row>
                     <Row>
                         <Label className="mr-2">{ar ? 'نهاية الاشتراك' : 'End date'}: </Label>
-                        <Label>18/07...</Label>
+                        <Label>18/072025</Label>
                     </Row>
                     <Row>
                         <Label className="mr-2">{ar ? 'أيام الإجازة' : 'Off Days'} : </Label>
-                        <Label>{ar ? 'الجمعة...' : 'Fri...'}</Label>
+                        <Label>{ar ? 'الجمعة والسبت' : 'Friday and Saturday'}</Label>
                     </Row>
                 </Content>
             </Body>
