@@ -1,29 +1,27 @@
 import React from 'react';
-import { Body, Content, Label, Row, StyledCard, Title, StyledMedia, Button } from './styles';
-import salad from '.././../assets/images/salad.jpg';
+import { Body, Content, Label, Row, StyledCard, Title, Button } from './styles';
 import { useTranslation } from 'react-i18next';
 const SelectFoodCard: React.FC<any> = ({ to }) => {
     const { i18n } = useTranslation();
-
+    const ar = i18n.language === 'ar';
     return (
         <StyledCard dir={i18n.dir()} to={to}>
             <Body>
                 <Title>
-                    {/* <StyledMedia image={salad} title="Food" /> */}
-                    <Button>SELECT FOOD</Button>
+                    <Button>{ar ? 'اختر الطعام' : 'SELECT FOOD'}</Button>
                 </Title>
-                <Content>
-                    <Row>
-                        <Label>Start : </Label>
-                        <Label>18/06/2025</Label>
+                <Content className="body">
+                    <Row className="mr-3">
+                        <Label className="mr-2">{ar ? 'بداية الاشتراك' : 'Start date '}: </Label>
+                        <Label>18/06...</Label>
                     </Row>
                     <Row>
-                        <Label>End : </Label>
-                        <Label>18/07/2025</Label>
+                        <Label className="mr-2">{ar ? 'نهاية الاشتراك' : 'End date'}: </Label>
+                        <Label>18/07...</Label>
                     </Row>
                     <Row>
-                        <Label>Off Days : </Label>
-                        <Label>Friday and Saturday</Label>
+                        <Label className="mr-2">{ar ? 'أيام الإجازة' : 'Off Days'} : </Label>
+                        <Label>{ar ? 'الجمعة...' : 'Fri...'}</Label>
                     </Row>
                 </Content>
             </Body>

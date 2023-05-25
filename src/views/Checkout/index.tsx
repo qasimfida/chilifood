@@ -10,9 +10,7 @@ import {
     Table,
     TableBody,
     TableCell,
-    TableHead,
     TableRow,
-    Typography,
 } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { PayButton, TextArea, Typo, Wrapper } from './styles';
@@ -40,7 +38,6 @@ const CheckOut: React.FC<any> = () => {
         setDate(date);
     };
 
-    const formattedDate = date ? date.toDateString() : 'Mon Jan 01 2023';
     const options = [
         { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
         { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
@@ -51,12 +48,6 @@ const CheckOut: React.FC<any> = () => {
             <Wrapper dir={i18n.dir()}>
                 <Container>
                     <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Name</TableCell>
-                                <TableCell />
-                            </TableRow>
-                        </TableHead>
                         <TableBody>
                             <TableRow>
                                 <TableCell>Address</TableCell>

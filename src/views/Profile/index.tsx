@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -9,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import Wrapper, { StyledComp, StyledTitle, Submit } from './styles';
 
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Grid, TextField, Autocomplete } from '@mui/material';
 import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';

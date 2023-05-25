@@ -17,7 +17,6 @@ export const StyledMedia = styled(CardMedia)`
 export const Label = styled(Typography)`
     font-size: 14px;
     margin-bottom: 0px;
-    margin-right: 12px;
     text-align: center;
     ${({ theme: { palette } }: any) => {
         return css`
@@ -66,15 +65,12 @@ export const Content = styled(CardContent)`
 `;
 export const StyledCard = styled(Link)<StyledCardProps>`
     ${(props) => {
-        const {
-            dir,
-            theme: { palette },
-        } = props;
+        const { dir } = props;
         return css`
             box-sizing: border-box;
-            box-shadow: 0px 0px 10px 2px #fff;
+            box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.2);
             max-width: 100%;
-            max-width: 320px;
+            max-width: 360px;
             transition: 0.2s all ease;
             position: relative;
             height: 100%;
@@ -96,6 +92,12 @@ export const StyledCard = styled(Link)<StyledCardProps>`
             }
             svg {
                 transform: rotate(${dir === 'rtl' ? '180deg' : '0'});
+            }
+            .mr-3 {
+                margin: ${dir === 'rtl' ? '0 12px 0 0' : '0 0 0 12px'};
+            }
+            .mr-2 {
+                margin: ${dir === 'rtl' ? '0 6px 0 0' : '0 0 0 6px'};
             }
         `;
     }}

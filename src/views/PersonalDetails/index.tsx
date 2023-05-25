@@ -1,20 +1,14 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
 import Layout1 from '../../layout/Layout1';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import Wrapper, { StyledComp, StyledTitle, Submit } from './styles';
+import Wrapper, { StyledComp, Submit } from './styles';
 
-import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { SyntheticEvent, useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, Autocomplete } from '@mui/material';
 import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';
 import { ObjectPropByName, SHARED_CONTROL_PROPS } from '../../utils';
-import Table from '../../components/Table';
 import { IUser, useIsAuthenticated } from '../../hooks';
 import { validate } from 'validate.js';
 
