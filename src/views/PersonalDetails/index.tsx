@@ -38,7 +38,7 @@ const PersonalDetails = () => {
             },
         },
         avenue: {
-            presence: { allowEmpty: false, message: t('ISREQUIRED') },
+            presence: { allowEmpty: true, message: t('ISREQUIRED') },
             type: 'string',
             length: {
                 maximum: 30,
