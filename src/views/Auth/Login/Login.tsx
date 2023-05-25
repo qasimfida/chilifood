@@ -176,7 +176,7 @@ const Login = () => {
 
                             <Grid container justifyContent="center" alignItems="center">
                                 {t('LOGIN.HAVE_ACCOUNT')}
-                                <Link variant="text" color="primary" component={AppLink} to="/auth/signup">
+                                <Link variant="text" color="primary" component={AppLink} to="/personal-details">
                                     {t('LOGIN.CREATE_ACCOUNT')}
                                 </Link>
                             </Grid>
