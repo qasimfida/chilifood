@@ -122,36 +122,43 @@ export const meals = [
         id: '1',
         name: 'Breakfast',
         day_id: ['1', '2', '3'],
+        plan_id: ['1'],
     },
     {
         id: '2',
         name: 'Lunch',
         day_id: ['1', '2', '3'],
+        plan_id: ['1', '3', '4', '5'],
     },
     {
         id: '3',
         name: 'Dinner',
         day_id: ['1', '2'],
+        plan_id: ['1', '2', '3', '4', '5'],
     },
     {
         id: '4',
         name: 'Snack',
         day_id: ['2', '3'],
+        plan_id: ['1', '2', '3', '4', '5'],
     },
     {
         id: '5',
         name: 'Sweet',
         day_id: ['2', '3'],
+        plan_id: ['1', '2', '3', '4', '5'],
     },
     {
         id: '6',
         name: 'Drinks',
         day_id: ['2', '3', '5'],
+        plan_id: ['1', '2', '3', '4', '5'],
     },
     {
         id: '7',
         name: 'Drinks 2',
         day_id: ['4', '2'],
+        plan_id: ['1', '2', '3', '4', '5'],
     },
 ];
 

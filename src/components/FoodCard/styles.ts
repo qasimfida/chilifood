@@ -13,6 +13,7 @@ export const StyledMedia = styled(CardMedia)<any>`
     min-width: 100%;
     border-radius: 4px;
     overflow: hidden;
+    margin-bottom: 68px;
 
     ${({
         size,
@@ -36,6 +37,7 @@ export const CardTitle = styled(Typography)<any>`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    max-height: 36px;
     ${({
         size,
         theme: {
@@ -44,6 +46,7 @@ export const CardTitle = styled(Typography)<any>`
         },
     }: any) => {
         return css`
+            color: #000;
             font-size: ${size === 'xl' ? '16px' : '14px'};
             color: ${palette.grey.main};
             @media (max-width: ${values.sm}px) {
@@ -79,9 +82,10 @@ export const Macros = styled(Box)`
     box-sizing: border-box;
     transition: 0.3s all ease-in;
     margin-top: 4px;
+    color: #6d6d6d;
 `;
 export const Details = styled(Box)<StyledCardProps>`
-    padding: 0 8px;
+    padding: 8px;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
@@ -98,7 +102,9 @@ export const Details = styled(Box)<StyledCardProps>`
     }
 `;
 export const Content = styled(CardContent)`
-    margin: 8px 0;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -146,7 +152,7 @@ export const Toggle = styled(Box)`
 `;
 export const Macro = styled(Typography)<any>`
     font-size: ${({ size }) => (size === 'xl' ? '16px' : '12px')};
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1;
     width: 25%;
 

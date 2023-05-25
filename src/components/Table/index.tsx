@@ -40,7 +40,7 @@ const rows: RowData[] = [
     },
     {
         id: 3,
-        status: 'active',
+        status: 'Active',
         restaurant: 'Good Diet',
         plan: 'Keto',
         period: '65',

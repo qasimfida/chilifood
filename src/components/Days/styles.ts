@@ -25,6 +25,7 @@ export const Wrapper = styled(Tab)`
         opacity: 1;
         border: 1px solid #dfdfdf;
         overflow: visible;
+        margin: 8px;
         &.disabled {
             background: #4d4d4d;
             color: #fff;
@@ -152,7 +153,6 @@ export const DatesWrapper = styled(Tabs)<any>`
     max-width: 480px;
     flex-direction: ${({ dir }) => (dir === 'rtl' ? 'row' : 'row')};
     .MuiTabs-flexContainer {
-        gap: 12px;
         align-items: flex-start;
     }
     .MuiTabs-indicator {

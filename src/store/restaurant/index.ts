@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IRestaurantState } from '../../types/restaurant';
-import { r } from './data';
 
 // Define a type for the slice state
 
 // Define the initial state using that type
 const initialState: IRestaurantState = {
-    r,
+    r: [],
     viewFoodDetails: '',
     activeMeal: '1',
     activeDay: '2',

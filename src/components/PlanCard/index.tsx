@@ -15,6 +15,7 @@ import {
 import { IFood } from '../../types/restaurant';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { meals } from '../../store/restaurant/restaurants';
 interface IProps extends IFood {
     handleClick?: () => void;
     carbs: string;
@@ -23,7 +24,7 @@ interface IProps extends IFood {
     description: string;
     days: any[];
 }
-const PlanCard: React.FC<IProps> = ({ handleClick, carbs, name, src, description }) => {
+const PlanCard: React.FC<IProps> = ({ id, handleClick, carbs, name, src, description }) => {
     const [value, setValue] = useState(0);
     const { i18n } = useTranslation();
 
@@ -32,6 +33,7 @@ const PlanCard: React.FC<IProps> = ({ handleClick, carbs, name, src, description
         { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
         { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
     ];
+    const planMeals = meals.filter((i: any) => i?.plan_id?.includes(id)).map((i) => i.name) || [];
     return (
         <StyledCard>
             <Body>
@@ -46,7 +48,7 @@ const PlanCard: React.FC<IProps> = ({ handleClick, carbs, name, src, description
                     <Details>
                         <Box sx={{ maxWidth: 'calc(100% - 180px)' }}>
                             <Description weight="500">{carbs}</Description>
-                            <Description> {description}</Description>
+                            <Description> {planMeals.join(', ')}</Description>
                         </Box>
                         <FormSelect size="small">
                             <InputLabel id="food-select">Package</InputLabel>
