@@ -9,7 +9,7 @@
     "PERSONAL_DETAILS.AVENUE": "الجادة",
     "PERSONAL_DETAILS.STREET": "الشارع",
     "PERSONAL_DETAILS.LEAVE_NOTE": "ضع ملاحظاتك",
-    "PERSONAL_DETAILS.CITY": "يرجى اختيار منطقة",
+    "PERSONAL_DETAILS.CITY": "المدينة",
     "PERSONAL_DETAILS.MY_SUBSCRIPTION": "اشتراكاتي",
     "PERSONAL_DETAILS.STATUS": "حالة الاشتراكات",
     "PERSONAL_DETAILS.RESTAURANT": "المطعم",
@@ -18,12 +18,7 @@
     "PERSONAL_DETAILS.START_DATE": "بداية الاشتراك",
     "PERSONAL_DETAILS.END_DATE": "نهاية الاشتراك",
     "PERSONAL_DETAILS.PRICE": "السعر",
-    "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "يرجى اختيار منطقة",
-    "PERSONAL_DETAILS.NAME_FIELD_ERROR": "حقل الاسم مطلوب",
-    "PERSONAL_DETAILS.STREET_FIELD_ERROR": "حقل الشارع مطلوب",
-    "PERSONAL_DETAILS.BLOCK_FIELD_ERROR": "حقل الكتلة مطلوب",
-    "PERSONAL_DETAILS.AVENUE_FIELD_ERROR": "حقل الجادة مطلوب",
-    "PERSONAL_DETAILS.HOUSE_FIELD_ERROR": "حقل المنزل مطلوب",
+    "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "الرجاء تحديد المدينة",
 
     "PHONE_NUMBER": "رقم الهاتف",
     "PASSWORD": "كلمة السر",
@@ -46,5 +41,5 @@
 
     "ERROR.PREFIX": "يجب أن يكون أقل من",
     "ERROR.DIGITS": "أرقام",
-    "ISREQUIRED": "يكون"
+    "ISREQUIRED": "الحقل مطلوب"
 }

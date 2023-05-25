@@ -160,7 +160,7 @@ export const foods = [
         id: '1',
         src: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
         name: 'Delicious Food Item',
-        description: 'A mouthwatering dish with amazing flavors.',
+        description: 'A mouthwatering dish with amazing flavors.123123',
         macros: [
             { id: '123', name: 'Cal', amount: '112' },
             { id: '124', name: 'Prot', amount: '131' },

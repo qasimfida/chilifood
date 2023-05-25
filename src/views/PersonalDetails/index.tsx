@@ -24,89 +24,61 @@ const PersonalDetails = () => {
     const validation = () => ({
         name: {
             type: 'string',
-            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.NAME_FIELD_ERROR') },
+            presence: { allowEmpty: false, message: t('ISREQUIRED') },
             format: {
                 pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
-                message: 'must consist of only alphabets',
             },
             length: {
                 minimum: 1,
                 maximum: 30,
-                message: t('ERROR.PREFIX') + '30 ' + t('ERROR.DIGITS'),
+                message: t('ERROR.PREFIX') + ' 30 ' + t('ERROR.DIGITS'),
             },
         },
         street: {
             type: 'string',
-            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.STREET_FIELD_ERROR') },
+            presence: { allowEmpty: false, message: t('ISREQUIRED') },
             length: {
                 minimum: 1,
                 maximum: 30,
-                message: 'must be more than 1 letter',
+                message: t('ERROR.PREFIX') + ' 30 ' + t('ERROR.DIGITS'),
             },
         },
         avenue: {
-            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.AVENUE_FIELD_ERROR') },
+            presence: { allowEmpty: false, message: t('ISREQUIRED') },
             type: 'string',
             length: {
                 maximum: 30,
-                message: 'must be less than 30 letter',
+                message: t('ERROR.PREFIX') + ' 30 ' + t('ERROR.DIGITS'),
             },
         },
         block: {
-            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.BLOCK_FIELD_ERROR') },
+            presence: { allowEmpty: false, message: t('ISREQUIRED') },
             type: 'string',
             length: {
                 minimum: 1,
                 maximum: 4,
-                message: 'must be 1 - 4 letter',
+                message: t('ERROR.PREFIX') + ' 4 ' + t('ERROR.DIGITS'),
             },
         },
         house: {
-            presence: { allowEmpty: false, message: t('PERSONAL_DETAILS.HOUSE_FIELD_ERROR') },
+            presence: { allowEmpty: false, message: t('ISREQUIRED') },
             type: 'string',
             length: {
                 minimum: 1,
                 maximum: 5,
-                message: 'must be 1 - 5 letter',
+                message: t('ERROR.PREFIX') + ' 5 ' + t('ERROR.DIGITS'),
             },
         },
         city: {
             presence: {
                 allowEmpty: false,
+                message: t('PERSONAL_DETAILS.PLEASE_SELECT_CITY'),
             },
         },
     });
 
-    const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const id = searchParams.get('id');
-    const [value, setValue] = useState<string>('0');
-
-    useEffect(() => {
-        if (id) {
-            setValue(id || '0');
-        }
-    }, [id]);
-
-    const handleChange = (event: any, newValue: any) => {
-        setValue(newValue);
-    };
-
     const navigate = useNavigate();
 
-    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-    //     validationSchema: VALIDATION, // the state value, so could be changed in time
-    //     initialValues: {
-    //         name: user?.name || '',
-    //         block: user?.block || '',
-    //         street: user?.street || '',
-    //         avenue: user?.avenue || '',
-    //         house: user?.house || '',
-    //         city: user?.city || null,
-    //     } as IUser,
-    //     validateOnBlur: true,
-    // });
-    // const values = formState.values as IUser; // Typed alias to formState.values as the "Source of Truth"
     const [state, setState] = useState<IUser>({
         name: user?.name || '',
         block: user?.block || '',
@@ -148,9 +120,24 @@ const PersonalDetails = () => {
             });
         }
     };
-    const fieldGetError = (key: any) => {
-        return (errors as ObjectPropByName)[key]?.[0];
+
+    const fieldGetError = (key: string, label: string): string => {
+        const errorMessage = (errors as ObjectPropByName)[key]?.[0];
+        const translatedFieldName = t(label);
+        if (key === 'city') {
+            return translatedFieldName;
+        }
+
+        const fieldTranslations: { [key: string]: RegExp } = {
+            NAME: /^Name/,
+            'PERSONAL_DETAILS.STREET': /^Street/,
+            'PERSONAL_DETAILS.BLOCK': /^Block/,
+            'PERSONAL_DETAILS.AVENUE': /^Avenue/,
+            'PERSONAL_DETAILS.HOUSE': /^House/,
+        };
+        return errorMessage?.replace(fieldTranslations[label], translatedFieldName) || '';
     };
+
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
@@ -171,7 +158,7 @@ const PersonalDetails = () => {
                                             name="name"
                                             value={state.name}
                                             error={fieldHasError('name')}
-                                            helperText={fieldGetError('name') || ' '}
+                                            helperText={fieldGetError('name', 'NAME') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             className="custom-styles"
@@ -190,7 +177,7 @@ const PersonalDetails = () => {
                                                     {...params}
                                                     label={t('PERSONAL_DETAILS.CITY')}
                                                     error={fieldHasError('city')}
-                                                    helperText={t('PERSONAL_DETAILS.PLEASE_SELECT_CITY')}
+                                                    helperText={fieldGetError('city', 'CITY') || ''}
                                                 />
                                             )}
                                             onBlur={onFieldBlur}
@@ -206,7 +193,7 @@ const PersonalDetails = () => {
                                             name="street"
                                             value={state.street}
                                             error={fieldHasError('street')}
-                                            helperText={fieldGetError('street') || ' '}
+                                            helperText={fieldGetError('street', 'PERSONAL_DETAILS.STREET') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             autoComplete="off"
@@ -221,7 +208,7 @@ const PersonalDetails = () => {
                                             name="block"
                                             value={state.block}
                                             error={fieldHasError('block')}
-                                            helperText={fieldGetError('block') || ' '}
+                                            helperText={fieldGetError('block', 'PERSONAL_DETAILS.BLOCK') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             autoComplete="off"
@@ -235,7 +222,7 @@ const PersonalDetails = () => {
                                             name="avenue"
                                             value={state.avenue}
                                             error={fieldHasError('avenue')}
-                                            helperText={fieldGetError('avenue') || ' '}
+                                            helperText={fieldGetError('avenue', 'PERSONAL_DETAILS.AVENUE') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             autoComplete="off"
@@ -251,7 +238,7 @@ const PersonalDetails = () => {
                                             name="house"
                                             value={state.house}
                                             error={fieldHasError('house')}
-                                            helperText={fieldGetError('house') || ' '}
+                                            helperText={fieldGetError('house', 'PERSONAL_DETAILS.HOUSE') || ' '}
                                             onChange={onFieldChange}
                                             onBlur={onFieldBlur}
                                             autoComplete="off"

@@ -54,7 +54,7 @@ const CheckOut: React.FC<any> = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Name</TableCell>
-                                <TableCell>Details</TableCell>
+                                <TableCell />
                             </TableRow>
                         </TableHead>
                         <TableBody>
