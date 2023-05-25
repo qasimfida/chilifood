@@ -21,7 +21,7 @@ const SelectFoodCard: React.FC<any> = ({ to }) => {
                     </Row>
                     <Row>
                         <Label className="mr-2">{ar ? 'أيام الإجازة' : 'Off Days'} : </Label>
-                        <Label>{ar ? 'الجمعة والسبت' : 'Friday and Saturday'}</Label>
+                        <Label>{ar ? 'الجمعةوالسبت' : 'Friday, Saturday'}</Label>
                     </Row>
                 </Content>
             </Body>
