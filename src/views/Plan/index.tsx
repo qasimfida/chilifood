@@ -9,7 +9,6 @@ import { selectFood, selectMeal, showDetails } from '../../store/restaurant';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../store/hooks';
 import { useTranslation } from 'react-i18next';
-import { getLocaleKey } from '../../helpers/getLocaleKey';
 import { useParams } from 'react-router-dom';
 import { Loading } from '../styles';
 import { restaurantsData } from '../../store/restaurant/restaurants';
@@ -63,11 +62,6 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
         },
         [dispatch]
     );
-
-    const getKey = (key: string) => {
-        return getLocaleKey(key, i18n);
-    };
-
     const selectedR = data.restaurants.find((i: any) => i.id === restaurant);
     const selectedP = data.restaurantPlans.find((i: any) => i.id === plan);
     const selectedDay = data.weekdays.find((i: any) => i.id === activeDay);
@@ -111,7 +105,7 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
                                 {planMeals.map((meal: any) => {
                                     return (
                                         <StyledTab
-                                            label={<Tab title={(meal as any)[getKey('name')]} />}
+                                            label={<Tab title={meal.name} />}
                                             value={meal.id}
                                             key={`tab-${meal.id}`}
                                         />
