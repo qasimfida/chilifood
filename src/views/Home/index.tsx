@@ -34,7 +34,7 @@ const TabPan = () => {
 const Home: React.FC<any> = () => {
     const { t } = useTranslation();
     return (
-        <Layout1 title={t('HOME')} menuHeader withFooter>
+        <Layout1 title={t('HOME_RESTAURANTS')} menuHeader withFooter>
             <Wrapper>
                 <Container>
                     <TabPan />
