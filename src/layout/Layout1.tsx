@@ -58,7 +58,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
     const navigate = useNavigate();
     const SIDEBAR_ITEMS: Array<LinkToPage> = [
         {
-            title: 'Home/Restaurants',
+            title: 'HOME_RESTAURANTS',
             path: '/',
             icon: 'home',
         },

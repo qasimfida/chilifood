@@ -138,7 +138,7 @@ const PersonalDetails = () => {
     const isValid = validate(state, validation()) ? false : true;
 
     return (
-        <Layout1 title={`Personal Details`}>
+        <Layout1 title={`${t('PERSONAL_DETAILS')}`}>
             <Wrapper>
                 <Container>
                     <AppForm onSubmit={handleFormSubmit} maxWidth={'100%'}>
