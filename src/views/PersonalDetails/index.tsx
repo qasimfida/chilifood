@@ -171,11 +171,16 @@ const PersonalDetails = () => {
                                                     {...params}
                                                     label={t('PERSONAL_DETAILS.CITY')}
                                                     error={fieldHasError('city')}
-                                                    helperText={fieldGetError('city', 'CITY') || ''}
+                                                    helperText={
+                                                        fieldGetError('city', 'PERSONAL_DETAILS.PLEASE_SELECT_CITY') ||
+                                                        ''
+                                                    }
                                                 />
                                             )}
                                             onBlur={onFieldBlur}
-                                            onChange={(event, value) => onFieldChange(event, value, 'city')}
+                                            onChange={(event, value) =>
+                                                onFieldChange(event, value, 'PLEASE_SELECT_CITY')
+                                            }
                                         />
                                     </Grid>
                                     <Grid item xs={12}>

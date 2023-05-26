@@ -199,7 +199,12 @@ const Profile = () => {
                                                             {...params}
                                                             label={t('PERSONAL_DETAILS.CITY')}
                                                             error={fieldHasError('city')}
-                                                            helperText={fieldGetError('city', '') || ' '}
+                                                            helperText={
+                                                                fieldGetError(
+                                                                    'city',
+                                                                    'PERSONAL_DETAILS.PLEASE_SELECT_CITY'
+                                                                ) || ' '
+                                                            }
                                                         />
                                                     )}
                                                     onBlur={onFieldBlur}

@@ -37,7 +37,7 @@ export const CardTitle = styled(Typography)<any>`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    max-height: 36px;
+    height: 36px;
     ${({
         size,
         theme: {
@@ -153,7 +153,6 @@ export const Toggle = styled(Box)`
 export const Macro = styled(Typography)<any>`
     font-size: ${({ size }) => (size === 'xl' ? '16px' : '12px')};
     font-weight: 400;
-    line-height: 1;
     width: 25%;
 
     color: ${({ theme: { palette } }) => palette.grey.main};
