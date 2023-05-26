@@ -1,5 +1,6 @@
-import { Box, Tab, css, styled } from '@mui/material';
+import { Box, Grid, Tab, css, styled } from '@mui/material';
 import { AppButton } from '../../components';
+import { TabList } from '@mui/lab';
 
 const Wrapper = styled(Box)`
     margin-top: 3rem;
@@ -30,17 +31,30 @@ export const Header = styled(Box)`
     text-align: center;
 `;
 
+export const StyledGrid = styled(Grid)`
+    justify-content: start;
+`;
 export const Submit = styled(AppButton)<any>`
     padding: 12px 20px;
     margin: 32px 0 0 0;
 `;
 export const StyledTitle = styled(Tab)<any>`
     font-size: 17px;
+    
     ${({ theme: { breakpoints } }) => css`
         @media (max-width: ${breakpoints.values.sm}px) {
             font-size: 14px;
         }
     `}}
+`;
+export const Tabs = styled(TabList)<any>`
+${({ dir }) => {
+    return css`
+        .MuiTabs-flexContainer {
+            justify-content: start;
+        }
+    `;
+}}}
 `;
 
 export default Wrapper;

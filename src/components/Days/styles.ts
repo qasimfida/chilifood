@@ -59,22 +59,22 @@ export const Wrapper = styled(Tab)`
                 color: #fff;
             }
         }
-        &:not(.disabled).focus {
-            background: ${palette.primary.main};
-            color: #fff;
-            .month,
-            .date {
-                color: #444;
-            }
-        }
-        &:not(.disabled):hover {
-            background: ${palette.primary.main};
-            color: #fff;
-            .month,
-            .date {
-                color: #fff;
-            }
-        }
+        // &:not(.disabled).focus {
+        //     background: ${palette.primary.main};
+        //     color: #fff;
+        //     .month,
+        //     .date {
+        //         color: #444;
+        //     }
+        // }
+        // &:not(.disabled):hover {
+        //     background: ${palette.primary.main};
+        //     color: #fff;
+        //     .month,
+        //     .date {
+        //         color: #fff;
+        //     }
+        // }
         .month,
         .date {
             color: #444;

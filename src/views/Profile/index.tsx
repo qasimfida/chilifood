@@ -1,11 +1,10 @@
 import Box from '@mui/material/Box';
 import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Layout1 from '../../layout/Layout1';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import Wrapper, { StyledComp, StyledTitle, Submit } from './styles';
+import Wrapper, { StyledComp, StyledGrid, StyledTitle, Submit, Tabs } from './styles';
 
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -156,22 +155,26 @@ const Profile = () => {
     const isValid = validate(state, validation) ? false : true;
 
     return (
-        <Layout1 title={`Profile/${value === '0' ? 'Personal Details' : 'My Subscriptions'}`}>
+        <Layout1
+            title={`${t('PROFILE')}/${
+                value === '0' ? t('PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS') : t('PERSONAL_DETAILS.MY_SUBSCRIPTION')
+            }`}
+        >
             <Wrapper>
                 <Container>
                     <TabContext value={value}>
                         <Box>
-                            <TabList onChange={handleChange} aria-label="lab API tabs example">
-                                <StyledTitle label="Personal Details" value="0" />
+                            <Tabs onChange={handleChange} aria-label="lab API tabs example">
+                                <StyledTitle label={t('PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS')} value="0" />
                                 {user.isAuthenticated && (
                                     <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="1" />
                                 )}
-                            </TabList>
+                            </Tabs>
                         </Box>
                         <TabPanel value="0">
                             <AppForm onSubmit={handleFormSubmit} maxWidth={'100%'}>
                                 <StyledComp>
-                                    <Grid container>
+                                    <StyledGrid container>
                                         <Grid container item xs={12} md={6} spacing={2}>
                                             <Grid item xs={12}>
                                                 <TextField
@@ -276,14 +279,14 @@ const Profile = () => {
                                                 />
                                             </Grid>
                                         </Grid>
-                                        <Grid container>
+                                        <StyledGrid container>
                                             <Grid item xs={12} sm={6}>
                                                 <Submit type="submit" color="primary" disabled={!isValid} fullWidth>
                                                     {t('PERSONAL_DETAILS.SAVE')}
                                                 </Submit>
                                             </Grid>
-                                        </Grid>
-                                    </Grid>
+                                        </StyledGrid>
+                                    </StyledGrid>
                                 </StyledComp>
                             </AppForm>
                         </TabPanel>

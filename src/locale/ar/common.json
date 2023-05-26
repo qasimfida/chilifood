@@ -19,6 +19,8 @@
     "PERSONAL_DETAILS.END_DATE": "نهاية الاشتراك",
     "PERSONAL_DETAILS.PRICE": "السعر",
     "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "الرجاء تحديد المدينة",
+    "PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS": "تعديل المعلومات الشخصية",
+    "PERSONAL_DETAILS": "تفاصيل شخصية",
 
     "PHONE_NUMBER": "رقم الهاتف",
     "PASSWORD": "كلمة السر",
@@ -37,7 +39,8 @@
     "New_PASSWORD": "كلمة السر الجديدة",
     "CHANGE_PASSWORD": "تغيير كلمة المرور",
     "CONTACT_US": "اتصل بنا",
-    "HOME/RESTAURANTS": "الرئيسية/المطاعم",
+    "HOME_RESTAURANTS": "الرئيسية/المطاعم",
+    "HOME": "بيت",
     "REGISTER": "سجل",
     "ABOUT": "عن",
     "TERMS_AND_CONDITIONS": "الشروط والأحكام",
