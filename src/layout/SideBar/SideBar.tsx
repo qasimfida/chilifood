@@ -24,7 +24,7 @@ interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'var
  * @param {function} onClose - called when the Drawer is closing
  */
 const SideBar: FunctionComponent<Props> = ({ anchor, open, variant, items, onClick, onClose, ...restOfProps }) => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { isAuthenticated } = useIsAuthenticated();
     const onMobile = useOnMobile();
 

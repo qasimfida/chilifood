@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useIsAuthenticated } from '../../hooks';
 
 const Settings: React.FC<any> = () => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const user = useIsAuthenticated();
 
@@ -45,7 +45,7 @@ const Settings: React.FC<any> = () => {
                         </Grid>
                         <Grid container item xs={12} justifyContent="flex-start">
                             <AppButton variant="text" color="error" onClick={handleClick}>
-                                Delete(Account)
+                                {t('DELETE_ACCOUNT')}
                             </AppButton>
                         </Grid>
                     </Grid>
@@ -57,14 +57,14 @@ const Settings: React.FC<any> = () => {
                     >
                         <DialogTitle>{'Delete Account'}</DialogTitle>
                         <Content>
-                            <Typography>Are you sure that you Want to Delete your Account?</Typography>
+                            <Typography>{t('DELETE_POPUP')}</Typography>
                         </Content>
                         <StyledActions>
                             <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>
-                                Cancel
+                                {t('DELETE_REJECT')}
                             </DialogButton>
                             <Button size="small" variant="outlined" color="error" onClick={() => setDeletePopup(true)}>
-                                Yes
+                                {t('DELETE_CONFIRM')}
                             </Button>
                         </StyledActions>
                     </StyledDialogs>
@@ -87,10 +87,10 @@ const Settings: React.FC<any> = () => {
                         </Content>
                         <StyledActions>
                             <DialogButton size="small" variant="outlined" onClick={() => setDeletePopup(false)}>
-                                Cancel
+                                {t('DELETE_REJECT')}
                             </DialogButton>
                             <Button size="small" variant="outlined" color="error" onClick={deleteAccount}>
-                                Delete
+                                {t('DELETE')}
                             </Button>
                         </StyledActions>
                     </StyledDialogs>

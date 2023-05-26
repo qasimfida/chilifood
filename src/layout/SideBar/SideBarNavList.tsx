@@ -18,22 +18,25 @@ interface Props {
  * @param {function} [onAfterLinkClick] - optional callback called when some navigation item was clicked
  */
 const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, ...restOfProps }) => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <StyledList component="nav" {...restOfProps} dir={i18n.dir()}>
-            {items.map((item) => (
-                <SideBarNavItem
-                    key={`${item.title}-${item.path}`}
-                    icon={showIcons ? item.icon : undefined}
-                    path={item.path}
-                    title={item.title}
-                    onClick={() => {
-                        if (onClick) {
-                            onClick(item);
-                        }
-                    }}
-                />
-            ))}
+            {items.map((item) => {
+                console.log(item.title, 'item');
+                return (
+                    <SideBarNavItem
+                        key={`${item.title}-${item.path}`}
+                        icon={showIcons ? item.icon : undefined}
+                        path={item.path}
+                        title={t(String(item.title?.toLocaleUpperCase()).replace(/\s+/g, '_'))}
+                        onClick={() => {
+                            if (onClick) {
+                                onClick(item);
+                            }
+                        }}
+                    />
+                );
+            })}
         </StyledList>
     );
 };

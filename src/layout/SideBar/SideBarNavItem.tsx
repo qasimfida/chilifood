@@ -9,6 +9,7 @@ interface Props extends LinkToPage {
     openInNewTab?: boolean;
     selected?: boolean;
     onClick?: (e: LinkToPage) => void;
+    title?: any;
 }
 
 /**
