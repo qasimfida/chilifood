@@ -55,7 +55,7 @@ const Settings: React.FC<any> = () => {
                         aria-describedby="alert-dialog-slide-description"
                         onClose={() => setOpen(false)}
                     >
-                        <DialogTitle>{'Delete Account'}</DialogTitle>
+                        <DialogTitle>{t('DELETE_ACCOUNT')}</DialogTitle>
                         <Content>
                             <Typography>{t('DELETE_POPUP')}</Typography>
                         </Content>

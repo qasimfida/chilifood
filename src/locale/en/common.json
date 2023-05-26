@@ -21,7 +21,7 @@
     "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "Please select city",
     "PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS": "Edit Personal Details",
     "PERSONAL_DETAILS": "Personal Details",
-    "PHONE_NUMBER": "Phone Number city",
+    "PHONE_NUMBER": "Phone Number",
     "NAME": "Name",
     "PASSWORD": "Password",
 
@@ -37,11 +37,11 @@
     "LOGIN.HAVE_ACCOUNT": " Don't have an account?",
     "LOGIN.CREATE_ACCOUNT": "Create account",
     "NEXT": " Next",
-    "OTP_MESSAGE": " We sent you an SMS message with OTP. Enter your OTP number here to verify your mobile number",
+    "OTP_MESSAGE": "We sent you an SMS message with OTP. Enter your OTP number here to verify your mobile number",
     "New_PASSWORD": "New Password",
     "CHANGE_PASSWORD": "CHANGE PASSWORD",
     "CONTACT_US": "Contact Us",
-    "HOME_RESTAURANTS": "HOME/RESTAURANTS",
+    "HOME_RESTAURANTS": "Home/Restaurants",
     "HOME": "HOME",
     "REGISTER": "Register",
     "ABOUT": "About",
@@ -50,6 +50,7 @@
     "CONTACT_RESTAURANT": "Contact Restaurant",
     "PROFILE": "Profile",
     "LOGOUT": "Logout",
+    "CANCEL": "Cancel",
     "PLAN2": "Plan2",
 
     "DELETE_ACCOUNT": "Delete(Account)",
@@ -60,5 +61,10 @@
 
     "ERROR.PREFIX": "must be less than",
     "ERROR.DIGITS": "digits",
-    "ISREQUIRED": "field is required"
+    "ISREQUIRED": "field is required",
+
+    "PHONE_NUMBER_ERROR": "Phone number field must be 8 numbers",
+    "PASSWORD_ERROR": "Password must be more than 3 digits",
+
+    "FORGET_PASSWORD_TITLE": "Forget Password"
 }

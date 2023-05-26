@@ -48,6 +48,7 @@
     "CONTACT_RESTAURANT": "اتصل بالمطعم",
     "PROFILE": "ملف تعريف",
     "LOGOUT": "الخروج",
+    "CANCEL": "إلغاء",
     "PLAN2": "خطة2",
 
     "DELETE_ACCOUNT": "حذف (الحساب)",
@@ -58,5 +59,10 @@
 
     "ERROR.PREFIX": "يجب أن يكون أقل من",
     "ERROR.DIGITS": "أرقام",
-    "ISREQUIRED": "الحقل مطلوب"
+    "ISREQUIRED": "الحقل مطلوب",
+
+    "PHONE_NUMBER_ERROR": "يجب أن يتكون رقم الهاتف من 8 ارقام",
+    "PASSWORD_ERROR": " كلمة السر يجب ان تكون 3 احرف/ارقام على الاقل",
+
+    "FORGET_PASSWORD_TITLE": "نسيت كلمة السر"
 }

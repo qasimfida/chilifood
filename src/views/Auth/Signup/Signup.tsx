@@ -111,8 +111,12 @@ const Signup = () => {
             return { ...prev, [name]: value };
         });
     };
-    const fieldGetError = (key: any) => {
-        return (errors as ObjectPropByName)[key]?.[0];
+    const fieldGetError = (key: keyof ObjectPropByName) => {
+        const errorMessages: Record<string, string> = {
+            phoneNumber: t('PHONE_NUMBER_ERROR'),
+            password: t('PASSWORD_ERROR'),
+        };
+        return errorMessages[key] || (errors as ObjectPropByName)[key]?.[0] || '';
     };
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
