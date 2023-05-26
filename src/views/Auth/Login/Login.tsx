@@ -11,31 +11,6 @@ import { generateValidNumber } from '../../../utils/generateValidNumber';
 import { validate } from 'validate.js';
 import { ObjectPropByName } from '../../../utils';
 
-const validation = () => ({
-    phoneNumber: {
-        presence: true,
-        type: 'string',
-        format: {
-            pattern: '[0-9]*', // Note: We have to allow empty in the pattern
-            message: 'should contain numbers',
-        },
-        length: {
-            minimum: 8,
-            maximum: 8,
-            message: 'field must be 8 numbers',
-        },
-    },
-    password: {
-        type: 'string',
-        presence: true,
-        length: {
-            minimum: 3,
-            maximum: 50,
-            message: 'password must be more than 3 digits',
-        },
-    },
-});
-
 interface FormStateValues {
     phoneNumber: string;
     password: string;
@@ -49,6 +24,29 @@ interface FormStateValues {
 const Login = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
+    const validation = () => ({
+        phoneNumber: {
+            presence: true,
+            type: 'string',
+            format: {
+                pattern: '[0-9]*', // Note: We have to allow empty in the pattern
+                message: 'should contain numbers',
+            },
+            length: {
+                minimum: 8,
+                maximum: 8,
+            },
+        },
+        password: {
+            type: 'string',
+            presence: true,
+            length: {
+                minimum: 3,
+                maximum: 50,
+            },
+        },
+    });
+
     const [state, setState] = useState<FormStateValues>({
         phoneNumber: '',
         password: '',
@@ -97,22 +95,26 @@ const Login = () => {
             return { ...prev, [name]: value };
         });
     };
-    const fieldGetError = (key: any) => {
-        return (errors as ObjectPropByName)[key]?.[0];
+    const fieldGetError = (key: keyof ObjectPropByName) => {
+        const errorMessages: Record<string, string> = {
+            phoneNumber: t('PHONE_NUMBER_ERROR'),
+            password: t('PASSWORD_ERROR'),
+        };
+        return errorMessages[key] || (errors as ObjectPropByName)[key]?.[0] || '';
     };
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
     const isValid = validate(state, validation()) ? false : true;
     return (
-        <Layout1 title="Login">
+        <Layout1 title={t('LOGIN')}>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
                             <Icon name="login" />
                             <Title component="h2" variant="h5">
-                                Login
+                                {t('LOGIN')}
                             </Title>
                         </Header>
                         <CardContent>

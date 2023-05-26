@@ -54,7 +54,7 @@ interface IProps extends PropsWithChildren {
     withFooter?: boolean;
 }
 const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader, withFooter }) => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const SIDEBAR_ITEMS: Array<LinkToPage> = [
         {
@@ -268,16 +268,16 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                 )}
             </Main>
             <StyledDialog open={open} onClose={() => setOpen(false)}>
-                <DialogTitle>{'Logout'}</DialogTitle>
+                <DialogTitle>{t('LOGOUT')}</DialogTitle>
                 <DialogContent>
                     <Typography>Are you sure?</Typography>
                 </DialogContent>
                 <StyledActions>
                     <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>
-                        Cancel
+                        {t('CANCEL')}
                     </DialogButton>
                     <DialogButton size="small" variant="outlined" color="primary" onClick={handleLogout} className="ml">
-                        Logout
+                        {t('LOGOUT')}
                     </DialogButton>
                 </StyledActions>
             </StyledDialog>

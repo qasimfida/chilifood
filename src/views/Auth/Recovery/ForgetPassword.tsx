@@ -7,22 +7,6 @@ import { useTranslation } from 'react-i18next';
 import Layout1 from '../../../layout/Layout1';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
 
-const VALIDATE_FORM_RECOVERY_PASSWORD = {
-    phoneNumber: {
-        presence: true,
-        type: 'string',
-        format: {
-            pattern: '[0-9]*', // Note: We have to allow empty in the pattern
-            message: 'should contain numbers',
-        },
-        length: {
-            minimum: 8,
-            maximum: 8,
-            message: 'field must be 8 numbers',
-        },
-    },
-};
-
 interface FormStateValues {
     phoneNumber: string;
 }
@@ -34,6 +18,21 @@ interface FormStateValues {
  */
 const RecoveryPassword = () => {
     const { t } = useTranslation();
+    const VALIDATE_FORM_RECOVERY_PASSWORD = {
+        phoneNumber: {
+            presence: true,
+            type: 'string',
+            format: {
+                pattern: '[0-9]*', // Note: We have to allow empty in the pattern
+                message: 'should contain numbers',
+            },
+            length: {
+                minimum: 8,
+                maximum: 8,
+                message: t('PHONE_NUMBER_ERROR'),
+            },
+        },
+    };
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
         validationSchema: VALIDATE_FORM_RECOVERY_PASSWORD,
         initialValues: { phoneNumber: '' } as FormStateValues,
@@ -55,7 +54,7 @@ const RecoveryPassword = () => {
     const handleCloseError = useCallback(() => setMessage(undefined), []);
 
     return (
-        <Layout1 title="Forgot Password" menuHeader>
+        <Layout1 title={t('FORGET_PASSWORD_TITLE')} menuHeader>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
