@@ -6,6 +6,8 @@ import { AppAlert, AppForm } from '../../../components';
 import { Description, Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import Layout1 from '../../../layout/Layout1';
 import { IUser } from '../../../hooks';
+import { ObjectPropByName } from '../../../utils';
+import { validate } from 'validate.js';
 // import { useAppStore } from '../../../store';
 
 /**
@@ -16,30 +18,52 @@ import { IUser } from '../../../hooks';
 interface FormStateValues {
     otp: string;
 }
-const VALIDATION = {
-    otp: {
-        presence: true,
-        type: 'string',
-        length: {
-            minimum: 6,
-            maximum: 10,
-            message: 'Should be 6 - 10 characters.',
-        },
-    },
-};
 
 const ConfirmOTP = () => {
+    const validation = {
+        otp: {
+            presence: true,
+            type: 'string',
+            length: {
+                minimum: 6,
+                maximum: 10,
+                message: 'Should be 6 - 10 characters.',
+            },
+        },
+    };
     const [error, setError] = useState<string>();
+    const [state, setState] = useState<FormStateValues>({
+        otp: '',
+    });
+    const [errors, setErrors] = useState<any>({});
     const navigate = useNavigate();
     // const [, dispatch] = useAppStore();
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-        validationSchema: VALIDATION, // the state value, so could be changed in time
-        initialValues: {
-            otp: '',
-        } as FormStateValues,
-        validateOnBlur: true,
-    });
-    const values = formState.values as FormStateValues;
+    const onFieldBlur = (event: any) => {
+        const { name, value } = event.target;
+        const valid = (validation as ObjectPropByName)[name];
+        const err = validate({ [name]: value }, { [name]: valid });
+        const errs = { ...errors, ...err };
+        if (!err) {
+            delete errs[name];
+        }
+        setErrors({ ...errs });
+    };
+    const onFieldChange = (event: any) => {
+        const { name, value } = event.target;
+        const limit = (validation as ObjectPropByName)[name]?.length?.maximum;
+        if (value?.length <= limit) {
+            setState((prev) => {
+                return { ...prev, [name]: value };
+            });
+        }
+    };
+    const fieldGetError = (key: any) => {
+        return (errors as ObjectPropByName)[key]?.[0];
+    };
+    const fieldHasError = (key: any) => {
+        return (errors as ObjectPropByName)[key] ? true : false;
+    };
+    const isValid = validate(state, validation) ? false : true;
 
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
@@ -76,7 +100,7 @@ const ConfirmOTP = () => {
                                 required
                                 label="OTP"
                                 name="otp"
-                                value={values.otp}
+                                value={state.otp}
                                 error={fieldHasError('otp')}
                                 helperText={fieldGetError('otp') || ' '}
                                 onChange={onFieldChange}
@@ -89,7 +113,7 @@ const ConfirmOTP = () => {
                                     {error}
                                 </AppAlert>
                             ) : null}
-                            <Submit type="submit" color="primary" disabled={!formState.isValid} fullWidth>
+                            <Submit type="submit" color="primary" disabled={!isValid} fullWidth>
                                 Verify
                             </Submit>
                             <Grid container justifyContent="center" alignItems="center">

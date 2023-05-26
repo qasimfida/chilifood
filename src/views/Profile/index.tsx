@@ -20,7 +20,7 @@ import { validate } from 'validate.js';
 const Profile = () => {
     const user = useIsAuthenticated();
     const { t } = useTranslation();
-    const validation = () => ({
+    const validation = {
         name: {
             type: 'string',
             presence: { allowEmpty: false, message: t('ISREQUIRED') },
@@ -74,7 +74,7 @@ const Profile = () => {
                 message: t('PERSONAL_DETAILS.PLEASE_SELECT_CITY'),
             },
         },
-    });
+    };
 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -111,7 +111,7 @@ const Profile = () => {
 
     const onFieldBlur = (event: any) => {
         const { name, value } = event.target;
-        const valid = (validation() as ObjectPropByName)[name];
+        const valid = (validation as ObjectPropByName)[name];
         const err = validate({ [name]: value }, { [name]: valid });
         const errs = { ...errors, ...err };
         if (!err) {
@@ -126,9 +126,12 @@ const Profile = () => {
                 return { ...prev, [key]: val };
             });
         } else {
-            setState((prev) => {
-                return { ...prev, [name]: value };
-            });
+            const limit = (validation as ObjectPropByName)[name]?.length?.maximum;
+            if (value?.length <= limit) {
+                setState((prev) => {
+                    return { ...prev, [name]: value };
+                });
+            }
         }
     };
     const fieldGetError = (key: string, label: string) => {
@@ -150,7 +153,7 @@ const Profile = () => {
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
-    const isValid = validate(state, validation()) ? false : true;
+    const isValid = validate(state, validation) ? false : true;
 
     return (
         <Layout1 title={`Profile/${value === '0' ? 'Personal Details' : 'My Subscriptions'}`}>

@@ -67,32 +67,12 @@ const Signup = () => {
     // const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
     const [showPassword, setShowPassword] = useState(false);
     const [agree, setAgree] = useState(false);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string>();
     const [state, setState] = useState<FormStateValues>({
         phoneNumber: '',
         password: '',
     });
     const [errors, setErrors] = useState<any>({});
-
-    useEffect(() => {
-        // Component Mount
-        let componentMounted = true;
-
-        async function fetchData() {
-            //TODO: Call any Async API here
-            if (!componentMounted) return; // Component was unmounted during the API call
-            //TODO: Verify API call here
-
-            setLoading(false); // Reset "Loading..." indicator
-        }
-        fetchData(); // Call API asynchronously
-
-        return () => {
-            // Component Un-mount
-            componentMounted = false;
-        };
-    }, []);
 
     const handleShowPasswordClick = useCallback(() => {
         setShowPassword((oldValue) => !oldValue);
@@ -139,7 +119,7 @@ const Signup = () => {
     };
     const isValid = validate(state, validation(t)) ? false : true;
 
-    if (loading) return <LinearProgress />;
+    if (false) return <LinearProgress />;
 
     return (
         <Layout1 title="Register">

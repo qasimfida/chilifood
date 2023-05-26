@@ -15,7 +15,7 @@ import { validate } from 'validate.js';
 const PersonalDetails = () => {
     const { t } = useTranslation();
     const user = useIsAuthenticated();
-    const validation = () => ({
+    const validation = {
         name: {
             type: 'string',
             presence: { allowEmpty: false, message: t('ISREQUIRED') },
@@ -69,7 +69,7 @@ const PersonalDetails = () => {
                 message: t('PERSONAL_DETAILS.PLEASE_SELECT_CITY'),
             },
         },
-    });
+    };
 
     const navigate = useNavigate();
 
@@ -94,7 +94,7 @@ const PersonalDetails = () => {
 
     const onFieldBlur = (event: any) => {
         const { name, value } = event.target;
-        const valid = (validation() as ObjectPropByName)[name];
+        const valid = (validation as ObjectPropByName)[name];
         const err = validate({ [name]: value }, { [name]: valid });
         const errs = { ...errors, ...err };
         if (!err) {
@@ -105,13 +105,17 @@ const PersonalDetails = () => {
     const onFieldChange = (event: any, val?: any, key?: string) => {
         const { name, value } = event.target;
         if (key) {
+            console.log({ val, key });
             setState((prev) => {
                 return { ...prev, [key]: val };
             });
         } else {
-            setState((prev) => {
-                return { ...prev, [name]: value };
-            });
+            const limit = (validation as ObjectPropByName)[name]?.length?.maximum;
+            if (value?.length <= limit) {
+                setState((prev) => {
+                    return { ...prev, [name]: value };
+                });
+            }
         }
     };
 
@@ -135,7 +139,7 @@ const PersonalDetails = () => {
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
-    const isValid = validate(state, validation()) ? false : true;
+    const isValid = validate(state, validation) ? false : true;
 
     return (
         <Layout1 title={`Personal Details`}>
@@ -178,9 +182,7 @@ const PersonalDetails = () => {
                                                 />
                                             )}
                                             onBlur={onFieldBlur}
-                                            onChange={(event, value) =>
-                                                onFieldChange(event, value, 'PLEASE_SELECT_CITY')
-                                            }
+                                            onChange={(event, value) => onFieldChange(event, value, 'city')}
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
