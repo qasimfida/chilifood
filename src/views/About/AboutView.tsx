@@ -3,13 +3,15 @@ import Layout1 from '../../layout/Layout1';
 import { Description, Heading, ListContent, StyledAlert, StyledAlertTitle, SubHeading, Title, Wrapper } from './styles';
 import { FiberManualRecord } from '@mui/icons-material';
 import { Container } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const About: React.FC<any> = () => {
+    const { t } = useTranslation();
     return (
-        <Layout1 title="About" withFooter>
+        <Layout1 title={t('ABOUT')} withFooter>
             <Wrapper>
                 <Container>
-                    <Title>Restaurant</Title>
+                    <Title>{t('RESTAURANT')}</Title>
                     <Description>
                         The new restaurant in town has quickly become the talk of the town, with its elegant decor and
                         mouth-watering menu. As you step through the doors, you're greeted by a warm and welcoming

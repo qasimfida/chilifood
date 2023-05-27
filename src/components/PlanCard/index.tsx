@@ -15,7 +15,7 @@ import {
 import { IFood } from '../../types/restaurant';
 import { Box, InputLabel, MenuItem, Select } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { meals } from '../../store/restaurant/restaurants';
+import { restaurantsData } from '../../store/restaurant/restaurants';
 interface IProps extends IFood {
     handleClick?: () => void;
     carbs: string;
@@ -26,14 +26,14 @@ interface IProps extends IFood {
 }
 const PlanCard: React.FC<IProps> = ({ id, handleClick, carbs, name, src, description }) => {
     const [value, setValue] = useState(0);
-    const { i18n } = useTranslation();
-
+    const { i18n, t } = useTranslation();
+    const { meals } = restaurantsData[i18n.language];
     const options = [
         { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
         { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
         { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
     ];
-    const planMeals = meals.filter((i: any) => i?.plan_id?.includes(id)).map((i) => i.name) || [];
+    const planMeals = meals.filter((i: any) => i?.plan_id?.includes(id)).map((i: any) => i.name) || [];
     return (
         <StyledCard>
             <Body>
@@ -42,7 +42,7 @@ const PlanCard: React.FC<IProps> = ({ id, handleClick, carbs, name, src, descrip
                 </CardTitle>
                 <MediaWrapper onClick={handleClick}>
                     <StyledMedia image={src} title={name} />
-                    <Subscribe dir={i18n.dir()}>View Food/Subscribe</Subscribe>
+                    <Subscribe dir={i18n.dir()}>{t('VIEW_SUBSCRIBE')}</Subscribe>
                 </MediaWrapper>
                 <Content>
                     <Details>
@@ -51,7 +51,7 @@ const PlanCard: React.FC<IProps> = ({ id, handleClick, carbs, name, src, descrip
                             <Description> {planMeals.join(', ')}</Description>
                         </Box>
                         <FormSelect size="small">
-                            <InputLabel id="food-select">Package</InputLabel>
+                            <InputLabel id="food-select">{t('PACKAGE')}</InputLabel>
                             <Select
                                 labelId="select-package"
                                 id="select-package"

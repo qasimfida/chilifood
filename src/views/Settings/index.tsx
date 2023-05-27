@@ -40,7 +40,7 @@ const Settings: React.FC<any> = () => {
                     <Grid container spacing={0}>
                         <Grid container item xs={12} justifyContent="flex-start" mt={4}>
                             <AppButton variant="text" onClick={() => onClick(i18n.language)}>
-                                {i18n.language === 'en' ? `Arabic(عربي)` : `English(إنجليزي)`}
+                                {t('LANGUAGE')}
                             </AppButton>
                         </Grid>
                         <Grid container item xs={12} justifyContent="flex-start">

@@ -63,7 +63,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             icon: 'home',
         },
         {
-            title: i18n.language === 'en' ? `Arabic(عربي)` : `English(إنجليزي)`,
+            title: 'LANGUAGE',
             path: '',
             icon: 'language',
             key: 'language',
@@ -237,9 +237,9 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                 {hasFooter && (
                     <PriceWrapper>
                         <Container>
-                            <Flex>
+                            <Flex dir={i18n.dir()}>
                                 <StyledFormControl>
-                                    <InputLabel id="my-select-label">Package</InputLabel>
+                                    <InputLabel id="my-select-label">{t('PACKAGE')}</InputLabel>
                                     <Select
                                         labelId="my-select-label"
                                         id="my-select"
@@ -260,7 +260,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                                     </Select>
                                 </StyledFormControl>
                                 <StyledButton variant="contained" color="primary" onClick={() => navigate('/checkout')}>
-                                    Subscribe
+                                    {t('SUBSCRIBE')}
                                 </StyledButton>
                             </Flex>
                         </Container>

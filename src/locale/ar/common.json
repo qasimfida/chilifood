@@ -74,6 +74,16 @@
     "OTP_ERROR": "يجب أن يكون من 6 إلى 10 أحرف ",
 
     "ARE_YOU_SURE": "هل انت متاكد؟",
-
-    "SETTING": "جلسة"
+    "SETTING": "جلسة",
+    "LANGUAGE": "English(إنجليزي)",
+    "PACKAGE": "عدد الأيام",
+    "SUBSCRIBE": "اشتراك",
+    "CHECKOUT": "السلة",
+    "VIEW_SUBSCRIBE": "المنيو/الاشتراك",
+    "RESTAURANT": "المطعم",
+    "START_DATE": "بداية الاشتراك",
+    "PLAN": "الخطة",
+    "LEAVE_A_NOTE": "ضع ملاحظاتك",
+    "PAY": "الدفع",
+    "ALERGIES_AND_DISLIKES": "الحساسية ..، يكره .."
 }

@@ -1,5 +1,5 @@
-import { styled } from '@mui/system';
-import { Box, TextField, Typography } from '@mui/material';
+import { styled, css } from '@mui/system';
+import { Box, TableCell, TableRow, TextField, Typography } from '@mui/material';
 import { AppButton } from '../../components';
 import { DatePicker, PickersDay } from '@mui/x-date-pickers';
 
@@ -61,6 +61,19 @@ export const PayButton = styled(AppButton)`
 `;
 export const Typo = styled(Typography)`
     text-align: right;
+`;
+export const LastCell = styled(TableCell)<{ dir: 'rtl' | 'ltr' }>`
+    ${({ dir }) => css`
+        text-align: ${dir === 'rtl' ? 'left' : 'right'} !important;
+    `};
+`;
+export const LinkText = styled(Typography)`
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: #579b3f;
+    text-decoration: underline;
+    text-decoration-color: rgba(87, 155, 63, 0.4);
 `;
 export const Day = styled(PickersDay)<any>``;
 export const Picker = styled(DatePicker)`
