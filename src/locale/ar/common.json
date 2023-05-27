@@ -85,5 +85,12 @@
     "PLAN": "الخطة",
     "LEAVE_A_NOTE": "ضع ملاحظاتك",
     "PAY": "الدفع",
-    "ALERGIES_AND_DISLIKES": "الحساسية ..، يكره .."
+    "ALERGIES_AND_DISLIKES": "الحساسية ..، يكره ..",
+    "OFF": "راحة",
+
+    "SELECT_FOOD": "اختر الطعام",
+    "END_DATE": "نهاية الاشتراك",
+    "OFF_DAYS": "ايام الراحة",
+    "FRIDAY": "الجمعة",
+    "SATURDAY": "السبت"
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Badge, Date, LockIcon, Month, StyledDay, StyledPopper, StyledWrapper, Wrapper } from './styles';
 import { ExtendsIDay } from '../../types/restaurant';
-import { Popover } from '@mui/material';
+import { Popover, Tooltip } from '@mui/material';
+import { t } from 'i18next';
 
 interface DayProps {
     day: ExtendsIDay;
@@ -20,39 +21,39 @@ const Node = (props: any) => {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
 
+    if (off) {
+        return (
+            <Tooltip placement="top" title={'Off Day'}>
+                <StyledWrapper aria-describedby={id} onClick={handleClick}>
+                    <Badge>{t('OFF')}</Badge>
+                    <Date component="span" className="date">
+                        {date}
+                    </Date>
+                    <StyledDay>{day}</StyledDay>
+                    <Month component="span" className="month">
+                        {month}
+                    </Month>
+                </StyledWrapper>
+            </Tooltip>
+        );
+    }
     return (
-        <>
-            <StyledWrapper aria-describedby={off ? id : undefined} onClick={handleClick}>
-                {off ? (
-                    <Badge>Off</Badge>
-                ) : lock ? (
-                    <Badge variant="main" type="circle">
-                        <LockIcon />
-                    </Badge>
-                ) : null}
-                <Date component="span" className="date">
-                    {date}
-                </Date>
-                <StyledDay>{day}</StyledDay>
-                <Month component="span" className="month">
-                    {month}
-                </Month>
-            </StyledWrapper>
-            {off && (
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClick}
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                >
-                    <StyledPopper>Off Day</StyledPopper>
-                </Popover>
-            )}
-        </>
+        <StyledWrapper aria-describedby={off ? id : undefined} onClick={handleClick}>
+            {off ? (
+                <Badge>Off</Badge>
+            ) : lock ? (
+                <Badge variant="main" type="circle">
+                    <LockIcon />
+                </Badge>
+            ) : null}
+            <Date component="span" className="date">
+                {date}
+            </Date>
+            <StyledDay>{day}</StyledDay>
+            <Month component="span" className="month">
+                {month}
+            </Month>
+        </StyledWrapper>
     );
 };
 export const Day: React.FC<DayProps> = ({ day, className, onClick }) => {

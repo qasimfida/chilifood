@@ -89,5 +89,12 @@
     "START_DATE": "Start Date",
     "LEAVE_A_NOTE": "Leave a note",
     "PAY": "Pay",
-    "ALERGIES_AND_DISLIKES": "Allergies.., Dislikes.."
+    "ALERGIES_AND_DISLIKES": "Allergies.., Dislikes..",
+    "OFF": "Off",
+
+    "SELECT_FOOD": "SELECT FOOD",
+    "END_DATE": "End date",
+    "OFF_DAYS": "Off Days",
+    "FRIDAY": "Friday",
+    "SATURDAY": "Saturday"
 }
