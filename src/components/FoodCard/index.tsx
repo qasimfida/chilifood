@@ -18,6 +18,7 @@ import { ExpandMore } from '@mui/icons-material';
 import useAnimateHeightFromZeroToAuto from '../../hooks/useAnimateHeightFromZeroToAuto';
 import { IFood } from '../../types/restaurant';
 import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 interface IProps extends IFood {
     isExpended: boolean;
     isSelected?: boolean;
@@ -43,6 +44,7 @@ const FoodCard: React.FC<IProps> = ({
     size,
 }) => {
     const ref = useRef<null>(null);
+    const { i18n } = useTranslation();
 
     useAnimateHeightFromZeroToAuto(ref, 100, isExpended, '0');
 
@@ -61,7 +63,7 @@ const FoodCard: React.FC<IProps> = ({
                 <StyledMedia size={size} image={src || salad} title="Food" onClick={handleSelect} />
                 <Content>
                     <Details onClick={onToggle}>
-                        <CardTitle size={size} className="title" gutterBottom variant="h5">
+                        <CardTitle size={size} className="title" gutterBottom variant="h5" dir={i18n.dir()}>
                             <Box>{name}</Box>
                             <Toggle>
                                 <ExpandMore fontSize="small" className="icon" />

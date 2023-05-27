@@ -1,4 +1,4 @@
-import { Box, Button, Typography, css, styled } from '@mui/material';
+import { Box, Button, Grid, Typography, css, styled } from '@mui/material';
 import { AppButton, AppIcon } from '../../components';
 
 export const Wrapper = styled(Box)`
@@ -83,6 +83,11 @@ export const StyledComp = styled(Box)`
 export const Submit = styled(AppButton)<any>`
     padding: 12px 20px;
     margin: 20px 0;
+`;
+export const StyledGrid = styled(Grid)<any>`
+    ${({ dir }) => css`
+        flex-direction: ${dir === 'rtl' ? 'row' : 'inherit'};
+    `}
 `;
 export const Link = styled(Button)<any>`
     font-weight: 400;

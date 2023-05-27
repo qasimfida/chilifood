@@ -38,7 +38,7 @@
     "OTP_MESSAGE": "لقد أرسلنا للتو رسالة نصية وفيها رمز التفعيل OTP. اكتبه هنا لتأكيد موبايلك",
     "New_PASSWORD": "كلمة السر الجديدة",
     "CHANGE_PASSWORD": "تغيير كلمة المرور",
-    "CONTACT_US": "اتصل بنا",
+    "CONTACT_US": "تواصل معنا ",
     "HOME_RESTAURANTS": "الرئيسية/المطاعم",
     "HOME": "بيت",
     "REGISTER": "سجل",
@@ -64,5 +64,16 @@
     "PHONE_NUMBER_ERROR": "يجب أن يتكون رقم الهاتف من 8 ارقام",
     "PASSWORD_ERROR": " كلمة السر يجب ان تكون 3 احرف/ارقام على الاقل",
 
-    "FORGET_PASSWORD_TITLE": "نسيت كلمة السر"
+    "FORGET_PASSWORD_TITLE": "نسيت كلمة السر",
+
+    "ADDRESS": "العنوان",
+    "DIDNT_RECIVED_OTP": "لم تستلم الرمز ؟ ",
+    "RESEND_OTP": " اعادة ارسال الرمز",
+    "VERIFY": "تأكيد",
+    "ENTER_OTP": "ادخل رمز التفعيل",
+    "OTP_ERROR": "يجب أن يكون من 6 إلى 10 أحرف ",
+
+    "ARE_YOU_SURE": "هل انت متاكد؟",
+
+    "SETTING": "جلسة"
 }

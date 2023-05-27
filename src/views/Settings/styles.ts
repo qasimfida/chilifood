@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { Box, Button, Dialog, DialogActions, DialogContent, TextField } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, css, TextField } from '@mui/material';
 import { AppButton } from '../../components';
 
 export const Title = styled(Box)`
@@ -36,10 +36,14 @@ export const StyledDialogs = styled(Dialog)`
     }
 `;
 
-export const StyledActions = styled(DialogActions)`
+export const StyledActions = styled(DialogActions)<any>`
     padding-bottom: 16px;
     gap: 16px;
+    ${({ dir }) => css`
+        flex-direction: ${dir === 'rtl' ? 'row-reverse' : ''};
+    `}
 `;
+
 export const DialogButton = styled(Button)`
     color: #000;
     padding-left: 20px;

@@ -36,16 +36,17 @@ export const CardTitle = styled(Typography)<any>`
     overflow: hidden;
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
     height: 36px;
     ${({
         size,
+        dir,
         theme: {
             palette,
             breakpoints: { values },
         },
     }: any) => {
         return css`
+            flex-direction: ${dir === 'rtl' ? 'row' : 'row'};
             color: #000;
             font-size: ${size === 'xl' ? '16px' : '14px'};
             color: ${palette.grey.main};

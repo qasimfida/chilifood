@@ -270,7 +270,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             <StyledDialog open={open} onClose={() => setOpen(false)}>
                 <DialogTitle>{t('LOGOUT')}</DialogTitle>
                 <DialogContent>
-                    <Typography>Are you sure?</Typography>
+                    <Typography>{t('ARE_YOU_SURE')}</Typography>
                 </DialogContent>
                 <StyledActions>
                     <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>

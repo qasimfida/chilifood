@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { CardContent, TextField, Grid, Button } from '@mui/material';
 import { SHARED_CONTROL_PROPS, useAppForm } from '../../../utils/form';
 import { AppAlert, AppForm } from '../../../components';
-import { Description, Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
+import { Description, Header, Link, StyledComp, StyledGrid, Submit, Title, Wrapper } from '../styles';
 import Layout1 from '../../../layout/Layout1';
 import { IUser } from '../../../hooks';
 import { ObjectPropByName } from '../../../utils';
 import { validate } from 'validate.js';
+import { useTranslation } from 'react-i18next';
 // import { useAppStore } from '../../../store';
 
 /**
@@ -20,6 +21,7 @@ interface FormStateValues {
 }
 
 const ConfirmOTP = () => {
+    const { t, i18n } = useTranslation();
     const validation = {
         otp: {
             presence: true,
@@ -27,7 +29,7 @@ const ConfirmOTP = () => {
             length: {
                 minimum: 6,
                 maximum: 10,
-                message: 'Should be 6 - 10 characters.',
+                message: t('OTP_ERROR'),
             },
         },
     };
@@ -78,27 +80,24 @@ const ConfirmOTP = () => {
     const handleCloseError = useCallback(() => setError(undefined), []);
 
     return (
-        <Layout1 title="Verify OTP">
+        <Layout1 title={`${t('VERIFY')} OTP`}>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
-                                    <Title variant="h6">Verify OTP</Title>
+                                    <Title variant="h6">{t('VERIFY')} OTP</Title>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Description>
-                                        We sent you an SMS message with OTP. Enter OTP number here to verify your mobile
-                                        number
-                                    </Description>
+                                    <Description>{t('OTP_MESSAGE')}</Description>
                                 </Grid>
                             </Grid>
                         </Header>
                         <CardContent>
                             <TextField
                                 required
-                                label="OTP"
+                                label={t('ENTER_OTP')}
                                 name="otp"
                                 value={state.otp}
                                 error={fieldHasError('otp')}
@@ -114,16 +113,16 @@ const ConfirmOTP = () => {
                                 </AppAlert>
                             ) : null}
                             <Submit type="submit" color="primary" disabled={!isValid} fullWidth>
-                                Verify
+                                {t('VERIFY')}
                             </Submit>
-                            <Grid container justifyContent="center" alignItems="center">
-                                Don't recieved OTP yet?
+                            <StyledGrid container justifyContent="center" alignItems="center" dir={i18n.dir()}>
+                                {t('DIDNT_RECIVED_OTP')}
                                 <Link variant="text" color="primary">
-                                    Resend OTP
+                                    {t('RESEND_OTP')}
                                 </Link>
-                            </Grid>
+                            </StyledGrid>
                             <Grid container justifyContent="center" alignItems="center">
-                                <Button color="primary">Contact Us</Button>
+                                <Button color="primary">{t('CONTACT_US')}</Button>
                             </Grid>
                         </CardContent>
                     </StyledComp>

@@ -66,5 +66,16 @@
     "PHONE_NUMBER_ERROR": "Phone number field must be 8 numbers",
     "PASSWORD_ERROR": "Password must be more than 3 digits",
 
-    "FORGET_PASSWORD_TITLE": "Forget Password"
+    "FORGET_PASSWORD_TITLE": "Forget Password",
+    "ADDRESS": "Address",
+
+    "DIDNT_RECIVED_OTP": "Don't recieved OTP yet ?",
+    "RESEND_OTP": "Resend OTP",
+    "VERIFY": "Verify",
+    "ENTER_OTP": "Enter OTP",
+    "OTP_ERROR": " Should be 6 - 10 characters",
+
+    "ARE_YOU_SURE": "Are you sure?",
+
+    "SETTING": "Setting"
 }

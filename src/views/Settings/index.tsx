@@ -34,7 +34,7 @@ const Settings: React.FC<any> = () => {
         }
     };
     return (
-        <Layout1 title={'Settings'}>
+        <Layout1 title={t('SETTING')}>
             <Wrapper dir={i18n.dir()}>
                 <Container>
                     <Grid container spacing={0}>
@@ -59,7 +59,7 @@ const Settings: React.FC<any> = () => {
                         <Content>
                             <Typography>{t('DELETE_POPUP')}</Typography>
                         </Content>
-                        <StyledActions>
+                        <StyledActions dir={i18n.dir()}>
                             <DialogButton size="small" variant="outlined" onClick={() => setOpen(false)}>
                                 {t('DELETE_REJECT')}
                             </DialogButton>
