@@ -9,6 +9,7 @@ import { IUser } from '../../../hooks';
 import { ObjectPropByName } from '../../../utils';
 import { validate } from 'validate.js';
 import { useTranslation } from 'react-i18next';
+import { generateValidNumber } from '../../../utils/generateValidNumber';
 // import { useAppStore } from '../../../store';
 
 /**
@@ -17,7 +18,7 @@ import { useTranslation } from 'react-i18next';
  */
 
 interface FormStateValues {
-    otp: string;
+    otp: number | undefined;
 }
 
 const ConfirmOTP = () => {
@@ -25,17 +26,16 @@ const ConfirmOTP = () => {
     const validation = {
         otp: {
             presence: true,
-            type: 'string',
             length: {
                 minimum: 6,
-                maximum: 10,
+                maximum: 6,
                 message: t('OTP_ERROR'),
             },
         },
     };
     const [error, setError] = useState<string>();
     const [state, setState] = useState<FormStateValues>({
-        otp: '',
+        otp: undefined,
     });
     const [errors, setErrors] = useState<any>({});
     const navigate = useNavigate();
@@ -78,6 +78,7 @@ const ConfirmOTP = () => {
         [navigate]
     );
     const handleCloseError = useCallback(() => setError(undefined), []);
+    console.log(state);
 
     return (
         <Layout1 title={`${t('VERIFY')} OTP`}>
@@ -99,7 +100,9 @@ const ConfirmOTP = () => {
                                 required
                                 label={t('ENTER_OTP')}
                                 name="otp"
-                                value={state.otp}
+                                type="tel"
+                                value={generateValidNumber(state.otp?.toString() || '')}
+                                inputProps={{ pattern: '[0-9]*', maxLength: 6, inputMode: 'numeric' }}
                                 error={fieldHasError('otp')}
                                 helperText={fieldGetError('otp') || ' '}
                                 onChange={onFieldChange}

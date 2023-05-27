@@ -73,7 +73,7 @@
     "RESEND_OTP": "Resend OTP",
     "VERIFY": "Verify",
     "ENTER_OTP": "Enter OTP",
-    "OTP_ERROR": " Should be 6 - 10 characters",
+    "OTP_ERROR": " Should be 6 characters",
 
     "ARE_YOU_SURE": "Are you sure?",
 
