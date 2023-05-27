@@ -3,7 +3,6 @@ import { Body, Content, Label, Row, StyledCard, Title, Button } from './styles';
 import { useTranslation } from 'react-i18next';
 const SelectFoodCard: React.FC<any> = ({ to }) => {
     const { i18n, t } = useTranslation();
-    const ar = i18n.language === 'ar';
     return (
         <StyledCard dir={i18n.dir()} to={to}>
             <Body>
