@@ -145,7 +145,7 @@ export const StyledButton = styled(Button)`
 export const Flex = styled(Box)`
     display: flex;
     justify-content: space-between;
-    flex-direction: ${({ dir }: any) => (dir === 'rtl' ? 'row' : 'row-reverse')};
+    flex-direction: ${({ dir }: any) => (dir === 'rtl' ? 'row-reverse' : 'row')};
 `;
 export const StyledActions = styled(DialogActions)`
     padding-bottom: 16px;
