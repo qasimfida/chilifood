@@ -29,8 +29,8 @@ const PublicRoutes = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/terms-policy" element={<TermsPolicy />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/select/restaurants/:restaurants/:plan" element={<Plan allowSelect />} />
-            <Route path="/select/restaurants/:restaurants/:plan" element={<Plan singleCard />} />
+            <Route path="/select/restaurants/:restaurant/:plan" element={<Plan allowSelect />} />
+            {/* <Route path="/select/restaurants/:restaurant/:plan" element={<Plan singleCard />} /> */}
             <Route path="/personal-details" element={<PersonalDetails />} />
         </Routes>
     );

@@ -51,6 +51,7 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
     const dispatch = useDispatch();
     const { i18n } = useTranslation();
     const { restaurant, plan } = useParams();
+    console.log({ restaurant, plan });
     const { activeMeal, activeDay } = useAppSelector((state) => state.restaurant);
 
     const language = i18n.language;
