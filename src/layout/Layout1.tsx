@@ -68,6 +68,26 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             icon: 'language',
             key: 'language',
         },
+    ];
+
+    const AUTH_SIDEBAR_ITEMS = [
+        {
+            title: 'SELECT_FOOD',
+            path: '/select/restaurants/1/1',
+            icon: 'contacts',
+        },
+        {
+            title: 'Profile',
+            path: '/profile?id=1',
+            icon: 'account',
+        },
+        { title: 'Contact Restaurant', icon: 'whatsapp', path: '/contact' },
+        // {
+        //     title: 'Contact admin',
+        //     path: '/admin',
+        //     icon: 'whatsapp',
+        // },
+        { title: 'Contact us', path: '/contact', icon: 'whatsapp' },
         {
             title: 'About',
             path: '/about',
@@ -78,29 +98,11 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
             path: '/terms-policy',
             icon: 'terms',
         },
-    ];
-
-    const AUTH_SIDEBAR_ITEMS = [
-        {
-            title: 'Profile',
-            path: '/profile?id=1',
-            icon: 'account',
-        },
-        {
-            title: 'Contact admin',
-            path: '/admin',
-            icon: 'whatsapp',
-        },
         {
             title: 'Logout',
             path: '',
             icon: 'logout',
             key: 'logout',
-        },
-        {
-            title: 'Plan2',
-            path: '/restaurants/1/1',
-            icon: 'contacts',
         },
     ];
 
@@ -151,16 +153,22 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
     const sidebar_items = isAuthenticated
         ? isInActiveUser
             ? [...SIDEBAR_ITEMS, ...AUTH_SIDEBAR_ITEMS]
-            : [
-                  ...SIDEBAR_ITEMS,
-                  { title: 'Contact Restaurant', icon: 'whatsapp', path: '/contact' },
-                  ...AUTH_SIDEBAR_ITEMS,
-              ]
+            : [...SIDEBAR_ITEMS, ...AUTH_SIDEBAR_ITEMS]
         : [
               ...SIDEBAR_ITEMS,
-              { title: 'Login', icon: 'login', path: '/auth/login' },
               { title: 'Register', icon: 'register', path: '/personal-details' },
+              { title: 'Login', icon: 'login', path: '/auth/login' },
               { title: 'Contact us', path: '/contact', icon: 'whatsapp' },
+              {
+                  title: 'About',
+                  path: '/about',
+                  icon: 'about',
+              },
+              {
+                  title: 'Terms and Conditions',
+                  path: '/terms-policy',
+                  icon: 'terms',
+              },
           ];
 
     const handleClick = (e: LinkToPage) => {
