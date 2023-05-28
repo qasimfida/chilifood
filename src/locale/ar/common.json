@@ -19,7 +19,7 @@
     "PERSONAL_DETAILS.END_DATE": "نهاية الاشتراك",
     "PERSONAL_DETAILS.PRICE": "السعر",
     "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "الرجاء تحديد المدينة",
-    "PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS": "تعديل المعلومات الشخصية",
+    "PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS": "معلوماتك",
     "PERSONAL_DETAILS": "تفاصيل شخصية",
 
     "PHONE_NUMBER": "رقم الهاتف",
@@ -51,7 +51,7 @@
     "CANCEL": "إلغاء",
     "PLAN2": "خطة2",
 
-    "DELETE_ACCOUNT": "حذف (الحساب)",
+    "DELETE_ACCOUNT": "حذف الحساب",
     "DELETE_POPUP": "هل أنت متأكد من أنك تريد حذف حسابك؟",
     "DELETE_CONFIRM": "نعم",
     "DELETE_REJECT": "إلغاء الأمر",
@@ -79,7 +79,7 @@
     "PACKAGE": "عدد الأيام",
     "SUBSCRIBE": "اشتراك",
     "CHECKOUT": "السلة",
-    "VIEW_SUBSCRIBE": "المنيو/الاشتراك",
+    "VIEW_SUBSCRIBE": "مشاهدة الوجبات/الاشتراك",
     "RESTAURANT": "المطعم",
     "START_DATE": "بداية الاشتراك",
     "PLAN": "الخطة",

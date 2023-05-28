@@ -72,7 +72,9 @@ export const LinkText = styled(Typography)`
     text-decoration: underline;
     text-decoration-color: rgba(87, 155, 63, 0.4);
 `;
-export const Day = styled(PickersDay)<any>``;
+export const Cell = styled(TableCell)<any>`
+    padding: 12px;
+`;
 export const Picker = styled(DatePicker)`
     .MuiInputBase-root.MuiInputBase-formControl {
         height: 44px !important;
