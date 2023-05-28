@@ -156,16 +156,14 @@ const Profile = () => {
 
     return (
         <Layout1
-            title={`${t('PROFILE')}/${
-                value === '0' ? t('PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS') : t('PERSONAL_DETAILS.MY_SUBSCRIPTION')
-            }`}
+            title={`${t('PROFILE')}/${value === '0' ? t('PERSONAL_DETAILS') : t('PERSONAL_DETAILS.MY_SUBSCRIPTION')}`}
         >
             <Wrapper>
                 <Container>
                     <TabContext value={value}>
                         <Box>
                             <Tabs onChange={handleChange} aria-label="lab API tabs example">
-                                <StyledTitle label={t('PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS')} value="0" />
+                                <StyledTitle label={t('PERSONAL_DETAILS')} value="0" />
                                 {user.isAuthenticated && (
                                     <StyledTitle label={t('PERSONAL_DETAILS.MY_SUBSCRIPTION')} value="1" />
                                 )}
