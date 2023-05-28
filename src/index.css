@@ -7,3 +7,17 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+.MuiTooltip-tooltip {
+    background-color: #e9f1e7;
+    text-align: center;
+    padding: 6px;
+    font-size: 12px;
+    border-radius: 8px;
+    opacity: 1;
+    color: #000;
+    font-weight: 400;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    top: 56px;
+    left: 10px;
+}
