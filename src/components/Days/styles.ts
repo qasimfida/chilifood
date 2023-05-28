@@ -164,14 +164,3 @@ export const DatesWrapper = styled(Tabs)<any>`
         transform: rotate(${({ dir }) => (dir === 'rtl' ? '180deg' : '0deg')});
     }
 `;
-export const StyledPopper = styled(Box)<any>`
-    text-align: center;
-    padding: 6px;
-    font-size: 12px;
-    border-radius: 8px;
-    color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    ${({ theme: { palette } }) => css`
-        background: ${palette.primary.light};
-    `};
-`;

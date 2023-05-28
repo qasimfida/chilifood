@@ -1,7 +1,7 @@
 import { useCallback, useState, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CardContent, TextField, Grid, Button } from '@mui/material';
-import { SHARED_CONTROL_PROPS, useAppForm } from '../../../utils/form';
+import { SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { AppAlert, AppForm } from '../../../components';
 import { Description, Header, Link, StyledComp, StyledGrid, Submit, Title, Wrapper } from '../styles';
 import Layout1 from '../../../layout/Layout1';
@@ -10,12 +10,6 @@ import { ObjectPropByName } from '../../../utils';
 import { validate } from 'validate.js';
 import { useTranslation } from 'react-i18next';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
-// import { useAppStore } from '../../../store';
-
-/**
- * Renders "Confirm Email" view for Signup flow
- * url: /auth/signup/confirm-otp
- */
 
 interface FormStateValues {
     otp: number | undefined;
@@ -78,7 +72,6 @@ const ConfirmOTP = () => {
         [navigate]
     );
     const handleCloseError = useCallback(() => setError(undefined), []);
-    console.log(state);
 
     return (
         <Layout1 title={`${t('VERIFY')} OTP`}>

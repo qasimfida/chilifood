@@ -1,7 +1,7 @@
 import React from 'react';
-import { Badge, Date, LockIcon, Month, StyledDay, StyledPopper, StyledWrapper, Wrapper } from './styles';
+import { Badge, Date, LockIcon, Month, StyledDay, StyledWrapper, Wrapper } from './styles';
 import { ExtendsIDay } from '../../types/restaurant';
-import { Popover, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import { t } from 'i18next';
 
 interface DayProps {

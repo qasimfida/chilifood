@@ -20,9 +20,12 @@ export const StyledTab = styled(Tab)`
             .MuiBox-root {
                 color: ${palette.primary.main};
             }
+            &:hover .MuiBox-root {
+                color: ${palette.primary.main};
+            }
         }
         &:hover .MuiBox-root {
-            color: ${palette.primary.main};
+            color: ${palette.secondary.main};
         }
     `}
 `;

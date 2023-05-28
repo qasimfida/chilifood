@@ -1,5 +1,5 @@
 import { styled, css } from '@mui/system';
-import { Box, TableCell, TableRow, TextField, Typography } from '@mui/material';
+import { Box, TableCell, TextField, Typography } from '@mui/material';
 import { AppButton } from '../../components';
 import { DatePicker, PickersDay } from '@mui/x-date-pickers';
 
@@ -58,9 +58,6 @@ export const PayButton = styled(AppButton)`
     height: 48px;
     max-width: 100%;
     font-size: 20px;
-`;
-export const Typo = styled(Typography)`
-    text-align: right;
 `;
 export const LastCell = styled(TableCell)<{ dir: 'rtl' | 'ltr' }>`
     ${({ dir }) => css`
