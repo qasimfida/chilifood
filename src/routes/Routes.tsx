@@ -11,17 +11,6 @@ import { useLocation } from 'react-router-dom';
  */
 const Routes = () => {
     const location = useLocation();
-    const { i18n } = useTranslation();
-    let theme = useTheme();
-    const onChange = () => {
-        i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar');
-        document.body.dir = i18n.dir();
-        const updateTheme = createTheme({ ...theme, direction: i18n.dir() });
-        theme = updateTheme;
-    };
-    useEffect(() => {
-        onChange();
-    }, [i18n]);
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
