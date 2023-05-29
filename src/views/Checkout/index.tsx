@@ -112,9 +112,17 @@ const CheckOut: React.FC<any> = () => {
                                             value={date}
                                             onChange={onChange}
                                             shouldDisableDate={isWeekdayDisabled}
-                                            className="m-0"
                                             disablePast
+                                            className="m-0"
                                             label={t('SELECT_DATE')}
+                                            slotProps={{
+                                                popper: {
+                                                    className:
+                                                        i18n.language === 'ar'
+                                                            ? 'arabic-date-picker '
+                                                            : 'en-date-picker',
+                                                },
+                                            }}
                                         />
                                     )}
                                 </Cell>
