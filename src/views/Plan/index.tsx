@@ -65,6 +65,7 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
     const selectedP = data.restaurantPlans.find((i: any) => i.id === plan);
     const selectedDay = data.weekdays.find((i: any) => i.id === activeDay);
     const planMeals = data.meals?.filter((i: any) => i.day_id.includes(activeDay));
+    const weekdays = data.weekdays?.filter((i: any) => i.plan_id.includes(plan));
     const mealFoods = (id: any) =>
         data.foods?.filter((i: any) => i.meal_id.includes(id) && i.day_id.includes(activeDay));
 
@@ -79,7 +80,7 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
                         </Loading>
                     }
                 >
-                    <Days days={data.weekdays} />
+                    <Days days={weekdays} />
                 </Suspense>
                 <Suspense
                     fallback={

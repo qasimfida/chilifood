@@ -86,7 +86,7 @@ export const weekdays = [
         month: 'May',
         off: false,
         lock: false,
-        plan_id: ['1', '2', '3', '4'],
+        plan_id: ['2', '3', '4'],
     },
     {
         id: '5',
@@ -95,7 +95,7 @@ export const weekdays = [
         month: 'May',
         off: true,
         lock: false,
-        plan_id: ['1', '2', '3', '4'],
+        plan_id: ['2', '3', '4'],
     },
     {
         id: '6',
@@ -104,7 +104,7 @@ export const weekdays = [
         month: 'May',
         off: false,
         lock: false,
-        plan_id: ['1', '2', '3', '4'],
+        plan_id: ['2', '3', '4'],
     },
     {
         id: '7',
@@ -113,7 +113,7 @@ export const weekdays = [
         month: 'May',
         off: true,
         lock: false,
-        plan_id: ['1', '2', '3', '4'],
+        plan_id: ['2', '3', '4'],
     },
 ];
 
