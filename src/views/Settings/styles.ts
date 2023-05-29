@@ -11,8 +11,8 @@ export const Title = styled(Box)`
 `;
 export const Wrapper = styled(Box)`
     text-align: center;
-    table th:first-child,
-    table td:first-child {
+    table th:first-of-type,
+    table td:first-of-type {
         text-align: ${({ dir }) => (dir === 'rtl' ? 'left' : 'right')};
     }
     table th:last-child,
