@@ -22,6 +22,7 @@ const PersonalDetails = () => {
             presence: { allowEmpty: false, message: t('ISREQUIRED') },
             format: {
                 pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
+                message: 'ISINVALID',
             },
             length: {
                 minimum: 1,
@@ -126,7 +127,9 @@ const PersonalDetails = () => {
         if (key === 'city') {
             return translatedFieldName;
         }
-
+        if (key === 'name' && errorMessage === 'Name INVALID_NAME') {
+            return t('INVALID_NAME');
+        }
         const fieldTranslations: { [key: string]: RegExp } = {
             NAME: /^Name/,
             'PERSONAL_DETAILS.STREET': /^Street/,

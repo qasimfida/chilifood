@@ -62,6 +62,8 @@
     "ERROR.PREFIX": "must be less than",
     "ERROR.DIGITS": "digits",
     "ISREQUIRED": "field is required",
+    "ISINVALID": "is invalid",
+    "INVALID_NAME": "Name is invalid",
 
     "PHONE_NUMBER_ERROR": "Phone number field must be 8 numbers",
     "PASSWORD_ERROR": "Password must be more than 3 digits",
@@ -72,6 +74,7 @@
     "DIDNT_RECIVED_OTP": "Don't recieved OTP yet ?",
     "RESEND_OTP": "Resend OTP",
     "VERIFY": "Verify",
+    "VERIFY_OTP": "Verify OTP",
     "ENTER_OTP": "Enter OTP",
     "OTP_ERROR": " Should be 6 characters",
 
@@ -97,5 +100,7 @@
     "OFF_DAYS": "Off Days",
     "FRIDAY": "Friday",
     "SATURDAY": "Saturday",
-    "DELETE_ACCOUNT_CONFIRMATION": "Delete Account Confirmation"
+    "DELETE_ACCOUNT_CONFIRMATION": "Delete Account Confirmation",
+    "ACTIVE": "Active",
+    "OLD": "Old"
 }

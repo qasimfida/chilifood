@@ -25,6 +25,7 @@ const Profile = () => {
             presence: { allowEmpty: false, message: t('ISREQUIRED') },
             format: {
                 pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
+                message: 'INVALID_NAME',
             },
             length: {
                 minimum: 1,
@@ -136,8 +137,12 @@ const Profile = () => {
     const fieldGetError = (key: string, label: string) => {
         const errorMessage = (errors as ObjectPropByName)[key]?.[0];
         const translatedFieldName = t(label);
+        console.log({ errorMessage });
         if (key === 'city') {
             return translatedFieldName;
+        }
+        if (key === 'name' && errorMessage === 'Name INVALID_NAME') {
+            return t('INVALID_NAME');
         }
 
         const fieldTranslations: { [key: string]: RegExp } = {

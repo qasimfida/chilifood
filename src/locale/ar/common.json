@@ -35,7 +35,7 @@
     "LOGIN.HAVE_ACCOUNT": " لا تملك حساب؟ ",
     "LOGIN.CREATE_ACCOUNT": "إنشاء حساب",
     "NEXT": "التالي",
-    "OTP_MESSAGE": "لقد أرسلنا للتو رسالة نصية وفيها رمز التفعيل OTP. اكتبه هنا لتأكيد موبايلك",
+    "OTP_MESSAGE": "لقد ارسلنا رسالة نصية تحتوي على رمز التفعيل OTP. اكتبه هنا لتفعيل رقم هاتفك",
     "New_PASSWORD": "كلمة السر الجديدة",
     "CHANGE_PASSWORD": "تغيير كلمة المرور",
     "CONTACT_US": "تواصل معنا ",
@@ -60,6 +60,8 @@
     "ERROR.PREFIX": "يجب أن يكون أقل من",
     "ERROR.DIGITS": "أرقام",
     "ISREQUIRED": "الحقل مطلوب",
+    "ISINVALID": "يجب ان يتكون الاسم من أحرف فقط",
+    "INVALID_NAME": "يجب ان يتكون الاسم من أحرف فقط",
 
     "PHONE_NUMBER_ERROR": "يجب أن يتكون رقم الهاتف من 8 ارقام",
     "PASSWORD_ERROR": " كلمة السر يجب ان تكون 3 احرف/ارقام على الاقل",
@@ -70,22 +72,23 @@
     "DIDNT_RECIVED_OTP": "لم تستلم الرمز ؟ ",
     "RESEND_OTP": " اعادة ارسال الرمز",
     "VERIFY": "تأكيد",
+    "VERIFY_OTP": "رمز الدخول",
     "ENTER_OTP": "ادخل رمز التفعيل",
     "OTP_ERROR": "يجب أن يكون من 10 أحرف ",
 
     "ARE_YOU_SURE": "هل انت متاكد؟",
     "SETTING": "جلسة",
     "LANGUAGE": "English(إنجليزي)",
-    "PACKAGE": "عدد الأيام",
+    "PACKAGE": "الباقة",
     "SUBSCRIBE": "اشتراك",
     "CHECKOUT": "السلة",
     "VIEW_SUBSCRIBE": "مشاهدة الوجبات/الاشتراك",
     "RESTAURANT": "المطعم",
     "START_DATE": "بداية الاشتراك",
     "PLAN": "الخطة",
-    "LEAVE_A_NOTE": "ضع ملاحظاتك",
+    "LEAVE_A_NOTE": "اترك ملاحظاتك",
     "PAY": "الدفع",
-    "ALERGIES_AND_DISLIKES": "الحساسية ..، يكره ..",
+    "ALERGIES_AND_DISLIKES": "الحساسية.. لا ارغب ب ...",
     "OFF": "راحة",
 
     "SELECT_FOOD": "اختيار الوجبات",
@@ -93,5 +96,7 @@
     "OFF_DAYS": "ايام الراحة",
     "FRIDAY": "الجمعة",
     "SATURDAY": "السبت",
-    "DELETE_ACCOUNT_CONFIRMATION": "تأكيد حذف الحساب"
+    "DELETE_ACCOUNT_CONFIRMATION": "تأكيد حذف الحساب",
+    "ACTIVE": "فعال",
+    "OLD": "قديم"
 }

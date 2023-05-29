@@ -78,14 +78,14 @@ const ConfirmOTP = () => {
     const handleCloseError = useCallback(() => setError(undefined), []);
 
     return (
-        <Layout1 title={`${t('VERIFY')} OTP`}>
+        <Layout1 title={`${t('VERIFY_OTP')}`}>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
-                                    <Title variant="h6">{t('VERIFY')} OTP</Title>
+                                    <Title variant="h6">{t('VERIFY_OTP')}</Title>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Description>{t('OTP_MESSAGE')}</Description>

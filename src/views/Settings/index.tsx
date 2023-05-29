@@ -72,7 +72,10 @@ const Settings: React.FC<any> = () => {
                         open={deletePopup}
                         keepMounted
                         aria-describedby="alert-dialog-slide-description"
-                        onClose={() => setDeletePopup(false)}
+                        onClose={() => {
+                            setDeletePopup(false);
+                            setOpen(false);
+                        }}
                     >
                         <DialogTitle>{t('DELETE_ACCOUNT_CONFIRMATION')}</DialogTitle>
                         <Content>
@@ -86,7 +89,14 @@ const Settings: React.FC<any> = () => {
                             />
                         </Content>
                         <StyledActions>
-                            <DialogButton size="small" variant="outlined" onClick={() => setDeletePopup(false)}>
+                            <DialogButton
+                                size="small"
+                                variant="outlined"
+                                onClick={() => {
+                                    setDeletePopup(false);
+                                    setOpen(false);
+                                }}
+                            >
                                 {t('DELETE_REJECT')}
                             </DialogButton>
                             <Button size="small" variant="outlined" color="error" onClick={deleteAccount}>

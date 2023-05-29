@@ -17,38 +17,41 @@ interface RowData {
     price: string;
 }
 
-const rows: RowData[] = [
-    {
-        id: 1,
-        status: 'Active',
-        restaurant: 'Super Diet',
-        plan: 'Keto',
-        period: '24',
-        startDate: '3-04-2022',
-        endDate: '7-04-2022',
-        price: '10',
-    },
-    {
-        id: 2,
-        status: 'Old',
-        restaurant: 'Healthy Diet',
-        plan: 'Diet',
-        period: '30',
-        startDate: '3-02-2023',
-        endDate: '3-06-2023',
-        price: '70',
-    },
-    {
-        id: 3,
-        status: 'Active',
-        restaurant: 'Good Diet',
-        plan: 'Keto',
-        period: '65',
-        startDate: '24-8-2023',
-        endDate: '2-9-2023',
-        price: '30',
-    },
-];
+const rows = (t: any) => {
+    let data: RowData[] = [
+        {
+            id: 1,
+            status: t('ACTIVE'),
+            restaurant: 'Super Diet',
+            plan: 'Keto',
+            period: '24',
+            startDate: '3-04-2022',
+            endDate: '7-04-2022',
+            price: '10',
+        },
+        {
+            id: 2,
+            status: t('OLD'),
+            restaurant: 'Healthy Diet',
+            plan: 'Diet',
+            period: '30',
+            startDate: '3-02-2023',
+            endDate: '3-06-2023',
+            price: '70',
+        },
+        {
+            id: 3,
+            status: t('ACTIVE'),
+            restaurant: 'Good Diet',
+            plan: 'Keto',
+            period: '65',
+            startDate: '24-8-2023',
+            endDate: '2-9-2023',
+            price: '30',
+        },
+    ];
+    return data;
+};
 
 const Table = () => {
     const theme = useTheme();
@@ -69,7 +72,7 @@ const Table = () => {
                             </StyledTableRow>
                         </TableHead>
                         <TableBody>
-                            {rows.map((row) => (
+                            {rows(t).map((row) => (
                                 <Row key={row.id} row={row} />
                             ))}
                         </TableBody>
@@ -89,7 +92,7 @@ const Table = () => {
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {rows(t).map((row) => (
                             <TableRow key={row.id} className={`${isSmallScreen ? '' : 'border_true'}`}>
                                 <TableCell align="center">{row.status}</TableCell>
                                 <TableCell align="center">{row.restaurant}</TableCell>
