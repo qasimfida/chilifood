@@ -22,7 +22,7 @@ const PersonalDetails = () => {
             presence: { allowEmpty: false, message: t('ISREQUIRED') },
             format: {
                 pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
-                message: 'ISINVALID',
+                message: 'INVALID_NAME',
             },
             length: {
                 minimum: 1,

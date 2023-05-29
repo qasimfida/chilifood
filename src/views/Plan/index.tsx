@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { lazy, Suspense, useCallback, useState, useEffect } from 'react';
+import { lazy, Suspense, useCallback } from 'react';
 import { CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { Description, StyledTab, StyledTabContext, TabsWrapper } from './styles';
