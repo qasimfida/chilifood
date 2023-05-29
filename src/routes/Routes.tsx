@@ -1,7 +1,5 @@
-import { createTheme, useTheme } from '@mui/material';
 import PublicRoutes from './PublicRoutes';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 // import { isUserStillLoggedIn } from '../api/auth/utils';
 // import { api } from '../api';

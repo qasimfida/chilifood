@@ -22,7 +22,6 @@ const SideBarNavList: FunctionComponent<Props> = ({ items, showIcons, onClick, .
     return (
         <StyledList component="nav" {...restOfProps} dir={i18n.dir()}>
             {items.map((item) => {
-                console.log(item.title, 'item');
                 return (
                     <SideBarNavItem
                         key={`${item.title}-${item.path}`}

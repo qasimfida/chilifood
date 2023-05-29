@@ -28,7 +28,6 @@ const CheckOut: React.FC<any> = () => {
     };
 
     const onChange = (date: Date | null) => {
-        console.log(date);
         if (date) {
             setDate(date);
         }

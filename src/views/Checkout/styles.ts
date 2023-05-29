@@ -6,8 +6,8 @@ import { DatePicker } from '@mui/x-date-pickers';
 export const Wrapper = styled(Box)`
     margin-top: 40px;
     text-align: center;
-    table th:first-child,
-    table td:first-child {
+    table th:first-of-type,
+    table td:first-of-type {
         text-align: ${({ dir }) => (dir === 'rtl' ? 'left' : 'right')};
     }
     table th:last-child,
