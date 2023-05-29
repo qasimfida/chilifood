@@ -76,7 +76,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         {
             title: 'SELECT_FOOD',
             path: '/select/restaurants/1/1',
-            icon: 'contacts',
+            icon: 'rule',
         },
         {
             title: 'Profile',

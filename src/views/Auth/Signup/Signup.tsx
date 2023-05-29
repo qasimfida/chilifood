@@ -127,14 +127,14 @@ const Signup = () => {
     if (false) return <LinearProgress />;
 
     return (
-        <Layout1 title="Register">
+        <Layout1 title={t('REGISTER')}>
             <Wrapper>
                 <AppForm onSubmit={handleFormSubmit}>
                     <StyledComp>
                         <Header>
                             <Icon name="register" />
                             <Title component="h2" variant="h5">
-                                {t('SIGNUP.TITLE')}
+                                {t('REGISTER')}
                             </Title>
                         </Header>
                         <CardContent>

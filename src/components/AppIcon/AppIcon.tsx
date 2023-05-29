@@ -25,6 +25,7 @@ import {
     Description,
     Login,
     Logout,
+    Rule,
     Translate,
     WhatsApp,
 } from '@mui/icons-material';
@@ -68,6 +69,7 @@ const ICONS: Record<string, React.ComponentType> = {
     terms: Description,
     whatsapp: WhatsApp,
     contacts: Contacts,
+    rule: Rule,
 };
 
 interface Props {

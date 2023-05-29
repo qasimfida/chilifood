@@ -137,11 +137,10 @@ const Profile = () => {
     const fieldGetError = (key: string, label: string) => {
         const errorMessage = (errors as ObjectPropByName)[key]?.[0];
         const translatedFieldName = t(label);
-        console.log({ errorMessage });
         if (key === 'city') {
             return translatedFieldName;
         }
-        if (key === 'name' && errorMessage === 'Name INVALID_NAME') {
+        if (key === 'name' && (errorMessage === 'Name INVALID_NAME' || 'Name حقل مطلوب')) {
             return t('INVALID_NAME');
         }
 
