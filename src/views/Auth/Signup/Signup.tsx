@@ -1,5 +1,5 @@
 import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Grid,
     TextField,
@@ -55,6 +55,7 @@ interface FormStateValues {
  */
 const Signup = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { t } = useTranslation();
     // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
     //     validationSchema: validationSchema, // the state value, so could be changed in time
@@ -88,9 +89,9 @@ const Signup = () => {
             const user = JSON.parse(localStorage.getItem('temp') || '{}');
             const updateUser = Object.assign(user, state);
             localStorage.setItem('temp', JSON.stringify(updateUser));
-            return navigate('/auth/signup/confirm-otp');
+            return navigate(`/auth/signup/confirm-otp${location?.search}`);
         },
-        [state, navigate]
+        [state, navigate, location]
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);

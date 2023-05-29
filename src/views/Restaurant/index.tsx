@@ -16,7 +16,12 @@ const TabPan = ({ restaurant, plans }: any) => {
             {plans.length ? (
                 plans.map((plan: any) => (
                     <Grid item xs={12} sm={6} md={4} key={`plan-${plan.id}`}>
-                        <PlanCard handleClick={() => navigate(`/restaurants/${restaurant?.id}/${plan.id}`)} {...plan} />
+                        <PlanCard
+                            handleClick={() => {
+                                navigate(`/restaurants/${restaurant?.id}/${plan.id}`);
+                            }}
+                            {...plan}
+                        />
                     </Grid>
                 ))
             ) : (

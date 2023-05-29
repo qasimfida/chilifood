@@ -34,7 +34,7 @@ const Days: React.FC<any> = ({ days }: any) => {
                 value={activeDay}
                 onChange={handleChange}
                 variant="scrollable"
-                scrollButtons="auto"
+                scrollButtons={i18n.dir() === 'rtl' ? 'auto' : 'auto'}
                 allowScrollButtonsMobile
                 aria-label="scrollable auto tabs days"
                 dir={i18n.dir()}

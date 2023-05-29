@@ -20,7 +20,7 @@ interface Props extends PropsWithChildren {
 
 const AppThemeProvider: FunctionComponent<Props> = ({ children, emotionCache = CLIENT_SIDE_EMOTION_CACHE }) => {
     const { i18n } = useTranslation();
-    const theme = useMemo(() => createTheme({ ...THEME, direction: i18n.dir() }), [i18n]);
+    const theme = createTheme({ ...THEME, direction: i18n.dir() });
 
     return (
         <CacheProvider value={emotionCache}>

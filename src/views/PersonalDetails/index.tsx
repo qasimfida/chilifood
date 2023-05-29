@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Wrapper, { StyledComp, Submit } from './styles';
 
 import { SyntheticEvent, useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Grid, TextField, Autocomplete } from '@mui/material';
 import { AppForm } from '../../components';
 import { cities } from '../Auth/Signup/data';
@@ -14,6 +14,7 @@ import { validate } from 'validate.js';
 
 const PersonalDetails = () => {
     const { t } = useTranslation();
+    const location = useLocation();
     const user = useIsAuthenticated();
     const validation = {
         name: {
@@ -87,9 +88,9 @@ const PersonalDetails = () => {
         async (event: SyntheticEvent) => {
             event.preventDefault();
             localStorage.setItem('temp', JSON.stringify(state));
-            return navigate('/auth/signup', { replace: true });
+            return navigate(`/auth/signup${location?.search}`, { replace: true });
         },
-        [state, navigate]
+        [state, navigate, location]
     );
 
     const onFieldBlur = (event: any) => {

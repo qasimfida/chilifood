@@ -151,16 +151,13 @@ export const DatesWrapper = styled(Tabs)<any>`
     padding-bottom: 20px;
     min-height: 68px;
     max-width: 480px;
-    flex-direction: ${({ dir }) => (dir === 'rtl' ? 'row' : 'row')};
+    flex-direction: ${({ dir }) => (dir === 'rtl' ? 'row-reverse' : 'row')};
     .MuiTabs-flexContainer {
         align-items: flex-start;
     }
-    .MuiTabs-indicator {
-        display: none;
-    }
+
     .MuiTabs-scrollButtons {
         width: unset;
-        opacity: 1;
         transform: rotate(${({ dir }) => (dir === 'rtl' ? '180deg' : '0deg')});
     }
 `;

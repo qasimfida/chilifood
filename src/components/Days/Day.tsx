@@ -12,19 +12,10 @@ interface DayProps {
 const Node = (props: any) => {
     const { date, lock = false, off, month, day } = props;
 
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(anchorEl ? null : event.currentTarget);
-    };
-
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popper' : undefined;
-
     if (off) {
         return (
-            <Tooltip placement="top" title={'Off Day'}>
-                <StyledWrapper aria-describedby={id} onClick={handleClick}>
+            <Tooltip placement="top" title={'Off Day'} disableFocusListener>
+                <StyledWrapper aria-describedby={'off-day-popper'}>
                     <Badge>{t('OFF')}</Badge>
                     <Date component="span" className="date">
                         {date}
@@ -38,7 +29,7 @@ const Node = (props: any) => {
         );
     }
     return (
-        <StyledWrapper aria-describedby={off ? id : undefined} onClick={handleClick}>
+        <StyledWrapper>
             {off ? (
                 <Badge>Off</Badge>
             ) : lock ? (

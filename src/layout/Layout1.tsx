@@ -35,7 +35,7 @@ import {
     StyledActions,
     StyledDialog,
 } from './styles';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { useIsAuthenticated } from '../hooks';
 
@@ -56,6 +56,8 @@ interface IProps extends PropsWithChildren {
 const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHeader, withFooter }) => {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
+    const params = useParams();
+    const { plan, restaurant } = params;
     const SIDEBAR_ITEMS: Array<LinkToPage> = [
         {
             title: 'HOME_RESTAURANTS',
@@ -112,6 +114,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
     };
 
     const onMobile = useOnMobile();
+    const { isAuthenticated } = useIsAuthenticated();
     const [sideBarVisible, setSideBarVisible] = useState(false);
 
     // Variant 1 - Sidebar is static on desktop and is a drawer on mobile
@@ -130,15 +133,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         if (sideBarVisible) setSideBarVisible(false); // Don't re-render Layout when SideBar is already closed
     }, [sideBarVisible]);
 
-    // console.log(
-    //   'Render using Layout1, onMobile:',
-    //   onMobile,
-    //   'sidebarOpen:',
-    //   sidebarOpen,
-    //   'sidebarVariant:',
-    //   sidebarVariant
-    // );
-
     let theme = useTheme();
     const onClick = (lng: string) => {
         i18n.changeLanguage(lng === 'ar' ? 'en' : 'ar');
@@ -148,7 +142,6 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
     };
     const anchor = i18n.dir() === 'rtl' ? 'right' : 'left';
 
-    const { isAuthenticated } = useIsAuthenticated();
     const isInActiveUser = false;
     const sidebar_items = isAuthenticated
         ? isInActiveUser
@@ -191,6 +184,12 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
         localStorage.removeItem('user');
         navigate('/');
         setOpen(false); // Close the dialog after logout
+    };
+
+    const handleSubscribe = () => {
+        localStorage.setItem('plan', plan || '');
+        localStorage.setItem('restaurant', restaurant || '');
+        navigate(isAuthenticated ? '/checkout' : '/personal-details?redirect=checkout');
     };
 
     const options = [
@@ -267,7 +266,7 @@ const Layout1: FunctionComponent<IProps> = ({ children, title, hasFooter, menuHe
                                         })}
                                     </Select>
                                 </StyledFormControl>
-                                <StyledButton variant="contained" color="primary" onClick={() => navigate('/checkout')}>
+                                <StyledButton variant="contained" color="primary" onClick={handleSubscribe}>
                                     {t('SUBSCRIBE')}
                                 </StyledButton>
                             </Flex>

@@ -1,7 +1,7 @@
 import { styled, css } from '@mui/system';
-import { Box, TableCell, TextField, Typography } from '@mui/material';
+import { Box, Link, TableCell, TextField, Typography } from '@mui/material';
 import { AppButton } from '../../components';
-import { DatePicker, PickersDay } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers';
 
 export const Wrapper = styled(Box)`
     margin-top: 40px;
@@ -82,4 +82,11 @@ export const Picker = styled(DatePicker)`
     input {
         padding: 8px 14px;
     }
+`;
+export const StyleLink = styled(Link)`
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
 `;

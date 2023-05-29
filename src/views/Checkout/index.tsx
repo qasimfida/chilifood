@@ -1,29 +1,20 @@
 import * as React from 'react';
 import { useState } from 'react';
-import {
-    Box,
-    Container,
-    FormControl,
-    InputLabel,
-    Link,
-    MenuItem,
-    Select,
-    Table,
-    TableBody,
-    TableCell,
-    TableRow,
-} from '@mui/material';
+import { Box, Container, FormControl, InputLabel, MenuItem, Select, Table, TableBody, TableRow } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
-import { LastCell, LinkText, PayButton, TextArea, Wrapper } from './styles';
+import { Cell, LastCell, LinkText, PayButton, StyleLink, TextArea, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { format, isFriday, isMonday, isSaturday } from 'date-fns';
+import { useIsAuthenticated } from '../../hooks';
+import { restaurantsData } from '../../store/restaurant/restaurants';
 
 const CheckOut: React.FC<any> = () => {
+    const { i18n, t } = useTranslation();
+    const user = useIsAuthenticated();
     const [value, setValue] = useState<number | number>(0);
     const [open, setOpen] = useState<boolean>(false);
-    const [date, setDate] = useState<Date | null>(null);
-    const { i18n, t } = useTranslation();
+    const [date, setDate] = useState<Date>(new Date());
     const [select, setSelect] = useState<boolean>(false);
     const handleDropDownChange = (event: any) => {
         setValue(event.target.value);
@@ -37,7 +28,10 @@ const CheckOut: React.FC<any> = () => {
     };
 
     const onChange = (date: Date | null) => {
-        setDate(date);
+        console.log(date);
+        if (date) {
+            setDate(date);
+        }
     };
 
     const toggleSelect = () => {
@@ -49,9 +43,14 @@ const CheckOut: React.FC<any> = () => {
         { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
         { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
     ];
-    const currentDate = new Date();
-
-    const formattedDate = format(currentDate, 'MMMM dd, yyyy');
+    const formattedDate = format(date, 'EEE, dd, mm, yyyy');
+    const plan_id = localStorage.getItem('plan');
+    const restaurant_id = localStorage.getItem('restaurant');
+    const data = React.useMemo(() => {
+        return restaurantsData[i18n.language];
+    }, [i18n]);
+    const restaurant = data.restaurants.find((i: any) => i.id === restaurant_id);
+    const plan = data.restaurantPlans.find((i: any) => i.id === plan_id);
     return (
         <Layout1 title={t('CHECKOUT')}>
             <Wrapper dir={i18n.dir()}>
@@ -59,17 +58,17 @@ const CheckOut: React.FC<any> = () => {
                     <Table>
                         <TableBody dir={i18n.dir()}>
                             <TableRow>
-                                <TableCell>{t('RESTAURANT')}</TableCell>
-                                <TableCell>Chili Food</TableCell>
+                                <Cell>{t('RESTAURANT')}</Cell>
+                                <Cell>{restaurant && restaurant.name}</Cell>
                             </TableRow>
 
                             <TableRow>
-                                <TableCell>{t('PLAN')}</TableCell>
-                                <TableCell>Submatic</TableCell>
+                                <Cell>{t('PLAN')}</Cell>
+                                <Cell>{plan && plan.name}</Cell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>{t('PACKAGE')}</TableCell>
-                                <TableCell>
+                                <Cell>{t('PACKAGE')}</Cell>
+                                <Cell>
                                     {!select ? (
                                         <LinkText onClick={toggleSelect}>{options[value]?.name}</LinkText>
                                     ) : (
@@ -97,13 +96,13 @@ const CheckOut: React.FC<any> = () => {
                                             </Select>
                                         </FormControl>
                                     )}
-                                </TableCell>
+                                </Cell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>{t('START_DATE')}</TableCell>
-                                <TableCell>
+                                <Cell>{t('START_DATE')}</Cell>
+                                <Cell>
                                     {!open ? (
-                                        <LinkText onClick={toggleOpen}>{date?.toString() || formattedDate}</LinkText>
+                                        <LinkText onClick={toggleOpen}>{formattedDate}</LinkText>
                                     ) : (
                                         <DatePicker
                                             open={open}
@@ -116,17 +115,19 @@ const CheckOut: React.FC<any> = () => {
                                             disablePast
                                         />
                                     )}
-                                </TableCell>
+                                </Cell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>{t('ADDRESS')}</TableCell>
-                                <TableCell>
-                                    <Link href="#">Alkarim Block 11..</Link>
-                                </TableCell>
+                                <Cell>{t('ADDRESS')}</Cell>
+                                <Cell>
+                                    <StyleLink href="/profile?id=0">
+                                        {user.house} {user.block} {user.avenue} {user.city?.label}
+                                    </StyleLink>
+                                </Cell>
                             </TableRow>
                             {/* <TableRow>
-                                <TableCell>Price</TableCell>
-                                <TableCell>150Kd</TableCell>
+                                <Cell>Price</Cell>
+                                <Cell>150Kd</Cell>
                             </TableRow> */}
                             <TableRow>
                                 <LastCell colSpan={2} dir={i18n.dir()}>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { lazy, Suspense, useCallback } from 'react';
+import { lazy, Suspense, useCallback, useState, useEffect } from 'react';
 import { CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Layout1 from '../../layout/Layout1';
 import { Description, StyledTab, StyledTabContext, TabsWrapper } from './styles';
@@ -49,9 +49,8 @@ const TabPan = ({ foods, allowSelect, day, singleCard = false }: any) => {
 };
 const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
     const dispatch = useDispatch();
-    const { i18n } = useTranslation();
-    const { restaurant, plan } = useParams();
-    console.log({ restaurant, plan });
+    const { i18n, t } = useTranslation();
+    const { plan } = useParams();
     const { activeMeal, activeDay } = useAppSelector((state) => state.restaurant);
 
     const language = i18n.language;
@@ -63,7 +62,6 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
         },
         [dispatch]
     );
-    const selectedR = data.restaurants.find((i: any) => i.id === restaurant);
     const selectedP = data.restaurantPlans.find((i: any) => i.id === plan);
     const selectedDay = data.weekdays.find((i: any) => i.id === activeDay);
     const planMeals = data.meals?.filter((i: any) => i.day_id.includes(activeDay));
@@ -71,11 +69,9 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
         data.foods?.filter((i: any) => i.meal_id.includes(id) && i.day_id.includes(activeDay));
 
     return (
-        <Layout1 title={selectedR?.name} hasFooter={!allowSelect}>
+        <Layout1 title={allowSelect ? t('SELECT_FOOD') : selectedP?.name} hasFooter={!allowSelect}>
             <Container>
-                <Description>
-                    <Typography> {selectedP.description} </Typography>
-                </Description>
+                <Description>{!allowSelect && <Typography> {selectedP.description} </Typography>}</Description>
                 <Suspense
                     fallback={
                         <Loading>

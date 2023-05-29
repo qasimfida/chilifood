@@ -1,5 +1,5 @@
 import { useCallback, useState, SyntheticEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CardContent, TextField, Grid, Button } from '@mui/material';
 import { SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { AppAlert, AppForm } from '../../../components';
@@ -17,6 +17,7 @@ interface FormStateValues {
 
 const ConfirmOTP = () => {
     const { t, i18n } = useTranslation();
+    const location = useLocation();
     const validation = {
         otp: {
             presence: true,
@@ -61,15 +62,18 @@ const ConfirmOTP = () => {
     };
     const isValid = validate(state, validation) ? false : true;
 
+    // Retrieve a specific parameter
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
             const user: IUser = JSON.parse(localStorage.getItem('temp') || '{}');
+            const urlParams = new URLSearchParams(location.search);
+            const paramValue = urlParams.get('redirect');
             localStorage.removeItem('temp');
             localStorage.setItem('user', JSON.stringify(user));
-            navigate('/', { replace: true });
+            navigate(`/${paramValue}` || '/', { replace: true });
         },
-        [navigate]
+        [navigate, location]
     );
     const handleCloseError = useCallback(() => setError(undefined), []);
 

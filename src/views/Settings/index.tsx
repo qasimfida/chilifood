@@ -74,13 +74,13 @@ const Settings: React.FC<any> = () => {
                         aria-describedby="alert-dialog-slide-description"
                         onClose={() => setDeletePopup(false)}
                     >
-                        <DialogTitle>Delete Account Confirmation</DialogTitle>
+                        <DialogTitle>{t('DELETE_ACCOUNT_CONFIRMATION')}</DialogTitle>
                         <Content>
                             <TextField
                                 size="small"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                label="Password"
+                                label={t('PASSWORD')}
                                 placeholder="Enter your password"
                                 fullWidth
                             />

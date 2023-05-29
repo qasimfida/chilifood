@@ -18,7 +18,7 @@
     "PERSONAL_DETAILS.START_DATE": "بداية الاشتراك",
     "PERSONAL_DETAILS.END_DATE": "نهاية الاشتراك",
     "PERSONAL_DETAILS.PRICE": "السعر",
-    "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "الرجاء تحديد المدينة",
+    "PERSONAL_DETAILS.PLEASE_SELECT_CITY": "الرجاء إختيار مدينة",
     "PERSONAL_DETAILS.EDIT_PERSONAL_DETAILS": "معلوماتك",
     "PERSONAL_DETAILS": "تفاصيل شخصية",
 
@@ -41,12 +41,12 @@
     "CONTACT_US": "تواصل معنا ",
     "HOME_RESTAURANTS": "الرئيسية/المطاعم",
     "HOME": "بيت",
-    "REGISTER": "سجل",
-    "ABOUT": "عن",
+    "REGISTER": "التسجيل",
+    "ABOUT": "نبذة عنا",
     "TERMS_AND_CONDITIONS": "الشروط والأحكام",
     "CONTACT_ADMIN": "الاتصال بالمسؤول",
-    "CONTACT_RESTAURANT": "اتصل بالمطعم",
-    "PROFILE": "ملف تعريف",
+    "CONTACT_RESTAURANT": "تواصل مع المطعم",
+    "PROFILE": "الحساب",
     "LOGOUT": "الخروج",
     "CANCEL": "إلغاء",
     "PLAN2": "خطة2",
@@ -54,7 +54,7 @@
     "DELETE_ACCOUNT": "حذف الحساب",
     "DELETE_POPUP": "هل أنت متأكد من أنك تريد حذف حسابك؟",
     "DELETE_CONFIRM": "نعم",
-    "DELETE_REJECT": "إلغاء الأمر",
+    "DELETE_REJECT": "إلغاء",
     "DELETE": "حذف الحساب",
 
     "ERROR.PREFIX": "يجب أن يكون أقل من",
@@ -88,9 +88,10 @@
     "ALERGIES_AND_DISLIKES": "الحساسية ..، يكره ..",
     "OFF": "راحة",
 
-    "SELECT_FOOD": "اختر الطعام",
+    "SELECT_FOOD": "اختيار الوجبات",
     "END_DATE": "نهاية الاشتراك",
     "OFF_DAYS": "ايام الراحة",
     "FRIDAY": "الجمعة",
-    "SATURDAY": "السبت"
+    "SATURDAY": "السبت",
+    "DELETE_ACCOUNT_CONFIRMATION": "تأكيد حذف الحساب"
 }

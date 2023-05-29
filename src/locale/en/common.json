@@ -96,5 +96,6 @@
     "END_DATE": "End date",
     "OFF_DAYS": "Off Days",
     "FRIDAY": "Friday",
-    "SATURDAY": "Saturday"
+    "SATURDAY": "Saturday",
+    "DELETE_ACCOUNT_CONFIRMATION": "Delete Account Confirmation"
 }
