@@ -59,7 +59,7 @@
 
     "ERROR.PREFIX": "يجب أن يكون أقل من",
     "ERROR.DIGITS": "أرقام",
-    "ISREQUIRED": "الحقل مطلوب",
+    "ISREQUIRED": "حقل مطلوب",
     "ISINVALID": "يجب ان يتكون الاسم من أحرف فقط",
     "INVALID_NAME": "يجب ان يتكون الاسم من أحرف فقط",
 
@@ -99,5 +99,6 @@
     "DELETE_ACCOUNT_CONFIRMATION": "تأكيد حذف الحساب",
     "ACTIVE": "فعال",
     "OLD": "قديم",
-    "OK": "تم"
+    "OK": "تم",
+    "SELECT_DATE": "اختر تاريخ البداية"
 }

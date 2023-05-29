@@ -103,5 +103,6 @@
     "DELETE_ACCOUNT_CONFIRMATION": "Delete Account Confirmation",
     "ACTIVE": "Active",
     "OLD": "Old",
-    "OK": "Ok"
+    "OK": "Ok",
+    "SELECT_DATE": "Select date"
 }

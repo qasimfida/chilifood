@@ -114,6 +114,7 @@ const CheckOut: React.FC<any> = () => {
                                             shouldDisableDate={isWeekdayDisabled}
                                             className="m-0"
                                             disablePast
+                                            label={t('SELECT_DATE')}
                                         />
                                     )}
                                 </Cell>

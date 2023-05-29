@@ -20,17 +20,18 @@ const Locaization: React.FC = () => {
 
     // Arabic translations
     const arLocalization = { cancelButtonLabel: t('CANCEL'), okButtonLabel: t('OK') };
-    // const arLocalization = { cancelButtonLabel: 'لغو', okButtonLabel: 'تأیید', clearButtonLabel: 'پاک کردن' };
-    const localization = i18n.language === 'ar' ? arLocalization : enLocalization;
 
+    const localization = i18n.language === 'ar' ? arLocalization : enLocalization;
     return (
-        <LocalizationProvider dateAdapter={AdapterDateFns} localeText={localization}>
+        <LocalizationProvider
+            dateAdapter={AdapterDateFns}
+            localeText={localization}
+            adapterLocale={i18n.language === 'ar' ? ar : enUS}
+        >
             <Provider store={store}>
-                <AppThemeProvider>
-                    <BrowserRouter>
-                        <Routes />
-                    </BrowserRouter>
-                </AppThemeProvider>
+                <BrowserRouter>
+                    <Routes />
+                </BrowserRouter>
             </Provider>
         </LocalizationProvider>
     );
@@ -39,7 +40,9 @@ const App: React.FC<any> = (props) => {
     return (
         <ErrorBoundary name="App">
             <I18nextProvider i18n={i18n}>
-                <Locaization />
+                <AppThemeProvider>
+                    <Locaization />
+                </AppThemeProvider>
             </I18nextProvider>
         </ErrorBoundary>
     );
