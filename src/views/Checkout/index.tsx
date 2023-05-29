@@ -39,10 +39,11 @@ const CheckOut: React.FC<any> = () => {
     };
 
     const options = [
-        { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
-        { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
-        { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
+        { label: '210 Kd, 28 days (without off)', value: 0, name: '210 kd, 28 days' },
+        { label: '195 Kd, 24 days (Frid off)', value: 1, name: '195 Kd, 24 days' },
+        { label: '170 Kd, 28 days (Frid, Sat off)', value: 2, name: '170 Kd, 28 days' },
     ];
+
     const formattedDate = format(date, 'EEE, dd, mm, yyyy');
     const plan_id = localStorage.getItem('plan');
     const restaurant_id = localStorage.getItem('restaurant');
@@ -51,6 +52,7 @@ const CheckOut: React.FC<any> = () => {
     }, [i18n]);
     const restaurant = data.restaurants.find((i: any) => i.id === restaurant_id);
     const plan = data.restaurantPlans.find((i: any) => i.id === plan_id);
+
     return (
         <Layout1 title={t('CHECKOUT')}>
             <Wrapper dir={i18n.dir()}>

@@ -29,9 +29,9 @@ const PlanCard: React.FC<IProps> = ({ id, handleClick, carbs, name, src, descrip
     const { i18n, t } = useTranslation();
     const { meals } = restaurantsData[i18n.language];
     const options = [
-        { label: '210 kd, 28 days 1 (Fri, Sat Off)', value: 0, name: '210 kd, 28 days 1' },
-        { label: '210 kd, 28 days 2 (Fri, Sat Off)', value: 1, name: '210 kd, 28 days 2' },
-        { label: '210 kd, 28 days 3 (Fri, Sat Off)', value: 2, name: '210 kd, 28 days 3' },
+        { label: '210 Kd, 28 days (without off)', value: 0, name: '210 kd, 28 days' },
+        { label: '195 Kd, 24 days (Frid off)', value: 1, name: '195 Kd, 24 days' },
+        { label: '170 Kd, 28 days (Frid, Sat off)', value: 2, name: '170 Kd, 28 days' },
     ];
     const planMeals = meals.filter((i: any) => i?.plan_id?.includes(id)).map((i: any) => i.name) || [];
     return (

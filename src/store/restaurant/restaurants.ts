@@ -128,7 +128,7 @@ export const meals = [
         id: '2',
         name: 'Lunch',
         day_id: ['1', '2', '3'],
-        plan_id: ['1', '3', '4', '5'],
+        plan_id: ['2', '3', '4', '5'],
     },
     {
         id: '3',
@@ -175,7 +175,7 @@ export const foods = [
             { id: '126', name: 'Fat', amount: '126' },
         ],
         meal_id: ['1', '2', '3', '4', '5', '6', '7'],
-        day_id: ['1', '2'],
+        day_id: ['2', '4', '5', '6'],
     },
     {
         id: '2',
@@ -188,8 +188,8 @@ export const foods = [
             { id: '129', name: 'Carb', amount: '85' },
             { id: '130', name: 'Fat', amount: '75' },
         ],
-        meal_id: ['1', '2', '3', '4', '5', '6', '7'],
-        day_id: ['2', '3'],
+        meal_id: ['1', '4', '5', '6', '7'],
+        day_id: ['1', '2', '3'],
     },
     {
         id: '3',
@@ -202,8 +202,8 @@ export const foods = [
             { id: '129', name: 'Carb', amount: '85' },
             { id: '130', name: 'Fat', amount: '75' },
         ],
-        meal_id: ['1', '2', '3', '4'],
-        day_id: ['2', '3'],
+        meal_id: ['3', '4'],
+        day_id: ['1', '2'],
     },
     {
         id: '4',
@@ -216,8 +216,8 @@ export const foods = [
             { id: '129', name: 'Carb', amount: '85' },
             { id: '130', name: 'Fat', amount: '75' },
         ],
-        meal_id: ['1', '2', '4', '5', '6'],
-        day_id: ['2', '4', '5'],
+        meal_id: ['2', '4', '5', '6'],
+        day_id: ['1', '3', '4', '5'],
     },
 ];
 

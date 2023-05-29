@@ -210,7 +210,7 @@ const Signup = () => {
                                 </Submit>
                             </Grid>
                             <Grid container justifyContent="center" alignItems="center">
-                                {t('SIGNUP.ALREADY_ACCOUNT')}?
+                                {t('SIGNUP.ALREADY_ACCOUNT')}
                                 <Link variant="text" color="primary" component={AppLink} to="/auth">
                                     {t('LOGIN')}
                                 </Link>
