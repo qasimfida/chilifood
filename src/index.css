@@ -21,15 +21,3 @@ body {
     top: 20px;
     left: 10px;
 }
-.arabic-date-picker .MuiPickersCalendarHeader-root {
-    flex-direction: row-reverse;
-}
-.en-date-picker .MuiPickersCalendarHeader-root {
-    flex-direction: row;
-}
-.arabic-date-picker .MuiPickersCalendarHeader-root .MuiPickersArrowSwitcher-root {
-    flex-direction: row-reverse;
-}
-.en-date-picker .MuiPickersCalendarHeader-root .MuiPickersArrowSwitcher-root {
-    flex-direction: row;
-}

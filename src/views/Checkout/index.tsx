@@ -8,6 +8,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { format, isFriday, isMonday, isSaturday } from 'date-fns';
 import { useIsAuthenticated } from '../../hooks';
 import { restaurantsData } from '../../store/restaurant/restaurants';
+import { arSA, enUS } from 'date-fns/locale';
 
 const CheckOut: React.FC<any> = () => {
     const { i18n, t } = useTranslation();
@@ -43,7 +44,7 @@ const CheckOut: React.FC<any> = () => {
         { label: '170 Kd, 28 days (Frid, Sat off)', value: 2, name: '170 Kd, 28 days' },
     ];
 
-    const formattedDate = format(date, 'EEE, dd, mm, yyyy');
+    const formattedDate = format(date, 'EEE, dd, mm, yyyy', { locale: i18n.language === 'ar' ? arSA : enUS });
     const plan_id = localStorage.getItem('plan');
     const restaurant_id = localStorage.getItem('restaurant');
     const data = React.useMemo(() => {

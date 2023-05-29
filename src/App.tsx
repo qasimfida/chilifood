@@ -22,6 +22,7 @@ const Locaization: React.FC = () => {
     const arLocalization = { cancelButtonLabel: t('CANCEL'), okButtonLabel: t('OK') };
 
     const localization = i18n.language === 'ar' ? arLocalization : enLocalization;
+    document.body.dir = i18n.dir();
     return (
         <LocalizationProvider
             dateAdapter={AdapterDateFns}
