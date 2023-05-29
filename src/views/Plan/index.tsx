@@ -80,7 +80,7 @@ const Plan: React.FC<any> = ({ allowSelect, singleCard = false }) => {
                         </Loading>
                     }
                 >
-                    <Days days={weekdays} />
+                    <Days days={allowSelect ? data.weekdays : weekdays} />
                 </Suspense>
                 <Suspense
                     fallback={
