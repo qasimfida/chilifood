@@ -14,27 +14,17 @@ import { ar, enUS } from 'date-fns/locale';
  * Root Application Component
  */
 const Locaization: React.FC = () => {
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
     // English translations
-    const enLocalization = {
-        datePicker: {
-            calendarHeaderText: 'Select a date',
-        },
-    };
+    const enLocalization = { cancelButtonLabel: t('CANCEL'), okButtonLabel: t('OK') };
 
     // Arabic translations
-    const arLocalization = {
-        datePicker: {
-            calendarHeaderText: 'اختر تاريخًا',
-        },
-    };
+    const arLocalization = { cancelButtonLabel: t('CANCEL'), okButtonLabel: t('OK') };
+    // const arLocalization = { cancelButtonLabel: 'لغو', okButtonLabel: 'تأیید', clearButtonLabel: 'پاک کردن' };
     const localization = i18n.language === 'ar' ? arLocalization : enLocalization;
 
     return (
-        <LocalizationProvider
-            dateAdapter={AdapterDateFns}
-            localeText={{ cancelButtonLabel: 'لغو', okButtonLabel: 'تأیید', clearButtonLabel: 'پاک کردن' }}
-        >
+        <LocalizationProvider dateAdapter={AdapterDateFns} localeText={localization}>
             <Provider store={store}>
                 <AppThemeProvider>
                     <BrowserRouter>

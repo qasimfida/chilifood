@@ -102,5 +102,6 @@
     "SATURDAY": "Saturday",
     "DELETE_ACCOUNT_CONFIRMATION": "Delete Account Confirmation",
     "ACTIVE": "Active",
-    "OLD": "Old"
+    "OLD": "Old",
+    "OK": "Ok"
 }
