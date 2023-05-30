@@ -1,14 +1,23 @@
 import PublicRoutes from './PublicRoutes';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Home from '../views/Home';
+import Plan from '../views/Plan';
+import Restaurant from '../views/Restaurant';
+import { AboutView } from '../views/About';
+import TermsPolicy from '../views/TermsPolicy';
+import { useIsAuthenticated } from '../hooks';
+import PrivateRoutes from './PrivateRoutes';
 // import { isUserStillLoggedIn } from '../api/auth/utils';
 // import { api } from '../api';
 
 /**
  * Renders routes depending on Authenticated or Anonymous users
  */
-const Routes = () => {
+const AppRoutes = () => {
     const location = useLocation();
+    const { isAuthenticated } = useIsAuthenticated();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
@@ -34,6 +43,17 @@ const Routes = () => {
     //   }
     // }, [isAuthenticated, dispatch]); // Effect for every isAuthenticated change actually
 
-    return <PublicRoutes />;
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/chilifood" element={<Home />} />
+            <Route path="/plan" element={<Plan />} />
+            <Route path="restaurants/:restaurant" element={<Restaurant />} />
+            <Route path="restaurants/:restaurant/:plan" element={<Plan />} />
+            <Route path="/about" element={<AboutView />} />
+            <Route path="/terms-policy" element={<TermsPolicy />} />
+            {isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />}
+        </Routes>
+    );
 };
-export default Routes;
+export default AppRoutes;

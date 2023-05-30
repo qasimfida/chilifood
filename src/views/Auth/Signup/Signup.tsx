@@ -1,4 +1,4 @@
-import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
+import { SyntheticEvent, useCallback, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Grid,
