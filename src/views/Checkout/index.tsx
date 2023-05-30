@@ -72,7 +72,7 @@ const CheckOut: React.FC<any> = () => {
                                 <Cell>{t('PACKAGE')}</Cell>
                                 <Cell>
                                     {!select ? (
-                                        <LinkText onClick={toggleSelect}>{options[value]?.name}</LinkText>
+                                        <LinkText onClick={toggleSelect}>{options[value]?.label}</LinkText>
                                     ) : (
                                         <FormControl size="small">
                                             <InputLabel id="my-select-label">{t('PACKAGE')}</InputLabel>
