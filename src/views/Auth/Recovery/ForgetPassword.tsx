@@ -1,52 +1,33 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
 import { Grid, TextField, CardContent } from '@mui/material';
-import { AppAlert, AppForm } from '../../../components';
-import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
-import { Header, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
+// Components
+import { AppAlert, AppForm } from '../../../components';
 import Layout1 from '../../../layout/Layout1';
+// Utils and Hooks
+import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
+import { appValidation } from '../../../utils/appValidation';
+// Styles
+import { Header, StyledComp, Submit, Title, Wrapper } from '../styles';
 
 interface FormStateValues {
     phoneNumber: string;
 }
 
-/**
- * Renders "Recover Password" view for Login flow
- * url: /uth/recovery/password
- * @param {string} [props.phoneNumber] - pre-populated phoneNumber in case the user already enters it
- */
 const RecoveryPassword = () => {
     const { t } = useTranslation();
-    const VALIDATE_FORM_RECOVERY_PASSWORD = {
-        phoneNumber: {
-            presence: true,
-            type: 'string',
-            format: {
-                pattern: '[0-9]*', // Note: We have to allow empty in the pattern
-                message: 'should contain numbers',
-            },
-            length: {
-                minimum: 8,
-                maximum: 8,
-                message: t('PHONE_NUMBER_ERROR'),
-            },
-        },
-    };
+    const [message, setMessage] = useState<string>();
+    const { recoverPassword } = appValidation(t);
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-        validationSchema: VALIDATE_FORM_RECOVERY_PASSWORD,
+        validationSchema: recoverPassword,
         initialValues: { phoneNumber: '' } as FormStateValues,
         validateOnBlur: true,
     });
-    const [message, setMessage] = useState<string>();
-    const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
+    const values = formState.values as FormStateValues;
 
     const handleFormSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
-
-        // await api.auth.recoverPassword(values);
-
-        //Show message with instructions for the user
         const otpMessage = t('OTP_MESSAGE');
         setMessage(otpMessage);
     };

@@ -39,7 +39,7 @@ export const Content = styled(CardContent)`
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    ${({ theme: { palette } }: any) => {
+    ${({ theme: { palette } }) => {
         return css`
             background: ${palette.primary.light};
             bottom: 0;

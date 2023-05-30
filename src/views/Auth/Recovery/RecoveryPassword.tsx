@@ -1,21 +1,14 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
 import { Grid, TextField, CardContent } from '@mui/material';
-import { AppAlert, AppForm } from '../../../components';
-import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
-import { Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
-import Layout1 from '../../../layout/Layout1';
 import { useTranslation } from 'react-i18next';
-
-const VALIDATE_FORM_RECOVERY_PASSWORD = {
-    password: {
-        presence: true,
-        length: {
-            minimum: 8,
-            maximum: 8,
-            message: 'field must be 8 numbers',
-        },
-    },
-};
+// Components
+import { AppAlert, AppForm } from '../../../components';
+import Layout1 from '../../../layout/Layout1';
+// Hooks and utils
+import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
+import { appValidation } from '../../../utils/appValidation';
+// Styles
+import { Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 
 interface FormStateValues {
     password: string;
@@ -28,8 +21,9 @@ interface FormStateValues {
  */
 const RecoveryPassword = () => {
     const { t } = useTranslation();
+    const { recoverPassword } = appValidation(t);
     const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
-        validationSchema: VALIDATE_FORM_RECOVERY_PASSWORD,
+        validationSchema: recoverPassword,
         initialValues: { password: '' } as FormStateValues,
     });
     const [message, setMessage] = useState<string>();

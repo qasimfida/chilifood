@@ -1,13 +1,13 @@
 import React from 'react';
 import { Body, Content, Label, Row, StyledCard, Title, Button } from './styles';
 import { useTranslation } from 'react-i18next';
-const SelectFoodCard: React.FC<any> = ({ to }) => {
+const SelectFoodCard: React.FC<{ to: string }> = ({ to }) => {
     const { i18n, t } = useTranslation();
     return (
         <StyledCard dir={i18n.dir()} to={to}>
             <Body>
                 <Title>
-                    <Button>{t('SELECT_FOOD')}</Button>
+                    <Button component="span">{t('SELECT_FOOD')}</Button>
                 </Title>
                 <Content className="body">
                     <Row className="mr-3">

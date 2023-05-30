@@ -1,19 +1,9 @@
-import { Box, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import { Box, CardActionArea, CardContent, Typography } from '@mui/material';
 import { css, styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 interface StyledCardProps {
     dir?: string;
 }
-export const StyledMedia = styled(CardMedia)`
-    height: 100%;
-    width: 100%;
-    min-width: 100%;
-    border-radius: 4px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-`;
 export const Label = styled(Typography)`
     font-size: 14px;
     margin-bottom: 0px;
@@ -102,9 +92,9 @@ export const StyledCard = styled(Link)<StyledCardProps>`
         `;
     }}
 `;
-export const Button = styled(Box)`
+export const Button = styled(Typography)<{ component: string }>`
     position: relative;
-    ${({ theme: { palette } }: any) => {
+    ${({ theme: { palette } }) => {
         return css`
             background: ${palette.primary.main};
             color: #fff;
@@ -115,5 +105,6 @@ export const Button = styled(Box)`
     border-radius: 8px;
     text-align: center;
     padding: 8px;
+    display: block;
     margin: 0;
 `;

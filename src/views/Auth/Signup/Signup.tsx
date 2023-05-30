@@ -10,38 +10,18 @@ import {
     LinearProgress,
     Button,
 } from '@mui/material';
-// import { useAppStore } from '../../../store';
-import { AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
-import { SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
-import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
+import { validate } from 'validate.js';
+// Components
+import { AppIconButton, AppAlert, AppForm, AppLink } from '../../../components';
 import Layout1 from '../../../layout/Layout1';
+// Utils and hooks
+import { SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
 import { ObjectPropByName } from '../../../utils';
-import { validate } from 'validate.js';
-
-const validation = (t: any) => ({
-    phoneNumber: {
-        type: 'string',
-        format: {
-            pattern: '[0-9]*', // Note: We have to allow empty in the pattern
-        },
-        length: {
-            minimum: 8,
-            maximum: 8,
-            message: 'field must be 8 numbers',
-        },
-    },
-    password: {
-        type: 'string',
-        presence: true,
-        length: {
-            minimum: 3,
-            maximum: 50,
-            message: 'password must be more than 3 digits',
-        },
-    },
-});
+import { appValidation } from '../../../utils/appValidation';
+// Styles
+import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 
 interface FormStateValues {
     phoneNumber: string;
@@ -57,15 +37,8 @@ const Signup = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { t } = useTranslation();
-    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-    //     validationSchema: validationSchema, // the state value, so could be changed in time
-    //     initialValues: {
-    //         phoneNumber: '',
-    //         password: '',
-    //     } as FormStateValues,
-    //     validateOnBlur: true,
-    // });
-    // const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
+    const { signUp } = appValidation(t);
+
     const [showPassword, setShowPassword] = useState(false);
     const [agree, setAgree] = useState(false);
     const [error, setError] = useState<string>();
@@ -98,7 +71,7 @@ const Signup = () => {
 
     const onFieldBlur = (event: any) => {
         const { name, value } = event.target;
-        const valid = (validation(t) as ObjectPropByName)[name];
+        const valid = (signUp as ObjectPropByName)[name];
         const err = validate({ [name]: value }, { [name]: valid });
         const errs = { ...errors, ...err };
         if (!err) {
@@ -122,7 +95,7 @@ const Signup = () => {
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
-    const isValid = validate(state, validation(t)) ? false : true;
+    const isValid = validate(state, signUp) ? false : true;
 
     if (false) return <LinearProgress />;
 

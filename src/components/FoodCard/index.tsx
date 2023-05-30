@@ -24,9 +24,6 @@ interface IProps extends IFood {
     isSelected?: boolean;
     onToggle: () => void;
     handleSelect?: () => void;
-    src: string;
-    name: string;
-    description: string;
     allowSelect?: boolean;
     size?: 'xl' | 'md';
 }

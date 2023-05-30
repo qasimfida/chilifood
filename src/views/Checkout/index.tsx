@@ -1,24 +1,41 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Box, Container, FormControl, InputLabel, MenuItem, Select, Table, TableBody, TableRow } from '@mui/material';
-import Layout1 from '../../layout/Layout1';
-import { Cell, LastCell, LinkText, PayButton, StyleLink, TextArea, Wrapper } from './styles';
+import {
+    Box,
+    Container,
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Select,
+    SelectChangeEvent,
+    Table,
+    TableBody,
+    TableRow,
+} from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { format, isFriday, isMonday, isSaturday } from 'date-fns';
-import { useIsAuthenticated } from '../../hooks';
-import { restaurantsData } from '../../store/restaurant/restaurants';
 import { arSA, enUS } from 'date-fns/locale';
+// Components
+import Layout1 from '../../layout/Layout1';
+// Hooks and Utils
+import { useIsAuthenticated } from '../../hooks';
+// Store
+import { restaurantsData } from '../../store/restaurant/restaurants';
+// Types
+import { IPlan, IRestaurant } from '../../types/restaurant';
+// Styles
+import { Cell, LastCell, LinkText, PayButton, StyleLink, TextArea, Wrapper } from './styles';
 
 const CheckOut: React.FC<any> = () => {
     const { i18n, t } = useTranslation();
     const user = useIsAuthenticated();
-    const [value, setValue] = useState<number | number>(0);
+    const [value, setValue] = useState<string>('0');
     const [open, setOpen] = useState<boolean>(false);
     const [date, setDate] = useState<Date>(new Date());
     const [select, setSelect] = useState<boolean>(false);
-    const handleDropDownChange = (event: any) => {
-        setValue(event.target.value);
+    const handleDropDownChange = (event: SelectChangeEvent) => {
+        setValue(event.target.value as string);
     };
     const toggleOpen = () => {
         setOpen(!open);
@@ -50,8 +67,8 @@ const CheckOut: React.FC<any> = () => {
     const data = React.useMemo(() => {
         return restaurantsData[i18n.language];
     }, [i18n]);
-    const restaurant = data.restaurants.find((i: any) => i.id === restaurant_id);
-    const plan = data.restaurantPlans.find((i: any) => i.id === plan_id);
+    const restaurant = data.restaurants.find((i: IRestaurant) => i.id === restaurant_id);
+    const plan = data.restaurantPlans.find((i: IPlan) => i.id === plan_id);
 
     return (
         <Layout1 title={t('CHECKOUT')}>
@@ -72,7 +89,7 @@ const CheckOut: React.FC<any> = () => {
                                 <Cell>{t('PACKAGE')}</Cell>
                                 <Cell>
                                     {!select ? (
-                                        <LinkText onClick={toggleSelect}>{options[value]?.label}</LinkText>
+                                        <LinkText onClick={toggleSelect}>{options[parseInt(value)]?.label}</LinkText>
                                     ) : (
                                         <FormControl size="small">
                                             <InputLabel id="my-select-label">{t('PACKAGE')}</InputLabel>
@@ -81,10 +98,10 @@ const CheckOut: React.FC<any> = () => {
                                                 onClose={toggleSelect}
                                                 labelId="my-select-label"
                                                 id="my-select"
-                                                value={value as number}
+                                                value={value}
                                                 onChange={handleDropDownChange}
-                                                renderValue={(select: number) => {
-                                                    const option = options[select];
+                                                renderValue={(select: string) => {
+                                                    const option = options[parseInt(select)];
                                                     return option.name;
                                                 }}
                                             >

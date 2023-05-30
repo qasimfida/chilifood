@@ -1,15 +1,18 @@
 import { useCallback, useState, SyntheticEvent } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CardContent, TextField, Grid, Button } from '@mui/material';
-import { SHARED_CONTROL_PROPS } from '../../../utils/form';
-import { AppAlert, AppForm } from '../../../components';
-import { Description, Header, Link, StyledComp, StyledGrid, Submit, Title, Wrapper } from '../styles';
-import Layout1 from '../../../layout/Layout1';
-import { IUser } from '../../../hooks';
-import { ObjectPropByName } from '../../../utils';
 import { validate } from 'validate.js';
 import { useTranslation } from 'react-i18next';
+// Components
+import { AppAlert, AppForm } from '../../../components';
+import Layout1 from '../../../layout/Layout1';
+// Utils and hooks
+import { SHARED_CONTROL_PROPS } from '../../../utils/form';
+import { IUser } from '../../../hooks';
+import { ObjectPropByName } from '../../../utils';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
+// Styles
+import { Description, Header, Link, StyledComp, StyledGrid, Submit, Title, Wrapper } from '../styles';
 
 interface FormStateValues {
     otp: number | undefined;

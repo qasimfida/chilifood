@@ -1,7 +1,6 @@
 import { Box, Grid, Tab, css, styled } from '@mui/material';
 import { AppButton } from '../../components';
 import { TabList } from '@mui/lab';
-
 const Wrapper = styled(Box)`
     margin-top: 3rem;
     width: 100%;
@@ -23,12 +22,6 @@ export const StyledComp = styled(Box)`
     .custom-styles {
         margin-top: 0;
     }
-`;
-
-export const Header = styled(Box)`
-    padding-top: 40px;
-    padding-bottom: 0px;
-    text-align: center;
 `;
 
 export const StyledGrid = styled(Grid)`

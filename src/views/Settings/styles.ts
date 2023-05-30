@@ -1,14 +1,6 @@
 import { styled } from '@mui/system';
-import { Box, Button, Dialog, DialogActions, DialogContent, css, TextField } from '@mui/material';
-import { AppButton } from '../../components';
+import { Box, Button, Dialog, DialogActions, DialogContent, css } from '@mui/material';
 
-export const Title = styled(Box)`
-    text-align: center;
-    border-bottom: 1px solid #dfdfdf;
-    padding-bottom: 12px;
-    margin: 20px auto;
-    width: max-content;
-`;
 export const Wrapper = styled(Box)`
     text-align: center;
     table th:first-of-type,
@@ -19,16 +11,6 @@ export const Wrapper = styled(Box)`
     table td:last-child {
         text-align: ${({ dir }) => (dir === 'rtl' ? 'right' : 'left')};
     }
-`;
-
-export const TextArea = styled(TextField)`
-    width: 100%;
-`;
-export const PayButton = styled(AppButton)`
-    margin: 20px;
-    margin-top: 40px;
-    width: 160px;
-    max-width: 100%;
 `;
 export const StyledDialogs = styled(Dialog)`
     .css-78mkp9-MuiPaper-root-MuiDialog-paper {
@@ -49,11 +31,6 @@ export const DialogButton = styled(Button)`
     padding-left: 20px;
     padding-right: 20px;
     margin-right: 16px;
-`;
-export const StyledDialog = styled(Dialog)`
-    .css-78mkp9-MuiPaper-root-MuiDialog-paper {
-        min-width: 300px;
-    }
 `;
 export const Content = styled(DialogContent)`
     .MuiOutlinedInput-notchedOutline legend {

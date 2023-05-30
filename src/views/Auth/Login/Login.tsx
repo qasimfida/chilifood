@@ -1,25 +1,22 @@
 import { SyntheticEvent, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, CardContent, InputAdornment } from '@mui/material';
-// import { useAppStore } from '../../../store';
-import { AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
-import { SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
-import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 import { useTranslation } from 'react-i18next';
-import Layout1 from '../../../layout/Layout1';
-import { generateValidNumber } from '../../../utils/generateValidNumber';
 import { validate } from 'validate.js';
+// Components
+import { AppLink, AppIconButton, AppAlert, AppForm } from '../../../components';
+import Layout1 from '../../../layout/Layout1';
+// Utils and Hooks
+import { SHARED_CONTROL_PROPS, eventPreventDefault } from '../../../utils/form';
+import { generateValidNumber } from '../../../utils/generateValidNumber';
 import { ObjectPropByName } from '../../../utils';
+// Styles
+import { Header, Icon, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
 
 interface FormStateValues {
     phoneNumber: string;
     password: string;
 }
-
-/**
- * Renders "Login with Email" view for Login flow
- * url: /auth/login/email
- */
 
 const Login = () => {
     const { t } = useTranslation();
@@ -52,12 +49,6 @@ const Login = () => {
         password: '',
     });
     const [errors, setErrors] = useState<any>({});
-    // const [, dispatch] = useAppStore();
-    // const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-    //     validationSchema: VALIDATION,
-    //     initialValues: { phoneNumber: '', password: '' } as FormStateValues,
-    //     validateOnBlur: true,
-    // });
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [error, setError] = useState<string>();
 
@@ -79,6 +70,7 @@ const Login = () => {
     );
 
     const handleCloseError = useCallback(() => setError(undefined), []);
+
     const onFieldBlur = (event: any) => {
         const { name, value } = event.target;
         const valid = (validation() as ObjectPropByName)[name];
@@ -89,12 +81,14 @@ const Login = () => {
         }
         setErrors({ ...errs });
     };
+
     const onFieldChange = (event: any) => {
         const { name, value } = event.target;
         setState((prev: any) => {
             return { ...prev, [name]: value };
         });
     };
+
     const fieldGetError = (key: keyof ObjectPropByName) => {
         const errorMessages: Record<string, string> = {
             phoneNumber: t('PHONE_NUMBER_ERROR'),
@@ -102,10 +96,13 @@ const Login = () => {
         };
         return errorMessages[key] || (errors as ObjectPropByName)[key]?.[0] || '';
     };
+
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
+
     const isValid = validate(state, validation()) ? false : true;
+
     return (
         <Layout1 title={t('LOGIN')}>
             <Wrapper>

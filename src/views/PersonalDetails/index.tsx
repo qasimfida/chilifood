@@ -1,80 +1,28 @@
-import Layout1 from '../../layout/Layout1';
-import { Container } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import Wrapper, { StyledComp, Submit } from './styles';
-
 import { SyntheticEvent, useCallback, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Grid, TextField, Autocomplete } from '@mui/material';
+import { Container, Grid, TextField, Autocomplete } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { validate } from 'validate.js';
+// Components
+import Layout1 from '../../layout/Layout1';
 import { AppForm } from '../../components';
-import { cities } from '../Auth/Signup/data';
+// Utilties and Hooks
 import { ObjectPropByName, SHARED_CONTROL_PROPS } from '../../utils';
 import { IUser, useIsAuthenticated } from '../../hooks';
-import { validate } from 'validate.js';
+import { appValidation } from '../../utils/appValidation';
+// Data
+import { cities } from '../Auth/Signup/data';
+// Styles
+import Wrapper, { StyledComp, Submit } from './styles';
 
 const PersonalDetails = () => {
     const { t } = useTranslation();
+    const { profile } = appValidation(t);
     const location = useLocation();
     const user = useIsAuthenticated();
-    const validation = {
-        name: {
-            type: 'string',
-            presence: { allowEmpty: false, message: t('ISREQUIRED') },
-            format: {
-                pattern: /^[a-zA-Z\u0600-\u06FF\s]*$/, // Note: Allow only alphabets
-                message: 'INVALID_NAME',
-            },
-            length: {
-                minimum: 1,
-                maximum: 30,
-                message: t('ERROR.PREFIX') + ' 30 ' + t('ERROR.DIGITS'),
-            },
-        },
-        street: {
-            type: 'string',
-            presence: { allowEmpty: false, message: t('ISREQUIRED') },
-            length: {
-                minimum: 1,
-                maximum: 30,
-                message: t('ERROR.PREFIX') + ' 30 ' + t('ERROR.DIGITS'),
-            },
-        },
-        avenue: {
-            presence: { allowEmpty: true, message: t('ISREQUIRED') },
-            type: 'string',
-            length: {
-                maximum: 30,
-                message: t('ERROR.PREFIX') + ' 30 ' + t('ERROR.DIGITS'),
-            },
-        },
-        block: {
-            presence: { allowEmpty: false, message: t('ISREQUIRED') },
-            type: 'string',
-            length: {
-                minimum: 1,
-                maximum: 4,
-                message: t('ERROR.PREFIX') + ' 4 ' + t('ERROR.DIGITS'),
-            },
-        },
-        house: {
-            presence: { allowEmpty: false, message: t('ISREQUIRED') },
-            type: 'string',
-            length: {
-                minimum: 1,
-                maximum: 5,
-                message: t('ERROR.PREFIX') + ' 5 ' + t('ERROR.DIGITS'),
-            },
-        },
-        city: {
-            presence: {
-                allowEmpty: false,
-                message: t('PERSONAL_DETAILS.PLEASE_SELECT_CITY'),
-            },
-        },
-    };
-
     const navigate = useNavigate();
 
+    const [errors, setErrors] = useState<any>({});
     const [state, setState] = useState<IUser>({
         name: user?.name || '',
         block: user?.block || '',
@@ -83,7 +31,6 @@ const PersonalDetails = () => {
         house: user?.house || '',
         city: user?.city || null,
     });
-    const [errors, setErrors] = useState<any>({});
 
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
@@ -96,7 +43,7 @@ const PersonalDetails = () => {
 
     const onFieldBlur = (event: any) => {
         const { name, value } = event.target;
-        const valid = (validation as ObjectPropByName)[name];
+        const valid = (profile as ObjectPropByName)[name];
         const err = validate({ [name]: value }, { [name]: valid });
         const errs = { ...errors, ...err };
         if (!err) {
@@ -112,7 +59,7 @@ const PersonalDetails = () => {
                 return { ...prev, [key]: val };
             });
         } else {
-            const limit = (validation as ObjectPropByName)[name]?.length?.maximum;
+            const limit = (profile as ObjectPropByName)[name]?.length?.maximum;
             if (value?.length <= limit) {
                 setState((prev) => {
                     return { ...prev, [name]: value };
@@ -143,7 +90,7 @@ const PersonalDetails = () => {
     const fieldHasError = (key: any) => {
         return (errors as ObjectPropByName)[key] ? true : false;
     };
-    const isValid = validate(state, validation) ? false : true;
+    const isValid = validate(state, profile) ? false : true;
 
     return (
         <Layout1 title={`${t('PERSONAL_DETAILS')}`}>

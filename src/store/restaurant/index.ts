@@ -5,7 +5,6 @@ import { IRestaurantState } from '../../types/restaurant';
 
 // Define the initial state using that type
 const initialState: IRestaurantState = {
-    r: [],
     viewFoodDetails: '',
     activeMeal: '1',
     activeDay: '2',

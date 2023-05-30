@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { Button, Container, DialogTitle, Grid, TextField, Typography, createTheme, useTheme } from '@mui/material';
-import Layout1 from '../../layout/Layout1';
-import { Content, DialogButton, StyledActions, StyledDialogs, Wrapper } from './styles';
 import { useTranslation } from 'react-i18next';
-import { AppButton } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { Button, Container, DialogTitle, Grid, TextField, Typography, createTheme, useTheme } from '@mui/material';
+// Components
+import Layout1 from '../../layout/Layout1';
+import { AppButton } from '../../components';
+// Hooks
 import { useIsAuthenticated } from '../../hooks';
+// Styles
+import { Content, DialogButton, StyledActions, StyledDialogs, Wrapper } from './styles';
 
 const Settings: React.FC<any> = () => {
     const { t, i18n } = useTranslation();

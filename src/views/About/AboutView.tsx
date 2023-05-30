@@ -1,12 +1,15 @@
-import * as React from 'react';
-import Layout1 from '../../layout/Layout1';
-import { Description, Heading, ListContent, StyledAlert, StyledAlertTitle, SubHeading, Title, Wrapper } from './styles';
 import { FiberManualRecord } from '@mui/icons-material';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import * as React from 'react';
+// Components
+import Layout1 from '../../layout/Layout1';
+// Styles
+import { Description, Heading, ListContent, StyledAlert, StyledAlertTitle, SubHeading, Title, Wrapper } from './styles';
 
-const About: React.FC<any> = () => {
+const About: React.FC = () => {
     const { t } = useTranslation();
+
     return (
         <Layout1 title={t('ABOUT')} withFooter>
             <Wrapper>
