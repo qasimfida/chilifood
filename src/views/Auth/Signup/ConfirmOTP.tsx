@@ -71,7 +71,7 @@ const ConfirmOTP = () => {
             const paramValue = urlParams.get('redirect');
             localStorage.removeItem('temp');
             localStorage.setItem('user', JSON.stringify(user));
-            navigate(`/${paramValue}` || '/', { replace: true });
+            navigate(`/${paramValue || ''}`, { replace: true });
         },
         [navigate, location]
     );
