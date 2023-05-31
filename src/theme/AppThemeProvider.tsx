@@ -1,14 +1,13 @@
 import createCache from '@emotion/cache';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import { FunctionComponent, useMemo, PropsWithChildren } from 'react';
-import rtlPlugin from 'stylis-plugin-rtl';
+import { FunctionComponent, PropsWithChildren } from 'react';
 import { prefixer } from 'stylis';
 import THEME from './theme';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 function createEmotionCache() {
-    return createCache({ key: 'css', prepend: true, stylisPlugins: [prefixer, rtlPlugin] });
+    return createCache({ key: 'css', prepend: true, stylisPlugins: [prefixer] });
 }
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -25,7 +24,7 @@ const AppThemeProvider: FunctionComponent<Props> = ({ children, emotionCache = C
     return (
         <CacheProvider value={emotionCache}>
             <ThemeProvider theme={theme}>
-                <CssBaseline /* MUI Styles */ />
+                <CssBaseline />
                 {children}
             </ThemeProvider>
         </CacheProvider>

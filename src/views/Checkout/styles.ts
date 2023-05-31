@@ -8,11 +8,11 @@ export const Wrapper = styled(Box)`
     text-align: center;
     table th:first-of-type,
     table td:first-of-type {
-        text-align: ${({ dir }) => (dir === 'rtl' ? 'left' : 'right')};
+        text-align: left;
     }
     table th:last-child,
     table td:last-child {
-        text-align: ${({ dir }) => (dir === 'rtl' ? 'right' : 'left')};
+        text-align: right;
     }
     .MuiFormControl-root {
         min-width: 144px;
@@ -61,7 +61,7 @@ export const PayButton = styled(AppButton)`
 `;
 export const LastCell = styled(TableCell)<{ dir: 'rtl' | 'ltr' }>`
     ${({ dir }) => css`
-        text-align: ${dir === 'rtl' ? 'left' : 'right'} !important;
+        text-align: left !important;
     `};
 `;
 export const LinkText = styled(Typography)`

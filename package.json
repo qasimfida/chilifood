@@ -51,7 +51,6 @@
         "react-router-dom": "latest",
         "react-scripts": "latest",
         "stylis": "^4.1.4",
-        "stylis-plugin-rtl": "^2.1.1",
         "validate.js": "latest",
         "web-vitals": "latest"
     },

@@ -23,43 +23,11 @@ export const Main = styled(Stack)<any>`
     min-height: calc(100vh - 64px);
     height: auto;
     position: relative;
-    .MuiOutlinedInput-notchedOutline legend {
-        opacity: 0 !important;
-        display: none !important;
-    }
-    .MuiInputLabel-root {
-        right: 24px;
-        width: fit-content;
-        background: #fff;
-        padding: 2px;
-        margin-top: -4px;
-    }
     .MuiFormHelperText-root:not(.Mui-error) {
         display: none;
     }
     .MuiTextField-root {
         margin-top: 20px;
-    }
-    .MuiFormControlLabel-root {
-        margin-right: 0;
-        .MuiCheckbox-root {
-            padding-right: 0px;
-        }
-    }
-    .MuiAutocomplete-inputRoot {
-        .MuiAutocomplete-endAdornment {
-            display: flex;
-            justify-content: flex-end;
-            left: 8px;
-        }
-    }
-    .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon .MuiOutlinedInput-root {
-        padding-left: 60px;
-        padding-right: 8px !important;
-    }
-    .MuiAutocomplete-hasPopupIcon .MuiOutlinedInput-root {
-        padding-left: 44px;
-        padding-right: 8px !important;
     }
 `;
 export const PageWrapper = styled(Stack)<any>``;
@@ -90,32 +58,31 @@ export const PriceWrapper = styled(Box)`
                 color: ${palette.primary.main};
             }
         }
-    `}
-    .MuiOutlinedInput-notchedOutline legend {
-        opacity: 0 !important;
-        display: none !important;
-    }
-    .MuiInputLabel-root {
-        right: 12px;
-        width: fit-content;
-        background: #f3f3f3;
-        padding: 2px;
-        margin-top: -4px;
-    }
-    .MuiFormHelperText-root:not(.Mui-error) {
-        display: none;
-    }
-    .MuiTextField-root {
-        margin-top: 20px;
-    }
-    .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input {
-        padding-left: 32px;
-        padding-right: 12px !important;
-    }
-    .MuiSvgIcon-root.MuiSelect-icon {
-        left: 8px;
-        right: unset;
-    }
+    `}// .MuiOutlinedInput-notchedOutline legend {
+    //     opacity: 0 !important;
+    //     display: none !important;
+    // }
+    // .MuiInputLabel-root {
+    //     right: 12px;
+    //     width: fit-content;
+    //     background: #f3f3f3;
+    //     padding: 2px;
+    //     margin-top: -4px;
+    // }
+    // .MuiFormHelperText-root:not(.Mui-error) {
+    //     display: none;
+    // }
+    // .MuiTextField-root {
+    //     margin-top: 20px;
+    // }
+    // .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input {
+    //     padding-left: 32px;
+    //     padding-right: 12px !important;
+    // }
+    // .MuiSvgIcon-root.MuiSelect-icon {
+    //     left: 8px;
+    //     right: unset;
+    // }
 `;
 export const StyledTab = styled(Tab)`
     ${({ theme: { palette } }: any) => css`

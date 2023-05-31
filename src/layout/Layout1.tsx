@@ -11,16 +11,21 @@ import {
     useTheme,
 } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
 import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useState } from 'react';
-import { ErrorBoundary } from '../components';
-import { LinkToPage } from '../utils/type';
-import { useOnMobile } from '../hooks/layout';
-import { TOPBAR_DESKTOP_HEIGHT, TOPBAR_MOBILE_HEIGHT } from './config';
-import TopBar from './TopBar';
-import SideBar from './SideBar';
 import { useTranslation } from 'react-i18next';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate, useParams } from 'react-router-dom';
+// Componnets
+import { ErrorBoundary } from '../components';
+import TopBar from './TopBar';
+import SideBar from './SideBar';
+import Footer from '../components/Footer';
+// Hooks and Utils
+import { LinkToPage } from '../utils/type';
+import { useOnMobile } from '../hooks/layout';
+import { useIsAuthenticated } from '../hooks';
+import { TOPBAR_DESKTOP_HEIGHT, TOPBAR_MOBILE_HEIGHT } from './config';
+// Styles
 import {
     Content,
     Navigation,
@@ -35,17 +40,6 @@ import {
     StyledActions,
     StyledDialog,
 } from './styles';
-import { useNavigate, useParams } from 'react-router-dom';
-import Footer from '../components/Footer';
-import { useIsAuthenticated } from '../hooks';
-
-/**
- * SideBar navigation items with links
- */
-
-/**
- * Renders "Public Layout" composition
- */
 
 interface IProps extends PropsWithChildren {
     title: ReactNode;
