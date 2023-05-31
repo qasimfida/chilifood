@@ -1,4 +1,3 @@
-import PublicRoutes from './PublicRoutes';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
@@ -8,9 +7,11 @@ import Restaurant from '../views/Restaurant';
 import { AboutView } from '../views/About';
 import TermsPolicy from '../views/TermsPolicy';
 import { useIsAuthenticated } from '../hooks';
-import PrivateRoutes from './PrivateRoutes';
-// import { isUserStillLoggedIn } from '../api/auth/utils';
-// import { api } from '../api';
+import CheckOut from '../views/Checkout';
+import Settings from '../views/Settings';
+import Profile from '../views/Profile';
+import PersonalDetails from '../views/PersonalDetails';
+import AuthRoutes from '../views/Auth';
 
 /**
  * Renders routes depending on Authenticated or Anonymous users
@@ -52,7 +53,19 @@ const AppRoutes = () => {
             <Route path="restaurants/:restaurant/:plan" element={<Plan />} />
             <Route path="/about" element={<AboutView />} />
             <Route path="/terms-policy" element={<TermsPolicy />} />
-            {isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />}
+            {isAuthenticated ? (
+                <>
+                    <Route path="/checkout" element={<CheckOut />} />
+                    <Route path="/settings" element={<Settings />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/select/restaurants/:restaurant/:plan" element={<Plan allowSelect />} />
+                </>
+            ) : (
+                <>
+                    <Route path="auth/*" element={<AuthRoutes />} />
+                    <Route path="/personal-details" element={<PersonalDetails />} />
+                </>
+            )}
         </Routes>
     );
 };
