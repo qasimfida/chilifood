@@ -35,16 +35,9 @@ const RecoveryPassword = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            localStorage.setItem(
-                'user',
-                JSON.stringify({
-                    ...state,
-                    phoneNumber: localStorage.getItem('number'),
-                })
-            );
-            navigate(`/`, { replace: true });
+            navigate(`/auth/login`, { replace: true });
         },
-        [navigate, state]
+        [navigate]
     );
 
     const handleCloseError = useCallback(() => setMessage(undefined), []);
