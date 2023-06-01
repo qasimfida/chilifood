@@ -5,11 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { AppAlert, AppForm } from '../../../components';
 import Layout1 from '../../../layout/Layout1';
 // Utils and Hooks
-import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
+import { SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { generateValidNumber } from '../../../utils/generateValidNumber';
 import { appValidation } from '../../../utils/appValidation';
 // Styles
 import { Header, StyledComp, Submit, Title, Wrapper } from '../styles';
+import { useNavigate } from 'react-router-dom';
+import { validate } from 'validate.js';
+import { ObjectPropByName } from '../../../utils';
 
 interface FormStateValues {
     phoneNumber: string;
@@ -17,23 +20,55 @@ interface FormStateValues {
 
 const RecoveryPassword = () => {
     const { t } = useTranslation();
-    const [message, setMessage] = useState<string>();
-    const { recoverPassword } = appValidation(t);
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError, onFieldBlur] = useAppForm({
-        validationSchema: recoverPassword,
-        initialValues: { phoneNumber: '' } as FormStateValues,
-        validateOnBlur: true,
-    });
-    const values = formState.values as FormStateValues;
+    const navigate = useNavigate();
+    const { forgetPassword } = appValidation(t);
 
-    const handleFormSubmit = async (event: SyntheticEvent) => {
-        event.preventDefault();
-        const otpMessage = t('OTP_MESSAGE');
-        setMessage(otpMessage);
-    };
+    const [message, setMessage] = useState<string>();
+    const [errors, setErrors] = useState<any>({});
+    const [state, setState] = useState<FormStateValues>({
+        phoneNumber: '',
+    });
+
+    const handleFormSubmit = useCallback(
+        async (event: SyntheticEvent) => {
+            event.preventDefault();
+            navigate(`/auth/signup/confirm-otp?redirect=auth/recovery/change`, { replace: true });
+        },
+        [navigate]
+    );
 
     const handleCloseError = useCallback(() => setMessage(undefined), []);
 
+    const onFieldBlur = (event: any) => {
+        const { name, value } = event.target;
+        const valid = (forgetPassword as ObjectPropByName)[name];
+        const err = validate({ [name]: value }, { [name]: valid });
+        const errs = { ...errors, ...err };
+        if (!err) {
+            delete errs[name];
+        }
+        setErrors({ ...errs });
+    };
+
+    const onFieldChange = (event: any) => {
+        const { name, value } = event.target;
+        setState((prev: any) => {
+            return { ...prev, [name]: value };
+        });
+    };
+
+    const fieldGetError = (key: keyof ObjectPropByName) => {
+        const errorMessages: Record<string, string> = {
+            phoneNumber: t('PHONE_NUMBER_ERROR'),
+        };
+        return errorMessages[key] || (errors as ObjectPropByName)[key]?.[0] || '';
+    };
+
+    const fieldHasError = (key: any) => {
+        return (errors as ObjectPropByName)[key] ? true : false;
+    };
+
+    const isValid = validate(state, forgetPassword) ? false : true;
     return (
         <Layout1 title={t('FORGET_PASSWORD_TITLE')} menuHeader>
             <Wrapper>
@@ -50,9 +85,9 @@ const RecoveryPassword = () => {
                                 name="phoneNumber"
                                 id="phoneNumber"
                                 autoComplete="new-phone-number"
-                                value={generateValidNumber(values.phoneNumber)}
+                                value={generateValidNumber(state.phoneNumber)}
                                 error={fieldHasError('phoneNumber')}
-                                helperText={fieldGetError('phoneNumber') || ' '}
+                                helperText={fieldGetError('phoneNumber') || ''}
                                 onChange={onFieldChange}
                                 onBlur={onFieldBlur}
                                 inputProps={{ pattern: '[0-9]*', maxLength: 8, inputMode: 'numeric' }}
@@ -66,7 +101,7 @@ const RecoveryPassword = () => {
                             ) : null}
 
                             <Grid container justifyContent="center" alignItems="center">
-                                <Submit type="submit" color="primary" disabled={!formState.isValid}>
+                                <Submit type="submit" variant="contained" color="primary" disabled={!isValid}>
                                     {t('NEXT')}
                                 </Submit>
                             </Grid>

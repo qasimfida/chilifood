@@ -69,11 +69,13 @@ const ConfirmOTP = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
-            const user: IUser = JSON.parse(localStorage.getItem('temp') || '{}');
             const urlParams = new URLSearchParams(location.search);
             const paramValue = urlParams.get('redirect');
-            localStorage.removeItem('temp');
-            localStorage.setItem('user', JSON.stringify(user));
+            if (paramValue !== 'auth/recovery/change') {
+                const user: IUser = JSON.parse(localStorage.getItem('temp') || '{}');
+                localStorage.removeItem('temp');
+                localStorage.setItem('user', JSON.stringify(user));
+            }
             navigate(`/${paramValue || ''}`, { replace: true });
         },
         [navigate, location]

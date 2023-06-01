@@ -9,6 +9,9 @@ import { useAppForm, SHARED_CONTROL_PROPS } from '../../../utils/form';
 import { appValidation } from '../../../utils/appValidation';
 // Styles
 import { Header, Link, StyledComp, Submit, Title, Wrapper } from '../styles';
+import validate from 'validate.js';
+import { ObjectPropByName } from '../../../utils';
+import { useNavigate } from 'react-router-dom';
 
 interface FormStateValues {
     password: string;
@@ -21,24 +24,54 @@ interface FormStateValues {
  */
 const RecoveryPassword = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const { recoverPassword } = appValidation(t);
-    const [formState, , /* setFormState */ onFieldChange, fieldGetError, fieldHasError] = useAppForm({
-        validationSchema: recoverPassword,
-        initialValues: { password: '' } as FormStateValues,
-    });
     const [message, setMessage] = useState<string>();
-    const values = formState.values as FormStateValues; // Typed alias to formState.values as the "Source of Truth"
+    const [state, setState] = useState<FormStateValues>({
+        password: '',
+    });
+    const [errors, setErrors] = useState<any>({});
 
-    const handleFormSubmit = async (event: SyntheticEvent) => {
-        event.preventDefault();
-
-        // await api.auth.recoverPassword(values);
-
-        //Show message with instructions for the user
-        setMessage('Email with instructions has been sent to your address');
-    };
+    const handleFormSubmit = useCallback(
+        async (event: SyntheticEvent) => {
+            event.preventDefault();
+            navigate(`/`, { replace: true });
+        },
+        [navigate]
+    );
 
     const handleCloseError = useCallback(() => setMessage(undefined), []);
+
+    const onFieldBlur = (event: any) => {
+        const { name, value } = event.target;
+        const valid = (recoverPassword as ObjectPropByName)[name];
+        const err = validate({ [name]: value }, { [name]: valid });
+        const errs = { ...errors, ...err };
+        if (!err) {
+            delete errs[name];
+        }
+        setErrors({ ...errs });
+    };
+
+    const onFieldChange = (event: any) => {
+        const { name, value } = event.target;
+        setState((prev: any) => {
+            return { ...prev, [name]: value };
+        });
+    };
+
+    const fieldGetError = (key: keyof ObjectPropByName) => {
+        const errorMessages: Record<string, string> = {
+            password: t('PASSWORD_ERROR'),
+        };
+        return errorMessages[key] || (errors as ObjectPropByName)[key]?.[0] || '';
+    };
+
+    const fieldHasError = (key: any) => {
+        return (errors as ObjectPropByName)[key] ? true : false;
+    };
+
+    const isValid = validate(state, recoverPassword) ? false : true;
 
     return (
         <Layout1 title={t('New_PASSWORD')} menuHeader>
@@ -54,10 +87,11 @@ const RecoveryPassword = () => {
                                 label={t('New_PASSWORD')}
                                 name="password"
                                 autoComplete="new-phone-number"
-                                value={values.password}
+                                value={state.password}
                                 error={fieldHasError('password')}
                                 helperText={fieldGetError('password') || ' '}
                                 onChange={onFieldChange}
+                                onBlur={onFieldBlur}
                                 {...SHARED_CONTROL_PROPS}
                             />
 
@@ -68,7 +102,7 @@ const RecoveryPassword = () => {
                             ) : null}
 
                             <Grid container justifyContent="center" alignItems="center">
-                                <Submit type="submit" color="primary" disabled={!formState.isValid}>
+                                <Submit type="submit" color="primary" disabled={!isValid}>
                                     {t('New_PASSWORD')}
                                 </Submit>
                             </Grid>

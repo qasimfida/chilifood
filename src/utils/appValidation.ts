@@ -58,11 +58,12 @@ export const appValidation = (t: any) => {
         },
         recoverPassword: {
             password: {
+                type: 'string',
                 presence: true,
                 length: {
-                    minimum: 8,
-                    maximum: 8,
-                    message: 'field must be 8 numbers',
+                    minimum: 3,
+                    maximum: 50,
+                    message: 'password must be more than 3 digits',
                 },
             },
         },
@@ -71,7 +72,7 @@ export const appValidation = (t: any) => {
                 presence: true,
                 type: 'string',
                 format: {
-                    pattern: '[0-9]*',
+                    pattern: '[0-9]*', // Note: We have to allow empty in the pattern
                     message: 'should contain numbers',
                 },
                 length: {

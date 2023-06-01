@@ -32,6 +32,7 @@ const Login = () => {
             length: {
                 minimum: 8,
                 maximum: 8,
+                message: t('PHONE_NUMBER_ERROR'),
             },
         },
         password: {
