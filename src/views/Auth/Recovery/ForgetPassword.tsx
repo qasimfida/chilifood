@@ -32,9 +32,10 @@ const RecoveryPassword = () => {
     const handleFormSubmit = useCallback(
         async (event: SyntheticEvent) => {
             event.preventDefault();
+            localStorage.setItem('number', state.phoneNumber);
             navigate(`/auth/signup/confirm-otp?redirect=auth/recovery/change`, { replace: true });
         },
-        [navigate]
+        [navigate, state]
     );
 
     const handleCloseError = useCallback(() => setMessage(undefined), []);
